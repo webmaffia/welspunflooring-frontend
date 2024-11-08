@@ -1,32 +1,101 @@
-"use client"
-import { useRouter } from 'next/navigation'; // Change to next/navigation
-import { useState } from 'react';
+"use client";
+import React, { useState } from 'react';
+import Link from 'next/link';
 
-const ProductListing = ({ productsByCategory }) => {
-  const router = useRouter();
-  const [selectedCategory, setSelectedCategory] = useState(null);
-  const [selectedCollection, setSelectedCollection] = useState(null);
+const ProductsList = ({ productsByCategory }) => {
+  const [selectedCategory, setSelectedCategory] = useState('');
+  const [selectedCollection, setSelectedCollection] = useState('');
+  const [expandedCategories, setExpandedCategories] = useState({});
 
+  // Toggle showing all products for a specific category
+  const toggleViewMore = (category) => {
+    setExpandedCategories((prev) => ({
+      ...prev,
+      [category]: !prev[category],
+    }));
+  };
+
+  // Handle category filter selection
   const handleCategoryFilter = (category) => {
     setSelectedCategory(category);
-    setSelectedCollection(null); // Reset collection on category change
-    updateURL(category, null);
+    setSelectedCollection(''); // Reset collection filter on category change
+      setExpandedCategories((prev) => ({
+      ...prev,
+      [category]: !prev[category],
+    }));
   };
 
+  // Handle collection filter selection
   const handleCollectionFilter = (collection) => {
     setSelectedCollection(collection);
-    updateURL(selectedCategory, collection);
   };
 
-  const updateURL = (category, collection) => {
-    const path = collection ? `/products/${category}/${collection}` : `/products/${category}`;
-    router.push(path);
+  // Clear all filters
+  const clearFilters = () => {
+    setSelectedCategory('');
+    setSelectedCollection('');
+  };
+
+  // Get collections based on selected category
+  const availableCollections = selectedCategory
+    ? [
+        ...new Set(
+          productsByCategory
+            .find(({ category }) => category === selectedCategory)
+            ?.products.map((product) => product.attributes.category.data.attributes.collectionName) || []
+        ),
+      ]
+    : [];
+
+  const isFilterApplied = selectedCategory || selectedCollection;
+
+  // Helper function for generating product links
+  const generateProductLink = (product) => {
+    const categorySlug = product.attributes.category.data.attributes.slug || '';
+    const productSlug = product.attributes.slug;
+    const parentCategorySlug =
+      productsByCategory.find(({ category }) => category === selectedCategory)?.products[0]?.attributes.category.data.attributes.product.data.attributes.slug || '';
+    
+    return `/products/${parentCategorySlug}/${categorySlug}/${productSlug}`;
   };
 
   return (
     <section data-section="" className="product_listing">
       <div className="product_content">
         <aside>
+          {isFilterApplied && (
+            <div className="filter_content">
+              <div className="filter">
+                <span>FILTERS</span>
+                <button onClick={clearFilters} className="clear_filter c">
+                  CLEAR ALL
+                </button>
+              </div>
+              <div className="filter_box">
+                {selectedCategory && (
+                  <div className="filter_item">
+                    <div className="filter_patch">
+                      <span className="filter_text">{selectedCategory}</span>
+                      <button onClick={() => setSelectedCategory('')} className="clear_filter">
+                        <img src="/images/icons/close.webp" alt="Remove" width="8" height="8" />
+                      </button>
+                    </div>
+                  </div>
+                )}
+                {selectedCollection && (
+                  <div className="filter_item">
+                    <div className="filter_patch">
+                      <span className="filter_text">{selectedCollection}</span>
+                      <button onClick={() => setSelectedCollection('')} className="clear_filter">
+                        <img src="/images/icons/close.webp" alt="Remove" width="8" height="8" />
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
           {/* Category Filter */}
           <div className="filter_category">
             <div className="filter_sub_category">
@@ -76,8 +145,8 @@ const ProductListing = ({ productsByCategory }) => {
           </div>
         </aside>
 
-        {/* Product Listing */}
         <div className="product_list">
+          {/* Product Listing */}
           {productsByCategory
             .filter(({ category }) => !selectedCategory || category === selectedCategory)
             .map(({ category, products }) => (
@@ -86,16 +155,17 @@ const ProductListing = ({ productsByCategory }) => {
                 <div className="product_container">
                   <div className="product_tile_box">
                     {(expandedCategories[category] ? products : products.slice(0, 4))
-                      .filter((product) =>
-                        !selectedCollection ||
-                        product.attributes.category.data.attributes.collectionName === selectedCollection
+                      .filter(
+                        (product) =>
+                          !selectedCollection ||
+                          product.attributes.category.data.attributes.collectionName === selectedCollection
                       )
                       .map((product) => (
                         <div key={product.id} className="tile_item">
                           <div className="product_img_box">
-                            <Link href={`/products/${selectedCategory}/${selectedCollection || product.attributes.category.data.attributes.collectionName}/${product.attributes.slug}`}>
+                            <Link href={generateProductLink(product)}>
                               <img
-                                src={`${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${product?.attributes?.details?.slider[1]?.image?.data?.attributes?.url || product?.attributes?.details?.slider[0]?.image?.data?.attributes?.url}`} 
+                                src={`${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${product?.attributes?.details?.slider[1]?.image?.data?.attributes?.url || product?.attributes?.details?.slider[0]?.image?.data?.attributes?.url}`}
                                 alt={product?.attributes?.subProductName || 'Product Image'}
                                 width="584"
                                 height="511"
@@ -109,20 +179,16 @@ const ProductListing = ({ productsByCategory }) => {
                             <div className="item_sub">{product.attributes.category.data.attributes.collectionName}</div>
                           </div>
                           <span className="item_link">
-                            <Link href={`/products/${selectedCategory}/${selectedCollection || product.attributes.category.data.attributes.collectionName}/${product.attributes.slug}`}>
-                              KNOW MORE
-                            </Link>
+                            <Link href={generateProductLink(product)}>KNOW MORE</Link>
                           </span>
                         </div>
                       ))}
                   </div>
                   <div className="product_link">
                     <button onClick={() => toggleViewMore(category)} className="view_product">
-                      {expandedCategories[category] ? "VIEW LESS" : "VIEW MORE"}
+                      {expandedCategories[category] ? 'VIEW LESS' : 'VIEW MORE'}
                     </button>
-                    <Link href={`/products/${selectedCategory}`}>
-                      EXPLORE {(category || 'Category').toUpperCase()}
-                    </Link>
+                    <Link href={`/products/${category}`}>EXPLORE {category.toUpperCase()}</Link>
                   </div>
                 </div>
               </div>
@@ -133,4 +199,4 @@ const ProductListing = ({ productsByCategory }) => {
   );
 };
 
-export default ProductListing;
+export default ProductsList;
