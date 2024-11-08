@@ -19,11 +19,16 @@ const ProductsList = ({ productsByCategory }) => {
   const handleCategoryFilter = (category) => {
     setSelectedCategory(category);
     setSelectedCollection(''); // Reset collection filter on category change
+    setExpandedCategories((prev) => ({
+      ...prev,
+      [category]: !prev[category],
+    }));
   };
 
   // Handle collection filter selection
   const handleCollectionFilter = (collection) => {
     setSelectedCollection(collection);
+    
   };
 
   // Clear all filters
