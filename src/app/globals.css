@@ -22,6 +22,18 @@
 [data-section="product_feature"] .product_feature_box .product_feature_item:nth-child(6){
     padding: 5.3vw;
 }
+
+.product_list .product_container .product_tile_box {
+    height: auto;
+}
+
+.product_list>div {
+    padding-bottom: 2.458333vw;
+    margin-bottom: 2.60416666667vw;
+    border-bottom: 1px solid #000;
+}
+
+
   }
   
   .form_error {
@@ -50,4 +62,12 @@
 
 .trademark{
     background: #f2f2f2;
+}
+
+.view_product {
+    font-family: 'IvyMode-Light';
+}
+
+.clear_filter{
+    cursor: pointer;
 }

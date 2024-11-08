@@ -16,7 +16,7 @@ import InspirationSection from "./component/homepage/inspiration";
 import TrendingSection from "./component/homepage/trend";
 import BlogSection from "./component/homepage/blog";
 import ContactSection from "./component/homepage/contactus";
-import Footer from "./component/layout/footer";
+
 
 
 
@@ -104,7 +104,7 @@ export default async function Home({}) {
          <ContactSection />
         </main>
 
-        <Footer />
+   
       
     </>
 

@@ -58,7 +58,7 @@ const Menu = () => {
 
       <ul className="lower_menu dFlex">
         <li>
-          <Link href="/product-list" className="border_link">
+          <Link href="/products" className="border_link">
             PRODUCTS <span></span>
           </Link>
           <div className="sub_lower">
