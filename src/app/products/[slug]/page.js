@@ -144,13 +144,13 @@ export default async function ProductPage({ params }) {
             </div>
         </div>
     </div>
-    <div class="about_features">
+    <div className="about_features">
 
     {product.attributes.about.title.map((item, index) => (
-             <div class="about_feature_box border_bg" key={index}>
-             <div class="border_diamond"></div>
-             <div class="border_right"></div>
-             <div class="subtitle_30">
+             <div className="about_feature_box border_bg" key={index}>
+             <div className="border_diamond"></div>
+             <div className="border_right"></div>
+             <div className="subtitle_30">
              {item.point.map((point, index) => (
                 <span key={index}>
                    {point.children.map((child, childIndex) => (
@@ -171,10 +171,10 @@ export default async function ProductPage({ params }) {
 
 <ProductFeatures product={product}/>
 
-<section data-section="about_sustainable" class="about_sustainable">
-    <div class="diamond_title">
-        <h2 class="diamond diamond_blue">{product.attributes.sustainable.sectionName}</h2>
-        <h3 class="subtitle_45">  
+<section data-section="about_sustainable" className="about_sustainable">
+    <div className="diamond_title">
+        <h2 className="diamond diamond_blue">{product.attributes.sustainable.sectionName}</h2>
+        <h3 className="subtitle_45">  
           {product.attributes.sustainable.heading.map((item, index) => (
             <div key={index}>
               {item.children.map((child, childIndex) => (
@@ -185,16 +185,16 @@ export default async function ProductPage({ params }) {
           </h3>
     </div>
 
-    <div class="about_sustain_container">
+    <div className="about_sustain_container">
         
 
         {product.attributes.sustainable.certification.map((item, index) => (
-            <div class="sustain_item border_bg" key={index}>
+            <div className="sustain_item border_bg" key={index}>
             <img src=
             {`${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${item.image?.data?.attributes?.url}`}
-            alt="" class="" width="179" height="183" />
-            <div class="sustain_box">
-                <div class="border_diamond"></div>
+            alt="" className="" width="179" height="183" />
+            <div className="sustain_box">
+                <div className="border_diamond"></div>
                 <p>
                 {item.description.map((para, index) => (
             <span key={index}>
@@ -320,11 +320,11 @@ export default async function ProductPage({ params }) {
 
 
 <ProductFAQ  product={product}/>
-<section data-section="care_instruct" class="care_instruct">
-    <div class="section_container">
-        <h2 class="diamond diamond_blue">{product.attributes.careInstructions.sectionName}</h2>
-        <div class="title_container">
-            <h3 class="subtitle_60">{product.attributes.careInstructions.heading.map((item, index) => (
+<section data-section="care_instruct" className="care_instruct">
+    <div className="section_container">
+        <h2 className="diamond diamond_blue">{product.attributes.careInstructions.sectionName}</h2>
+        <div className="title_container">
+            <h3 className="subtitle_60">{product.attributes.careInstructions.heading.map((item, index) => (
             <div key={index}>
               {item.children.map((child, childIndex) => (
                 <span key={childIndex}>{child.text}</span>
@@ -333,14 +333,14 @@ export default async function ProductPage({ params }) {
           ))}</h3>
         </div>
     </div>
-    <div class="care_container">
-        <div class="about_features">
+    <div className="care_container">
+        <div className="about_features">
         {product.attributes.careInstructions.point.map((item, index) => (
             
 
-<div class="about_feature_box border_bg" key={index}>
-<div class="border_diamond"></div>
-<div class="subtitle_20">
+<div className="about_feature_box border_bg" key={index}>
+<div className="border_diamond"></div>
+<div className="subtitle_20">
 {item.point.map((point, index) => (
                 <span key={index}>
                    {point.children.map((child, childIndex) => (
