@@ -1,4 +1,4 @@
-"use client";
+"use client";  // Marks this as a Client Component
 import React, { useState } from 'react';
 import Link from 'next/link';
 
@@ -19,10 +19,6 @@ const ProductsList = ({ productsByCategory }) => {
   const handleCategoryFilter = (category) => {
     setSelectedCategory(category);
     setSelectedCollection(''); // Reset collection filter on category change
-      setExpandedCategories((prev) => ({
-      ...prev,
-      [category]: !prev[category],
-    }));
   };
 
   // Handle collection filter selection
@@ -38,38 +34,24 @@ const ProductsList = ({ productsByCategory }) => {
 
   // Get collections based on selected category
   const availableCollections = selectedCategory
-    ? [
-        ...new Set(
-          productsByCategory
-            .find(({ category }) => category === selectedCategory)
-            ?.products.map((product) => product.attributes.category.data.attributes.collectionName) || []
-        ),
-      ]
+    ? [...new Set(
+        productsByCategory
+          .find(({ category }) => category === selectedCategory)
+          ?.products.map((product) => product.attributes.category.data.attributes.collectionName) || []
+      )]
     : [];
 
   const isFilterApplied = selectedCategory || selectedCollection;
-
-  // Helper function for generating product links
-  const generateProductLink = (product) => {
-    const categorySlug = product.attributes.category.data.attributes.slug || '';
-    const productSlug = product.attributes.slug;
-    const parentCategorySlug =
-      productsByCategory.find(({ category }) => category === selectedCategory)?.products[0]?.attributes.category.data.attributes.product.data.attributes.slug || '';
-    
-    return `/products/${parentCategorySlug}/${categorySlug}/${productSlug}`;
-  };
 
   return (
     <section data-section="" className="product_listing">
       <div className="product_content">
         <aside>
-          {isFilterApplied && (
+        {isFilterApplied && (
             <div className="filter_content">
               <div className="filter">
                 <span>FILTERS</span>
-                <button onClick={clearFilters} className="clear_filter c">
-                  CLEAR ALL
-                </button>
+                <button onClick={clearFilters} className="clear_filter c">CLEAR ALL</button>
               </div>
               <div className="filter_box">
                 {selectedCategory && (
@@ -95,7 +77,6 @@ const ProductsList = ({ productsByCategory }) => {
               </div>
             </div>
           )}
-
           {/* Category Filter */}
           <div className="filter_category">
             <div className="filter_sub_category">
@@ -143,6 +124,9 @@ const ProductsList = ({ productsByCategory }) => {
               </div>
             )}
           </div>
+
+          {/* Filter Summary */}
+      
         </aside>
 
         <div className="product_list">
@@ -155,17 +139,16 @@ const ProductsList = ({ productsByCategory }) => {
                 <div className="product_container">
                   <div className="product_tile_box">
                     {(expandedCategories[category] ? products : products.slice(0, 4))
-                      .filter(
-                        (product) =>
-                          !selectedCollection ||
-                          product.attributes.category.data.attributes.collectionName === selectedCollection
+                      .filter((product) =>
+                        !selectedCollection ||
+                        product.attributes.category.data.attributes.collectionName === selectedCollection
                       )
                       .map((product) => (
                         <div key={product.id} className="tile_item">
                           <div className="product_img_box">
-                            <Link href={generateProductLink(product)}>
+                            <Link href={`/products/${products[0]?.attributes?.category?.data?.attributes?.product?.data?.attributes?.slug || ''}/${product.attributes.category.data.attributes.slug}/${product.attributes.slug}`}>
                               <img
-                                src={`${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${product?.attributes?.details?.slider[1]?.image?.data?.attributes?.url || product?.attributes?.details?.slider[0]?.image?.data?.attributes?.url}`}
+                                src={`${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${product?.attributes?.details?.slider[1]?.image?.data?.attributes?.url || product?.attributes?.details?.slider[0]?.image?.data?.attributes?.url}`} 
                                 alt={product?.attributes?.subProductName || 'Product Image'}
                                 width="584"
                                 height="511"
@@ -179,16 +162,19 @@ const ProductsList = ({ productsByCategory }) => {
                             <div className="item_sub">{product.attributes.category.data.attributes.collectionName}</div>
                           </div>
                           <span className="item_link">
-                            <Link href={generateProductLink(product)}>KNOW MORE</Link>
+                          <Link href={`/products/${products[0]?.attributes?.category?.data?.attributes?.product?.data?.attributes?.slug || ''}/${product.attributes.category.data.attributes.slug}/${product.attributes.slug}`}>
+                          KNOW MORE</Link>
                           </span>
                         </div>
                       ))}
                   </div>
                   <div className="product_link">
                     <button onClick={() => toggleViewMore(category)} className="view_product">
-                      {expandedCategories[category] ? 'VIEW LESS' : 'VIEW MORE'}
+                      {expandedCategories[category] ? "VIEW LESS" : "VIEW MORE"}
                     </button>
-                    <Link href={`/products/${category}`}>EXPLORE {category.toUpperCase()}</Link>
+                    <Link href={`/products/${products[0]?.attributes?.category?.data?.attributes?.product?.data?.attributes?.slug || ''}`}>
+                    EXPLORE {(category || 'Category').toUpperCase()}
+                  </Link>
                   </div>
                 </div>
               </div>
@@ -196,6 +182,7 @@ const ProductsList = ({ productsByCategory }) => {
         </div>
       </div>
     </section>
+
   );
 };
 
