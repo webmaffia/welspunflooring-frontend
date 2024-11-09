@@ -167,9 +167,12 @@ export default function ContactForm() {
                                 onChange={handleChange}
                             >
                                 <option value="" disabled>Product Interested In</option>
-                                <option value="product-1">Product-1</option>
-                                <option value="product-2">Product-2</option>
-                                <option value="product-3">Product-3</option>
+                                <option value="product-1">Click N Lock® Tiles Stone</option>
+                                <option value="product-2">Click N Lock® Tiles Wood</option>
+                                <option value="product-3">Carpet Tiles</option>
+                                <option value="product-4">Wall to Wall</option>
+                                <option value="product-5">Greens</option>
+                                <option value="product-6">MultiStile™</option>
                             </select>
                             {errors.productCategory && <span className="form_error">{errors.productCategory}</span>}
                         </label>
