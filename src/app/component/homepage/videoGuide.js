@@ -24,6 +24,7 @@ const VideoGuide = () => {
                 type: 'fraction',
               }}
               loop={true}
+              spaceBetween={100}
               speed={1400}
               simulateTouch={false}
              
@@ -67,6 +68,7 @@ const VideoGuide = () => {
             <Swiper
               className="videoSwiper swiper-no-swiping"
               loop={true}
+              spaceBetween={100}
               modules={[Navigation]}
               navigation={{
                 prevEl: '.swiper-prev',
