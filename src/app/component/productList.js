@@ -139,6 +139,7 @@ const ProductsList = ({ productsByCategory }) => {
           {productsByCategory
             .filter(({ category }) => !selectedCategory || category === selectedCategory)
             .map(({ category, products }) => (
+       
               <div key={category} className="product_tile more_products" id={category}>
                 <h2 className="product_title">{category}</h2>
                 <div className="product_container">
@@ -190,5 +191,6 @@ const ProductsList = ({ productsByCategory }) => {
 
   );
 };
+
 
 export default ProductsList;
