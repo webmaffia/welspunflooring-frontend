@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Thumbs } from 'swiper/modules';
 import { useState } from 'react';
 import 'swiper/swiper-bundle.css';
+import Link from 'next/link';
 
 const ProductsSection = ({productData,productImage}) => {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
@@ -104,25 +105,27 @@ const ProductsSection = ({productData,productImage}) => {
             {        <SwiperSlide>
                   <h3 className="subtitle_50">{slide.product}</h3>
                   <p>
-                    {slide.description}
+                  <div dangerouslySetInnerHTML={{ __html: slide.description }} />
+                  
                   </p>
                   <div className="product_cta">
-                    <a href={slide.explore?.url} className="view_link whiteBrd">
+                    
+                    <Link href={`/products/${slide.productSlug}`} className="view_link whiteBrd">
                       <div className="link_cta">
                         <div className="arrow_bg">
                           <img src="/images/icons/arrow-2.webp" alt="" width="20" height="17" />
                         </div>
-                        <span>{slide.explore?.text}</span>
+                        <span>EXPLORE</span>
                       </div>
-                    </a>
-                    <a href={slide.brochure?.url} className="view_link whiteBrd">
+                    </Link>
+                    <Link href={`${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${slide.brochurePdf.data[0].attributes.url}`} className="view_link whiteBrd" target="_blank">
                       <div className="link_cta">
                         <div className="arrow_bg">
                           <img src="/images/icons/arrow-2.webp" alt="" width="20" height="17" />
                         </div>
-                        <span>{slide.brochure?.text}</span>
+                        <span>DOWNLOAD <br />BROCHURE</span>
                       </div>
-                    </a>
+                    </Link>
                   </div>
                 </SwiperSlide>}
           </div>

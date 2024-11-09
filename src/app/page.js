@@ -21,7 +21,7 @@ import ContactSection from "./component/homepage/contactus";
 
 
 async function getHomepageData(segment) {
-  const res = await fetch(`https://welspun-cms.webmaffia.com/api/homepage?populate[${segment}][populate]=slide.slideImage,slide.slideBg,slide.slideMobileBg,slide.image,slide.explore,slide.brochure,space.image,images.images,testimonial.posterImage,testimonial.image,image,partnerLogo.images,partnerLogo.mobileImages,content.images,content.mobileImages,blog.thumbnail,heading`, {
+  const res = await fetch(`https://welspun-cms.webmaffia.com/api/homepage?populate[${segment}][populate]=slide.slideImage,slide.slideBg,slide.slideMobileBg,slide.image,slide.productSlug,slide.brochurePdf,space.image,images.images,testimonial.posterImage,testimonial.image,image,partnerLogo.images,partnerLogo.mobileImages,content.images,content.mobileImages,blog.thumbnail,heading`, {
     cache: 'no-store', // Ensures no caching for SSR, can be removed if caching is preferred
   });
   
