@@ -20,7 +20,7 @@ const BannerSwiper = ({bannerData,setThumbsSwiper}) => {
         speed={2000}
         effect="fade"
           autoplay={{
-            delay: 2000,
+            delay: 2500,
             disableOnInteraction: false,
           }}
       
