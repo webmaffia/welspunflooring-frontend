@@ -39,8 +39,8 @@ export default function ContactForm() {
             newErrors.email = 'Invalid email format';
         }
 
-        if (!formData.city) {
-            newErrors.city = 'Please select a city';
+        if (!formData.city.trim()) {
+            newErrors.city = 'City is required';
         }
 
         if (!formData.productCategory) {
@@ -147,17 +147,14 @@ export default function ContactForm() {
                             />
                             {errors.email && <span className="form_error">{errors.email}</span>}
                         </label>
-                        <label className="label_select form_label">
-                            <select
+                        <label className="form_label">
+                            <input
+                                type="text"
                                 name="city"
+                                placeholder="City"
                                 value={formData.city}
                                 onChange={handleChange}
-                            >
-                                <option value="" disabled>Select City</option>
-                                <option value="Mumbai">Mumbai</option>
-                                <option value="Pune">Pune</option>
-                                <option value="Thane">Thane</option>
-                            </select>
+                            />
                             {errors.city && <span className="form_error">{errors.city}</span>}
                         </label>
                         <label className="label_select form_label">
@@ -167,12 +164,12 @@ export default function ContactForm() {
                                 onChange={handleChange}
                             >
                                 <option value="" disabled>Product Interested In</option>
-                                <option value="product-1">Click N Lock® Tiles Stone</option>
-                                <option value="product-2">Click N Lock® Tiles Wood</option>
-                                <option value="product-3">Carpet Tiles</option>
-                                <option value="product-4">Wall to Wall</option>
-                                <option value="product-5">Greens</option>
-                                <option value="product-6">MultiStile™</option>
+                                <option value="Click N Lock® Tiles Stone">Click N Lock® Tiles Stone</option>
+                                <option value="Click N Lock® Tiles Wood">Click N Lock® Tiles Wood</option>
+                                <option value="Carpet Tiles">Carpet Tiles</option>
+                                <option value="Wall to Wall">Wall to Wall</option>
+                                <option value="Greens">Greens</option>
+                                <option value="MultiStile™">MultiStile™</option>
                             </select>
                             {errors.productCategory && <span className="form_error">{errors.productCategory}</span>}
                         </label>
