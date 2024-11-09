@@ -1,10 +1,15 @@
+// app/products/page.js
 import React from 'react';
 import ProductsList from '../component/productList';
 import AssistanceSection from '../component/assistance';
 import ContactForm from '../component/homepage/contactus';
 
+// Fetch data in the component with ISR using Next.js App Router style
 async function fetchProductSpecifications() {
-  const res = await fetch('https://welspun-cms.webmaffia.com/api/product-specifications?populate[category][populate]=product&populate[details][populate]=slider.image');
+  const res = await fetch(
+    'https://welspun-cms.webmaffia.com/api/product-specifications?populate[category][populate]=product&populate[details][populate]=slider.image',
+    { next: { revalidate: 60 } } // Revalidate every 60 seconds
+  );
   const data = await res.json();
   return data.data;
 }
@@ -12,19 +17,20 @@ async function fetchProductSpecifications() {
 const ProductsPage = async () => {
   const productSpecifications = await fetchProductSpecifications();
 
-  // Get all distinct product categories (main products)
+  // Get all distinct product categories
   const categories = productSpecifications.reduce((acc, product) => {
     const categoryName = product?.attributes?.category?.data?.attributes?.product?.data?.attributes?.product_name;
-    if (!acc.includes(categoryName)) {
+    if (categoryName && !acc.includes(categoryName)) {
       acc.push(categoryName);
     }
     return acc;
   }, []);
 
-  // Create a category map with filtered products for each category
-  const productsByCategory = categories.map(category => {
-    const filteredProducts = productSpecifications.filter((product) => 
-      product?.attributes?.category?.data?.attributes?.product?.data?.attributes?.product_name === category
+  // Map products to categories
+  const productsByCategory = categories.map((category) => {
+    const filteredProducts = productSpecifications.filter(
+      (product) =>
+        product?.attributes?.category?.data?.attributes?.product?.data?.attributes?.product_name === category
     );
     return { category, products: filteredProducts };
   });
@@ -42,8 +48,8 @@ const ProductsPage = async () => {
             <div className="banner_sub_heading">Designs that impress the Earth as well</div>
           </div>
         </section>
-        
-        {/* Passing the productsByCategory and categories to the ProductsList component */}
+
+        {/* Pass data to ProductsList component */}
         <ProductsList productsByCategory={productsByCategory} categories={categories} />
         <AssistanceSection />
         <ContactForm />
