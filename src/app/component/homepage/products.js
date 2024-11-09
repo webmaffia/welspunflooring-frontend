@@ -104,10 +104,10 @@ const ProductsSection = ({productData,productImage}) => {
             {/* Assuming each slide has an image */}
             {        <SwiperSlide>
                   <h3 className="subtitle_50">{slide.product}</h3>
-                  <p>
+                  
                   <div dangerouslySetInnerHTML={{ __html: slide.description }} />
                   
-                  </p>
+                  
                   <div className="product_cta">
                     
                     <Link href={`/products/${slide.productSlug}`} className="view_link whiteBrd">
