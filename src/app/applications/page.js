@@ -58,7 +58,7 @@ export default function ApplicationPage() {
             </div>
             <Image src={item.imgSrc} alt={item.title} width={692} height={471} />
             <p>{item.desc}</p>
-            <Link href={item.link} className="view_link purpleBg">
+            <Link href={item.link} className="view_link purpleBg hidecta">
               <div className="link_cta">
                 <div className="arrow_bg">
                   <Image src="/images/icons/arrow-2.webp" alt="Arrow" width={20} height={17} />
