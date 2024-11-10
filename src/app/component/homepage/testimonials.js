@@ -8,29 +8,14 @@ import 'swiper/swiper-bundle.css'; // Import Swiper styles
 // Install modules
 
 
-const testimonials = [
-    {
-        quote: "Redoing our flooring with Welspun Click N Lock Tiles for the homecoming of our baby was the best decision we've made. Hassle-free and time-saving.",
-        name: "-Mr. & Mrs. Iyer",
-        video: "assets/videos/Welspun_Flooring_Furniture.mp4",
-        poster: "images/testimonial_poster.webp",
-    },
 
-    {
-        quote: "2Redoing our flooring with Welspun Click N Lock Tiles for the homecoming of our baby was the best decision we've made. Hassle-free and time-saving.",
-        name: "-Mr. & Mrs. Iyer",
-        video: "assets/videos/Welspun_Flooring_Furniture.mp4",
-        poster: "images/testimonial_poster.webp",
-    },
-    // Add more testimonials as needed
-];
 
-const TestimonialSection = () => {
+const TestimonialSection = ({testimonial}) => {
    
     const [testimonialSwiper, setTestimonialSwiper] = useState(null);
   
 
-
+    const testimonials = testimonial[0]
 
     return (
         <section className="testimonial_section video_section cursor_img" data-section="testimonial_section">
@@ -44,7 +29,7 @@ const TestimonialSection = () => {
             </a>
             <div className="products_container">
                 <div className="section_container">
-                    <h2 className="diamond diamond_blue">TESTIMONIALS</h2>
+                    <h2 className="diamond diamond_blue">{testimonials.sectionName}</h2>
                     <div className="title_container">
                         <div className="subtitle_60">What people say</div>
                     </div>
@@ -66,22 +51,22 @@ const TestimonialSection = () => {
                   
                         modules={[Navigation, Thumbs]}
                     >
-                        {testimonials.map((testimonial, index) => (
+                        {testimonials.testimonial.map((testimonial, index) => (
                             <SwiperSlide key={index}>
                                 <div className="video_player">
                                     <img
-                                        src={testimonial.poster}
+                                        src={`${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${testimonial.image.data.attributes.url}`}
                                         alt=""
                                         className="poster"
                                         width="1023"
                                         height="661"
                                     />
-                                    <a href="" className="click_btn">
+                                    {/* <a href="" className="click_btn">
                                         <img src="images/icons/play_button.webp" alt="" width="109" height="109" />
                                     </a>
                                     <video width="1023" height="661" loop muted>
                                         <source src={testimonial.video} type="video/mp4" />
-                                    </video>
+                                    </video> */}
                                 </div>
                             </SwiperSlide>
                         ))}
@@ -110,17 +95,26 @@ const TestimonialSection = () => {
                             </div>
                         </div>
                     </div>
-                        {testimonials.map((testimonial, index) => (
+                        {testimonials.testimonial.map((testimonial, index) => (
                             <SwiperSlide key={index}>
-                                <p>{testimonial.quote}</p>
-                                <h3 className="subtitle_50">{testimonial.name}</h3>
+                                <p>
+
+                                {testimonial.description.map((item, index) => (
+  <div key={index}>
+    {item.children.map((child, childIndex) => (
+      <span key={childIndex}>{child.text}</span>
+    ))}
+  </div>
+))}
+                                </p>
+                                <h3 className="subtitle_50">{testimonial.testimonialName}</h3>
                             </SwiperSlide>
                         ))}
                     </Swiper>
                    
                 </div>
             </div>
-            <img src="images/icons/inverted.webp" alt="" className="inverted_img" width="389" height="289" />
+            <img src="/images/icons/inverted.webp" alt="" className="inverted_img" width="389" height="289" />
             <div className="square_box square_box_8"></div>
         </section>
     );

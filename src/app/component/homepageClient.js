@@ -55,6 +55,8 @@ export default function HomePageClient() {
   const spaceSection = allData.filter((section) => section.__component === "sections.spaces");
   const visuliserSection = allData.filter((section) => section.__component === "sections.visualiser");
 
+  const testimonialData =  allData.filter((section) => section.__component === "sections.testimonials");
+
   const blogdata = allData.filter((section) => section.__component === "sections.blog-section");
 
   const handleImageLoad = () => {
@@ -108,8 +110,8 @@ export default function HomePageClient() {
       <VideoGuide />
       <Visualiser visuliserData={visuliserSection} />
       <SustainabilitySection />
-      <CaseStudySwiper />
-      <TestimonialSection />
+      {/* <CaseStudySwiper /> */}
+      <TestimonialSection testimonial={testimonialData}/>
       <PartnerSection />
       <EmiSection />
       <InspirationSection />
