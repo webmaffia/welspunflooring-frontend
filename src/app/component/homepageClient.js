@@ -26,6 +26,16 @@ export default function HomePageClient() {
   const [loading, setLoading] = useState(true); // Loading state for fetching
   const [imageLoading, setImageLoading] = useState(true); // Loading state for image
 
+  useEffect(() => {
+    // Disable body overflow while loading is true
+    document.body.style.overflow = loading || imageLoading ? 'hidden' : 'auto';
+
+    return () => {
+      // Clean up by setting overflow back to auto
+      document.body.style.overflow = 'auto';
+    };
+  }, [loading, imageLoading]);
+
   // Fetch data based on the selected apiUrl
   useEffect(() => {
     async function loadData() {
