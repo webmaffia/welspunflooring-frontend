@@ -81,7 +81,7 @@ const Visualiser = ({visuliserData}) => {
             <p>
              {content.description}
             </p>
-            <div className="visualize_container">
+            {/* <div className="visualize_container">
               <a href="">
                 <img src="/images/icons/camera.webp" alt="" width="51" height="45" />
                 <span>TAKE PHOTO</span>
@@ -97,7 +97,7 @@ const Visualiser = ({visuliserData}) => {
                 <img src="/images/icons/panorama.webp" alt="" width="51" height="45" />
                 <span>UPLOAD A PANORAMA SHOT</span>
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="square_box square_box_6"></div>

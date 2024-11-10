@@ -14,14 +14,14 @@ const ProductsSection = ({productData,productImage}) => {
     return (
       
       <section className="products cursor_img" data-section="products">
-        <a href="" className="view_link cursor_cta purpleBg">
-          <div className="link_cta">
-            <div className="arrow_bg">
-              <img src="/images/icons/arrow-2.webp" alt="" width="20" height="17" />
-            </div>
-            <span>VIEW ALL</span>
-          </div>
-        </a>
+       <Link href="/products" className="view_link cursor_cta purpleBg">
+  <div className="link_cta">
+    <div className="arrow_bg">
+      <img src="/images/icons/arrow-2.webp" alt="" width="20" height="17" />
+    </div>
+    <span>VIEW ALL</span>
+  </div>
+</Link>
         <div className="products_container">
           <div className="left_container">
             <div className="section_container">

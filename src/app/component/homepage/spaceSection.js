@@ -30,14 +30,14 @@ const SpacesSection = ({spaceData}) => {
       <div className="square_box_3"></div>
       <div className="square_box_4"></div>
 
-      <div className="view_link purpleBg">
+      <Link href="/applications" className="view_link purpleBg">
         <div className="link_cta">
           <div className="arrow_bg">
             <Image src="/images/icons/arrow-2.webp" alt="Arrow" width={20} height={17} />
           </div>
           <span>VIEW ALL</span>
         </div>
-      </div>
+      </Link>
 
       {spaces.map((space, index) => (
         <Link 
