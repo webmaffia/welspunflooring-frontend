@@ -5,7 +5,10 @@ import SquareSwiper from "./banner/squareSwipper";
 
 import BannerContent from './homepage/bannerContent';
 
+import { useApi } from '../context/ApiContext';
+
 const Banner = ({bannerData,onImageLoad}) => {
+    const { showSquareSwiper } = useApi(); // Access visibility state from context
 
 
  
@@ -14,10 +17,8 @@ const Banner = ({bannerData,onImageLoad}) => {
         <section className="banner cursor_img">
 
         <BannerSwiper thumbsSwiper={thumbsSwiper} bannerData={bannerData} onImageLoad={onImageLoad} />
-        <SquareSwiper setThumbsSwiper={setThumbsSwiper}   bannerData={bannerData}/>
-
-        
-        <BannerContent bannerData={bannerData} />
+        {showSquareSwiper && <SquareSwiper setThumbsSwiper={setThumbsSwiper} bannerData={bannerData} />}
+     <BannerContent bannerData={bannerData} />
 
         
 

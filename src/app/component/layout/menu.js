@@ -6,13 +6,14 @@ import { useRouter } from "next/navigation"; // Import useRouter for navigation
 import { useApi } from "@/app/context/ApiContext";
 
 const Menu = ({ closeMenu }) => {
-  const { setApiUrl } = useApi();
+  const { setApiUrl,toggleComponentsVisibility } = useApi();
   const router = useRouter(); // Initialize router
 
   const handleMenuClick = (newUrl) => {
     setApiUrl(newUrl); // Update API URL in context
     router.push("/"); // Navigate to home or the target page to ensure updates
     closeMenu(); // Close menu after selection
+    toggleComponentsVisibility(false);
   };
 
   return (

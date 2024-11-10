@@ -3,6 +3,8 @@
 "use client";
 import { Swiper, SwiperSlide } from 'swiper/react';
 
+import { useApi } from '@/app/context/ApiContext';
+
 
 
 
@@ -12,7 +14,7 @@ import 'swiper/css/effect-fade';
 import { useState } from 'react';
 
 const BannerContent = ({bannerData}) => {
-
+  const { showBannerContent } = useApi();
    
     const [squareSwiper, setSquareSwiper] = useState(null);
     const [activeIndex, setActiveIndex] = useState(0);
@@ -61,21 +63,26 @@ const BannerContent = ({bannerData}) => {
           </Swiper>
         </div>
   
-        {/* Navigation Banner */}
+        {showBannerContent && 
+        
         <div className="nav_banner">
-          <ul>
-            {bannerData.map((navItem, index) => (
-              <li
-                key={index}
-                data-index={index}
-                className={activeIndex === index ? 'active' : ''}
-                onClick={() => handleNavClick(index)}
-              >
-                {navItem.slideName}
-              </li>
-            ))}
-          </ul>
-        </div>
+        <ul>
+          {bannerData.map((navItem, index) => (
+            <li
+              key={index}
+              data-index={index}
+              className={activeIndex === index ? 'active' : ''}
+              onClick={() => handleNavClick(index)}
+            >
+              {navItem.slideName}
+            </li>
+          ))}
+        </ul>
+      </div>
+        }
+
+        {/* Navigation Banner */}
+     
       </>
     );
   };
