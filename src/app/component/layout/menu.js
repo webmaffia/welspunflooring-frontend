@@ -1,16 +1,18 @@
-// components/Menu.js
-"use client"
-import React from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { useApi } from '@/app/context/ApiContext';
+"use client";
+import React from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { useRouter } from "next/navigation"; // Import useRouter for navigation
+import { useApi } from "@/app/context/ApiContext";
 
 const Menu = ({ closeMenu }) => {
   const { setApiUrl } = useApi();
+  const router = useRouter(); // Initialize router
 
   const handleMenuClick = (newUrl) => {
-    setApiUrl(newUrl);
-    closeMenu(); // Close menu when this option is selected
+    setApiUrl(newUrl); // Update API URL in context
+    router.push("/"); // Navigate to home or the target page to ensure updates
+    closeMenu(); // Close menu after selection
   };
 
   return (
@@ -18,9 +20,21 @@ const Menu = ({ closeMenu }) => {
       <ul className="upper_menu">
         <li className="menu_item">
           <ul className="dFlex">
-            <li><div onClick={() => handleMenuClick("homeowners")} className="border_link">HOMEOWNERS</div></li>
-            <li><div onClick={() => handleMenuClick("b2b")} className="border_link">B2B</div></li>
-            <li><div onClick={() => handleMenuClick("architectsAndInteriorDesigners")} className="border_link">ARCHITECTS & INTERIOR DESIGNERS</div></li>
+            <li>
+              <div onClick={() => handleMenuClick("homeowners")} className="border_link">
+                HOMEOWNERS
+              </div>
+            </li>
+            <li>
+              <div onClick={() => handleMenuClick("b2b")} className="border_link">
+                B2B
+              </div>
+            </li>
+            <li>
+              <div onClick={() => handleMenuClick("architectsAndInteriorDesigners")} className="border_link">
+                ARCHITECTS & INTERIOR DESIGNERS
+              </div>
+            </li>
           </ul>
         </li>
         <li className="logo_img">
@@ -71,27 +85,49 @@ const Menu = ({ closeMenu }) => {
           </Link>
           <div className="sub_lower">
             <ul>
-              <li><Link href="/products/click-and-lock-wood" className="border_link" onClick={closeMenu}>CLICK-N-LOCK® Wood</Link></li>
-              <li><Link href="/products/click-and-lock-stone" className="border_link" onClick={closeMenu}>CLICK-N-LOCK® Stone</Link></li>
-              <li><Link href="/products/carpet-tiles" className="border_link" onClick={closeMenu}>CARPET TILES </Link></li>
-              <li><Link href="/products/wall-to-wall-carpet" className="border_link" onClick={closeMenu}>WALL TO WALL</Link></li>
-              <li><Link href="/products/artificial-grass" className="border_link" onClick={closeMenu}>GREENS</Link></li>
-              <li><Link href="/products/multistile" className="border_link" onClick={closeMenu}>MULTISTILE™</Link></li>
+              <li>
+                <Link href="/products/click-and-lock-wood" className="border_link" onClick={closeMenu}>
+                  CLICK-N-LOCK® Wood
+                </Link>
+              </li>
+              <li>
+                <Link href="/products/click-and-lock-stone" className="border_link" onClick={closeMenu}>
+                  CLICK-N-LOCK® Stone
+                </Link>
+              </li>
+              <li>
+                <Link href="/products/carpet-tiles" className="border_link" onClick={closeMenu}>
+                  CARPET TILES
+                </Link>
+              </li>
+              <li>
+                <Link href="/products/wall-to-wall-carpet" className="border_link" onClick={closeMenu}>
+                  WALL TO WALL
+                </Link>
+              </li>
+              <li>
+                <Link href="/products/artificial-grass" className="border_link" onClick={closeMenu}>
+                  GREENS
+                </Link>
+              </li>
+              <li>
+                <Link href="/products/multistile" className="border_link" onClick={closeMenu}>
+                  MULTISTILE™
+                </Link>
+              </li>
             </ul>
           </div>
         </li>
-        <li><Link href="/applications" className="border_link" onClick={closeMenu}>APPLICATIONS</Link></li>
-        <li><Link href="/about-us" className="border_link" onClick={closeMenu}>ABOUT WELSPUN FLOORING</Link></li>
-        {/* <li><Link href="/blog" className="border_link" onClick={closeMenu}>BLOG</Link></li>
         <li>
-          <form action="">
-            <input type="text" placeholder="Search" id="search" />
-            <button type="submit">
-              <Image src="/images/icons/search.webp" alt="Search Icon" width={24} height={23} />
-              <span>SEARCH</span>
-            </button>
-          </form>
-        </li> */}
+          <Link href="/applications" className="border_link" onClick={closeMenu}>
+            APPLICATIONS
+          </Link>
+        </li>
+        <li>
+          <Link href="/about-us" className="border_link" onClick={closeMenu}>
+            ABOUT WELSPUN FLOORING
+          </Link>
+        </li>
       </ul>
     </div>
   );
