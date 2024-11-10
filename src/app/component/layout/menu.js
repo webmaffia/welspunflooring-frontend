@@ -81,7 +81,7 @@ const Menu = () => {
         </li>
         <li><Link href="/applications" className="border_link">APPLICATIONS</Link></li>
         <li><Link href="/about-us" className="border_link">ABOUT WELSPUN FLOORING</Link></li>
-        <li><Link href="/blog" className="border_link">BLOG</Link></li>
+        {/* <li><Link href="/blog" className="border_link">BLOG</Link></li>
         <li>
           <form action="">
             <input type="text" placeholder="Search" id="search" />
@@ -90,7 +90,7 @@ const Menu = () => {
               <span>SEARCH</span>
             </button>
           </form>
-        </li>
+        </li> */}
       </ul>
     </div>
   );

@@ -36,8 +36,10 @@ const BannerSwiper = ({bannerData,setThumbsSwiper, onImageLoad}) => {
      
        
             {   <SwiperSlide>
-          <picture>/
-            <source media="(max-width:540px)" srcSet={bgslide?.slideMobileBg?.data?.attributes?.url} />
+          <picture>
+            <source media="(max-width:540px)" 
+            srcSet={`${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${bgslide?.slideMobileBg?.data?.attributes?.url}`}
+            />
             <Image 
             
             src={`${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${bgslide?.slideBg?.data?.attributes?.url}`} 

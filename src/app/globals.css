@@ -79,3 +79,12 @@
 .hidecta{
     display: none;
 }
+
+@media (max-width: 540px) {
+    .menu .upper_menu .menu_item ul li div {
+        display: flex;
+        align-items: center;
+        font-size: 3.38164251208vw;
+        gap: 2.4154589372vw;
+    }
+}
