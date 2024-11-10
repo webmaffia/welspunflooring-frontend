@@ -13,6 +13,12 @@ const Header = () => {
     document.body.classList.toggle('overflow', !menuActive);
   };
 
+  // Function to close menu
+  const closeMenu = () => {
+    setMenuActive(false);
+    document.body.classList.remove('overflow');
+  };
+
   return (
     <header className={menuActive ? 'active' : ''}>
       <div className="nav_mobile">
@@ -25,7 +31,7 @@ const Header = () => {
           <span></span>
         </div>
       </div>
-      <Menu />
+      <Menu closeMenu={closeMenu} /> {/* Pass closeMenu function */}
     </header>
   );
 };
