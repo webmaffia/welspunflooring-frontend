@@ -52,7 +52,7 @@ export default async function ProductPage({ params }) {
   try {
     
     const res = await axios.get(
-      `https://welspun-cms.webmaffia.com/api/products?filters[slug][$eq]=${params.slug}&populate[about][populate]=*&populate[banner][populate]=image.mobileImage&populate[feature][populate]=feature.icon,feature.banner,feature.mobileBanner&populate[sustainable][populate]=certification.image&populate[trademark][populate]=certification.image&populate[collections][populate]=collectionList.image&populate[faq][populate]=*&populate[careInstructions][populate]=*&populate[blogsection][populate]=blog.thumbnail&populate[seo][populate]=*`
+      `https://welspun-cms.webmaffia.com/api/products?filters[slug][$eq]=${params.slug}&populate[about][populate]=*&populate[banner][populate]=*&populate[feature][populate]=feature.icon,feature.banner,feature.mobileBanner&populate[sustainable][populate]=certification.image&populate[trademark][populate]=certification.image&populate[collections][populate]=collectionList.image&populate[faq][populate]=*&populate[careInstructions][populate]=*&populate[blogsection][populate]=blog.thumbnail&populate[seo][populate]=*`
     );
     
     const product = res.data.data[0];
@@ -83,7 +83,7 @@ export default async function ProductPage({ params }) {
 		<div className="product_wrapper">
             <section className="banner inner_banner">
                 <picture>
-                    <source media="(max-width:540px)" srcSet="" />
+                    <source media="(max-width:540px)" srcSet={`${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${product.attributes?.banner?.mobileImage?.data?.attributes?.url}`} />
                     <img src=
                     {`${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${product.attributes?.banner.image?.data?.attributes?.url}`} 
                     alt="" width="1920" height="472" />
@@ -133,7 +133,7 @@ export default async function ProductPage({ params }) {
                         <span>VIEW <br />COLLECTION</span>
                     </div>
                 </a>
-                <a href="" className="view_link download_cta purpleBg">
+                <a href={`${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${product.attributes.about.brochurePdf.data.attributes.url}`} className="view_link download_cta purpleBg">
                     <div className="link_cta">
                         <div className="arrow_bg">
                             <img src="/images/icons/arrow-2.webp" alt="" width="20" height="17" />
