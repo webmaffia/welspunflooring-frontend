@@ -79,7 +79,7 @@ const Menu = () => {
             </ul>
           </div>
         </li>
-        <li><Link href="/application" className="border_link">APPLICATIONS</Link></li>
+        <li><Link href="/applications" className="border_link">APPLICATIONS</Link></li>
         <li><Link href="/about-us" className="border_link">ABOUT WELSPUN FLOORING</Link></li>
         <li><Link href="/blog" className="border_link">BLOG</Link></li>
         <li>
