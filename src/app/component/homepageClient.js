@@ -62,12 +62,40 @@ export default function HomePageClient() {
   };
 
   if (loading) {
-    return <div>Loading data...</div>; // Show loading text if fetching
+    return <section data-section="loading_section" className="loading_section">
+    <div className="loading_container">
+        <div className="loader">
+            <img src="/images/welspun.webp" alt="" className="loading_welspun" width="1920" height="323" />
+            <div className="loader_content">
+                <div className="loader_text">
+                    LOADING
+                  <span className="dot-one"> .</span>
+                  <span className="dot-two"> .</span>
+                  <span className="dot-three"> .</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>; // Show loading text if fetching
   }
 
   return (
     <main className="wrapper">
-      {imageLoading && <div className="loader">Loading banner...</div>} {/* Show loader until image is loaded */}
+      {imageLoading && <section data-section="loading_section" className="loading_section">
+    <div className="loading_container">
+        <div className="loader">
+            <img src="/images/welspun.webp" alt="" className="loading_welspun" width="1920" height="323" />
+            <div className="loader_content">
+                <div className="loader_text">
+                    LOADING
+                  <span className="dot-one"> .</span>
+                  <span className="dot-two"> .</span>
+                  <span className="dot-three"> .</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>} {/* Show loader until image is loaded */}
       
       {slides.length > 0 ? (
         <Banner bannerData={slides} onImageLoad={handleImageLoad} />

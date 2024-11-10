@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Footer = () => {
   return (
@@ -19,6 +20,7 @@ const Footer = () => {
             </div>
           </button>
         </form>
+      
         <address>
           Corporate Office and Plant <br />
           <span>
@@ -45,12 +47,38 @@ const Footer = () => {
         <div className="nav_container">
           <span className="nav_link"><a href="product-list.php" className="border_link">Product</a></span>
           <div className="sub_nav">
-            <span className="nav_link"><a href="product.php" className="border_link">Click-n-lock® Tiles</a></span>
-            <span className="nav_link"><a href="" className="border_link">Carpet Tiles</a></span>
-            <span className="nav_link"><a href="" className="border_link">Wall To Wall</a></span>
-            <span className="nav_link"><a href="" className="border_link">GREENS</a></span>
-            <span className="nav_link"><a href="" className="border_link">Multistile™</a></span>
-          </div>
+  <span className="nav_link">
+    <Link href="/products/click-and-lock-wood" className="border_link" >
+    CLICK-N-LOCK® Wood
+    </Link>
+  </span>
+  <span className="nav_link">
+    <Link href="/products/click-and-lock-stone" className="border_link" >
+    CLICK-N-LOCK® Stone
+    </Link>
+  </span>
+  <span className="nav_link">
+    <Link href="/products/carpet-tiles" className="border_link" >
+      Carpet Tiles
+    </Link>
+  </span>
+  <span className="nav_link">
+    <Link href="/products/wall-to-wall-carpet" className="border_link" >
+      Wall To Wall
+    </Link>
+  </span>
+  <span className="nav_link">
+    <Link href="/products/artificial-grass" className="border_link" >
+      GREENS
+    </Link>
+  </span>
+  <span className="nav_link">
+    <Link href="/products/multistile" className="border_link" >
+      Multistile™
+    </Link>
+  </span>
+</div>
+
         </div>
 
         <div className="nav_container">
