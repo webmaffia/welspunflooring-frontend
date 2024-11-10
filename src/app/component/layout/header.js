@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import Menu from './Menu';
+import Menu from './menu';
 
 const Header = () => {
   const [menuActive, setMenuActive] = useState(false);
