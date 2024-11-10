@@ -3,12 +3,12 @@
 "use client";
 // components/BannerSwiper.js
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, EffectFade } from 'swiper/modules'; // Ensure you're importing from modules
+import { Autoplay, EffectFade,Thumbs } from 'swiper/modules'; // Ensure you're importing from modules
 import 'swiper/swiper-bundle.css';
 import 'swiper/css/effect-fade';
 import Image from 'next/image';
 
-const BannerSwiper = ({bannerData,setThumbsSwiper, onImageLoad}) => {
+const BannerSwiper = ({bannerData,thumbsSwiper, onImageLoad}) => {
 
 
 
@@ -20,14 +20,15 @@ const BannerSwiper = ({bannerData,setThumbsSwiper, onImageLoad}) => {
         speed={2000}
         effect="fade"
           autoplay={{
-            delay: 2500,
+            delay: 2000,
             disableOnInteraction: false,
           }}
       
-        modules={[Autoplay, EffectFade]} // Use the imported modules here
+        modules={[Autoplay, EffectFade,Thumbs]} // Use the imported modules here
         spaceBetween={30}
         slidesPerView={1}
-        onSwiper={setThumbsSwiper}
+        
+        thumbs={{ swiper: thumbsSwiper }}
       >
        
 

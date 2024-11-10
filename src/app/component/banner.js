@@ -13,11 +13,13 @@ const Banner = ({bannerData,onImageLoad}) => {
     return <>
         <section className="banner cursor_img">
 
-        <BannerSwiper setThumbsSwiper={setThumbsSwiper} bannerData={bannerData} onImageLoad={onImageLoad} />
-        <SquareSwiper thumbsSwiper={thumbsSwiper} bannerData={bannerData}/>
+        <BannerSwiper thumbsSwiper={thumbsSwiper} bannerData={bannerData} onImageLoad={onImageLoad} />
+        <SquareSwiper setThumbsSwiper={setThumbsSwiper}   bannerData={bannerData}/>
 
         
         <BannerContent bannerData={bannerData} />
+
+        
 
         </section>
     </>;
