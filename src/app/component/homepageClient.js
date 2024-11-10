@@ -55,50 +55,58 @@ export default function HomePageClient() {
   const spaceSection = allData.filter((section) => section.__component === "sections.spaces");
   const visuliserSection = allData.filter((section) => section.__component === "sections.visualiser");
 
-  const testimonialData =  allData.filter((section) => section.__component === "sections.testimonials");
+  const testimonialData = allData.filter((section) => section.__component === "sections.testimonials");
 
   const blogdata = allData.filter((section) => section.__component === "sections.blog-section");
+
+  const partnerSection = allData.filter((section) => section.__component === "sections.partners");
 
   const handleImageLoad = () => {
     setImageLoading(false); // Hide the loader once the image is loaded
   };
 
+  console.log(partnerSection[0]?.partnerLogo); // Check if data exists
+
   if (loading) {
-    return <section data-section="loading_section" className="loading_section">
-    <div className="loading_container">
-        <div className="loader">
+    return (
+      <section data-section="loading_section" className="loading_section">
+        <div className="loading_container">
+          <div className="loader">
             <img src="/images/welspun.webp" alt="" className="loading_welspun" width="1920" height="323" />
             <div className="loader_content">
-                <div className="loader_text">
-                    LOADING
-                  <span className="dot-one"> .</span>
-                  <span className="dot-two"> .</span>
-                  <span className="dot-three"> .</span>
-                </div>
+              <div className="loader_text">
+                LOADING
+                <span className="dot-one"> .</span>
+                <span className="dot-two"> .</span>
+                <span className="dot-three"> .</span>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-</section>; // Show loading text if fetching
+      </section>
+    ); // Show loading text if fetching
   }
 
   return (
     <main className="wrapper">
-      {imageLoading && <section data-section="loading_section" className="loading_section">
-    <div className="loading_container">
-        <div className="loader">
-            <img src="/images/welspun.webp" alt="" className="loading_welspun" width="1920" height="323" />
-            <div className="loader_content">
+      {imageLoading && (
+        <section data-section="loading_section" className="loading_section">
+          <div className="loading_container">
+            <div className="loader">
+              <img src="/images/welspun.webp" alt="" className="loading_welspun" width="1920" height="323" />
+              <div className="loader_content">
                 <div className="loader_text">
-                    LOADING
+                  LOADING
                   <span className="dot-one"> .</span>
                   <span className="dot-two"> .</span>
                   <span className="dot-three"> .</span>
                 </div>
+              </div>
             </div>
-        </div>
-    </div>
-</section>} {/* Show loader until image is loaded */}
-      
+          </div>
+        </section>
+      )} {/* Show loader until image is loaded */}
+
       {slides.length > 0 ? (
         <Banner bannerData={slides} onImageLoad={handleImageLoad} />
       ) : (
@@ -112,7 +120,11 @@ export default function HomePageClient() {
       <SustainabilitySection />
       {/* <CaseStudySwiper /> */}
       <TestimonialSection testimonial={testimonialData}/>
-      <PartnerSection />
+      {partnerSection.length > 0 ? (
+        <PartnerSection partnerData={partnerSection[0]} />
+      ) : (
+        <p>No partner data available</p>
+      )}
       <EmiSection />
       <InspirationSection />
       <TrendingSection />

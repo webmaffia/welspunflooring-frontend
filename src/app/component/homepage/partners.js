@@ -1,27 +1,19 @@
-// components/PartnerSection.js
-"use client"
+"use client";
 import React from 'react';
-import { Autoplay,FreeMode} from 'swiper/modules';
+import { Autoplay, FreeMode } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css'; // Import Swiper styles
 
-// Install modules
+const PartnerSection = ({ partnerData }) => {
+  // Check if partnerData and partnerLogo exist and have elements
+  if (!partnerData || !partnerData.partnerLogo || partnerData.partnerLogo.length === 0) {
+    return <p>No partners data available.</p>;
+  }
 
-
-const partners = [
-  { img: 'images/partner/img-1.webp', alt: 'Partner 1' },
-  { img: 'images/partner/img-2.webp', alt: 'Partner 2', down_img: true },
-  { img: 'images/partner/img-3.webp', alt: 'Partner 3' },
-  { img: 'images/partner/img-4.webp', alt: 'Partner 4', down_img: true },
-  { img: 'images/partner/img-5.webp', alt: 'Partner 5' },
-  { img: 'images/partner/img-4.webp', alt: 'Partner 6', down_img: true }
-];
-
-const PartnerSection = () => {
   return (
     <section className="partners_section" data-section="partners_section">
       <div className="diamond_title">
-        <h2 className="diamond diamond_blue">PARTNERS</h2>
+        <h2 className="diamond diamond_blue">{partnerData.sectionName}</h2>
       </div>
       <Swiper
         className="partnerSwiper swiper-no-swiping"
@@ -43,17 +35,23 @@ const PartnerSection = () => {
           1024: { slidesPerView: 4, spaceBetween: 70, simulateTouch: false },
         }}
       >
-        {partners.map((partner, index2) => (
-          <SwiperSlide key={index2}>
-            <img
-              src={partner.img}
-              alt={partner.alt}
-              className={`partner_img ${partner.down_img ? 'down_img' : ''}`}
-              width="284"
-              height="284"
-            />
-          </SwiperSlide>
-        ))}
+        {partnerData.partnerLogo.map((partner, index) => {
+          const imageUrl = partner.images?.data?.attributes?.url;
+          if (!imageUrl) {
+            return null; // Skip if the image URL is missing
+          }
+          return (
+            <SwiperSlide key={partner.id || index}>
+              <img
+                src={`${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${imageUrl}`}
+                alt={partner.images.data.attributes.alternativeText || 'Partner logo'}
+                className={`partner_img ${index % 2 !== 0 ? 'down_img' : ''}`} // Add `down_img` to every alternate slide
+                width="284"
+                height="284"
+              />
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
     </section>
   );
