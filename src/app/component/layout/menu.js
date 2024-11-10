@@ -1,18 +1,25 @@
 // components/Menu.js
-
+"use client"
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useApi } from '@/app/context/ApiContext';
 
 const Menu = () => {
+  const { setApiUrl } = useApi();
+
+  const handleMenuClick = (newUrl) => {
+    setApiUrl(newUrl);
+  };
+
   return (
     <div className="menu">
       <ul className="upper_menu">
         <li className="menu_item">
           <ul className="dFlex">
-            <li><Link href="/" className="border_link">HOMEOWNERS</Link></li>
-            <li><Link href="/" className="border_link">B2B</Link></li>
-            <li><Link href="/" className="border_link">ARCHITECTS & INTERIOR DESIGNERS</Link></li>
+            <li><div onClick={() => handleMenuClick("homeowners")} className="border_link">HOMEOWNERS</div></li>
+            <li><div onClick={() => handleMenuClick("b2b")} className="border_link">B2B</div></li>
+            <li><div onClick={() => handleMenuClick("architectsAndInteriorDesigners")} className="border_link">ARCHITECTS & INTERIOR DESIGNERS</div></li>
           </ul>
         </li>
         <li className="logo_img">

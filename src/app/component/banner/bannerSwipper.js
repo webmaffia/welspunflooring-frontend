@@ -8,7 +8,7 @@ import 'swiper/swiper-bundle.css';
 import 'swiper/css/effect-fade';
 import Image from 'next/image';
 
-const BannerSwiper = ({bannerData,setThumbsSwiper}) => {
+const BannerSwiper = ({bannerData,setThumbsSwiper, onImageLoad}) => {
 
 
 
@@ -41,7 +41,9 @@ const BannerSwiper = ({bannerData,setThumbsSwiper}) => {
             <Image 
             
             src={`${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${bgslide?.slideBg?.data?.attributes?.url}`} 
-             alt="Home Banner" width={1920} height={1073} />
+             alt="Home Banner" width={1920} height={1073}
+             onLoad={onImageLoad}
+              />
           </picture>
         </SwiperSlide>}
           </div>

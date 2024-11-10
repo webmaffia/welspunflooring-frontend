@@ -27,7 +27,12 @@ const BannerContent = ({bannerData}) => {
     return (
       <>
         <div className="banner_content">
-          <div className="banner_heading">{bannerData[0].heading}</div>
+     
+          <div
+  className={`banner_heading ${bannerData[0].heading !== "Step Up" ? "fs_180_wb" : ""}`}
+>
+  {bannerData[0].heading}
+</div>
           <Swiper
             className="contentSwiper"
             loop={true}

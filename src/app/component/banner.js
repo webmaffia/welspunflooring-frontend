@@ -5,7 +5,7 @@ import SquareSwiper from "./banner/squareSwipper";
 
 import BannerContent from './homepage/bannerContent';
 
-const Banner = ({bannerData}) => {
+const Banner = ({bannerData,onImageLoad}) => {
 
 
  
@@ -13,7 +13,7 @@ const Banner = ({bannerData}) => {
     return <>
         <section className="banner cursor_img">
 
-        <BannerSwiper setThumbsSwiper={setThumbsSwiper} bannerData={bannerData} />
+        <BannerSwiper setThumbsSwiper={setThumbsSwiper} bannerData={bannerData} onImageLoad={onImageLoad} />
         <SquareSwiper thumbsSwiper={thumbsSwiper} bannerData={bannerData}/>
 
         
