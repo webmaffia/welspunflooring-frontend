@@ -39,9 +39,9 @@ const BannerContent = ({bannerData}) => {
             className="contentSwiper"
             loop={true}
             slidesPerView={1}
-            speed={1400}
+            speed={2000}
             autoplay={{
-              delay: 3000,
+              delay: 2000,
               disableOnInteraction: false,
             }}
             modules={[Thumbs, Autoplay]}
