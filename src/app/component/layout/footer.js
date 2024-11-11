@@ -102,6 +102,7 @@ const Footer = () => {
           {/* 
            */}
         </div>
+        
 
         <div className="nav_container">
           <span className="nav_link">
