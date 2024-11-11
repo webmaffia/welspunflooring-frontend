@@ -18,9 +18,11 @@ const ProductDetail = ({ product, collection }) => {
               </Link>
             </li>
             <li>
-              <Link href={`/products/${product.attributes.category.data.attributes.product.data.attributes.slug}/${product.attributes.category.data.attributes.slug}`}>
-                {product.attributes.category.data.attributes.collectionName}
-              </Link>
+          
+            <Link href={`/products?category=${product.attributes.category.data.attributes.product.data.attributes.slug}&collection=${product.attributes.category.data.attributes.collectionName}`}>
+  {product.attributes.category.data.attributes.collectionName}
+</Link>
+
             </li>
             <li>
               <Link href={`/products/${product.attributes.category.data.attributes.product.data.attributes.slug}/${product.attributes.category.data.attributes.slug}/${product.attributes.slug}`}>

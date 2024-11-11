@@ -19,7 +19,7 @@ const ProductsPage = async () => {
 
   // Get all distinct product categories
   const categories = productSpecifications.reduce((acc, product) => {
-    const categoryName = product?.attributes?.category?.data?.attributes?.product?.data?.attributes?.product_name;
+    const categoryName = product?.attributes?.category?.data?.attributes?.product?.data?.attributes?.slug;
     if (categoryName && !acc.includes(categoryName)) {
       acc.push(categoryName);
     }
@@ -30,7 +30,7 @@ const ProductsPage = async () => {
   const productsByCategory = categories.map((category) => {
     const filteredProducts = productSpecifications.filter(
       (product) =>
-        product?.attributes?.category?.data?.attributes?.product?.data?.attributes?.product_name === category
+        product?.attributes?.category?.data?.attributes?.product?.data?.attributes?.slug === category
     );
     return { category, products: filteredProducts };
   });

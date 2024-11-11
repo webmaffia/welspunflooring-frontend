@@ -113,3 +113,8 @@
     justify-content: flex-start;
 
 }
+
+.filter_category .filter_label label span,.product_list .product_title,.filter_text {
+ 
+    text-transform: capitalize;
+}

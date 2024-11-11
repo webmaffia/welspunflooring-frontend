@@ -1,13 +1,33 @@
-"use client";  // Marks this as a Client Component
-import React, { useState } from 'react';
+"use client";
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 const ProductsList = ({ productsByCategory }) => {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedCollection, setSelectedCollection] = useState('');
   const [expandedCategories, setExpandedCategories] = useState({});
 
-  // Toggle showing all products for a specific category
+  // Set initial state from query parameters when component mounts
+  useEffect(() => {
+    const categoryFromUrl = searchParams.get("category") || '';
+    const collectionFromUrl = searchParams.get("collection") || '';
+  
+    setSelectedCategory(categoryFromUrl);
+    setSelectedCollection(collectionFromUrl);
+  
+    // Expand category view if collection is selected in the URL
+    if (categoryFromUrl && collectionFromUrl) {
+      setExpandedCategories((prev) => ({
+        ...prev,
+        [categoryFromUrl]: true,
+      }));
+    }
+  }, [searchParams]);
+
   const toggleViewMore = (category) => {
     setExpandedCategories((prev) => ({
       ...prev,
@@ -15,29 +35,32 @@ const ProductsList = ({ productsByCategory }) => {
     }));
   };
 
-  // Handle category filter selection
   const handleCategoryFilter = (category) => {
     setSelectedCategory(category);
-    setSelectedCollection(''); // Reset collection filter on category change
+    setSelectedCollection('');
     setExpandedCategories((prev) => ({
       ...prev,
       [category]: !prev[category],
     }));
+    router.push(`?category=${category}`);
   };
 
-  // Handle collection filter selection
   const handleCollectionFilter = (collection) => {
     setSelectedCollection(collection);
+    setExpandedCategories((prev) => ({
+      ...prev,
+      [selectedCategory]: true,
+    }));
+    router.push(`?category=${selectedCategory}&collection=${collection}`);
     
   };
 
-  // Clear all filters
   const clearFilters = () => {
     setSelectedCategory('');
     setSelectedCollection('');
+    router.push('/');
   };
 
-  // Get collections based on selected category
   const availableCollections = selectedCategory
     ? [...new Set(
         productsByCategory
@@ -48,21 +71,23 @@ const ProductsList = ({ productsByCategory }) => {
 
   const isFilterApplied = selectedCategory || selectedCollection;
 
+  const formatCategory = (category) => category.replace(/-/g, ' ');
+
   return (
-    <section data-section="" className="product_listing">
+    <section className="product_listing">
       <div className="product_content">
         <aside>
-        {isFilterApplied && (
+          {isFilterApplied && (
             <div className="filter_content">
               <div className="filter">
                 <span>FILTERS</span>
-                <button onClick={clearFilters} className="clear_filter c">CLEAR ALL</button>
+                <button onClick={clearFilters} className="clear_filter">CLEAR ALL</button>
               </div>
               <div className="filter_box">
                 {selectedCategory && (
                   <div className="filter_item">
                     <div className="filter_patch">
-                      <span className="filter_text">{selectedCategory}</span>
+                      <span className="filter_text">{formatCategory(selectedCategory)}</span>
                       <button onClick={() => setSelectedCategory('')} className="clear_filter">
                         <img src="/images/icons/close.webp" alt="Remove" width="8" height="8" />
                       </button>
@@ -72,7 +97,7 @@ const ProductsList = ({ productsByCategory }) => {
                 {selectedCollection && (
                   <div className="filter_item">
                     <div className="filter_patch">
-                      <span className="filter_text">{selectedCollection}</span>
+                      <span className="filter_text">{formatCategory(selectedCollection)}</span>
                       <button onClick={() => setSelectedCollection('')} className="clear_filter">
                         <img src="/images/icons/close.webp" alt="Remove" width="8" height="8" />
                       </button>
@@ -98,7 +123,7 @@ const ProductsList = ({ productsByCategory }) => {
                         onChange={() => handleCategoryFilter(category)}
                         checked={selectedCategory === category}
                       />
-                      <span>{category}</span>
+                      <span>{formatCategory(category)}</span>
                     </label>
                   </div>
                 ))}
@@ -129,19 +154,14 @@ const ProductsList = ({ productsByCategory }) => {
               </div>
             )}
           </div>
-
-          {/* Filter Summary */}
-      
         </aside>
 
         <div className="product_list">
-          {/* Product Listing */}
           {productsByCategory
             .filter(({ category }) => !selectedCategory || category === selectedCategory)
             .map(({ category, products }) => (
-       
               <div key={category} className="product_tile more_products" id={category}>
-                <h2 className="product_title">{category}</h2>
+                <h2 className="product_title">{formatCategory(category)}</h2>
                 <div className="product_container">
                   <div className="product_tile_box">
                     {(expandedCategories[category] ? products : products.slice(0, 4))
@@ -168,8 +188,9 @@ const ProductsList = ({ productsByCategory }) => {
                             <div className="item_sub">{product.attributes.category.data.attributes.collectionName}</div>
                           </div>
                           <span className="item_link">
-                          <Link href={`/products/${products[0]?.attributes?.category?.data?.attributes?.product?.data?.attributes?.slug || ''}/${product.attributes.category.data.attributes.slug}/${product.attributes.slug}`}>
-                          KNOW MORE</Link>
+                            <Link href={`/products/${products[0]?.attributes?.category?.data?.attributes?.product?.data?.attributes?.slug || ''}/${product.attributes.category.data.attributes.slug}/${product.attributes.slug}`}>
+                              KNOW MORE
+                            </Link>
                           </span>
                         </div>
                       ))}
@@ -179,8 +200,8 @@ const ProductsList = ({ productsByCategory }) => {
                       {expandedCategories[category] ? "VIEW LESS" : "VIEW MORE"}
                     </button>
                     <Link href={`/products/${products[0]?.attributes?.category?.data?.attributes?.product?.data?.attributes?.slug || ''}`}>
-                    EXPLORE {(category || 'Category').toUpperCase()}
-                  </Link>
+                      EXPLORE {(category || 'Category').toUpperCase()}
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -188,9 +209,7 @@ const ProductsList = ({ productsByCategory }) => {
         </div>
       </div>
     </section>
-
   );
 };
-
 
 export default ProductsList;

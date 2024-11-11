@@ -8,6 +8,7 @@ import ProductFAQ from '@/app/component/faqs';
 import AssistanceSection from '@/app/component/assistance';
 import ContactForm from '@/app/component/homepage/contactus';
 import BlogSection from '@/app/component/homepage/blog';
+import Link from 'next/link';
 
 export async function generateStaticParams() {
   try {
@@ -125,14 +126,17 @@ export default async function ProductPage({ params }) {
                 flooring tiles and select designs that speak for your spaces.  
             </p> */}
             <div className="dFlex">
-                <a href="product-list.php" className="view_link purpleBg">
-                    <div className="link_cta">
-                        <div className="arrow_bg">
-                            <img src="/images/icons/arrow-2.webp" alt="" width="20" height="17" />
-                        </div>
-                        <span>VIEW <br />COLLECTION</span>
-                    </div>
-                </a>
+            {params.slug !== 'artificial-grass' && (
+  <Link href={`/products?category=${params.slug}`} className="view_link purpleBg">
+    <div className="link_cta">
+      <div className="arrow_bg">
+        <img src="/images/icons/arrow-2.webp" alt="" width="20" height="17" />
+      </div>
+      <span>VIEW <br />COLLECTION</span>
+    </div>
+  </Link>
+)}
+
                 <a href={`${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${product.attributes.about.brochurePdf.data.attributes.url}`} className="view_link download_cta purpleBg">
                     <div className="link_cta">
                         <div className="arrow_bg">
