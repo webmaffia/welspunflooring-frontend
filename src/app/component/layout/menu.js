@@ -96,12 +96,7 @@ const Menu = ({ closeMenu }) => {
         </li>
         <li className="menu_item">
           <ul className="dFlex">
-          <li className="opacity0">
-              <Link href="/locate-dealer" className="menu_link border_link" onClick={closeMenu}>
-                <Image src="/images/icons/dealer.webp" alt="Dealer Icon" width={33} height={37} />
-                <span>LOCATE DEALER</span>
-              </Link>
-            </li>
+        
             <li className="opacity0">
               <Link href="/" className="menu_link border_link" onClick={closeMenu}>
                 <Image src="/images/icons/calculator.webp" alt="Calculator Icon" width={33} height={37} />
@@ -124,6 +119,12 @@ const Menu = ({ closeMenu }) => {
               <Link href="/" className="menu_link border_link" id="orderSampleBox" onClick={closeMenu}>
                 <Image src="/images/icons/order_box.webp" alt="Order Box Icon" width={33} height={37} />
                 <span>ORDER SAMPLE BOX</span>
+              </Link>
+            </li>
+            <li className="">
+              <Link href="/locate-dealer" className="menu_link border_link" onClick={closeMenu}>
+                <Image src="/images/icons/dealer.webp" alt="Dealer Icon" width={33} height={37} />
+                <span>LOCATE DEALER</span>
               </Link>
             </li>
            

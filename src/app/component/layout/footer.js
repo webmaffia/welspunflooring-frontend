@@ -94,12 +94,13 @@ const Footer = () => {
         <div className="nav_container">
           <span className="nav_link"><Link href="/sustainability" className="border_link">Sustainability</Link></span>
           <span className="nav_link"><Link href="/products" className="border_link">Catalogues</Link></span>
+          <span className="nav_link"><Link href="locate-dealer" className="border_link">Locate Dealer</Link></span>
           <span className="nav_link"><Link href="/privacy-policy" className="border_link">Privacy Policy</Link></span>
           <span className="nav_link"><Link href="/terms-and-condition" className="border_link">Terms & Conditions</Link></span>
           {/* <span className="nav_link"><a href="" className="border_link">Certifications</a></span>
           <span className="nav_link"><a href="" className="border_link">FAQs</a></span> */}
           {/* 
-          <span className="nav_link"><a href="locate-dealer.php" className="border_link">Locate Dealer</a></span> */}
+           */}
         </div>
 
         <div className="nav_container">
