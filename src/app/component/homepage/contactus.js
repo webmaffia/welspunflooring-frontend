@@ -102,7 +102,7 @@ export default function ContactForm() {
     };
 
     return (
-        <section className="contact" data-section="contact">
+        <section className="contact" data-section="contact" id="contactForm">
             <div className="contact_container">
                 <h2 className="section_title">Hello, how can we help you?</h2>
                 <form onSubmit={handleSubmit} noValidate>
