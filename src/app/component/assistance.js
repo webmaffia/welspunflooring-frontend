@@ -74,7 +74,7 @@ const AssistanceSection = () => {
           <h3 className="subtitle_40">
             Budget <br />Calculator
           </h3>
-          <Link href="#" className="view_link purpleBg">
+          <Link href="/budget-calculator" className="view_link purpleBg">
             <div className="link_cta">
               <div className="arrow_bg">
                 <Image 

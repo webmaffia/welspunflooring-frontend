@@ -97,12 +97,7 @@ const Menu = ({ closeMenu }) => {
         <li className="menu_item">
           <ul className="dFlex">
         
-            <li className="opacity0">
-              <Link href="/" className="menu_link border_link" onClick={closeMenu}>
-                <Image src="/images/icons/calculator.webp" alt="Calculator Icon" width={33} height={37} />
-                <span>BUDGET CALCULATOR</span>
-              </Link>
-            </li>
+           
             <li className="opacity0">
               <Link href="/" className="menu_link border_link" onClick={closeMenu}>
                 <Image src="/images/icons/download.webp" alt="Download Icon" width={33} height={37} />
@@ -125,6 +120,12 @@ const Menu = ({ closeMenu }) => {
               <Link href="/locate-dealer" className="menu_link border_link" onClick={closeMenu}>
                 <Image src="/images/icons/dealer.webp" alt="Dealer Icon" width={33} height={37} />
                 <span>LOCATE DEALER</span>
+              </Link>
+            </li>
+            <li className="">
+              <Link href="/budget-calculator" className="menu_link border_link" onClick={closeMenu}>
+                <Image src="/images/icons/calculator.webp" alt="Calculator Icon" width={33} height={37} />
+                <span>BUDGET CALCULATOR</span>
               </Link>
             </li>
            
