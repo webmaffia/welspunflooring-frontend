@@ -128,7 +128,7 @@ export default function LocateDealersPage() {
                     <span>SEARCH <br /> DEALERS</span>
                   </div>
                 </button>
-                <button
+                {/* <button
                   type="button"
                   onClick={handleNearMeClick}
                   className="cta_deal greyBg"
@@ -139,7 +139,7 @@ export default function LocateDealersPage() {
                     </div>
                     <span>DEALERS <br /> NEAR ME</span>
                   </div>
-                </button>
+                </button> */}
               </label>
             </form>
           </div>
