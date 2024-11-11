@@ -1,5 +1,5 @@
 // app/products/page.js
-import React from 'react';
+import React ,{ Suspense }  from 'react';
 import ProductsList from '../component/productList';
 import AssistanceSection from '../component/assistance';
 import ContactForm from '../component/homepage/contactus';
@@ -50,7 +50,10 @@ const ProductsPage = async () => {
         </section>
 
         {/* Pass data to ProductsList component */}
+       
+        <Suspense fallback={<div>Loading...</div>}>
         <ProductsList productsByCategory={productsByCategory} categories={categories} />
+    </Suspense>
         <AssistanceSection />
         <ContactForm />
       </div>
