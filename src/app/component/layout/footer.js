@@ -82,23 +82,23 @@ const Footer = () => {
         </div>
 
         <div className="nav_container">
-          <span className="nav_link"><a href="about.php" className="border_link">About Us</a></span>
-          <span className="nav_link"><a href="" className="border_link">Spaces Recreated</a></span>
-          <span className="nav_link"><a href="blog.php" className="border_link">Blog</a></span>
-          <span className="nav_link"><a href="" className="border_link">Video Guide</a></span>
+          <span className="nav_link"><Link href="/about-us" className="border_link">About Us</Link></span>
+          <span className="nav_link"><Link href="/applications" className="border_link">Spaces Recreated</Link></span>
+          {/* <span className="nav_link"><a href="blog.php" className="border_link">Blog</a></span> */}
+          {/* <span className="nav_link"><a href="" className="border_link">Video Guide</a></span>
           <span className="nav_link"><a href="" className="border_link">Visualiser</a></span>
           <span className="nav_link"><a href="case-study.php" className="border_link">Case Study</a></span>
-          <span className="nav_link"><a href="" className="border_link">What's Trending</a></span>
+          <span className="nav_link"><a href="" className="border_link">What's Trending</a></span> */}
         </div>
 
         <div className="nav_container">
-          <span className="nav_link"><a href="sustainability.php" className="border_link">Sustainability</a></span>
-          <span className="nav_link"><a href="" className="border_link">Catalogues</a></span>
-          <span className="nav_link"><a href="" className="border_link">Certifications</a></span>
-          <span className="nav_link"><a href="" className="border_link">FAQs</a></span>
-          <span className="nav_link"><a href="privacy-policy.php" className="border_link">Privacy Policy</a></span>
+          <span className="nav_link"><Link href="/sustainability" className="border_link">Sustainability</Link></span>
+          <span className="nav_link"><Link href="/products" className="border_link">Catalogues</Link></span>
+          {/* <span className="nav_link"><a href="" className="border_link">Certifications</a></span>
+          <span className="nav_link"><a href="" className="border_link">FAQs</a></span> */}
+          {/* <span className="nav_link"><a href="privacy-policy.php" className="border_link">Privacy Policy</a></span>
           <span className="nav_link"><a href="terms-and-condition.php" className="border_link">Terms & Conditions</a></span>
-          <span className="nav_link"><a href="locate-dealer.php" className="border_link">Locate Dealer</a></span>
+          <span className="nav_link"><a href="locate-dealer.php" className="border_link">Locate Dealer</a></span> */}
         </div>
 
         <div className="nav_container">

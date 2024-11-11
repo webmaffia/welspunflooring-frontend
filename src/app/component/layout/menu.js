@@ -34,6 +34,32 @@ const Menu = ({ closeMenu }) => {
     };
   }, []); // Empty dependency array to run only once after the initial render
 
+
+  useEffect(() => {
+    // Ensure the element exists before adding the event listener
+    const orderSampleBox = document.getElementById("orderSampleBox");
+    if (orderSampleBox) {
+      orderSampleBox.addEventListener("click", () => {
+        const chatBox = document.querySelector(".sticky_chat");
+        if (chatBox) {
+          chatBox.click();
+        }
+      });
+    }
+
+    // Cleanup event listener when component unmounts
+    return () => {
+      if (orderSampleBox) {
+        orderSampleBox.removeEventListener("click", () => {
+          const chatBox = document.querySelector(".sticky_chat");
+          if (chatBox) {
+            chatBox.click();
+          }
+        });
+      }
+    };
+  }, []); // Empty dependency array to run only once after the initial render
+
   const handleMenuClick = (newUrl) => {
     setApiUrl(newUrl); // Update API URL in context
     router.push("/"); // Navigate to home or the target page to ensure updates
@@ -70,6 +96,24 @@ const Menu = ({ closeMenu }) => {
         </li>
         <li className="menu_item">
           <ul className="dFlex">
+          <li className="opacity0">
+              <Link href="/locate-dealer" className="menu_link border_link" onClick={closeMenu}>
+                <Image src="/images/icons/dealer.webp" alt="Dealer Icon" width={33} height={37} />
+                <span>LOCATE DEALER</span>
+              </Link>
+            </li>
+            <li className="opacity0">
+              <Link href="/" className="menu_link border_link" onClick={closeMenu}>
+                <Image src="/images/icons/calculator.webp" alt="Calculator Icon" width={33} height={37} />
+                <span>BUDGET CALCULATOR</span>
+              </Link>
+            </li>
+            <li className="opacity0">
+              <Link href="/" className="menu_link border_link" onClick={closeMenu}>
+                <Image src="/images/icons/download.webp" alt="Download Icon" width={33} height={37} />
+                <span>DOWNLOADS</span>
+              </Link>
+            </li>
             <li>
               <Link href="/" className="menu_link border_link" id="bookConsultant" onClick={closeMenu}>
                 <Image src="/images/icons/consultant.webp" alt="Consultant Icon" width={33} height={37} />
@@ -77,29 +121,12 @@ const Menu = ({ closeMenu }) => {
               </Link>
             </li>
             <li>
-              <Link href="/" className="menu_link border_link" onClick={closeMenu}>
+              <Link href="/" className="menu_link border_link" id="orderSampleBox" onClick={closeMenu}>
                 <Image src="/images/icons/order_box.webp" alt="Order Box Icon" width={33} height={37} />
                 <span>ORDER SAMPLE BOX</span>
               </Link>
             </li>
-            <li>
-              <Link href="/locate-dealer" className="menu_link border_link" onClick={closeMenu}>
-                <Image src="/images/icons/dealer.webp" alt="Dealer Icon" width={33} height={37} />
-                <span>LOCATE DEALER</span>
-              </Link>
-            </li>
-            <li>
-              <Link href="/" className="menu_link border_link" onClick={closeMenu}>
-                <Image src="/images/icons/calculator.webp" alt="Calculator Icon" width={33} height={37} />
-                <span>BUDGET CALCULATOR</span>
-              </Link>
-            </li>
-            <li>
-              <Link href="/" className="menu_link border_link" onClick={closeMenu}>
-                <Image src="/images/icons/download.webp" alt="Download Icon" width={33} height={37} />
-                <span>DOWNLOADS</span>
-              </Link>
-            </li>
+           
           </ul>
         </li>
       </ul>
