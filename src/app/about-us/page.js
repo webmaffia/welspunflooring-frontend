@@ -164,7 +164,7 @@ export default function AboutPage() {
         </div>
     </div>
     <img src="/images/about/mother_daughter.webp" alt="" className="purpose_img" width="1301" height="872" />
-    <div className="purpose_look">
+    {/* <div className="purpose_look">
         <div className="purpose_text">
             See how <br />
             your space can look <br />
@@ -179,7 +179,7 @@ export default function AboutPage() {
                 <span>EXPLORE NOW</span>
             </div>
         </a>
-    </div>
+    </div> */}
 </section>
 
 <AboutHistory />
