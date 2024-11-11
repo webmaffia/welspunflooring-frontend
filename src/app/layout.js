@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "./component/layout/header";
 import Footer from "./component/layout/footer";
 import { ApiProvider } from "./context/ApiContext";
+import PopupComponent from "./component/popup";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -20,6 +21,7 @@ export default function RootLayout({ children }) {
     
         {children}
         <Footer />
+        <PopupComponent />
     </ApiProvider>
      
         </body>

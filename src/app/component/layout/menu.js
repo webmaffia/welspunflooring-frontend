@@ -1,13 +1,38 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation"; // Import useRouter for navigation
 import { useApi } from "@/app/context/ApiContext";
 
 const Menu = ({ closeMenu }) => {
-  const { setApiUrl,toggleComponentsVisibility } = useApi();
+  const { setApiUrl, toggleComponentsVisibility } = useApi();
   const router = useRouter(); // Initialize router
+
+  useEffect(() => {
+    // Ensure the element exists before adding the event listener
+    const bookConsultantBtn = document.getElementById("bookConsultant");
+    if (bookConsultantBtn) {
+      bookConsultantBtn.addEventListener("click", () => {
+        const chatBox = document.querySelector(".sticky_chat");
+        if (chatBox) {
+          chatBox.click();
+        }
+      });
+    }
+
+    // Cleanup event listener when component unmounts
+    return () => {
+      if (bookConsultantBtn) {
+        bookConsultantBtn.removeEventListener("click", () => {
+          const chatBox = document.querySelector(".sticky_chat");
+          if (chatBox) {
+            chatBox.click();
+          }
+        });
+      }
+    };
+  }, []); // Empty dependency array to run only once after the initial render
 
   const handleMenuClick = (newUrl) => {
     setApiUrl(newUrl); // Update API URL in context
@@ -46,7 +71,7 @@ const Menu = ({ closeMenu }) => {
         <li className="menu_item">
           <ul className="dFlex">
             <li>
-              <Link href="/" className="menu_link border_link" onClick={closeMenu}>
+              <Link href="/" className="menu_link border_link" id="bookConsultant" onClick={closeMenu}>
                 <Image src="/images/icons/consultant.webp" alt="Consultant Icon" width={33} height={37} />
                 <span>BOOK A CONSULT</span>
               </Link>
