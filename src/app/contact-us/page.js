@@ -15,6 +15,7 @@ export default function contactUsPage() {
     </div>
 </section>
 <section class="contact_section">
+    <h2 class="diamond diamond_blue">CONTACT US</h2>
     <div class="footer_container">
         <div class="">
             <address>
