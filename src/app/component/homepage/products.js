@@ -74,7 +74,8 @@ const ProductsSection = ({ productData, productImage }) => {
               thumbs={{ swiper: thumbsSwiper }}
               observer={true}
               observeParents={true}
-              modules={[Navigation, Pagination, Thumbs]}
+      modules={[Navigation, Pagination, Thumbs, Autoplay]}
+              autoplay={{ delay: 3000, disableOnInteraction: false }}
               className="productSwiper2 trigger_1 swiper_bg"
             >
               <div className="swiper-tool">
