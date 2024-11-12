@@ -188,6 +188,11 @@ const Menu = ({ closeMenu }) => {
             WARRANTY
           </Link>
         </li>
+        <li>
+          <Link href="/contact-us" className="border_link" onClick={closeMenu}>
+            CONTACT US
+          </Link>
+        </li>
 
         
       </ul>
