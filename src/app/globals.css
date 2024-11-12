@@ -125,3 +125,7 @@ html::-webkit-scrollbar{width:7px;}
 .border_link{
     cursor: pointer;
 }
+
+.productSwiper2 .swiper-pagination-lock ,.productSwiper2 .swiper-button-lock{
+    display: block;
+}
