@@ -126,7 +126,7 @@ export default function HomePageClient() {
       <ProductsSection productData={productsContent} productImage={productsSection} />
       <SpacesSection spaceData={spaceSection} />
       <VideoGuide />
-      <Visualiser visuliserData={visuliserSection} />
+      {/* <Visualiser visuliserData={visuliserSection} /> */}
       <SustainabilitySection />
       {/* <CaseStudySwiper /> */}
       <TestimonialSection testimonial={testimonialData}/>
