@@ -6,56 +6,28 @@ import ProductSlides from './slide';
 
 const ProductDetail = ({ product, collection }) => {
   useEffect(() => {
-    // Ensure the element exists before adding the event listener
-    const makeInquery = document.getElementById("makeInquery");
-    if (makeInquery) {
-      makeInquery.addEventListener("click", () => {
-        const chatBox = document.querySelector(".sticky_chat");
-        if (chatBox) {
-          chatBox.click();
-        }
-      });
-    }
-
-    // Cleanup event listener when component unmounts
-    return () => {
-      if (makeInquery) {
-        makeInquery.removeEventListener("click", () => {
-          const chatBox = document.querySelector(".sticky_chat");
-          if (chatBox) {
-            chatBox.click();
-          }
-        });
+    const handleChatClick = () => {
+      const chatBox = document.querySelector(".sticky_chat");
+      if (chatBox) {
+        chatBox.click();
       }
     };
-  }, []); // Empty dependency array to run only once after the initial render
-
-
-  useEffect(() => {
-    // Ensure the element exists before adding the event listener
-    const sampleBox = document.getElementById("sampleBox");
-    if (sampleBox) {
-      sampleBox.addEventListener("click", () => {
-        const chatBox = document.querySelector(".sticky_chat");
-        if (chatBox) {
-          chatBox.click();
-        }
-      });
-    }
-
-    // Cleanup event listener when component unmounts
+  
+    // Get elements by class name
+    const elements = document.getElementsByClassName("triggerChat");
+  
+    // Attach event listeners to each element
+    Array.from(elements).forEach((element) => {
+      element.addEventListener("click", handleChatClick);
+    });
+  
+    // Cleanup event listeners when component unmounts
     return () => {
-      if (sampleBox) {
-        sampleBox.removeEventListener("click", () => {
-          const chatBox = document.querySelector(".sticky_chat");
-          if (chatBox) {
-            chatBox.click();
-          }
-        });
-      }
+      Array.from(elements).forEach((element) => {
+        element.removeEventListener("click", handleChatClick);
+      });
     };
-  }, []); // Empty dependency array to run only once after the initial render
-
+  }, []);
   return (
     <section data-section="product_detail" className="product_detail">
       <div className="square_box square_box_15"></div>
@@ -97,8 +69,8 @@ const ProductDetail = ({ product, collection }) => {
             </p>
             <div className="product_subContent">
               <div className="specified_links">
-                <Link href="/view-space">VIEW IN YOUR SPACE</Link>
-                <Link href="/spec-sheet">SPECIFICATION SHEET</Link>
+                <Link className="opacity0" href="/view-space">VIEW IN YOUR SPACE</Link>
+                <Link href={`${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${product.attributes.details.warranty.data.attributes.url}`} target="_blank">WARRENTY</Link>
                 <Link href="/locate-dealer">LOCATE DEALER</Link>
               </div>
               <div className="more_tiles">
@@ -122,7 +94,7 @@ const ProductDetail = ({ product, collection }) => {
 ))}
                 </div>
                 <div className="dFlex">
-                  <Link href="#" className="view_link purpleBg" id="makeInquery">
+                  <Link href="#" className="view_link purpleBg triggerChat" id="makeInquery">
                     <div className="link_cta">
                       <div className="arrow_bg">
                         <Image src="/images/icons/arrow-2.webp" alt="arrow" width={20} height={17} />
@@ -130,7 +102,7 @@ const ProductDetail = ({ product, collection }) => {
                       <span>MAKE AN <br />ENQUIRY</span>
                     </div>
                   </Link>
-                  <Link href="#" className="view_link purpleBg" id="sampleBox">
+                  <Link href="#" className="view_link purpleBg triggerChat" id="sampleBox">
                     <div className="link_cta">
                       <div className="arrow_bg">
                         <Image src="/images/icons/arrow-2.webp" alt="arrow" width={20} height={17} />

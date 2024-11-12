@@ -1,7 +1,32 @@
+"use client";
+import React, { useEffect } from "react";
 import Image from 'next/image';
 import Link from 'next/link';
 
 const AssistanceSection = () => {
+  useEffect(() => {
+    const handleChatClick = () => {
+      const chatBox = document.querySelector(".sticky_chat");
+      if (chatBox) {
+        chatBox.click();
+      }
+    };
+  
+    // Get elements by class name
+    const elements = document.getElementsByClassName("triggerChat");
+  
+    // Attach event listeners to each element
+    Array.from(elements).forEach((element) => {
+      element.addEventListener("click", handleChatClick);
+    });
+  
+    // Cleanup event listeners when component unmounts
+    return () => {
+      Array.from(elements).forEach((element) => {
+        element.removeEventListener("click", handleChatClick);
+      });
+    };
+  }, []);
   return (
     <section data-section="assistance" className="assistance">
       <div className="diamond_title">
@@ -20,7 +45,7 @@ const AssistanceSection = () => {
           <h3 className="subtitle_40">
             Schedule an Expert <br />Consultation
           </h3>
-          <Link href="#" className="view_link purpleBg">
+          <Link href="#" className="view_link purpleBg triggerChat">
             <div className="link_cta">
               <div className="arrow_bg">
                 <Image 
@@ -47,7 +72,7 @@ const AssistanceSection = () => {
           <h3 className="subtitle_40">
             Order a <br />Sample Box
           </h3>
-          <Link href="#" className="view_link purpleBg">
+          <Link href="#" className="view_link purpleBg triggerChat">
             <div className="link_cta">
               <div className="arrow_bg">
                 <Image 
