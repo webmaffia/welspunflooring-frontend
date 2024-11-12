@@ -6,6 +6,12 @@
 
 
 @media (min-width: 1023px) {
+
+    .lower_menu li .sub_lower {
+      
+        width: 235%;
+    
+    }
   
 .about_product .subtitle_60 {
     width: 29.167vw;
