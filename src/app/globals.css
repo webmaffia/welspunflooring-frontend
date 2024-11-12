@@ -6,6 +6,26 @@
 
 
 @media (min-width: 1023px) {
+    .blog_room .blog_room_img{
+hight:  26.979vw;
+    }
+
+    .blog_trends .blog_trend_item .blog_list_img {
+      width: 31.354vw;
+      height: 28.594vw;
+    }
+
+    .blog_room .subtitle_50 {
+        font-family: 'ArgentumSans-Light';
+        margin-bottom: 3.90625vw;
+        width: 30vw;
+        height: 9.5vw;
+    }
+
+    .blog_room .sub_list_container {
+     
+        flex-direction: row-reverse;
+    }
 
     .lower_menu li .sub_lower {
       
@@ -135,4 +155,8 @@ html::-webkit-scrollbar{width:7px;}
 
 .productSwiper2 .swiper-pagination-lock ,.productSwiper2 .swiper-button-lock{
     display: block;
+}
+
+.blog_trends .blog_trend_box{
+    height: auto;
 }
