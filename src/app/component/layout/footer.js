@@ -45,7 +45,7 @@ const Footer = () => {
       </div>
       <div className="footer_nav">
         <div className="nav_container">
-          <span className="nav_link"><a href="product-list.php" className="border_link">Product</a></span>
+          <span className="nav_link"><Link href="/products" className="border_link">Product</Link></span>
           <div className="sub_nav">
   <span className="nav_link">
     <Link href="/products/click-and-lock-wood" className="border_link" >

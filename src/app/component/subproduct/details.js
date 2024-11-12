@@ -1,9 +1,60 @@
-import React from 'react';
+"use client";
+import React, { useEffect } from "react";
 import Image from 'next/image';
 import Link from 'next/link';
 import ProductSlides from './slide';
 
 const ProductDetail = ({ product, collection }) => {
+  useEffect(() => {
+    // Ensure the element exists before adding the event listener
+    const makeInquery = document.getElementById("makeInquery");
+    if (makeInquery) {
+      makeInquery.addEventListener("click", () => {
+        const chatBox = document.querySelector(".sticky_chat");
+        if (chatBox) {
+          chatBox.click();
+        }
+      });
+    }
+
+    // Cleanup event listener when component unmounts
+    return () => {
+      if (makeInquery) {
+        makeInquery.removeEventListener("click", () => {
+          const chatBox = document.querySelector(".sticky_chat");
+          if (chatBox) {
+            chatBox.click();
+          }
+        });
+      }
+    };
+  }, []); // Empty dependency array to run only once after the initial render
+
+
+  useEffect(() => {
+    // Ensure the element exists before adding the event listener
+    const sampleBox = document.getElementById("sampleBox");
+    if (sampleBox) {
+      sampleBox.addEventListener("click", () => {
+        const chatBox = document.querySelector(".sticky_chat");
+        if (chatBox) {
+          chatBox.click();
+        }
+      });
+    }
+
+    // Cleanup event listener when component unmounts
+    return () => {
+      if (sampleBox) {
+        sampleBox.removeEventListener("click", () => {
+          const chatBox = document.querySelector(".sticky_chat");
+          if (chatBox) {
+            chatBox.click();
+          }
+        });
+      }
+    };
+  }, []); // Empty dependency array to run only once after the initial render
 
   return (
     <section data-section="product_detail" className="product_detail">
@@ -71,7 +122,7 @@ const ProductDetail = ({ product, collection }) => {
 ))}
                 </div>
                 <div className="dFlex">
-                  <Link href="/make-enquiry" className="view_link purpleBg">
+                  <Link href="#" className="view_link purpleBg" id="makeInquery">
                     <div className="link_cta">
                       <div className="arrow_bg">
                         <Image src="/images/icons/arrow-2.webp" alt="arrow" width={20} height={17} />
@@ -79,7 +130,7 @@ const ProductDetail = ({ product, collection }) => {
                       <span>MAKE AN <br />ENQUIRY</span>
                     </div>
                   </Link>
-                  <Link href="/order-sample" className="view_link purpleBg">
+                  <Link href="#" className="view_link purpleBg" id="sampleBox">
                     <div className="link_cta">
                       <div className="arrow_bg">
                         <Image src="/images/icons/arrow-2.webp" alt="arrow" width={20} height={17} />

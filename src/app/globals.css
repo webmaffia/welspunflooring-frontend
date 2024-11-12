@@ -118,3 +118,10 @@
  
     text-transform: capitalize;
 }
+
+html::-webkit-scrollbar-thumb{background:#1e148f}
+html::-webkit-scrollbar{width:7px;}
+
+.border_link{
+    cursor: pointer;
+}
