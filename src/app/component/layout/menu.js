@@ -98,12 +98,12 @@ const Menu = ({ closeMenu }) => {
           <ul className="dFlex">
         
            
-            <li className="opacity0">
+            {/* <li className="opacity0">
               <Link href="/" className="menu_link border_link" onClick={closeMenu}>
                 <Image src="/images/icons/download.webp" alt="Download Icon" width={33} height={37} />
                 <span>DOWNLOADS</span>
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link href="/" className="menu_link border_link" id="bookConsultant" onClick={closeMenu}>
                 <Image src="/images/icons/consultant.webp" alt="Consultant Icon" width={33} height={37} />
