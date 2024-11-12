@@ -88,7 +88,7 @@ const VideoGuide = () => {
                                     width="1130"
                                     height="666"
                                     loop
-                                    muted
+                                    
                                     style={{ display: isVideoPlaying ? 'block' : 'none' }}
                                 >
                                     <source src="/videos/Welspun_Flooring_Furniture.mp4" type="video/mp4" />
