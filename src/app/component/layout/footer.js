@@ -64,7 +64,7 @@ const Footer = () => {
   </span>
   <span className="nav_link">
     <Link href="/products/wall-to-wall-carpet" className="border_link" >
-      Wall To Wall
+      Wall To Wall Carpet
     </Link>
   </span>
   <span className="nav_link">

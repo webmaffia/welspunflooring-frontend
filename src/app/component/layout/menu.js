@@ -157,7 +157,7 @@ const Menu = ({ closeMenu }) => {
               </li>
               <li>
                 <Link href="/products/wall-to-wall-carpet" className="border_link" onClick={closeMenu}>
-                  WALL TO WALL
+                  WALL TO WALL CARPET
                 </Link>
               </li>
               <li>
