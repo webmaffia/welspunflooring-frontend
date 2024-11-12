@@ -84,6 +84,8 @@ const Footer = () => {
         <div className="nav_container">
           <span className="nav_link"><Link href="/about-us" className="border_link">About Us</Link></span>
           <span className="nav_link"><Link href="/applications" className="border_link">Spaces Recreated</Link></span>
+          <span className="nav_link"><Link href="/warranty" className="border_link">Warranty</Link></span>
+          
           {/* <span className="nav_link"><a href="blog.php" className="border_link">Blog</a></span> */}
           {/* <span className="nav_link"><a href="" className="border_link">Video Guide</a></span>
           <span className="nav_link"><a href="" className="border_link">Visualiser</a></span>

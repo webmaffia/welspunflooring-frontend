@@ -183,6 +183,13 @@ const Menu = ({ closeMenu }) => {
             ABOUT WELSPUN FLOORING
           </Link>
         </li>
+        <li>
+          <Link href="/warranty" className="border_link" onClick={closeMenu}>
+            WARRANTY
+          </Link>
+        </li>
+
+        
       </ul>
     </div>
   );
