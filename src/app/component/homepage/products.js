@@ -1,7 +1,6 @@
-"use client";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Thumbs, Autoplay } from 'swiper/modules';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import 'swiper/swiper-bundle.css';
 import Link from 'next/link';
 
@@ -9,6 +8,10 @@ const ProductsSection = ({ productData, productImage }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const heading = productData[0].heading;
   const slides = productImage[0].slide;
+
+  // Ref for navigation buttons
+  const prevRef = useRef(null);
+  const nextRef = useRef(null);
 
   return (
     <section className="products cursor_img" data-section="products">
@@ -35,11 +38,10 @@ const ProductsSection = ({ productData, productImage }) => {
             {/* Swiper for product images */}
             <Swiper
               onSwiper={setThumbsSwiper}
-              modules={[Thumbs, Autoplay]}
               loop={true}
               speed={1400}
-              autoplay={{ delay: 3000, disableOnInteraction: false }}
               simulateTouch={false}
+              modules={[Thumbs, Autoplay]}
               className="productSwiper trigger_1 swiper-no-swiping"
             >
               {slides.map((slide, index) => (
@@ -61,25 +63,27 @@ const ProductsSection = ({ productData, productImage }) => {
               spaceBetween={100}
               slidesPerView={1}
               navigation={{
-                prevEl: '.swiper-prev',
-                nextEl: '.swiper-next',
+                prevEl: prevRef.current,
+                nextEl: nextRef.current,
               }}
               pagination={{
                 el: '.swiper_pagination',
                 type: 'fraction',
+                clickable: true,
               }}
               thumbs={{ swiper: thumbsSwiper }}
-              modules={[Navigation, Pagination, Thumbs, Autoplay]}
-              autoplay={{ delay: 3000, disableOnInteraction: false }}
+              observer={true}
+              observeParents={true}
+              modules={[Navigation, Pagination, Thumbs]}
               className="productSwiper2 trigger_1 swiper_bg"
             >
               <div className="swiper-tool">
                 <div className="swiper_pagination"></div>
                 <div className="swiper_button">
-                  <div className="swiper-prev swiper_arrow">
+                  <div ref={prevRef} className="swiper-prev swiper_arrow">
                     <img src="/images/icons/arrow.webp" alt="" width="28" height="13" />
                   </div>
-                  <div className="swiper-next swiper_arrow">
+                  <div ref={nextRef} className="swiper-next swiper_arrow">
                     <img src="/images/icons/arrow.webp" alt="" width="28" height="13" />
                   </div>
                 </div>
