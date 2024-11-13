@@ -19,11 +19,26 @@ export default function LocateDealersPage() {
 
       if (dealersData.length > 0) {
         const firstDealer = dealersData[0].attributes;
-        const mapUrl = firstDealer.googleMap
-          ? `https://www.google.com/maps/embed?pb=${firstDealer.googleMap}`
-          : firstDealer.maplink;
+        let mapUrl;
+      
+        // Check if googleMap exists
+        if (firstDealer.googleMap) {
+          mapUrl = `https://www.google.com/maps/embed?pb=${firstDealer.googleMap}`;
+        } else if (firstDealer.maplink) {
+          // Remove HTML tags and 'pb=' from the maplink if googleMap doesn't exist
+          const cleanedLink = firstDealer.maplink.replace(/<[^>]*>/g, "").replace('pb=', '');
+      
+          // If cleanedLink exists, use it in the embed URL format, else fallback to 404 image
+          mapUrl = cleanedLink ? `https://www.google.com/maps/embed?${cleanedLink}` : "/images/404.png";
+        } else {
+          // Fallback to 404 image if neither googleMap nor maplink is available
+          mapUrl = "/images/404.png";
+        }
+      
         setSelectedMap(mapUrl);
       }
+      
+      
     }
 
     loadDealers();
@@ -42,59 +57,24 @@ export default function LocateDealersPage() {
     setNearbyMessage("");  // Clear any previous nearby message on search
   };
 
-  // Haversine formula to calculate distance in km
-  const getDistanceFromLatLonInKm = (lat1, lon1, lat2, lon2) => {
-    const R = 6371; // Radius of the earth in km
-    const dLat = (lat2 - lat1) * (Math.PI / 180);
-    const dLon = (lon2 - lon1) * (Math.PI / 180);
-    const a =
-      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-      Math.cos(lat1 * (Math.PI / 180)) *
-        Math.cos(lat2 * (Math.PI / 180)) *
-        Math.sin(dLon / 2) *
-        Math.sin(dLon / 2);
-    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    return R * c;
-  };
-
-  const handleNearMeClick = () => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const userLat = position.coords.latitude;
-          const userLng = position.coords.longitude;
-
-          const nearbyDealers = dealers.filter((dealer) => {
-            const dealerLat = parseFloat(dealer.attributes.latitude);
-            const dealerLng = parseFloat(dealer.attributes.longitude);
-
-            const distance = getDistanceFromLatLonInKm(userLat, userLng, dealerLat, dealerLng);
-            return distance <= 100; // Dealers within 100 km
-          });
-
-          setFilteredDealers(nearbyDealers);
-          setNearbyMessage(
-            nearbyDealers.length === 0
-              ? "No dealers found within 100km of your location."
-              : ""
-          );
-        },
-        (error) => {
-          console.error("Error retrieving location:", error);
-          alert("Unable to retrieve your location. Please enable location services and try again.");
-        }
-      );
+  const handleDirectionClick = (googleMap, maplink) => {
+    // If googleMap exists, use the Google Maps embed URL
+    if (googleMap) {
+      setSelectedMap(`https://www.google.com/maps/embed?pb=${googleMap}`);
+    } else if (maplink) {
+      // Remove HTML tags and 'pb=' from the URL if maplink exists
+      const otherLink = maplink.replace(/<[^>]*>/g, "");
+      const cleanedLink = otherLink.replace('pb=', '');
+      
+      // Use the cleanedLink as an embed URL, or fallback to 404 image if invalid
+      setSelectedMap(cleanedLink ? `https://www.google.com/maps/embed?pb=${cleanedLink}` : "/images/404.png");
     } else {
-      alert("Geolocation is not supported by your browser.");
+      // Fallback to 404 image if neither googleMap nor maplink is available
+      setSelectedMap("/images/404.png");
     }
   };
-
-  const handleDirectionClick = (googleMap, maplink) => {
-    const mapUrl = googleMap
-      ? `https://www.google.com/maps/embed?pb=${googleMap}`
-      : maplink;
-    setSelectedMap(mapUrl);
-  };
+  
+  
 
   return (
     <div className="product_wrapper">
@@ -128,18 +108,6 @@ export default function LocateDealersPage() {
                     <span>SEARCH <br /> DEALERS</span>
                   </div>
                 </button>
-                {/* <button
-                  type="button"
-                  onClick={handleNearMeClick}
-                  className="cta_deal greyBg"
-                >
-                  <div className="link_cta">
-                    <div className="arrow_bg">
-                      <img src="/images/icons/download_black.webp" alt="" width="17" height="26" />
-                    </div>
-                    <span>DEALERS <br /> NEAR ME</span>
-                  </div>
-                </button> */}
               </label>
             </form>
           </div>
@@ -154,8 +122,7 @@ export default function LocateDealersPage() {
                   <div className="address_locate_detail">
                     <div className="address_locate_title">{dealer.attributes.OutletName}</div>
                     <div className="address_locate_para">
-                      {dealer.attributes.address}, {dealer.attributes.billingCity}, {dealer.attributes.stateName} {dealer.attributes.pincode} <br />
-                      {dealer.attributes.billingCity}, {dealer.attributes.stateName} {dealer.attributes.pincode}
+                      {dealer.attributes.address} <br />
                     </div>
                   </div>
                   <button
@@ -177,16 +144,22 @@ export default function LocateDealersPage() {
         </div>
 
         <div className="locate_map">
+
+       
           {selectedMap && filteredDealers.length > 0 && (
-            <iframe
-              src={selectedMap}
-              width="600"
-              height="450"
-              style={{ border: 0 }}
-              allowFullScreen=""
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
+            selectedMap === "/images/404.png" ? (
+              <div class="not_map"><span>Map Not Available</span></div>
+            ) : (
+              <iframe
+                src={selectedMap}
+                width="600"
+                height="450"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            )
           )}
         </div>
       </section>
