@@ -401,14 +401,14 @@ export default async function ProductPage({ params }) {
           <div className="blog_text">
             <span>{blog.publishDate}</span>
           </div>
-          <a href={blog.url}>
+          <Link href={`/blog/${blog.url}`}>
             <Image
               src={`${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${blog.thumbnail?.data?.attributes?.url}`}
               alt={blog.altText}
               width={381}
               height={381}
             />
-          </a>
+          </Link>
         </div>
         <h3 className="blog_title">
           {console.log(blog.heading)}
@@ -420,7 +420,7 @@ export default async function ProductPage({ params }) {
     </p>
   ))}
 </h3>
-        <a href={blog.url} className="view_link cursor_cta purpleBg">
+        <Link href={`/blog/${blog.url}`} className="view_link cursor_cta purpleBg">
           <div className="link_cta">
             <div className="arrow_bg">
               <Image
@@ -432,7 +432,7 @@ export default async function ProductPage({ params }) {
             </div>
             <span>READ MORE</span>
           </div>
-        </a>
+        </Link>
       </div>
     ))}
   </div>
