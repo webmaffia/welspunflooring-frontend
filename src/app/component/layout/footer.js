@@ -24,18 +24,15 @@ const Footer = () => {
         <address>
             Corporate Office <br />
             <span>
-                Welspun House <br />
-                6th Floor, Kamala Mills Compound, <br />
-                Senapati Bapat Marg, Lower Parel, <br />
-                Mumbai 400 013, India
+                Welspun House 6th Floor, Kamala Mills Compound, <br />
+                Senapati Bapat Marg, Lower Parel, Mumbai 400 013, India
             </span>
         </address>
         <address>
-            Manufacturing and Plant <br />
+            Manufacturing Plant <br />
             <span>
-                Survey No - 190, Village - Chandanvelly, <br />
-                Mandal - Shabad,Chandanvelly, Ranga Reddy, <br />
-                Telangana, 501503
+                Survey No - 190, Village - Chandanvelly, Mandal - Shabad,<br />
+                Chandanvelly, Ranga Reddy, Telangana, 501503
             </span>
         </address>
         <address>
@@ -45,10 +42,10 @@ const Footer = () => {
                 5th Avenue,New York 10016, U.S.A.
             </span>
         </address>
-        <div className="contact_link">
+        <div class="contact_link">
             <a href="tel:+18001201161">1800-120-1161</a>
         </div>
-        <div className="contact_link">
+        <div class="contact_link">
             <a href="mailto:contact_flooring@welspun.com">contact_flooring@welspun.com</a>
         </div>
       </div>
