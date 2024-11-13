@@ -1,12 +1,14 @@
 // blogData.js
-
-export async function fetchBlogData(slug) {
+export const fetchBlogData = async () => {
     try {
-        const response = await fetch(`https://welspun-cms.webmaffia.com/api/blogs?filters[slug][$eq]=${slug}&populate=*`);
+        const response = await fetch("https://welspun-cms.webmaffia.com/api/blogs?populate=*");
+        if (!response.ok) {
+            throw new Error("Network response was not ok");
+        }
         const data = await response.json();
-        return data?.data?.[0] || null;
+        return data;
     } catch (error) {
-        console.error("Error fetching blog data:", error);
+        console.error("Error fetching blogs:", error);
         return null;
     }
-}
+};
