@@ -22,25 +22,34 @@ const Footer = () => {
         </form>
       
         <address>
-          Corporate Office and Plant <br />
-          <span>
-            Survey No - 190, Village - Chandanvelly, <br />
-            Mandal - Shabad, Chandanvelly, Ranga Reddy, <br />
-            Telangana, 501503
-          </span>
+            Corporate Office <br />
+            <span>
+                Welspun House <br />
+                6th Floor, Kamala Mills Compound, <br />
+                Senapati Bapat Marg, Lower Parel, <br />
+                Mumbai 400 013, India
+            </span>
         </address>
         <address>
-          USA Office <br />
-          <span>
-            Suite No. 1118-1120, 295 Textile Building, <br />
-            5th Avenue, New York 10016, U.S.A.
-          </span>
+            Manufacturing and Plant <br />
+            <span>
+                Survey No - 190, Village - Chandanvelly, <br />
+                Mandal - Shabad,Chandanvelly, Ranga Reddy, <br />
+                Telangana, 501503
+            </span>
+        </address>
+        <address>
+            USA Office <br />
+            <span>
+                Suite No. 1118-1120, 295 Textile Building, <br />
+                5th Avenue,New York 10016, U.S.A.
+            </span>
         </address>
         <div className="contact_link">
-          <a href="tel:+18001201161">1800-120-1161</a>
+            <a href="tel:+18001201161">1800-120-1161</a>
         </div>
         <div className="contact_link">
-          <a href="mailto:contact_flooring@welspun.com">contact_flooring@welspun.com</a>
+            <a href="mailto:contact_flooring@welspun.com">contact_flooring@welspun.com</a>
         </div>
       </div>
       <div className="footer_nav">
