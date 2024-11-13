@@ -1,3 +1,4 @@
+import Link from "next/link";
 import AboutHistory from "../component/about/history";
 import ContactForm from "../component/homepage/contactus";
 
@@ -37,17 +38,17 @@ export default function AboutPage() {
                         The growing rate of urbanization, the shift in lifestyle choices, and the <br />
                         inclusion of smart living solutions have created a big avenue for flooring <br />
                         solutions. Welspun Flooring is an innovative, solutions-driven company that is <br />
-                        a part of the Welspun Group.
+                        a part of the Welspun World.
                     </div>
                     <div className="floor_para">
-                        The company has a strong foothold owing to its state-of-the-art <br />
-                        manufacturing facility spread over 300 acres in Hyderabad, and an investment <br />
-                        of more than RI 150 crores. Welspun Flooring is recognized as a pioneer in <br />
-                        SPC flooring, meeting a diverse range of flooring needs for residential, <br />
-                        commercial, and hospitality spaces worldwide. We are the only company in <br />
-                        India equipped with all the latest technology for both soft and hard flooring <br />
-                        under one roof. So, be it modern living room floor tiles, outdoor floor tiles, or <br />
-                        floor tile designs for any other residential or commercial space, we've got an <br />
+                        The company has a strong foothold owing to its state-of-the-art 
+                        manufacturing facility spread over 300 acres in Hyderabad, and an investment 
+                        of more than RS 1150+ Cr. Welspun Flooring is recognized as a pioneer in 
+                        SPC (Stone plastic Composite) flooring, meeting a diverse range of flooring needs 
+                        for residential,commercial, and hospitality spaces worldwide. We are the only company in
+                        India equipped with all the latest technology for both soft and hard flooring 
+                        under one roof. So, be it modern living room floor tiles, outdoor floor tiles, or 
+                        floor tile designs for any other residential or commercial space, we've got an 
                         array of flooring solutions to offer.
                     </div>
                     <div className="about_diamond">
@@ -88,14 +89,15 @@ export default function AboutPage() {
                 that the future of flooring is <br />
                 now and here!
             </div>
-            <a href="" className="view_link purpleBg">
+            
+            <Link href="/products" className="view_link purpleBg">
                 <div className="link_cta">
                     <div className="arrow_bg">
                         <img src="/images/icons/arrow-2.webp" alt="" width="20" height="17" />
                     </div>
                     <span>EXPLORE OUR PRODUCTS</span>
                 </div>
-            </a>
+            </Link>
         </div>
     </div>
     <div className="square_box square_box_20"></div>
@@ -118,7 +120,7 @@ export default function AboutPage() {
             <div className="leader_content">
                 <div className="border_diamond"></div>
                 <div className="leader_name">Balkrishan Goenka</div>
-                <div className="leader_designation">Chairman, Welspun Group</div>
+                <div className="leader_designation">Chairman, Welspun World</div>
             </div>
         </div>
         <div className="leader_box">
