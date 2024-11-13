@@ -21,6 +21,7 @@ export default function BlogList({ blogs }) {
               </div>
               <div className="trends">{item.attributes.blog_category?.data?.attributes?.name}</div>
             </div>
+            <Link href={`blog/${item.attributes.slug}`}>
             <Image 
               src={`${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${item.attributes.featuredImage?.data?.attributes?.url}`}
               alt="Blog featured image" 
@@ -28,7 +29,10 @@ export default function BlogList({ blogs }) {
               width={602} 
               height={549} 
             />
+             </Link>
+             <Link href={`blog/${item.attributes.slug}`}>
             <h2 className="subtitle_30">{item.attributes.Title}</h2>
+            </Link>
             <p>{item.attributes.shortSummary}</p>
             <Link href={`blog/${item.attributes.slug}`}>
               <div className="view_link purpleBg">

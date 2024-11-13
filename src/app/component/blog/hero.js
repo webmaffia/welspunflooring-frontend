@@ -13,9 +13,11 @@ export default function HeroBlog({blogs}) {
           {/* <span>|</span>
           <span>10 min read</span> */}
         </div>
+        <Link href={`blog/${blog.attributes.slug}`}>
         <h2 className="subtitle_50">
          {blog.attributes.Title}
         </h2>
+        </Link>
         <div className="sub_list_container">
           {/* <div className="trends">Trends</div> */}
           <p>
@@ -38,6 +40,7 @@ export default function HeroBlog({blogs}) {
           </div>
         </Link>
       </div>
+      <Link href={`blog/${blog.attributes.slug}`}>
       <Image 
        src={`${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${blog.attributes.featuredImage.data.attributes.url}`}
         alt="Blog Room" 
@@ -45,6 +48,7 @@ export default function HeroBlog({blogs}) {
         width={771} 
         height={518} 
       />
+      </Link>
     </div>
   );
 }
