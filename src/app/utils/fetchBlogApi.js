@@ -1,22 +1,23 @@
-// lib/fetchBlogData.js
+// utils/fetchBlogs.js
 
-export async function fetchBlogData() {
-    const apiUrl = 'https://welspun-cms.webmaffia.com/api/blogs?populate=*';
-  
-    try {
-      const response = await fetch(apiUrl);
-  
-      if (!response.ok) {
-        throw new Error('Failed to fetch blog data');
-      }
-  
-      const blogData = await response.json();
-      const data = blogData.data
-
+export const fetchAllBlogs = async () => {
+  try {
+      const response = await fetch("https://welspun-cms.webmaffia.com/api/blogs?populate=*");
+      const data = await response.json();
       return data;
-    } catch (error) {
-      console.error('Error fetching blog data:', error);
-      return { error: error.message }; // return an error message if something goes wrong
-    }
+  } catch (error) {
+      console.error("Error fetching all blogs:", error);
+      return null;
   }
-  
+};
+
+export const fetchBlogBySlug = async (slug) => {
+  try {
+      const response = await fetch(`https://welspun-cms.webmaffia.com/api/blogs?filters[slug][$eq]=${slug}&populate[blocks][populate]=image`);
+      const data = await response.json();
+      return data?.data?.[0] || null;
+  } catch (error) {
+      console.error("Error fetching blog by slug:", error);
+      return null;
+  }
+};

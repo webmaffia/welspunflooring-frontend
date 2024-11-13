@@ -184,6 +184,11 @@ const Menu = ({ closeMenu }) => {
           </Link>
         </li>
         <li>
+          <Link href="/blog" className="border_link" onClick={closeMenu}>
+            Blog
+          </Link>
+        </li>
+        <li>
           <Link href="/warranty" className="border_link" onClick={closeMenu}>
             WARRANTY
           </Link>

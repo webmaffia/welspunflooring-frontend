@@ -1,5 +1,6 @@
 "use client"
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState } from 'react';
 
 const BlogSection = ({blogs}) => {
@@ -100,7 +101,8 @@ console.log(blogs)
                 {/* <span>|</span> */}
                 {/* <span>{blog.readTime}</span> */}
               </div>
-              <a href={blog.url}>
+              
+              <Link href={`blog/${blog.url}`}>
                 <Image
                 src={`${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${blog?.thumbnail?.data?.attributes?.url}`} 
              
@@ -108,7 +110,7 @@ console.log(blogs)
                   width={381}
                   height={381}
                 />
-              </a>
+              </Link>
             </div>
             <h3 className="blog_title">
             {blog.heading.map((paragraph, index) => (
@@ -119,7 +121,7 @@ console.log(blogs)
                     </p>
                   ))}
             </h3>
-            <a href={blog.url} className="view_link cursor_cta purpleBg">
+            <Link href={`blog/${blog.url}`} className="view_link cursor_cta purpleBg">
               <div className="link_cta">
                 <div className="arrow_bg">
                   <Image
@@ -131,7 +133,7 @@ console.log(blogs)
                 </div>
                 <span>READ MORE</span>
               </div>
-            </a>
+            </Link>
           </div>
         ))}
       </div>

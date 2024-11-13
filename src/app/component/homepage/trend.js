@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 const TrendingSection = () => {
   return (
@@ -24,7 +25,7 @@ const TrendingSection = () => {
         height={755}
       />
       
-      <a href="" className="view_link cursor_cta purpleBg">
+      <Link href="/blog" className="view_link cursor_cta purpleBg">
         <div className="link_cta">
           <div className="arrow_bg">
             <Image
@@ -36,7 +37,7 @@ const TrendingSection = () => {
           </div>
           <span>DISCOVER MORE</span>
         </div>
-      </a>
+      </Link>
     </section>
   );
 };
