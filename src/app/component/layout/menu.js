@@ -185,7 +185,7 @@ const Menu = ({ closeMenu }) => {
         </li>
         <li>
           <Link href="/blog" className="border_link" onClick={closeMenu}>
-            Blog
+            BLOG
           </Link>
         </li>
         <li>
