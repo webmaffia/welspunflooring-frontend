@@ -71,11 +71,13 @@ export default function HomePageClient() {
 
   const partnerSection = allData.filter((section) => section.__component === "sections.partners");
 
+  const threeFold = allData.filter((section) => section.__component === "sections.three-fold");
+
   const handleImageLoad = () => {
     setImageLoading(false); // Hide the loader once the image is loaded
   };
 
-  console.log(partnerSection[0]?.partnerLogo); // Check if data exists
+  // Check if data exists
 
   if (loading) {
     return (
@@ -135,7 +137,7 @@ export default function HomePageClient() {
       ) : (
         <p>No partner data available</p>
       )}
-      <EmiSection />
+      <EmiSection threeFold={threeFold} />
       <InspirationSection />
       <TrendingSection />
       <BlogSection blogs={blogdata} />

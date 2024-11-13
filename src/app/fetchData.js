@@ -2,7 +2,7 @@
 
 export async function getHomepageData(segment) {
     try {
-      const res = await fetch(`https://welspun-cms.webmaffia.com/api/homepage?populate[${segment}][populate]=slide.slideImage,slide.slideBg,slide.slideMobileBg,slide.image,slide.productSlug,slide.brochurePdf,space.image,images.images,images.mobileImages,testimonial.posterImage,testimonial.image,image,partnerLogo.images,partnerLogo.mobileImages,content.images,content.mobileImages,blog.thumbnail,heading`, {
+      const res = await fetch(`https://welspun-cms.webmaffia.com/api/homepage?populate[${segment}][populate]=slide.slideImage,slide.slideBg,slide.slideMobileBg,slide.image,slide.productSlug,slide.brochurePdf,space.image,images.images,images.mobileImages,testimonial.posterImage,testimonial.image,image,partnerLogo.images,partnerLogo.mobileImages,content.images,content.mobileImages,blog.thumbnail,heading,section,section.image,section.cta`, {
         cache: 'no-store',
       });
       

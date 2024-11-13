@@ -9,7 +9,7 @@ const BlogSection = ({blogs}) => {
   // Ensure blogs contains data, otherwise set defaults
   const blogSection = blogs && blogs.length > 0 ? blogs[0] : null;
 
-console.log(blogs)
+
   // const blogs = [
   //   {
   //     id: 1,
