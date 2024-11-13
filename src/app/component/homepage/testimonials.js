@@ -5,17 +5,9 @@ import { Navigation, Pagination, Thumbs } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css'; // Import Swiper styles
 
-// Install modules
-
-
-
-
 const TestimonialSection = ({testimonial}) => {
-   
     const [testimonialSwiper, setTestimonialSwiper] = useState(null);
-  
-
-    const testimonials = testimonial[0]
+    const testimonials = testimonial[0];
 
     return (
         <section className="testimonial_section video_section cursor_img" data-section="testimonial_section">
@@ -39,6 +31,14 @@ const TestimonialSection = ({testimonial}) => {
                         className="testimonial"
                         loop={true}
                         speed={1400}
+                        autoplay={{
+                            delay: 3000, // Auto-play delay in milliseconds
+                            disableOnInteraction: false, // Keeps autoplay running even after manual interaction
+                        }}
+                        pagination={{
+                            clickable: true, // Enable pagination control click
+                            type: 'fraction', // Show fraction pagination (e.g., "1/10")
+                        }}
                         onSwiper={setTestimonialSwiper}
                         onSlideChange={() => {
                             // Pause all videos when slide changes
@@ -48,8 +48,8 @@ const TestimonialSection = ({testimonial}) => {
                                 video.currentTime = 0;
                             });
                         }}
-                  
-                        modules={[Navigation, Thumbs]}
+                        modules={[Navigation, Pagination, Thumbs]} // Add Pagination here
+                        simulateTouch={false} // Disable mouse swipe
                     >
                         {testimonials.testimonial.map((testimonial, index) => (
                             <SwiperSlide key={index}>
@@ -61,12 +61,6 @@ const TestimonialSection = ({testimonial}) => {
                                         width="1023"
                                         height="661"
                                     />
-                                    {/* <a href="" className="click_btn">
-                                        <img src="images/icons/play_button.webp" alt="" width="109" height="109" />
-                                    </a>
-                                    <video width="1023" height="661" loop muted>
-                                        <source src={testimonial.video} type="video/mp4" />
-                                    </video> */}
                                 </div>
                             </SwiperSlide>
                         ))}
@@ -78,40 +72,38 @@ const TestimonialSection = ({testimonial}) => {
                         spaceBetween={100}
                         speed={1400}
                         thumbs={{ swiper: testimonialSwiper }}
-               
                         navigation={{
                             prevEl: ".swiper-prev",
                             nextEl: ".swiper-next",
                         }}
                         modules={[Navigation, Thumbs]}
+                        simulateTouch={false} // Disable mouse swipe
                     >
-                         <div className="swiper-tool">
-                        <div className="swiper_button">
-                            <div className="swiper-prev swiper_arrow">
-                                <img src="images/icons/arrow.webp" alt="Previous" width="28" height="13" />
-                            </div>
-                            <div className="swiper-next swiper_arrow">
-                                <img src="images/icons/arrow.webp" alt="Next" width="28" height="13" />
+                        <div className="swiper-tool">
+                            <div className="swiper_button">
+                                <div className="swiper-prev swiper_arrow">
+                                    <img src="images/icons/arrow.webp" alt="Previous" width="28" height="13" />
+                                </div>
+                                <div className="swiper-next swiper_arrow">
+                                    <img src="images/icons/arrow.webp" alt="Next" width="28" height="13" />
+                                </div>
                             </div>
                         </div>
-                    </div>
                         {testimonials.testimonial.map((testimonial, index) => (
                             <SwiperSlide key={index}>
                                 <p>
-
-                                {testimonial.description.map((item, index) => (
-  <div key={index}>
-    {item.children.map((child, childIndex) => (
-      <span key={childIndex}>{child.text}</span>
-    ))}
-  </div>
-))}
+                                    {testimonial.description.map((item, index) => (
+                                        <div key={index}>
+                                            {item.children.map((child, childIndex) => (
+                                                <span key={childIndex}>{child.text}</span>
+                                            ))}
+                                        </div>
+                                    ))}
                                 </p>
                                 <h3 className="subtitle_50">{testimonial.testimonialName}</h3>
                             </SwiperSlide>
                         ))}
                     </Swiper>
-                   
                 </div>
             </div>
             <img src="/images/icons/inverted.webp" alt="" className="inverted_img" width="389" height="289" />

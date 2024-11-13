@@ -23,12 +23,13 @@ export default function warrantyPage() {
         <h2 className="diamond diamond_blue">WARRANTY & MAINTENANCE</h2>
         <div className="title_container">
             <div className="install_para">
-                and also provide self-declaration on the AROGYA SETU app about their health <br />
-                conditions. They are trained to exercise personal hygiene at all times which <br />
-                includes the use of face masks, hand sanitizers and PPE kits. The entire <br />
-                flooring installation process is carried out in complete adherence to social <br />
-                distancing protocols and precautionary measures to ensure utmost safety- <br />
-                both for our customers and our installers.
+            Our products come with a robust warranty to guarantee their
+durability and performance over time. This warranty covers defects in materials
+and manufacturing, ensuring that your investment is protected. To keep your products
+looking their best, we offer maintenance guidelines that include regular
+cleaning, stain removal, and proper installation practices. With proper care,
+our products are designed to maintain their appearance and functionality for
+years, making them a practical and cost-effective choice for your space.
             </div>
             <div className="about_diamond">
                 <div className="border_diamond"></div>
