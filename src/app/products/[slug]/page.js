@@ -261,7 +261,7 @@ export default async function ProductPage({ params }) {
 
 
 
-<section
+{/* <section
   data-section="product_floor"
   className={`product_floor ${product?.attributes?.trademark?.sectionName ? '' : 'trademark'}`}
 >
@@ -315,11 +315,11 @@ export default async function ProductPage({ params }) {
       <span>Discover your flooring</span>
     </a>
   </div>
-</section>
+</section> */}
 
-
+{/* 
 <Visualiser visuliserData={visuliserSection} />
-
+ */}
 
 
 
