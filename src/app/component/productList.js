@@ -20,7 +20,7 @@ const ProductsList = ({ productsByCategory }) => {
     setSelectedCollection(collectionFromUrl);
   
     // Expand category view if collection is selected in the URL
-    if (categoryFromUrl && collectionFromUrl) {
+    if (categoryFromUrl) {
       setExpandedCategories((prev) => ({
         ...prev,
         [categoryFromUrl]: true,
