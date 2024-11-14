@@ -120,6 +120,13 @@ hight:  26.979vw;
         font-size: 3.38164251208vw;
         gap: 2.4154589372vw;
     }
+    .installation_steps .steps_container .steps_detail{
+        display: block;
+        height: auto !important;
+    }
+    .product_list .product_container .product_tile_box {
+        height: auto !important;
+    }
 }
 
 .loading_section{
@@ -163,4 +170,9 @@ html::-webkit-scrollbar{width:7px;}
 }
 .square_box_21,.square_box_20{
     right: 0;
+}
+
+.installation_steps .steps_container .steps_detail{
+    display: block;
+    height: 90vh;
 }

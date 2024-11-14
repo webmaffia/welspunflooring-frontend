@@ -105,6 +105,7 @@ const Footer = () => {
           <span className="nav_link"><Link href="/sustainability" className="border_link">Sustainability</Link></span>
           <span className="nav_link"><Link href="/products" className="border_link">Catalogues</Link></span>
           <span className="nav_link"><Link href="locate-dealer" className="border_link">Locate Dealer</Link></span>
+          <span className="nav_link"><Link href="installation" className="border_link">Installation</Link></span>
           <span className="nav_link"><Link href="/privacy-policy" className="border_link">Privacy Policy</Link></span>
           <span className="nav_link"><Link href="/terms-and-condition" className="border_link">Terms & Conditions</Link></span>
           {/* <span className="nav_link"><a href="" className="border_link">Certifications</a></span>
