@@ -35,10 +35,10 @@ const TestimonialSection = ({testimonial}) => {
                             delay: 3000, // Auto-play delay in milliseconds
                             disableOnInteraction: false, // Keeps autoplay running even after manual interaction
                         }}
-                        pagination={{
-                            clickable: true, // Enable pagination control click
-                            type: 'fraction', // Show fraction pagination (e.g., "1/10")
-                        }}
+                        // pagination={{
+                        //     clickable: true, // Enable pagination control click
+                        //     type: 'fraction', // Show fraction pagination (e.g., "1/10")
+                        // }}
                         onSwiper={setTestimonialSwiper}
                         onSlideChange={() => {
                             // Pause all videos when slide changes
