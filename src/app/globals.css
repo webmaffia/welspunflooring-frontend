@@ -196,3 +196,11 @@ html::-webkit-scrollbar{width:7px;}
 .lower_menu li:last-child:after{
     display: none;
 }
+
+.viewMoreParent{
+    text-align: center;
+}
+
+.viewMoreParent button {
+    cursor: pointer;
+}
