@@ -25,7 +25,8 @@ const Footer = () => {
             Corporate Office <br />
             <span>
                 Welspun House 6th Floor, Kamala Mills Compound, <br />
-                Senapati Bapat Marg, Lower Parel, Mumbai 400 013, India
+                Senapati Bapat Marg, Lower Parel, Mumbai 400 013, India<br />
+                +91 22 66136000 / 24908000
             </span>
         </address>
         <address>
