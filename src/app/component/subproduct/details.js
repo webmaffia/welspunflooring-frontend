@@ -76,7 +76,7 @@ const ProductDetail = ({ product, collection }) => {
               <div className="more_tiles">
                 <div className="tiles_view">
                   <div className="tiles_name">More From {product.attributes.category.data.attributes.collectionName}</div>
-                  <Link href="/product-list">View More</Link>
+                  <Link href={`/products?category=${product.attributes.category.data.attributes.product.data.attributes.slug}&collection=${product.attributes.category.data.attributes.collectionName}`}>View More</Link>
                 </div>
                 <div className="tiles_detail">
                   {collection.slice(0, 14).map((tile, index) => (
