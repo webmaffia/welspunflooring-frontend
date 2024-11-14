@@ -186,3 +186,7 @@ html::-webkit-scrollbar{width:7px;}
     width: 61%;
 
 }
+
+.upper_menu .logo_img {
+    cursor: pointer;
+}

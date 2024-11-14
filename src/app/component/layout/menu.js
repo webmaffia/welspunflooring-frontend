@@ -66,6 +66,12 @@ const Menu = ({ closeMenu }) => {
     closeMenu(); // Close menu after selection
     toggleComponentsVisibility(false);
   };
+  const handleDefaultClick = (newUrl) => {
+    setApiUrl(newUrl); // Update API URL in context
+    router.push("/"); // Navigate to home or the target page to ensure updates
+    closeMenu(); // Close menu after selection
+    toggleComponentsVisibility(true);
+  };
 
   return (
     <div className="menu">
@@ -90,9 +96,9 @@ const Menu = ({ closeMenu }) => {
           </ul>
         </li>
         <li className="logo_img">
-          <Link href="/" onClick={closeMenu}>
+          <div onClick={() => handleDefaultClick("default")} >
             <Image src="/images/Logo.png" alt="Logo" width={162} height={62} />
-          </Link>
+          </div>
         </li>
         <li className="menu_item">
           <ul className="dFlex">
