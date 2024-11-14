@@ -127,6 +127,9 @@ hight:  26.979vw;
     .product_list .product_container .product_tile_box {
         height: auto !important;
     }
+    .costNote {
+        font-size: 2.7vw !important;
+    }
 }
 
 .loading_section{
@@ -175,4 +178,11 @@ html::-webkit-scrollbar{width:7px;}
 .installation_steps .steps_container .steps_detail{
     display: block;
     height: 90vh;
+}
+
+.costNote{
+    font-size: 0.7vw;
+    margin-top: 1.5vw;
+    width: 61%;
+
 }
