@@ -27,11 +27,12 @@ export default function contactUsPage() {
                     Welspun House <br />
                     6th Floor, Kamala Mills Compound, <br />
                     Senapati Bapat Marg, Lower Parel, <br />
-                    Mumbai 400 013, India
+                    Mumbai 400 013, India<br />
+                    +91 22 66136000 / 24908000
                 </span>
             </address>
             <address>
-                Manufacturing and Plant <br />
+                Manufacturing Plant <br />
                 <span>
                     Survey No - 190, Village - Chandanvelly, <br />
                     Mandal - Shabad,Chandanvelly, Ranga Reddy, <br />
