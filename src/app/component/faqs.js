@@ -60,15 +60,7 @@ const ProductFAQ = ({ product }) => {
        <button onClick={loadMore}>
         <div className="view_link blackBrd">
           <div className="link_cta">
-            <div className="arrow_bg">
-              
-              <Image 
-                src="/images/icons/arrow-2.webp" 
-                alt="Arrow icon" 
-                width={20} 
-                height={17} 
-              />
-            </div>
+          
             <span>VIEW MORE</span>
           </div>
         </div>
