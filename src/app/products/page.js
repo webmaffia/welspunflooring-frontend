@@ -7,7 +7,7 @@ import ContactForm from '../component/homepage/contactus';
 // Fetch data in the component with ISR using Next.js App Router style
 async function fetchProductSpecifications() {
   const res = await fetch(
-    'https://staging-cms.welspunflooring.com//api/product-specifications?populate[category][populate]=product&populate[details][populate]=slider.image',
+    'https://staging-cms.welspunflooring.com/api/product-specifications?populate[category][populate]=product&populate[details][populate]=slider.image',
     { next: { revalidate: 60 } } // Revalidate every 60 seconds
   );
   const data = await res.json();

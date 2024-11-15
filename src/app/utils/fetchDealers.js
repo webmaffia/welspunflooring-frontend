@@ -2,7 +2,7 @@
 
 export async function fetchDealers() {
     try {
-      const response = await fetch("https://staging-cms.welspunflooring.com//api/dealers");
+      const response = await fetch("https://staging-cms.welspunflooring.com/api/dealers");
       
       if (!response.ok) {
         throw new Error("Failed to fetch dealer data");
