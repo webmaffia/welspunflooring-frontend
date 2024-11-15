@@ -70,7 +70,7 @@ const ProductDetail = ({ product, collection }) => {
             <div className="product_subContent">
               <div className="specified_links">
                 <Link className="opacity0" href="/view-space">VIEW IN YOUR SPACE</Link>
-                <Link href={`${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${product.attributes.details.warranty.data.attributes.url}`} target="_blank">WARRENTY</Link>
+                <Link href={`${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${product.attributes.details.warranty.data.attributes.url}`} target="_blank">WARRANTY</Link>
                 <Link href="/locate-dealer">LOCATE DEALER</Link>
               </div>
               <div className="more_tiles">
