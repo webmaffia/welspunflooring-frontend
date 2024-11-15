@@ -169,7 +169,7 @@ export default function BudgetCalculator() {
           <div className="budget_result">
             <div className="result_container">
               <img
-                src={`https://welspun-cms.webmaffia.com${result.imageUrl}`}
+                src={`https://staging-cms.welspunflooring.com${result.imageUrl}`}
                 alt={result.tileName}
                 className="tile_img"
                 width="225"

@@ -4,7 +4,7 @@ module.exports = {
       remotePatterns: [
         {
           protocol: 'https',
-          hostname: 'welspun-cms.webmaffia.com',
+          hostname: 'staging-cms.welspunflooring.com',
           port: '', // Leave empty if there's no specific port
           pathname: '/**', // Match all paths
         },
