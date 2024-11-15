@@ -13,8 +13,9 @@ export default function warrantyPage() {
     </picture>
     <div className="inner_content">
         <h1 className="banner_heading">
-            CARING FOR YOUR <br />
-            FLOORINGS
+        Caring for your<br />
+            floorings
+            
         </h1>
     </div>
 </section>
