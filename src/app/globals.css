@@ -173,6 +173,7 @@ html::-webkit-scrollbar{width:7px;}
 }
 .nav_banner li{
     cursor: revert;
+    pointer-events: none;
 }
 .square_box_21,.square_box_20{
     right: 0;
