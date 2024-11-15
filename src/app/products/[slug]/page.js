@@ -13,7 +13,7 @@ import Link from 'next/link';
 export async function generateStaticParams() {
   try {
  
-    const res = await axios.get('https://staging-cms.welspunflooring.com/api/products');
+    const res = await axios.get('https://welspun-cms.webmaffia.com//api/products');
     const products = res.data.data;
 
   
@@ -31,7 +31,7 @@ export async function generateStaticParams() {
 export default async function ProductPage({ params }) {
   async function getHomepageData(segment) {
     const res = await fetch(
-      `https://staging-cms.welspunflooring.com/api/homepage?populate[${segment}][populate]=images.images,images.mobileImages`,      { cache: 'no-store' } // Ensures no caching for SSR, can be removed if caching is preferred
+      `https://welspun-cms.webmaffia.com//api/homepage?populate[${segment}][populate]=images.images,images.mobileImages`,      { cache: 'no-store' } // Ensures no caching for SSR, can be removed if caching is preferred
     );
   
     const data = await res.json();
@@ -53,7 +53,7 @@ export default async function ProductPage({ params }) {
   try {
     
     const res = await axios.get(
-      `https://staging-cms.welspunflooring.com/api/products?filters[slug][$eq]=${params.slug}&populate[about][populate]=*&populate[banner][populate]=*&populate[feature][populate]=feature.icon,feature.banner,feature.mobileBanner&populate[sustainable][populate]=certification.image&populate[trademark][populate]=certification.image&populate[collections][populate]=collectionList.image&populate[faq][populate]=*&populate[careInstructions][populate]=*&populate[blogsection][populate]=blog.thumbnail&populate[seo][populate]=*`
+      `https://welspun-cms.webmaffia.com//api/products?filters[slug][$eq]=${params.slug}&populate[about][populate]=*&populate[banner][populate]=*&populate[feature][populate]=feature.icon,feature.banner,feature.mobileBanner&populate[sustainable][populate]=certification.image&populate[trademark][populate]=certification.image&populate[collections][populate]=collectionList.image&populate[faq][populate]=*&populate[careInstructions][populate]=*&populate[blogsection][populate]=blog.thumbnail&populate[seo][populate]=*`
     );
     
     const product = res.data.data[0];
@@ -63,7 +63,7 @@ export default async function ProductPage({ params }) {
     }
     
   //   // Second API call for other data
-  //   const visualiserDataRes = await axios.get(`https://staging-cms.welspunflooring.com/api/homepage?populate[default][populate]=slide.slideImage,slide.slideBg,slide.slideMobileBg,slide.image,slide.explore,slide.brochure,space.image,images.images,testimonial.posterImage,testimonial.image,image,partnerLogo.images,partnerLogo.mobileImages,content.images,content.mobileImages,blog.thumbnail,heading`); // Replace with your URL
+  //   const visualiserDataRes = await axios.get(`https://welspun-cms.webmaffia.com//api/homepage?populate[default][populate]=slide.slideImage,slide.slideBg,slide.slideMobileBg,slide.image,slide.explore,slide.brochure,space.image,images.images,testimonial.posterImage,testimonial.image,image,partnerLogo.images,partnerLogo.mobileImages,content.images,content.mobileImages,blog.thumbnail,heading`); // Replace with your URL
      
     
   //   const visualiserData = visualiserDataRes.data.attributes.default || [];

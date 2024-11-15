@@ -1,7 +1,7 @@
 
 
 export const fetchFromStrapi = async (endpoint) => {
-    const baseUrl = 'https://staging-cms.welspunflooring.com/api/';
+    const baseUrl = 'https://welspun-cms.webmaffia.com//api/';
     const url = `${baseUrl}${endpoint}`;
   
     try {

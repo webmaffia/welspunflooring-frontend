@@ -7,7 +7,7 @@ export default async function BlogDetail({ params }) {
     const slug = params.slug;
 
     // Fetch data directly in the server component
-    const response = await fetch(`https://staging-cms.welspunflooring.com/api/blogs?filters[slug][$eq]=${slug}&populate=*`);
+    const response = await fetch(`https://welspun-cms.webmaffia.com//api/blogs?filters[slug][$eq]=${slug}&populate=*`);
     const data = await response.json();
     const blog = data?.data?.[0] || null;
 
