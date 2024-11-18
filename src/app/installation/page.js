@@ -540,7 +540,7 @@ export default function installationPage() {
                 below-mentioned steps to ensure proper installation that <br />
                 also aids in the flooring's longevity.
             </div>
-            <a href="" className="view_link purpleBg">
+            <a href="/products/artificial-grass" className="view_link purpleBg">
                 <div className="link_cta">
                     <div className="arrow_bg">
                         <img src="/images/icons/arrow-2.webp" alt="" width="20" height="17" />
