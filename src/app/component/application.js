@@ -18,7 +18,7 @@ const ApplicationDetails = ({applications}) => {
           {/* Image Section */}
           {app.image && app.image.data && (
             <Image
-              src={`https://staging-cms.welspunflooring.com${app.image.data.attributes.url}`}
+              src={`${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${app.image.data.attributes.url}`}
               alt={app.image.data.attributes.name || 'Application Image'}
               width={692}
               height={471}
