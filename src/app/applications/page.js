@@ -3,8 +3,10 @@ import Link from 'next/link';
 import PartnerSection from '../component/homepage/partners';
 import ContactForm from '../component/homepage/contactus';
 import ApplicationDetails from '../component/application';
+import { fetchApplications } from '../utils/applicationData';
 
-export default function ApplicationPage() {
+export default async function ApplicationPage() {
+  const data = await fetchApplications();
   return (
     <div className="application_wrapper">
       <section className="banner inner_banner">
@@ -40,7 +42,7 @@ export default function ApplicationPage() {
         </div>
       </section>
 
-   <ApplicationDetails />
+   <ApplicationDetails applications={data} />
 
       {/* <PartnerSection /> */}
       <ContactForm />

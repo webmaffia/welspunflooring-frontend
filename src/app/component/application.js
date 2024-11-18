@@ -1,26 +1,9 @@
-"use client"
+
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
 
-const ApplicationDetails = () => {
-  const [applications, setApplications] = useState([]);
 
-  useEffect(() => {
-    // Fetch data from API
-    const fetchData = async () => {
-      try {
-        const response = await fetch(
-          'https://staging-cms.welspunflooring.com/api/application?populate[banner][populate]=*&populate[details][populate]=*&populate[application][populate]=*'
-        );
-        const data = await response.json();
-        setApplications(data.data.attributes.application);
-      } catch (error) {
-        console.error('Error fetching application details:', error);
-      }
-    };
+const ApplicationDetails = ({applications}) => {
 
-    fetchData();
-  }, []);
 
   return (
     <section className="app_detail">
