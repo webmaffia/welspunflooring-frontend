@@ -18,7 +18,7 @@ const TrendingSection = () => {
       
       {/* Next.js Image component for optimized image handling */}
       <Image
-        src="/images/trending/trending.webp"
+        src="/images/trending/trending-winter.webp"
         alt="Trending"
         className="trending_img"
         width={1621}
