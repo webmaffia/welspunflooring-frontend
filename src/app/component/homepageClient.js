@@ -67,6 +67,7 @@ export default function HomePageClient() {
 
   const testimonialData = allData.filter((section) => section.__component === "sections.testimonials");
 
+  const inspirationSection = allData.filter((section) => section.__component === "sections.inspiration");
   const blogdata = allData.filter((section) => section.__component === "sections.blog-section");
 
   const partnerSection = allData.filter((section) => section.__component === "sections.partners");
@@ -77,6 +78,7 @@ export default function HomePageClient() {
     setImageLoading(false); // Hide the loader once the image is loaded
   };
 
+  console.log(inspirationSection[0])
   // Check if data exists
 
   if (loading) {
@@ -138,7 +140,7 @@ export default function HomePageClient() {
         <p>No partner data available</p>
       )}
       <EmiSection threeFold={threeFold} />
-      <InspirationSection />
+      <InspirationSection inspirationSection={inspirationSection}/>
       <TrendingSection />
       <BlogSection blogs={blogdata} />
       <ContactForm />
