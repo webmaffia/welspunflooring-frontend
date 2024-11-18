@@ -47,7 +47,7 @@ export default function installationPage() {
                 <img src="/images/icons/play_button.webp" alt="" width="641" height="897" />
             </a> */}
             <video width="491" height="491" loop mute>
-                <source src="assets/videos/Welspun_Flooring_Furniture.mp4" type="video/mp4" />
+                <source src="/videos/Welspun_Flooring_Furniture.mp4" type="video/mp4" />
             </video>
         </div>
         <div className="install_video_text">
@@ -84,7 +84,7 @@ export default function installationPage() {
             <img src="/images/icons/play_button.webp" alt="" width="641" height="897" />
         </a> */}
         <video width="1044" height="800" loop mute>
-            <source src="assets/videos/Welspun_Flooring_Furniture.mp4" type="video/mp4" />
+            <source src="/videos/Welspun_Flooring_Furniture.mp4" type="video/mp4" />
         </video>
     </div>
 </section>
@@ -520,11 +520,11 @@ export default function installationPage() {
         </div>
     </div>
 </section>
-<section data-section="install_green" className="install_tile">
+<section data-section="install_green" className="install_tile install_green">
     <div className="installation_container">
         <img src="/images/installation/green.webp" alt="" className="install_tile_img" width="852" height="567" />
         <div className="install_tile_container">
-            <div className="install_tile_title subtitle_60">Greens</div>
+            <h2 className="install_tile_title subtitle_60">Greens</h2>
             <div className="install_tile_para">
                 Our Greens look as real as natural grass. Ideal for sports <br />
                 arenas, commercial applications, residential terraces and <br />
@@ -540,14 +540,14 @@ export default function installationPage() {
                 below-mentioned steps to ensure proper installation that <br />
                 also aids in the flooring's longevity.
             </div>
-            <Link href="/products/artificial-grass" className="view_link purpleBg">
+            <a href="" className="view_link purpleBg">
                 <div className="link_cta">
                     <div className="arrow_bg">
                         <img src="/images/icons/arrow-2.webp" alt="" width="20" height="17" />
                     </div>
                     <span>EXPLORE OUR PRODUCTS</span>
                 </div>
-            </Link>
+            </a>
         </div>
     </div>
     <div className="installation_steps">
@@ -618,6 +618,115 @@ export default function installationPage() {
                                 <div className="steps_para">
                                     Protect installed area <br />
                                     using Polythene
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div className="steps_container">
+            <div className="steps_header">
+                <div className="subtitle_30">Stretch-in installation</div>
+                <img src="/images/icons/arrow-down.webp" alt="" width="64" height="64" />
+            </div>
+            <div className="steps_detail">
+                <div className="steps_content">
+                    <div className="steps_box">
+                        <div className="steps_item">
+                            <img src="/images/installation/icons/img_1.webp" alt="" width="104" height="109" />
+                            <div className="steps_text">
+                                <div className="steps_number">01</div>
+                                <div className="steps_para">
+                                    Clean the surface to ensure <br />
+                                    that it is dust and moisture <br />
+                                    free
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="steps_box">
+                        <div className="steps_item">
+                            <img src="/images/installation/icons/img_6.webp" alt="" width="104" height="109" />
+                            <div className="steps_text">
+                                <div className="steps_number">02</div>
+                                <div className="steps_para">
+                                    Mark the centre <br />
+                                    of the room
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="steps_box">
+                        <div className="steps_item">
+                            <img src="/images/installation/icons/img_7.webp" alt="" width="104" height="109" />
+                            <div className="steps_text">
+                                <div className="steps_number">03</div>
+                                <div className="steps_para">
+                                    square up the <br />
+                                    lines
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="steps_box">
+                        <div className="steps_item">
+                            <img src="/images/installation/icons/img_8.webp" alt="" width="104" height="109" />
+                            <div className="steps_text">
+                                <div className="steps_number">04</div>
+                                <div className="steps_para">
+                                    Initiate sample <br />
+                                    layout
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="steps_box">
+                        <div className="steps_item">
+                            <img src="/images/installation/icons/img_9.webp" alt="" width="104" height="109" />
+                            <div className="steps_text">
+                                <div className="steps_number">05</div>
+                                <div className="steps_para">
+                                    Identify Carpet <br />
+                                    Pile direction
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="steps_box">
+                        <div className="steps_item">
+                            <img src="/images/installation/icons/img_10.webp" alt="" width="104" height="109" />
+                            <div className="steps_text">
+                                <div className="steps_number">06</div>
+                                <div className="steps_para">
+                                    Place the double sided <br />
+                                    tape or sticker tab on <br />
+                                    the corner of every tile
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="steps_box">
+                        <div className="steps_item">
+                            <img src="/images/installation/icons/img_11.webp" alt="" width="104" height="109" />
+                            <div className="steps_text">
+                                <div className="steps_number">07</div>
+                                <div className="steps_para">
+                                    Trim tiles at the <br />
+                                    walls and complete <br />
+                                    the installation
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="steps_box">
+                        <div className="steps_item">
+                            <img src="/images/installation/icons/img_12.webp" alt="" width="104" height="109" />
+                            <div className="steps_text">
+                                <div className="steps_number">08</div>
+                                <div className="steps_para">
+                                    Clean out <br />
+                                    Remaining area
                                 </div>
                             </div>
                         </div>

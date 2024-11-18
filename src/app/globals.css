@@ -8,6 +8,9 @@
 
 
 @media (min-width: 1023px) {
+    .install_green .steps_container {
+        height: 190vh;
+    }
     .blog_room .blog_room_img{
 hight:  26.979vw;
     }
