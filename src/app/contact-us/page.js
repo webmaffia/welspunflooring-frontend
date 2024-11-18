@@ -7,7 +7,7 @@ export default function contactUsPage() {
 	<div className="contact_wrapper">
 			<section className="banner inner_banner">
     <picture>
-        <source media="(max-width:540px)" srcset="/images/product/click_n_lock/banner_mob.webp" />
+        <source media="(max-width:540px)" srcset="/images/contact/contactus-mobile.jpg" />
         <img src="/images/contact/Contact-Us-Banner.webp" alt="" width="1920" height="472" />
     </picture>
     <div className="inner_content">

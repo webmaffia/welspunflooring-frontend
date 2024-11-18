@@ -8,7 +8,7 @@ export default function warrantyPage() {
     <div classNameName="product_wrapper warranty_wrapper">
 <section className="banner inner_banner">
     <picture>
-        <source media="(max-width:540px)" srcset="/images/warranty/banner_mob.webp" />
+        <source media="(max-width:540px)" srcset="/images/warranty/mobile.jpg" />
         <img src="/images/warranty/banner.webp" alt="" width="1920" height="472" />
     </picture>
     <div className="inner_content">
