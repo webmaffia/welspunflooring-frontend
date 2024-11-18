@@ -8,7 +8,7 @@ const TrendingSection = () => {
         <h2 className="diamond diamond_blue">WHAT'S TRENDING</h2>
         <div className="title_container">
           <div className="subtitle_60">
-            Perfect floors for <br />for summer
+            Perfect floors for <br />for winter
           </div>
           <p>
             What's all the talk about in this <br />space, take a look!
