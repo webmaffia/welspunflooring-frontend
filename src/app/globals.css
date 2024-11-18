@@ -206,3 +206,6 @@ html::-webkit-scrollbar{width:7px;}
 .viewMoreParent button {
     cursor: pointer;
 }
+.app_detail__container .link_cta {
+    display: none;
+}
