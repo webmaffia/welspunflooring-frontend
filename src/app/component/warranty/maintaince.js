@@ -114,7 +114,7 @@ const DocumentMaintenance = () => {
             id="maintain-2"
           >
             <div className="maintenance_content">
-              <div className="subtitle_40">Carpet Tiles Maintenance Tips</div>
+              <div className="subtitle_40">Tips for Maintenance</div>
               <ul class="diamond_list">
                         <li class="diamond_item">
                             Preventative Maintenance: Containing the soil entering the building using the walk-off mats at entrances. This includes outside matting, inside matting and mats at certain other high traffic areas
@@ -171,7 +171,7 @@ const DocumentMaintenance = () => {
             id="maintain-3"
           >
             <div className="maintenance_content">
-              <div className="subtitle_40">Wall to Wall Maintenance Tips</div>
+              <div className="subtitle_40">Tips for Maintenance</div>
               <ul class="diamond_list">
                         <li class="diamond_item">
                             Preventative Maintenance: Containing the soil entering the building using the walk-off mats at entrances. This includes outside matting, inside matting and mats at certain other high traffic areas
@@ -214,7 +214,7 @@ const DocumentMaintenance = () => {
               />
               <div className="maintain_box_text">
                 <div className="maintain_box_title">
-                  <span className="subtitle_3803">Wall to Wall Maintenance</span>
+                  <span className="subtitle_3803">Tips for Maintenance</span>
                   <div className="about_diamond">
                     <div className="border_diamond"></div>
                   </div>
@@ -229,7 +229,7 @@ const DocumentMaintenance = () => {
             id="maintain-4"
           >
             <div className="maintenance_content">
-              <div className="subtitle_40">Greens Maintenance Tips</div>
+              <div className="subtitle_40">Tips for Maintenance</div>
               <ul class="diamond_list">
                         <li class="diamond_item">
                             Clean- Remove debris from the grass, especially after strong winds. Removing leaves, branches, and other debris will protect your artificial grass from damage.
