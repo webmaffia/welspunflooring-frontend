@@ -1,4 +1,6 @@
 import InstallVideo from "../component/warranty/installvideo";
+import DocumentMaintenance from "../component/warranty/maintaince";
+import TabsComponent from "../component/warranty/maintaince";
 
 
 
@@ -145,6 +147,8 @@ years, making them a practical and cost-effective choice for your space.
         </a>
     </div>
 </section>
+
+<DocumentMaintenance />
 {/* <section data-section="document_maintenance" className="document_maintenance">
     <div className="maintenance_container">
         <div className="section_container">
