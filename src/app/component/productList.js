@@ -173,7 +173,17 @@ const ProductsList = ({ productsByCategory }) => {
                         <div key={product.id} className="tile_item">
                           <div className="product_img_box">
                             <Link href={`/products/${products[0]?.attributes?.category?.data?.attributes?.product?.data?.attributes?.slug || ''}/${product.attributes.category.data.attributes.slug}/${product.attributes.slug}`}>
-                            <img
+                              <img
+                                src={`${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${product?.attributes?.details?.slider[1]?.image?.data?.attributes?.url || product?.attributes?.details?.slider[0]?.image?.data?.attributes?.url}`} 
+                                alt={product?.attributes?.subProductName || 'Product Image'}
+                                width="584"
+                                height="511"
+                                className="tile_img"
+                              />
+
+
+
+{/* <img
   src={`${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${(() => {
     const slider = product?.attributes?.details?.slider || [];
     // Fetch candidates for indexes 2, 3, and 4
@@ -191,8 +201,7 @@ const ProductsList = ({ productsByCategory }) => {
   width="584"
   height="511"
   className="tile_img"
-/>
-
+/> */}
                             </Link>
                           </div>
                           <div className="product_text">
