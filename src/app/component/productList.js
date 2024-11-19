@@ -173,13 +173,26 @@ const ProductsList = ({ productsByCategory }) => {
                         <div key={product.id} className="tile_item">
                           <div className="product_img_box">
                             <Link href={`/products/${products[0]?.attributes?.category?.data?.attributes?.product?.data?.attributes?.slug || ''}/${product.attributes.category.data.attributes.slug}/${product.attributes.slug}`}>
-                              <img
-                                src={`${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${product?.attributes?.details?.slider[1]?.image?.data?.attributes?.url || product?.attributes?.details?.slider[0]?.image?.data?.attributes?.url}`} 
-                                alt={product?.attributes?.subProductName || 'Product Image'}
-                                width="584"
-                                height="511"
-                                className="tile_img"
-                              />
+                            <img
+  src={`${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${(() => {
+    const slider = product?.attributes?.details?.slider || [];
+    // Fetch candidates for indexes 2, 3, and 4
+    const candidates = [slider[1], slider[2], slider[3]];
+    // Filter to only include valid images
+    const availableImages = candidates.filter(image => image?.image?.data?.attributes?.url);
+    // Randomly pick an image from available ones or fallback to the first
+    const selectedImage = 
+      availableImages.length > 0 
+        ? availableImages[Math.floor(Math.random() * availableImages.length)]
+        : slider[0];
+    return selectedImage?.image?.data?.attributes?.url || '';
+  })()}`}
+  alt={product?.attributes?.subProductName || 'Product Image'}
+  width="584"
+  height="511"
+  className="tile_img"
+/>
+
                             </Link>
                           </div>
                           <div className="product_text">
