@@ -11,14 +11,14 @@ const TestimonialSection = ({testimonial}) => {
 
     return (
         <section className="testimonial_section video_section cursor_img" data-section="testimonial_section">
-            {/* <a href="testimonial.php" className="view_link cursor_cta purpleBg">
+            <a href="/testimonials" className="view_link cursor_cta purpleBg">
                 <div className="link_cta">
                     <div className="arrow_bg">
                         <img src="images/icons/arrow-2.webp" alt="" width="20" height="17" />
                     </div>
                     <span>READ ALL</span>
                 </div>
-            </a> */}
+            </a>
             <div className="products_container">
                 <div className="section_container">
                     <h2 className="diamond diamond_blue">{testimonials.sectionName}</h2>
