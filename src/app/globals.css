@@ -217,3 +217,7 @@ html::-webkit-scrollbar{width:7px;}
 .square_box_22_2,.square_box_22{
     right: 0;
 }
+
+.loader_text{
+    margin-top: 1vw;
+}

@@ -8,7 +8,7 @@ import BannerContent from './homepage/bannerContent';
 import { useApi } from '../context/ApiContext';
 import Link from 'next/link';
 
-const Banner = ({bannerData,onImageLoad}) => {
+const Banner = ({bannerData,onImageLoad,shouldHideSection}) => {
     const { showSquareSwiper } = useApi(); // Access visibility state from context
 
 
@@ -18,8 +18,8 @@ const Banner = ({bannerData,onImageLoad}) => {
         <section className="banner cursor_img">
 
         <BannerSwiper thumbsSwiper={thumbsSwiper} bannerData={bannerData} onImageLoad={onImageLoad} />
-        {showSquareSwiper && <SquareSwiper setThumbsSwiper={setThumbsSwiper} bannerData={bannerData} />}
-     <BannerContent bannerData={bannerData} />
+        {!shouldHideSection && <SquareSwiper setThumbsSwiper={setThumbsSwiper} bannerData={bannerData} />}
+     <BannerContent shouldHideSection={shouldHideSection} bannerData={bannerData} />
 
         
      <Link href="/applications" class="view_link cursor_cta purpleBg2">

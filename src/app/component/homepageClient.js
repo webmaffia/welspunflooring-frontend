@@ -1,59 +1,36 @@
-"use client"; // Mark this component as a client component
+"use client"; // Client-side component
 
-import { useApi } from "../context/ApiContext";
 import { useEffect, useState } from "react";
-import { getHomepageData, getHomepageContentData } from "../fetchData"; // Adjust the import path accordingly
+import { getHomepageData, getHomepageContentData } from "../fetchData";
 
-import Banner from './banner';
-import ProductsSection from './homepage/products';
-import SpacesSection from './homepage/spaceSection';
-import VideoGuide from './homepage/videoGuide';
-import SustainabilitySection from './homepage/sustainability';
-import CaseStudySwiper from './homepage/caseStudy';
-import TestimonialSection from './homepage/testimonials';
-import PartnerSection from './homepage/partners';
-import EmiSection from './homepage/threefold';
-import InspirationSection from './homepage/inspiration';
-import TrendingSection from './homepage/trend';
-import BlogSection from './homepage/blog';
-import ContactForm from './homepage/contactus';
-import Visualiser from './homepage/visulaiser';
+import Banner from "./banner";
+import ProductsSection from "./homepage/products";
+import SpacesSection from "./homepage/spaceSection";
+import VideoGuide from "./homepage/videoGuide";
+import SustainabilitySection from "./homepage/sustainability";
+import CaseStudySwiper from "./homepage/caseStudy";
+import TestimonialSection from "./homepage/testimonials";
+import PartnerSection from "./homepage/partners";
+import EmiSection from "./homepage/threefold";
+import InspirationSection from "./homepage/inspiration";
+import TrendingSection from "./homepage/trend";
+import BlogSection from "./homepage/blog";
+import ContactForm from "./homepage/contactus";
+import Visualiser from "./homepage/visulaiser";
 
-export default function HomePageClient() {
-  const { apiUrl } = useApi(); // Get the apiUrl from context
-  const [allData, setAllData] = useState([]);
-  const [allContentData, setAllContentData] = useState([]);
-  const [loading, setLoading] = useState(true); // Loading state for fetching
+export default function HomePageClient({ data, contentData,shouldHideSection }) {
+  const [allData, setAllData] = useState(data || []);
+  const [allContentData, setAllContentData] = useState(contentData || []);
   const [imageLoading, setImageLoading] = useState(true); // Loading state for image
 
-  useEffect(() => {
-    // Disable body overflow while loading is true
-    document.body.style.overflow = loading || imageLoading ? 'hidden' : 'auto';
+  // Handle image loading
+  const handleImageLoad = () => setImageLoading(false);
 
-    return () => {
-      // Clean up by setting overflow back to auto
-      document.body.style.overflow = 'auto';
-    };
-  }, [loading, imageLoading]);
-
-  // Fetch data based on the selected apiUrl
   useEffect(() => {
-    async function loadData() {
-      try {
-        setLoading(true); // Start loading
-        const data = await getHomepageData(apiUrl || 'default'); // Default to 'default' if apiUrl is not available
-        const contentData = await getHomepageContentData(apiUrl || 'default');
-        
-        setAllData(data); // Set the main data
-        setAllContentData(contentData); // Set the content data
-      } catch (error) {
-        console.error("Error loading data:", error);
-      } finally {
-        setLoading(false); // Stop loading
-      }
-    }
-    loadData();
-  }, [apiUrl]); // Re-fetch when apiUrl changes
+    // Disable body overflow while images are loading
+    document.body.style.overflow = imageLoading ? "hidden" : "auto";
+    return () => (document.body.style.overflow = "auto");
+  }, [imageLoading]);
 
   // Filter sections
   const bannerSection = allData.filter((section) => section.__component === "sections.banner");
@@ -66,40 +43,11 @@ export default function HomePageClient() {
   const visuliserSection = allData.filter((section) => section.__component === "sections.visualiser");
 
   const testimonialData = allData.filter((section) => section.__component === "sections.testimonials");
-
   const inspirationSection = allData.filter((section) => section.__component === "sections.inspiration");
   const blogdata = allData.filter((section) => section.__component === "sections.blog-section");
 
   const partnerSection = allData.filter((section) => section.__component === "sections.partners");
-
   const threeFold = allData.filter((section) => section.__component === "sections.three-fold");
-
-  const handleImageLoad = () => {
-    setImageLoading(false); // Hide the loader once the image is loaded
-  };
-
-  console.log(inspirationSection[0])
-  // Check if data exists
-
-  if (loading) {
-    return (
-      <section data-section="loading_section" className="loading_section">
-        <div className="loading_container">
-          <div className="loader">
-            <img src="/images/welspun.webp" alt="" className="loading_welspun" width="1920" height="323" />
-            <div className="loader_content">
-              <div className="loader_text">
-                LOADING
-                <span className="dot-one"> .</span>
-                <span className="dot-two"> .</span>
-                <span className="dot-three"> .</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    ); // Show loading text if fetching
-  }
 
   return (
     <main className="wrapper">
@@ -107,7 +55,7 @@ export default function HomePageClient() {
         <section data-section="loading_section" className="loading_section">
           <div className="loading_container">
             <div className="loader">
-              <img src="/images/welspun.webp" alt="" className="loading_welspun" width="1920" height="323" />
+              <img src="/images/welspun.webp" className="loading_welspun" alt="Loading..." width="1920" height="323" />
               <div className="loader_content">
                 <div className="loader_text">
                   LOADING
@@ -119,28 +67,16 @@ export default function HomePageClient() {
             </div>
           </div>
         </section>
-      )} {/* Show loader until image is loaded */}
-
-      {slides.length > 0 ? (
-        <Banner bannerData={slides} onImageLoad={handleImageLoad} />
-      ) : (
-        <p>No slides available</p>
       )}
-
+      {slides.length > 0 && <Banner bannerData={slides} onImageLoad={handleImageLoad} shouldHideSection={shouldHideSection} />}
       <ProductsSection productData={productsContent} productImage={productsSection} />
       <SpacesSection spaceData={spaceSection} />
       <VideoGuide />
-      {/* <Visualiser visuliserData={visuliserSection} /> */}
       <SustainabilitySection />
-      {/* <CaseStudySwiper /> */}
-      <TestimonialSection testimonial={testimonialData}/>
-      {partnerSection.length > 0 ? (
-        <PartnerSection partnerData={partnerSection[0]} />
-      ) : (
-        <p>No partner data available</p>
-      )}
+      <TestimonialSection testimonial={testimonialData} />
+      {partnerSection.length > 0 && <PartnerSection partnerData={partnerSection[0]} />}
       <EmiSection threeFold={threeFold} />
-      <InspirationSection inspirationSection={inspirationSection}/>
+      <InspirationSection inspirationSection={inspirationSection} />
       <TrendingSection />
       <BlogSection blogs={blogdata} />
       <ContactForm />

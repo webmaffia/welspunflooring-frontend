@@ -13,7 +13,7 @@ import 'swiper/swiper-bundle.css';
 import 'swiper/css/effect-fade';
 import { useState } from 'react';
 
-const BannerContent = ({bannerData}) => {
+const BannerContent = ({bannerData,shouldHideSection}) => {
   const { showBannerContent } = useApi();
    
     const [squareSwiper, setSquareSwiper] = useState(null);
@@ -63,7 +63,7 @@ const BannerContent = ({bannerData}) => {
           </Swiper>
         </div>
   
-        {showBannerContent && 
+        {!shouldHideSection && 
         
         <div className="nav_banner">
         <ul>

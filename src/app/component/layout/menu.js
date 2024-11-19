@@ -79,26 +79,26 @@ const Menu = ({ closeMenu }) => {
         <li className="menu_item">
           <ul className="dFlex">
             <li>
-              <div onClick={() => handleMenuClick("homeowners")} className="border_link">
+              <Link href="/homeowners" className="border_link">
                 HOMEOWNERS
-              </div>
+              </Link>
             </li>
             <li>
-              <div onClick={() => handleMenuClick("b2b")} className="border_link">
+              <Link href="/b2b" className="border_link">
                 B2B
-              </div>
+              </Link>
             </li>
             <li>
-              <div onClick={() => handleMenuClick("architectsAndInteriorDesigners")} className="border_link">
+              <Link href="/architectsAndInteriorDesigners" className="border_link">
                 ARCHITECTS & INTERIOR DESIGNERS
-              </div>
+              </Link>
             </li>
           </ul>
         </li>
         <li className="logo_img">
-          <div onClick={() => handleDefaultClick("default")} >
+          <Link href="/">
             <Image src="/images/Logo.png" alt="Logo" width={162} height={62} />
-          </div>
+          </Link>
         </li>
         <li className="menu_item">
           <ul className="dFlex">

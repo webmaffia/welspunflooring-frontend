@@ -93,11 +93,11 @@ const TestimonialSection = ({testimonial}) => {
                             <SwiperSlide key={index}>
                                 <p>
                                     {testimonial.description.map((item, index) => (
-                                        <div key={index}>
+                                        <span key={index}>
                                             {item.children.map((child, childIndex) => (
                                                 <span key={childIndex}>{child.text}</span>
                                             ))}
-                                        </div>
+                                        </span>
                                     ))}
                                 </p>
                                 <h3 className="subtitle_50">{testimonial.testimonialName}</h3>
