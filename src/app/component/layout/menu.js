@@ -79,24 +79,24 @@ const Menu = ({ closeMenu }) => {
         <li className="menu_item">
           <ul className="dFlex">
             <li>
-              <Link href="/homeowners" className="border_link">
+              <Link href="/homeowners" className="border_link" onClick={closeMenu}>
                 HOMEOWNERS
               </Link>
             </li>
             <li>
-              <Link href="/b2b" className="border_link">
+              <Link href="/b2b" className="border_link" onClick={closeMenu}>
                 B2B
               </Link>
             </li>
             <li>
-              <Link href="/architectsAndInteriorDesigners" className="border_link">
+              <Link href="/architects-and-interior-designers" className="border_link" onClick={closeMenu}>
                 ARCHITECTS & INTERIOR DESIGNERS
               </Link>
             </li>
           </ul>
         </li>
         <li className="logo_img">
-          <Link href="/">
+          <Link href="/" onClick={closeMenu}>
             <Image src="/images/Logo.png" alt="Logo" width={162} height={62} />
           </Link>
         </li>
