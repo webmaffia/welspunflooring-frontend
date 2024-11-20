@@ -221,3 +221,16 @@ html::-webkit-scrollbar{width:7px;}
 .loader_text{
     margin-top: 1vw;
 }
+
+.form_popup.active{
+    z-index: 9999999;
+}
+
+.hideHeader header {
+    transform: translateY(0%);
+    filter: blur(4px);
+}
+
+.loading_section{
+    z-index: 99999;
+}
