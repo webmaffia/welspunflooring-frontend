@@ -5,7 +5,7 @@ const ESG = () => {
     <section data-section="esg_section" className="esg_section">
       <div className="esg_head">
         <div className="section_container">
-          <h2 className="diamond diamond_blue">ENVIRONMENT, SOCIAL & GOVERNANCE</h2>
+          <div className="diamond diamond_blue">ENVIRONMENT, SOCIAL & GOVERNANCE</div>
           <div className="title_container">
             <div className="subtitle_60">ESG Compass</div>
           </div>
@@ -29,10 +29,10 @@ const ESG = () => {
       <div className="esg_data_container">
         <div className="esg_data">
           <div className="install_tile_container">
-            <div className="install_tile_title subtitle_60">
+            <h2 className="install_tile_title subtitle_60">
               ESG data tracking and reporting <br />
               with cutting-edge technology
-            </div>
+            </h2>
             <div className="install_tile_para">
               As a part of the commitment to upholding the highest ESG standards, Welspun World has executed a new technological tool for ESG <br />
               reporting and data monitoring called the 'ESG Compass'. ESG Compass takes care of performance data collection through all the <br />
@@ -54,7 +54,7 @@ const ESG = () => {
             height={215}
           />
           <div className="install_tile_container">
-            <div className="install_tile_title subtitle_60">Welspun's Commitment</div>
+            <h2 className="install_tile_title subtitle_60">Welspun's Commitment</h2>
             <div className="install_tile_para">
               We're already on course towards mainstreaming our ESG blueprint while you're reading this! We have been integrating consumer-driven and <br />
               innovation-led ESG initiatives into our operational paradigms for a long time now, inspired by our proactive & committed leadership team. Our <br />

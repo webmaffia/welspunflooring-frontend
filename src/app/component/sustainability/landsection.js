@@ -2,7 +2,7 @@ const LandSection = () => {
     return (
       <section data-section="land_section" className="sustainable_pollution">
         <div className="section_container">
-          <h2 className="diamond diamond_blue">LAND</h2>
+          <div className="diamond diamond_blue">LAND</div>
           <div className="title_container">
             <div className="subtitle_60">
               We're all children of <br />
@@ -19,9 +19,9 @@ const LandSection = () => {
               height="600"
             />
             <div className="install_tile_container">
-              <div className="install_tile_title subtitle_60">
+              <h2 className="install_tile_title subtitle_60">
                 This is what our blueprint looks like:
-              </div>
+              </h2>
               <div className="diamond_container">
                 <div className="diamond_border_title">
                   Minimising disposal of wastes to land, Increased use of recycled materials - Focus on circularity

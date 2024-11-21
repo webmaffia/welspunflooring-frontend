@@ -34,7 +34,7 @@ const ProductFAQ = ({ product }) => {
       </div>
       <div className="product_accordion">
         {product.attributes.faq.faqList.slice(0, visibleItems).map((item, index) => (
-          <div className="accordion_item" key={index}>
+          <h3 className="accordion_item" key={index}>
             <div
               data-number={index + 1}
               className="accordion_header"
@@ -52,7 +52,7 @@ const ProductFAQ = ({ product }) => {
                 <div dangerouslySetInnerHTML={{ __html: item.content }} />
               </div>
             )}
-          </div>
+          </h3>
         ))}
 
 {visibleItems < product.attributes.faq.faqList.length && (

@@ -54,7 +54,7 @@ const BannerContent = ({bannerData,shouldHideSection}) => {
        
             {/* Assuming each slide has an image */}
             {   <SwiperSlide>
-              <h2 className="banner_sub_heading">{item.subheading}</h2>
+              <div className="banner_sub_heading">{item.subheading}</div>
             </SwiperSlide>}
           </div>
         ))}

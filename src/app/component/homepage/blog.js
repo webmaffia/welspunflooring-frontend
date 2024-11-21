@@ -50,9 +50,9 @@ const BlogSection = ({blogs}) => {
         <div className="section_container">
           {blogSection && (
             <>
-              <h2 className="diamond diamond_blue">{blogSection.sectionName}</h2>
+              <div className="diamond diamond_blue">{blogSection.sectionName}</div>
               <div className="title_container">
-                <div className="subtitle_60">
+                <h2 className="subtitle_60">
                   {blogSection.sectionHeading.map((paragraph, index) => (
                     <p key={index}>
                       {paragraph.children.map((child, childIndex) => (
@@ -60,7 +60,7 @@ const BlogSection = ({blogs}) => {
                       ))}
                     </p>
                   ))}
-                </div>
+                </h2>
                 <a href="/blog" className="view_link purpleBg">
                   <div className="link_cta">
                     <div className="arrow_bg">

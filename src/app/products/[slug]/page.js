@@ -178,7 +178,7 @@ export default async function ProductPage({ params }) {
 <section data-section="about_sustainable" className="about_sustainable">
     <div className="diamond_title">
         <h2 className="diamond diamond_blue">{product.attributes.sustainable.sectionName}</h2>
-        <h3 className="subtitle_45">  
+        <div className="subtitle_45">  
           {product.attributes.sustainable.heading.map((item, index) => (
             <div key={index}>
               {item.children.map((child, childIndex) => (
@@ -186,7 +186,7 @@ export default async function ProductPage({ params }) {
               ))}
             </div>
           ))}
-          </h3>
+          </div>
     </div>
 
     <div className="about_sustain_container">
@@ -219,7 +219,7 @@ export default async function ProductPage({ params }) {
   <section data-section="about_sustainable" className="about_sustainable trademark">
     <div className="diamond_title">
         <h2 className="diamond diamond_blue">{product.attributes.trademark?.sectionName}</h2>
-        <h3 className="subtitle_45">  
+        <div className="subtitle_45">  
           {product.attributes.trademark?.heading.map((item, index) => (
             <div key={index}>
               {item.children.map((child, childIndex) => (
@@ -227,7 +227,7 @@ export default async function ProductPage({ params }) {
               ))}
             </div>
           ))}
-        </h3>
+        </div>
     </div>
 
     <div className="about_sustain_container">
@@ -268,9 +268,9 @@ export default async function ProductPage({ params }) {
   <div className="section_container">
     <h2 className="diamond diamond_blue">THE FLOOR FINDER</h2>
     <div className="title_container">
-      <h3 className="subtitle_45">
+      <div className="subtitle_45">
         Find the best-suited <br />product for your space
-      </h3>
+      </div>
       <a href="" className="view_link blackBrd">
         <div className="link_cta">
           <div className="arrow_bg">

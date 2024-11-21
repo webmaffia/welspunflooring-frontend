@@ -75,9 +75,9 @@ const Visualiser = ({visuliserData}) => {
         <div className="section_container visualize_section">
           <h2 className="diamond diamond_blue">{content.sectionName}</h2>
           <div className="title_container">
-            <div className="subtitle_60">
+            <h3 className="subtitle_60">
             {content.heading}
-            </div>
+            </h3>
             <p>
              {content.description}
             </p>

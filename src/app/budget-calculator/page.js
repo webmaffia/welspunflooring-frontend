@@ -12,7 +12,7 @@ export default function budgetCalculatorPage() {
     </picture>
     <div className="inner_content">
         <div className="banner_sub_heading">Design your ideal floor, tailored <br />to your style and</div>
-        <h1 className="banner_heading">Budget-Friendly Needs</h1>
+        <div className="banner_heading">Budget-Friendly Needs</div>
     </div>
 </section>
 			
@@ -20,13 +20,13 @@ export default function budgetCalculatorPage() {
 <section className="about_product about_budget" data-section="about_product">
     <div className="products_container">
         <div className="section_container">
-            <h2 className="diamond diamond_blue">BUDGET CALCULATOR</h2>
+            <h1 className="diamond diamond_blue">BUDGET CALCULATOR</h1>
             <div className="title_container">
-                <h3 className="subtitle_60">
+                <h2 className="subtitle_60">
                     Get a customized <br />
                     flooring estimate <br />
                     in minutes
-                </h3>
+                </h2>
             </div>
         </div>
         <div className="about_right_container">

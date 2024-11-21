@@ -205,7 +205,7 @@ const ProductsList = ({ productsByCategory }) => {
                             </Link>
                           </div>
                           <div className="product_text">
-                            <div className="item_title">{product.attributes.subProductName}</div>
+                            <h3 className="item_title">{product.attributes.subProductName}</h3>
                             <div className="item_border"></div>
                             <div className="item_sub">{product.attributes.category.data.attributes.collectionName}</div>
                           </div>

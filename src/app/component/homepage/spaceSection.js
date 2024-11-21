@@ -23,7 +23,7 @@ const SpacesSection = ({spaceData}) => {
       <div className="section_container">
         <h2 className="diamond diamond_white">{heading.sectionName}</h2>
         <div className="title_container">
-          <div className="subtitle_80">{heading.heading}</div>
+          <h3 className="subtitle_80">{heading.heading}</h3>
         </div>
       </div>
 

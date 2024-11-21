@@ -12,7 +12,7 @@ const ZeroWaste = () => {
           height={565}
         />
         <div className="install_tile_container">
-          <div className="install_tile_title subtitle_60">Zero Waste</div>
+          <h2 className="install_tile_title subtitle_60">Zero Waste</h2>
           <div className="install_tile_para">
             We at Welspun Flooring have adopted the principle of <br />
             responsible management of all types of process waste <br />

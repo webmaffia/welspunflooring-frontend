@@ -47,7 +47,7 @@ const ExploreCollection = ({ product }) => {
       )}
       
       <div className="collection_overlay">
-        <div className="subtitle_60">{collectionName}</div>
+        <h3 className="subtitle_60">{collectionName}</h3>
         <Link href={`/products?category=${categoryData.attributes.product.data.attributes.slug}&collection=${collectionName}`}>EXPLORE</Link>
       </div>
     </div>
