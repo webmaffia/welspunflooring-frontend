@@ -63,7 +63,7 @@ const CaseStudySwiper = () => {
                     {caseStudies.map((study, index1) => (
                         <SwiperSlide key={index1}>
                             <a href="" className="case_swiper_container">
-                                <div className="case_text">{study.title}</div>
+                                <h3 className="case_text">{study.title}</h3>
                                 <img
                                     src={study.image}
                                     alt={study.title}

@@ -2,7 +2,7 @@ const WaterSection = () => {
     return (
       <section data-section="water_section" className="sustainable_pollution">
         <div className="section_container">
-          <h2 className="diamond diamond_blue">WATER</h2>
+          <div className="diamond diamond_blue">WATER</div>
           <div className="title_container">
             <div className="subtitle_60">
               What would you rather imagine: <br />
@@ -22,9 +22,9 @@ const WaterSection = () => {
               height="600"
             />
             <div className="install_tile_container">
-              <div className="install_tile_title subtitle_60">
+              <h2 className="install_tile_title subtitle_60">
                 Here's what we're doing in this regard:
-              </div>
+              </h2>
               <div className="diamond_container">
                 <div className="diamond_border_title">
                   Judicious and careful water use in processing operations.

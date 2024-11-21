@@ -12,7 +12,7 @@ const ZeroEmission = () => {
           height={565}
         />
         <div className="install_tile_container">
-          <div className="install_tile_title subtitle_60">Zero Emission</div>
+          <h2 className="install_tile_title subtitle_60">Zero Emission</h2>
           <div className="install_tile_para">
             We conduct carbon footprint assessments and energy <br />
             audits to analyze the existing power consumption <br />

@@ -24,7 +24,7 @@ const SustainabilitySection = () => {
           <div className="swiper_bg">
             <div className="swiper-wrapper">
               <div className="swiper-slide">
-                <h3 className="subtitle_50">At Welspun Group</h3>
+                <div className="subtitle_50">At Welspun Group</div>
                 <p>
                   We believe it is crucial to address the <br />
                   global need for sustainable practices and <br />

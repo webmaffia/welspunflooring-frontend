@@ -81,7 +81,7 @@ export default function LocateDealersPage() {
       <section data-section="locate_dealer" className="locate_dealer">
         <div className="locate_container">
           <div className="locate_contact">
-            <div className="subtitle_2904">Locate dealer</div>
+            <h1 className="subtitle_2904">Locate dealer</h1>
             <form className="locate_form" onSubmit={handleSearch}>
               <label className="locate_label">
                 <input

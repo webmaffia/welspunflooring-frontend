@@ -72,7 +72,7 @@ export default function BudgetCalculator() {
 
   return (
     <section data-section="budget_product" className="budget_product">
-      <div className="subtitle_60">Choose product</div>
+      <h2 className="subtitle_60">Choose product</h2>
       <div className="budget_container">
         <div className="budget_calculator">
           <ul className="budget_list">

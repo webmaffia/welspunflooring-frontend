@@ -59,7 +59,7 @@ export default function installationPage() {
 <section data-section="install_click" className="install_click">
     <div className="click_container">
         <div className="install_tile_container">
-            <div className="install_tile_title subtitle_60">Click N Lock Tiles</div>
+            <h2 className="install_tile_title subtitle_60">Click N Lock Tiles</h2>
             <div className="install_tile_para">
                 Our Click N Lock tiles come with advanced Wel-Lock <br />
                 technology that enables the tiles to easily fit against one <br />
@@ -92,7 +92,7 @@ export default function installationPage() {
     <div className="installation_container">
         <img src="/images/installation/carpet.webp" alt="" className="install_tile_img" width="852" height="567" />
         <div className="install_tile_container">
-            <div className="install_tile_title subtitle_60">Carpet Tiles</div>
+            <h2 className="install_tile_title subtitle_60">Carpet Tiles</h2>
             <div className="install_tile_para">
                 Our Carpet Tiles are available in a variety of vibrant designs <br />
                 and help in creating customized floors. They are easy to <br />
@@ -307,7 +307,7 @@ export default function installationPage() {
     <div className="installation_container row_reverse">
         <img src="/images/installation/wall.webp" alt="" className="install_tile_img" width="852" height="567" />
         <div className="install_tile_container">
-            <div className="install_tile_title subtitle_60">Wall to Wall Carpets</div>
+            <h2 className="install_tile_title subtitle_60">Wall to Wall Carpets</h2>
             <div className="install_tile_para">
                 When it comes to striking a great 'first impression' of <br />
                 beauty and prestige, our Wall to Wall Carpets are above <br />

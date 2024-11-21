@@ -149,7 +149,7 @@ const BannerSwiperComponent = () => {
           <div className="swiper-wrapper">
             {contentData.map((text, index) => (
               <div key={index} className="swiper-slide">
-                <h2 className="banner_sub_heading">{text}</h2>
+                <div className="banner_sub_heading">{text}</div>
               </div>
             ))}
           </div>

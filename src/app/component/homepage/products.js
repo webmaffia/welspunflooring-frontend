@@ -26,9 +26,9 @@ const ProductsSection = ({ productData, productImage }) => {
       <div className="products_container">
         <div className="left_container">
           <div className="section_container">
-            <h2 className="diamond diamond_blue">{heading.sectionName}</h2>
+            <div className="diamond diamond_blue">{heading.sectionName}</div>
             <div className="title_container">
-              <div className="subtitle_60">{heading.heading}</div>
+              <h1 className="subtitle_60">{heading.heading}</h1>
             </div>
           </div>
         </div>
@@ -92,7 +92,7 @@ const ProductsSection = ({ productData, productImage }) => {
 
               {slides.map((slide, index) => (
                 <SwiperSlide key={index}>
-                  <h3 className="subtitle_50">{slide.product}</h3>
+                  <h2 className="subtitle_50">{slide.product}</h2>
                   <div dangerouslySetInnerHTML={{ __html: slide.description }} />
                   <div className="product_cta">
                     <Link href={`/products/${slide.productSlug}`} className="view_link whiteBrd">
