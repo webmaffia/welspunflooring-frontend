@@ -140,6 +140,11 @@ const Menu = ({ closeMenu }) => {
       </ul>
 
       <ul className="lower_menu dFlex">
+      {/* <li>
+          <Link href="/locate-dealer" className="border_link" onClick={closeMenu}>
+            DEALERS
+          </Link>
+        </li> */}
         <li>
           <Link href="/products" className="border_link" onClick={closeMenu}>
             PRODUCTS <span></span>
@@ -196,7 +201,7 @@ const Menu = ({ closeMenu }) => {
         </li>
         <li>
           <Link href="/warranty" className="border_link" onClick={closeMenu}>
-            WARRANTY
+          WARRANTY & MAINTENANCE
           </Link>
         </li>
         <li>

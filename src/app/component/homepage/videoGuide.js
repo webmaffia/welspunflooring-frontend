@@ -5,7 +5,9 @@ import { Navigation, Pagination } from 'swiper/modules';
 import { useState, useRef } from 'react';
 import 'swiper/swiper-bundle.css';
 
-const VideoGuide = () => {
+const VideoGuide = ({}) => {
+
+
     const [isVideoPlaying, setIsVideoPlaying] = useState(false);
     const videoRef = useRef(null);
 

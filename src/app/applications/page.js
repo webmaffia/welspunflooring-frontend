@@ -4,6 +4,8 @@ import PartnerSection from '../component/homepage/partners';
 import ContactForm from '../component/homepage/contactus';
 import ApplicationDetails from '../component/application';
 import { fetchApplications } from '../utils/applicationData';
+import Testimonials from '../component/global/testimonials/testimonials';
+import Partners from '../component/global/partners/partners';
 
 export default async function ApplicationPage() {
   const data = await fetchApplications();
@@ -43,6 +45,10 @@ export default async function ApplicationPage() {
       </section>
 
    <ApplicationDetails applications={data} />
+
+   <Testimonials />
+
+   <Partners />
 
       {/* <PartnerSection /> */}
       <ContactForm />

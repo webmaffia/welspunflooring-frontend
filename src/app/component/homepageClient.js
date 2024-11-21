@@ -49,6 +49,10 @@ export default function HomePageClient({ data, contentData,shouldHideSection }) 
   const partnerSection = allData.filter((section) => section.__component === "sections.partners");
   const threeFold = allData.filter((section) => section.__component === "sections.three-fold");
 
+  const videoGuide = allData.filter((section) => section.__component === "sections.video-guide");
+
+ 
+
   return (
     <main className="wrapper">
       {imageLoading && (
@@ -71,7 +75,7 @@ export default function HomePageClient({ data, contentData,shouldHideSection }) 
       {slides.length > 0 && <Banner bannerData={slides} onImageLoad={handleImageLoad} shouldHideSection={shouldHideSection} />}
       <ProductsSection productData={productsContent} productImage={productsSection} />
       <SpacesSection spaceData={spaceSection} />
-      <VideoGuide />
+      <VideoGuide videoGuide={videoGuide}/>
       <SustainabilitySection />
       <TestimonialSection testimonial={testimonialData} />
       {partnerSection.length > 0 && <PartnerSection partnerData={partnerSection[0]} />}
