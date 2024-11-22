@@ -33,16 +33,16 @@ export default async function BlogDetail({ params }) {
             <section data-section="blog_detail" className="blog_detail">
                 <div className="blog_detail_container">
                     <div className="detail_content">
-                        <h1>{blog.attributes.Title}</h1>
+                        <h1>{blog?.attributes?.Title}</h1>
                         <div className="trend_box">
                             <div className="detail_text">
-                                <span>{blog.attributes.publishDate}</span>
+                                <span>{blog?.attributes?.publishDate}</span>
                             </div>
-                            <div className="trends">{blog.attributes.blog_category.data.attributes.name}</div>
+                            <div className="trends">{blog?.attributes?.blog_category?.data?.attributes?.name}</div>
                         </div>
 
                         {/* Render each block */}
-                        {blog.attributes.blocks.map((block) => {
+                        {blog?.attributes?.blocks?.map((block) => {
                             switch (block.__component) {
                                 case "blogs.rich-text":
                                     return (
