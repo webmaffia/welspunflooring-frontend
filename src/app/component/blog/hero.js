@@ -42,7 +42,7 @@ export default function HeroBlog({blogs}) {
       </div>
       <Link href={`blog/${blog.attributes.slug}`}>
       <Image 
-       src={`${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${blog.attributes.featuredImage.data.attributes.url}`}
+       src={`${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${blog?.attributes?.featuredImage?.data?.attributes?.url}`}
         alt="Blog Room" 
         className="blog_room_img" 
         width={771} 
