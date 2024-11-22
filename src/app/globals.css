@@ -139,6 +139,11 @@ hight:  26.979vw;
     .costNote {
         font-size: 2.7vw !important;
     }
+
+    .testimonial_video .video_container .video_detail{
+        width:100%;
+        
+    }
 }
 
 .loading_section{
@@ -243,4 +248,11 @@ html::-webkit-scrollbar{width:7px;}
 
 .testimonial_video{
     overflow: hidden;
+}
+
+.video_content .play_btn img {
+   
+    background: #1d1590;
+    border-radius: 100%;
+    opacity:0;
 }

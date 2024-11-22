@@ -10,47 +10,35 @@ const TestimonialVideo = () => {
   const videoData = [
     {
       poster: "/images/testimonial/poster/img_1.webp",
-      videoSrc: "https://www.youtube.com/embed/7mGkB7T3JWU",
+      videoSrc: "https://www.youtube.com/embed/7mGkB7T3JWU?enablejsapi=1&rel=0&modestbranding=1",
       name: "Adnan",
       description: "Senior IT Consultant, SAPT Delhi",
     },
     {
       poster: "/images/testimonial/poster/img_2.webp",
-      videoSrc: "https://www.youtube.com/embed/6ZyJwFoJBHw",
+      videoSrc: "https://www.youtube.com/embed/6ZyJwFoJBHw?enablejsapi=1&rel=0&modestbranding=1",
       name: "Mr. Sudhakar Manne",
       description: "Hyderabad City",
     },
     {
       poster: "/images/testimonial/poster/img_3.webp",
-      videoSrc: "https://www.youtube.com/embed/IIogdF5ZHh4",
+      videoSrc: "https://www.youtube.com/embed/IIogdF5ZHh4?enablejsapi=1&rel=0&modestbranding=1",
       name: "Maria D'Silva",
       description: "Principal, Infant Jesus School, Pune",
     },
   ];
 
   const handlePlayClick = (index) => {
-    const selectedIframe = videosRef.current[index];
-    if (selectedIframe) {
-      const iframeSrc = selectedIframe.src;
-
-      // Add autoplay to the selected video
-      if (!iframeSrc.includes("?autoplay=1")) {
-        selectedIframe.src += "?autoplay=1";
-      }
-
-      // Pause other videos
-      videosRef.current.forEach((iframe, idx) => {
-        if (iframe && idx !== index) {
-          iframe.src = iframe.src.replace("?autoplay=1", ""); // Reset other videos
-        }
-      });
-
-      // Update playing state
-      setIsPlayingStates((prevStates) => {
-        const newStates = prevStates.map((_, idx) => idx === index);
-        return newStates;
-      });
+    // Play the selected video
+    const selectedPlayer = videosRef.current[index];
+    if (selectedPlayer) {
+      selectedPlayer.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', "*");
     }
+
+    // Update playing state
+    setIsPlayingStates((prevStates) =>
+      prevStates.map((_, idx) => idx === index)
+    );
   };
 
   return (
@@ -68,7 +56,7 @@ const TestimonialVideo = () => {
               {/* {!isPlayingStates[index] && (
                 <img
                   src={video.poster}
-                  alt=""
+                  alt="Video Poster"
                   className="poster_img"
                   style={{
                     width: "641px",
@@ -108,7 +96,7 @@ const TestimonialVideo = () => {
               {/* Video Iframe */}
               <iframe
                 ref={(el) => (videosRef.current[index] = el)}
-                src={video.videoSrc}
+                src={`${video.videoSrc}?enablejsapi=1`}
                 width="641"
                 height="897"
                 frameBorder="0"
