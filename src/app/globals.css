@@ -240,3 +240,7 @@ html::-webkit-scrollbar{width:7px;}
 .jashhh007 {
     z-index: 99999999;
 }
+
+.testimonial_video{
+    overflow: hidden;
+}

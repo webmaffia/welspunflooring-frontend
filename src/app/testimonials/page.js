@@ -1,4 +1,5 @@
 import ContactForm from "../component/homepage/contactus";
+import TestimonialVideo from "../component/testimonials/testimonialVideos";
 
 
 export default async function testimonialPage() {
@@ -30,6 +31,8 @@ export default async function testimonialPage() {
         <h1 className="banner_heading">Floored by Welspun</h1>
     </div>
 </section>
+
+<TestimonialVideo />
 <section data-section="testimonial_feature" className="testimonial_feature">
     <div className="feature_container">
         <div className="section_container">
