@@ -68,7 +68,7 @@ export default function installationPage() {
                 a quick and effortless process. Click N Lock tiles can be <br />
                 laid in less than a day without any dust / noise,
             </div>
-            <Link href="//products?category=click-and-lock-stone" className="view_link purpleBg">
+            <Link href="/product?category=click-and-lock-stone" className="view_link purpleBg">
                 <div className="link_cta">
                     <div className="arrow_bg">
                         <img src="/images/icons/arrow-2.webp" alt="" width="20" height="17" />
@@ -107,7 +107,7 @@ export default function installationPage() {
                 pressure-sensitive adhesive or adhesive tape. Check out <br />
                 the tiles installation process below to know more.
             </div>
-            <Link href="/products?category=carpet-tiles" className="view_link purpleBg">
+            <Link href="/product?category=carpet-tiles" className="view_link purpleBg">
                 <div className="link_cta">
                     <div className="arrow_bg">
                         <img src="/images/icons/arrow-2.webp" alt="" width="20" height="17" />
@@ -540,7 +540,7 @@ export default function installationPage() {
                 below-mentioned steps to ensure proper installation that <br />
                 also aids in the flooring's longevity.
             </div>
-            <a href="/products/artificial-grass" className="view_link purpleBg">
+            <a href="/product/artificial-grass" className="view_link purpleBg">
                 <div className="link_cta">
                     <div className="arrow_bg">
                         <img src="/images/icons/arrow-2.webp" alt="" width="20" height="17" />

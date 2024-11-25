@@ -35,19 +35,19 @@ const ProductDetail = ({ product, collection }) => {
       <div className="detail_content">
         <div className="bread_crump">
           <ul>
-            <li><Link href="/products">PRODUCTS</Link></li>
+            <li><Link href="/product">PRODUCTS</Link></li>
             <li>
-              <Link href={`/products/${product?.attributes?.category?.data?.attributes?.product?.data?.attributes?.slug}`}>
+              <Link href={`/product/${product?.attributes?.category?.data?.attributes?.product?.data?.attributes?.slug}`}>
                 {product?.attributes?.category?.data?.attributes?.product?.data?.attributes?.product_name}
               </Link>
             </li>
             <li>
-              <Link href={`/products?category=${product?.attributes?.category?.data?.attributes?.product?.data?.attributes?.slug}&collection=${product?.attributes?.category?.data?.attributes?.collectionName}`}>
+              <Link href={`/product?category=${product?.attributes?.category?.data?.attributes?.product?.data?.attributes?.slug}&collection=${product?.attributes?.category?.data?.attributes?.collectionName}`}>
                 {product?.attributes?.category?.data?.attributes?.collectionName}
               </Link>
             </li>
             <li>
-              <Link href={`/products/${product?.attributes?.category?.data?.attributes?.product?.data?.attributes?.slug}/${product?.attributes?.category?.data?.attributes?.slug}/${product?.attributes?.slug}`}>
+              <Link href={`/product/${product?.attributes?.category?.data?.attributes?.product?.data?.attributes?.slug}/${product?.attributes?.category?.data?.attributes?.slug}/${product?.attributes?.slug}`}>
                 {product?.attributes?.subProductName}
               </Link>
             </li>
@@ -75,13 +75,13 @@ const ProductDetail = ({ product, collection }) => {
               <div className="more_tiles">
                 <div className="tiles_view">
                   <div className="tiles_name">More From {product?.attributes?.category?.data?.attributes?.collectionName}</div>
-                  <Link href={`/products?category=${product?.attributes?.category?.data?.attributes?.product?.data?.attributes?.slug}&collection=${product?.attributes?.category?.data?.attributes?.collectionName}`}>View More</Link>
+                  <Link href={`/product?category=${product?.attributes?.category?.data?.attributes?.product?.data?.attributes?.slug}&collection=${product?.attributes?.category?.data?.attributes?.collectionName}`}>View More</Link>
                 </div>
                 <div className="tiles_detail">
                   {collection?.slice(0, 14).map((tile, index) => (
                     <Link
                       key={index}
-                      href={`/products/${product?.attributes?.category?.data?.attributes?.product?.data?.attributes?.slug}/${product?.attributes?.category?.data?.attributes?.slug}/${tile?.attributes?.slug}`}
+                      href={`/product/${product?.attributes?.category?.data?.attributes?.product?.data?.attributes?.slug}/${product?.attributes?.category?.data?.attributes?.slug}/${tile?.attributes?.slug}`}
                     >
                       <Image
                         src={`${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${tile?.attributes?.swatch?.data?.attributes?.url}`}

@@ -146,38 +146,38 @@ const Menu = ({ closeMenu }) => {
           </Link>
         </li> */}
         <li>
-          <Link href="/products" className="border_link" onClick={closeMenu}>
+          <Link href="/product" className="border_link" onClick={closeMenu}>
             PRODUCTS <span></span>
           </Link>
           <div className="sub_lower">
             <ul>
               <li>
-                <Link href="/products/click-and-lock-wood" className="border_link" onClick={closeMenu}>
+                <Link href="/product/click-and-lock-wood" className="border_link" onClick={closeMenu}>
                   CLICK-N-LOCK® Wood
                 </Link>
               </li>
               <li>
-                <Link href="/products/click-and-lock-stone" className="border_link" onClick={closeMenu}>
+                <Link href="/product/click-and-lock-stone" className="border_link" onClick={closeMenu}>
                   CLICK-N-LOCK® Stone
                 </Link>
               </li>
               <li>
-                <Link href="/products/carpet-tiles" className="border_link" onClick={closeMenu}>
+                <Link href="/product/carpet-tiles" className="border_link" onClick={closeMenu}>
                   CARPET TILES
                 </Link>
               </li>
               <li>
-                <Link href="/products/wall-to-wall-carpet" className="border_link" onClick={closeMenu}>
+                <Link href="/product/wall-to-wall-carpet" className="border_link" onClick={closeMenu}>
                   WALL TO WALL Carpet
                 </Link>
               </li>
               <li>
-                <Link href="/products/artificial-grass" className="border_link" onClick={closeMenu}>
+                <Link href="/product/artificial-grass" className="border_link" onClick={closeMenu}>
                   GREENS
                 </Link>
               </li>
               <li>
-                <Link href="/products/multistile" className="border_link" onClick={closeMenu}>
+                <Link href="/product/multistile" className="border_link" onClick={closeMenu}>
                   MULTISTILE™
                 </Link>
               </li>

@@ -65,7 +65,7 @@ export default async function BlogDetail({ params }) {
                     impression
                 </div>
                 <p>Step Up your floor & <br />wall designs</p>
-                <Link href="/products" class="view_link whiteBrd">
+                <Link href="/product" class="view_link whiteBrd">
                     <div class="link_cta">
                         <div class="arrow_bg">
                             <img src="/images/icons/arrow-2.webp" alt="" width="20" height="17" />
@@ -84,7 +84,7 @@ export default async function BlogDetail({ params }) {
                         Just within 24 <br />
                         Hours*
                     </div>
-                    <Link href="/products/click-and-lock-wood" class="view_link whiteBrd">
+                    <Link href="/product/click-and-lock-wood" class="view_link whiteBrd">
                         <div class="link_cta">
                             <div class="arrow_bg">
                                 <img src="/images/icons/arrow-2.webp" alt="" width="20" height="17" />

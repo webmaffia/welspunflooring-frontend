@@ -172,7 +172,7 @@ const ProductsList = ({ productsByCategory }) => {
                       .map((product) => (
                         <div key={product.id} className="tile_item">
                           <div className="product_img_box">
-                            <Link href={`/products/${products[0]?.attributes?.category?.data?.attributes?.product?.data?.attributes?.slug || ''}/${product.attributes.category.data.attributes.slug}/${product.attributes.slug}`}>
+                            <Link href={`/product/${products[0]?.attributes?.category?.data?.attributes?.product?.data?.attributes?.slug || ''}/${product.attributes.category.data.attributes.slug}/${product.attributes.slug}`}>
                               <img
                                 src={`${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${product?.attributes?.details?.slider[1]?.image?.data?.attributes?.url || product?.attributes?.details?.slider[0]?.image?.data?.attributes?.url}`} 
                                 alt={product?.attributes?.subProductName || 'Product Image'}
@@ -210,7 +210,7 @@ const ProductsList = ({ productsByCategory }) => {
                             <div className="item_sub">{product.attributes.category.data.attributes.collectionName}</div>
                           </div>
                           <span className="item_link">
-                            <Link href={`/products/${products[0]?.attributes?.category?.data?.attributes?.product?.data?.attributes?.slug || ''}/${product.attributes.category.data.attributes.slug}/${product.attributes.slug}`}>
+                            <Link href={`/product/${products[0]?.attributes?.category?.data?.attributes?.product?.data?.attributes?.slug || ''}/${product.attributes.category.data.attributes.slug}/${product.attributes.slug}`}>
                               KNOW MORE
                             </Link>
                           </span>
@@ -221,7 +221,7 @@ const ProductsList = ({ productsByCategory }) => {
                     <button onClick={() => toggleViewMore(category)} className="view_product">
                       {expandedCategories[category] ? "VIEW LESS" : "VIEW MORE"}
                     </button>
-                    <Link href={`/products/${products[0]?.attributes?.category?.data?.attributes?.product?.data?.attributes?.slug || ''}`}>
+                    <Link href={`/product/${products[0]?.attributes?.category?.data?.attributes?.product?.data?.attributes?.slug || ''}`}>
                       EXPLORE {(category || 'Category').toUpperCase()}
                     </Link>
                   </div>

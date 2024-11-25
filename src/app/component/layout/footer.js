@@ -52,35 +52,35 @@ const Footer = () => {
       </div>
       <div className="footer_nav">
         <div className="nav_container">
-          <span className="nav_link"><Link href="/products" className="border_link">Product</Link></span>
+          <span className="nav_link"><Link href="/product" className="border_link">Product</Link></span>
           <div className="sub_nav">
   <span className="nav_link">
-    <Link href="/products/click-and-lock-wood" className="border_link" >
+    <Link href="/product/click-and-lock-wood" className="border_link" >
     CLICK-N-LOCK® Wood
     </Link>
   </span>
   <span className="nav_link">
-    <Link href="/products/click-and-lock-stone" className="border_link" >
+    <Link href="/product/click-and-lock-stone" className="border_link" >
     CLICK-N-LOCK® Stone
     </Link>
   </span>
   <span className="nav_link">
-    <Link href="/products/carpet-tiles" className="border_link" >
+    <Link href="/product/carpet-tiles" className="border_link" >
       Carpet Tiles
     </Link>
   </span>
   <span className="nav_link">
-    <Link href="/products/wall-to-wall-carpet" className="border_link" >
+    <Link href="/product/wall-to-wall-carpet" className="border_link" >
       Wall To Wall Carpet
     </Link>
   </span>
   <span className="nav_link">
-    <Link href="/products/artificial-grass" className="border_link" >
+    <Link href="/product/artificial-grass" className="border_link" >
       GREENS
     </Link>
   </span>
   <span className="nav_link">
-    <Link href="/products/multistile" className="border_link" >
+    <Link href="/product/multistile" className="border_link" >
       Multistile™
     </Link>
   </span>
@@ -104,7 +104,7 @@ const Footer = () => {
 
         <div className="nav_container">
           <span className="nav_link"><Link href="/sustainability" className="border_link">Sustainability</Link></span>
-          <span className="nav_link"><Link href="/products" className="border_link">Catalogues</Link></span>
+          <span className="nav_link"><Link href="/product" className="border_link">Catalogues</Link></span>
           <span className="nav_link"><Link href="/locate-dealer" className="border_link">Locate Dealer</Link></span>
           <span className="nav_link"><Link href="/installation" className="border_link">Installation</Link></span>
           <span className="nav_link"><Link href="/privacy-policy" className="border_link">Privacy Policy</Link></span>

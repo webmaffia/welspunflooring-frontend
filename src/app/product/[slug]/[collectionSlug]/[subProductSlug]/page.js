@@ -61,7 +61,7 @@ const SubProductPage = async ({ params }) => {
         <AssistanceSection />
         <ExploreCollection product={productByProductNameData?.data || []} />
         <section data-section="more_tile_link" className="more_tile_link">
-          <Link href={`/products/${product.attributes.category.data.attributes.product.data.attributes.slug}`}>
+          <Link href={`/product/${product.attributes.category.data.attributes.product.data.attributes.slug}`}>
             {product.attributes.category.data.attributes.product.data.attributes.product_name}
           </Link>
         </section>

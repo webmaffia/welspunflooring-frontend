@@ -63,7 +63,7 @@ export default function BudgetCalculator() {
         tileName: selectedTile,
         totalPrice: calculatedPrice,
         imageUrl: selectedImageUrl,
-        exploreLink: `/products/${productSlug}/${collectionSlug}/${tileSlug}`, // Construct explore link
+        exploreLink: `/product/${productSlug}/${collectionSlug}/${tileSlug}`, // Construct explore link
       });
     } else {
       console.log('Please fill all fields');

@@ -90,7 +90,7 @@ export default function AboutPage() {
                 now and here!
             </div>
             
-            <Link href="/products" className="view_link purpleBg">
+            <Link href="/product" className="view_link purpleBg">
                 <div className="link_cta">
                     <div className="arrow_bg">
                         <img src="/images/icons/arrow-2.webp" alt="" width="20" height="17" />
