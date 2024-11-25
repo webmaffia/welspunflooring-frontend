@@ -135,7 +135,7 @@ const VideoGuide = () => {
                                     <h3 className="subtitle_35">
                                     Welspun Flooring Corporate
                                     </h3>
-                                    <div className="product_cta">
+                                    {/* <div className="product_cta">
                                         <a href="" className="view_link whiteBrd">
                                             <div className="link_cta">
                                                 <div className="arrow_bg">
@@ -144,7 +144,7 @@ const VideoGuide = () => {
                                                 <span>WATCH NOW</span>
                                             </div>
                                         </a>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </SwiperSlide>
                             <SwiperSlide>
@@ -156,7 +156,7 @@ const VideoGuide = () => {
                                         within 24 hours <br />
                                         looks like
                                     </h3>
-                                    <div className="product_cta">
+                                    {/* <div className="product_cta">
                                         <a href="" className="view_link whiteBrd">
                                             <div className="link_cta">
                                                 <div className="arrow_bg">
@@ -165,7 +165,7 @@ const VideoGuide = () => {
                                                 <span>WATCH NOW</span>
                                             </div>
                                         </a>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </SwiperSlide>
 
