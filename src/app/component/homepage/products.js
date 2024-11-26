@@ -15,7 +15,7 @@ const ProductsSection = ({ productData, productImage }) => {
 
   return (
     <section className="products cursor_img" data-section="products">
-      <Link href="/products" className="view_link cursor_cta purpleBg">
+      <Link href="/product" className="view_link cursor_cta purpleBg">
         <div className="link_cta">
           <div className="arrow_bg">
             <img src="/images/icons/arrow-2.webp" alt="" width="20" height="17" />
