@@ -137,7 +137,7 @@ export default async function ProductPage({ params }) {
   </Link>
 )}
 
-
+{product?.attributes?.about?.brochurePdf?.data?.attributes.url && (
                 <a href={`${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${product?.attributes?.about?.brochurePdf?.data?.attributes.url}`} className="view_link download_cta purpleBg">
                     <div className="link_cta">
                         <div className="arrow_bg">
@@ -146,6 +146,7 @@ export default async function ProductPage({ params }) {
                         <span>DOWNLOAD <br />BROCHURE</span>
                     </div>
                 </a>
+                )}
             </div>
         </div>
     </div>
