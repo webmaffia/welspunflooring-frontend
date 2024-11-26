@@ -95,7 +95,7 @@ const ProductsSection = ({ productData, productImage }) => {
                   <h2 className="subtitle_50">{slide.product}</h2>
                   <div dangerouslySetInnerHTML={{ __html: slide.description }} />
                   <div className="product_cta">
-                    <Link href={`/products/${slide.productSlug}`} className="view_link whiteBrd">
+                    <Link href={`/product/${slide.productSlug}`} className="view_link whiteBrd">
                       <div className="link_cta">
                         <div className="arrow_bg">
                           <img src="/images/icons/arrow-2.webp" alt="" width="20" height="17" />
