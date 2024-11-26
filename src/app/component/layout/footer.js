@@ -82,7 +82,7 @@ const Footer = () => {
   </span>
   <span className="nav_link">
     <Link href="/product/artificial-grass" className="border_link" >
-      GREENS
+      Greens
     </Link>
   </span>
   <span className="nav_link">
