@@ -24,7 +24,7 @@ export default function PopupComponent() {
             {/* Sticky icons for Chat and Catalogue */}
             <div className="sticky_icons">
                 
-                <Link href="/products" className="sticky_catalogue">VIEW CATALOGUE</Link>
+                <Link href="/product" className="sticky_catalogue">VIEW CATALOGUE</Link>
                 <a href="#" className="sticky_chat" onClick={handleChatClick}>
                     <Image
                         src="/images/icons/chat.webp"
