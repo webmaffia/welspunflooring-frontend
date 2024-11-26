@@ -126,7 +126,7 @@ export default async function ProductPage({ params }) {
                 flooring tiles and select designs that speak for your spaces.  
             </p> */}
             <div className="dFlex">
-            {params.slug !== 'artificial-grass' && (
+            {params.slug !== 'artificial-grass' && params.slug !== 'purgloss-tiles' && (
   <Link href={`/product?category=${params.slug}`} className="view_link purpleBg">
     <div className="link_cta">
       <div className="arrow_bg">
@@ -137,7 +137,8 @@ export default async function ProductPage({ params }) {
   </Link>
 )}
 
-                <a href={`${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${product.attributes.about.brochurePdf.data.attributes.url}`} className="view_link download_cta purpleBg">
+
+                <a href={`${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${product?.attributes?.about?.brochurePdf?.data?.attributes.url}`} className="view_link download_cta purpleBg">
                     <div className="link_cta">
                         <div className="arrow_bg">
                             <img src="/images/icons/arrow-2.webp" alt="" width="20" height="17" />
@@ -150,7 +151,7 @@ export default async function ProductPage({ params }) {
     </div>
     <div className="about_features">
 
-    {product.attributes.about.title.map((item, index) => (
+    {product.attributes?.about?.title?.map((item, index) => (
              <div className="about_feature_box border_bg" key={index}>
              <div className="border_diamond"></div>
              <div className="border_right"></div>
@@ -174,12 +175,12 @@ export default async function ProductPage({ params }) {
 
 
 <ProductFeatures product={product}/>
-
+{product.attributes.sustainable?.sectionName && (
 <section data-section="about_sustainable" className="about_sustainable">
     <div className="diamond_title">
-        <h2 className="diamond diamond_blue">{product.attributes.sustainable.sectionName}</h2>
+        <h2 className="diamond diamond_blue">{product.attributes?.sustainable?.sectionName}</h2>
         <div className="subtitle_45">  
-          {product.attributes.sustainable.heading.map((item, index) => (
+          {product.attributes?.sustainable?.heading?.map((item, index) => (
             <div key={index}>
               {item.children.map((child, childIndex) => (
                 <span key={childIndex}>{child.text}</span>
@@ -192,7 +193,7 @@ export default async function ProductPage({ params }) {
     <div className="about_sustain_container">
         
 
-        {product.attributes.sustainable.certification.map((item, index) => (
+        {product.attributes?.sustainable?.certification?.map((item, index) => (
             <div className="sustain_item border_bg" key={index}>
             <img src=
             {`${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${item.image?.data?.attributes?.url}`}
@@ -214,7 +215,7 @@ export default async function ProductPage({ params }) {
  
     </div>
 </section>
-
+)}
 {product.attributes.trademark?.sectionName && (
   <section data-section="about_sustainable" className="about_sustainable trademark">
     <div className="diamond_title">

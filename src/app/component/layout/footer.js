@@ -64,6 +64,12 @@ const Footer = () => {
     CLICK-N-LOCK® Stone
     </Link>
   </span>
+  
+  <span className="nav_link">
+    <Link href="/product/purgloss-tiles" className="border_link" >
+      Purgloss Tiles
+    </Link>
+  </span>
   <span className="nav_link">
     <Link href="/product/carpet-tiles" className="border_link" >
       Carpet Tiles

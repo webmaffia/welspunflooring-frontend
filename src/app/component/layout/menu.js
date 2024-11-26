@@ -162,6 +162,11 @@ const Menu = ({ closeMenu }) => {
                 </Link>
               </li>
               <li>
+                <Link href="/product/purgloss-tiles" className="border_link" onClick={closeMenu}>
+                  PURGLOSS TILES
+                </Link>
+              </li>
+              <li>
                 <Link href="/product/carpet-tiles" className="border_link" onClick={closeMenu}>
                   CARPET TILES
                 </Link>
