@@ -30,6 +30,7 @@ const ProductDetail = ({ product, collection }) => {
   }, []);
 
   return (
+    <>
     <section data-section="product_detail" className="product_detail">
       <div className="square_box square_box_15"></div>
       <div className="detail_content">
@@ -116,24 +117,26 @@ const ProductDetail = ({ product, collection }) => {
         </div>
       </div>
 
-      <div className="about_features">
-        {product?.attributes?.details?.point?.map((item, index) => (
-          <div className="about_feature_box border_bg" key={index}>
-            <div className="border_diamond"></div>
-            <div className="border_right"></div>
-            <div className="subtitle_30">
-              {item?.name?.map((point, pointIndex) => (
-                <span key={pointIndex}>
-                  {point?.children?.map((child, childIndex) => (
-                    <span key={childIndex}>{child?.text}</span>
-                  ))}
-                </span>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
+    
     </section>
+      <div className="about_features">
+      {product?.attributes?.details?.point?.map((item, index) => (
+        <div className="about_feature_box border_bg" key={index}>
+          <div className="border_diamond"></div>
+          <div className="border_right"></div>
+          <div className="subtitle_30">
+            {item?.name?.map((point, pointIndex) => (
+              <span key={pointIndex}>
+                {point?.children?.map((child, childIndex) => (
+                  <span key={childIndex}>{child?.text}</span>
+                ))}
+              </span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+    </>
   );
 };
 
