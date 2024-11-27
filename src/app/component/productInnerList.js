@@ -1,41 +1,16 @@
 // components/ProductInnerList.js
-"use client"
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
 
-const ProductInnerList = ({ productSlug }) => {
-  const [productData, setProductData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
-  useEffect(() => {
-    const fetchProductData = async () => {
-      try {
-        setLoading(true);
-        const res = await fetch(
-          `https://staging-cms.welspunflooring.com/api/product-specifications?filters[category][product][slug][$eq]=${productSlug}&populate[category][populate]=product&populate[details][populate]=slider.image`
-        );
-        const data = await res.json();
-        if (data.data && data.data.length > 0) {
-          setProductData(data.data);
-        } else {
-          setError('Product not found');
-        }
-      } catch (err) {
-        setError('Failed to fetch data');
-      } finally {
-        setLoading(false);
-      }
-    };
+const ProductInnerList = ({ subProductsList, productSlug }) => {
 
-    fetchProductData();
-  }, [productSlug]);
+const productData = subProductsList
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>{error}</p>;
+console.log(productData)
 
   return (
+  
     <section className="our_products">
     <div className="product_list">
         <div className="product_tile more_products">

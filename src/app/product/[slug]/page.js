@@ -62,6 +62,12 @@ export default async function ProductPage({ params }) {
     if (!product) {
       notFound();
     }
+
+    const subProducts = await axios.get(
+      `https://staging-cms.welspunflooring.com/api/product-specifications?filters[category][product][slug][$eq]=${params.slug}&populate[category][populate]=product&populate[details][populate]=slider.image`
+    );
+
+    const subProductsList = subProducts.data.data;
     
   //   // Second API call for other data
   //   const visualiserDataRes = await axios.get(`https://staging-cms.welspunflooring.com/api/homepage?populate[default][populate]=slide.slideImage,slide.slideBg,slide.slideMobileBg,slide.image,slide.explore,slide.brochure,space.image,images.images,testimonial.posterImage,testimonial.image,image,partnerLogo.images,partnerLogo.mobileImages,content.images,content.mobileImages,blog.thumbnail,heading`); // Replace with your URL
@@ -155,7 +161,7 @@ export default async function ProductPage({ params }) {
 </section>
 
 {(params.slug && params.slug !== 'artificial-grass' && params.slug !== 'purgloss-tiles') ? 
-  <ProductInnerList productSlug={params.slug} /> : 
+  <ProductInnerList productSlug={params.slug} subProductsList={subProductsList} /> : 
   <p></p>}
 
 <div className="about_features">
