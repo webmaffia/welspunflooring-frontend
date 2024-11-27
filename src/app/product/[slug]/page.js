@@ -150,28 +150,29 @@ export default async function ProductPage({ params }) {
             </div>
         </div>
     </div>
-    <div className="about_features">
-
-    {product.attributes?.about?.title?.map((item, index) => (
-             <div className="about_feature_box border_bg" key={index}>
-             <div className="border_diamond"></div>
-             <div className="border_right"></div>
-             <div className="subtitle_30">
-             {item.point.map((point, index) => (
-                <span key={index}>
-                   {point.children.map((child, childIndex) => (
-                <span key={childIndex}>{child.text}</span>
-              ))}
-                </span>
-              ))}
-              
-               
-             </div>
-         </div>
-          ))}
-     
-    </div>
+   
 </section>
+<div className="about_features">
+
+{product.attributes?.about?.title?.map((item, index) => (
+         <div className="about_feature_box border_bg" key={index}>
+         <div className="border_diamond"></div>
+         <div className="border_right"></div>
+         <div className="subtitle_30">
+         {item.point.map((point, index) => (
+            <span key={index}>
+               {point.children.map((child, childIndex) => (
+            <span key={childIndex}>{child.text}</span>
+          ))}
+            </span>
+          ))}
+          
+           
+         </div>
+     </div>
+      ))}
+ 
+</div>
 
 
 
