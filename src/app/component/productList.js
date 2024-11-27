@@ -157,78 +157,60 @@ const ProductsList = ({ productsByCategory }) => {
         </aside>
 
         <div className="product_list">
-          {productsByCategory
-            .filter(({ category }) => !selectedCategory || category === selectedCategory)
-            .map(({ category, products }) => (
-              <div key={category} className="product_tile more_products" id={category}>
-                <h2 className="product_title">{formatCategory(category)}</h2>
-                <div className="product_container">
-                  <div className="product_tile_box">
-                    {(expandedCategories[category] ? products : products.slice(0, 4))
-                      .filter((product) =>
-                        !selectedCollection ||
-                        product.attributes.category.data.attributes.collectionName === selectedCollection
-                      )
-                      .map((product) => (
-                        <div key={product.id} className="tile_item">
-                          <div className="product_img_box">
-                            <Link href={`/product/${products[0]?.attributes?.category?.data?.attributes?.product?.data?.attributes?.slug || ''}/${product.attributes.category.data.attributes.slug}/${product.attributes.slug}`}>
-                              <img
-                                src={`${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${product?.attributes?.details?.slider[1]?.image?.data?.attributes?.url || product?.attributes?.details?.slider[0]?.image?.data?.attributes?.url}`} 
-                                alt={product?.attributes?.subProductName || 'Product Image'}
-                                width="584"
-                                height="511"
-                                className="tile_img"
-                              />
-
-
-
-{/* <img
-  src={`${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${(() => {
-    const slider = product?.attributes?.details?.slider || [];
-    // Fetch candidates for indexes 2, 3, and 4
-    const candidates = [slider[1], slider[2], slider[3]];
-    // Filter to only include valid images
-    const availableImages = candidates.filter(image => image?.image?.data?.attributes?.url);
-    // Randomly pick an image from available ones or fallback to the first
-    const selectedImage = 
-      availableImages.length > 0 
-        ? availableImages[Math.floor(Math.random() * availableImages.length)]
-        : slider[0];
-    return selectedImage?.image?.data?.attributes?.url || '';
-  })()}`}
-  alt={product?.attributes?.subProductName || 'Product Image'}
-  width="584"
-  height="511"
-  className="tile_img"
-/> */}
-                            </Link>
-                          </div>
-                          <div className="product_text">
-                            <h3 className="item_title">{product.attributes.subProductName}</h3>
-                            <div className="item_border"></div>
-                            <div className="item_sub">{product.attributes.category.data.attributes.collectionName}</div>
-                          </div>
-                          <span className="item_link">
-                            <Link href={`/product/${products[0]?.attributes?.category?.data?.attributes?.product?.data?.attributes?.slug || ''}/${product.attributes.category.data.attributes.slug}/${product.attributes.slug}`}>
-                              KNOW MORE
-                            </Link>
-                          </span>
-                        </div>
-                      ))}
-                  </div>
-                  <div className="product_link">
-                    <button onClick={() => toggleViewMore(category)} className="view_product">
-                      {expandedCategories[category] ? "VIEW LESS" : "VIEW MORE"}
-                    </button>
-                    <Link href={`/product/${products[0]?.attributes?.category?.data?.attributes?.product?.data?.attributes?.slug || ''}`}>
-                      EXPLORE {(category || 'Category').toUpperCase()}
+  {productsByCategory
+    .filter(({ category }) => !selectedCategory || category === selectedCategory)
+    .map(({ category, products }) => (
+      <div key={category} className="product_tile more_products" id={category}>
+        <h2 className="product_title">{formatCategory(category)}</h2>
+        <div className="product_container">
+          <div className="product_tile_box">
+            {products
+              .filter((product) =>
+                !selectedCollection ||
+                product.attributes.category.data.attributes.collectionName === selectedCollection
+              )
+              .map((product) => (
+                <div key={product.id} className="tile_item">
+                  <div className="product_img_box">
+                    <Link
+                      href={`/product/${products[0]?.attributes?.category?.data?.attributes?.product?.data?.attributes?.slug || ''}/${product.attributes.category.data.attributes.slug}/${product.attributes.slug}`}
+                    >
+                      <img
+                        src={`${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${product?.attributes?.details?.slider[1]?.image?.data?.attributes?.url || product?.attributes?.details?.slider[0]?.image?.data?.attributes?.url}`}
+                        alt={product?.attributes?.subProductName || 'Product Image'}
+                        width="584"
+                        height="511"
+                        className="tile_img"
+                      />
                     </Link>
                   </div>
+                  <div className="product_text">
+                    <h3 className="item_title">{product.attributes.subProductName}</h3>
+                    <div className="item_border"></div>
+                    <div className="item_sub">{product.attributes.category.data.attributes.collectionName}</div>
+                  </div>
+                  <span className="item_link">
+                    <Link
+                      href={`/product/${products[0]?.attributes?.category?.data?.attributes?.product?.data?.attributes?.slug || ''}/${product.attributes.category.data.attributes.slug}/${product.attributes.slug}`}
+                    >
+                      KNOW MORE
+                    </Link>
+                  </span>
                 </div>
-              </div>
-            ))}
+              ))}
+          </div>
+          <div className="product_link">
+            <Link
+              href={`/product/${products[0]?.attributes?.category?.data?.attributes?.product?.data?.attributes?.slug || ''}`}
+            >
+              EXPLORE {(category || 'Category').toUpperCase()}
+            </Link>
+          </div>
         </div>
+      </div>
+    ))}
+</div>
+
       </div>
     </section>
   );
