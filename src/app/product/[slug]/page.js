@@ -9,6 +9,7 @@ import AssistanceSection from '@/app/component/assistance';
 import ContactForm from '@/app/component/homepage/contactus';
 import BlogSection from '@/app/component/homepage/blog';
 import Link from 'next/link';
+import ProductInnerList from '@/app/component/productInnerList';
 
 export async function generateStaticParams() {
   try {
@@ -126,7 +127,7 @@ export default async function ProductPage({ params }) {
                 flooring tiles and select designs that speak for your spaces.  
             </p> */}
             <div className="dFlex">
-            {params.slug !== 'artificial-grass' && params.slug !== 'purgloss-tiles' && (
+            {/* {params.slug !== 'artificial-grass' && params.slug !== 'purgloss-tiles' && (
   <Link href={`/product?category=${params.slug}`} className="view_link purpleBg">
     <div className="link_cta">
       <div className="arrow_bg">
@@ -135,7 +136,7 @@ export default async function ProductPage({ params }) {
       <span>VIEW <br />COLLECTION</span>
     </div>
   </Link>
-)}
+)} */}
 
 {product?.attributes?.about?.brochurePdf?.data?.attributes.url && (
                 <a href={`${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${product?.attributes?.about?.brochurePdf?.data?.attributes.url}`} className="view_link download_cta purpleBg">
@@ -152,6 +153,11 @@ export default async function ProductPage({ params }) {
     </div>
    
 </section>
+
+{(params.slug && params.slug !== 'artificial-grass' && params.slug !== 'purgloss-tiles') ? 
+  <ProductInnerList productSlug={params.slug} /> : 
+  <p></p>}
+
 <div className="about_features">
 
 {product.attributes?.about?.title?.map((item, index) => (
