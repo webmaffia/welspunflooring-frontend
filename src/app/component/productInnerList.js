@@ -7,7 +7,7 @@ const ProductInnerList = ({ subProductsList, productSlug }) => {
 
 const productData = subProductsList
 
-console.log(productData)
+
 
   return (
   

@@ -257,3 +257,7 @@ html::-webkit-scrollbar{width:7px;}
     border-radius: 100%;
     opacity:0;
 }
+
+.care_container .about_features {
+    padding: 0;
+}
