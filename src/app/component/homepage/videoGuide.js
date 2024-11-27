@@ -224,7 +224,7 @@ const VideoGuide = () => {
                                 <div className="swiper-slide">
                                     <div className="video_player">
                                         <img
-                                            src="/images/click-n-lock.jpg"
+                                            src="/images/Corporate-video-image-click-n-lock.webp"
                                             alt=""
                                             className="poster"
                                             width="1130"
