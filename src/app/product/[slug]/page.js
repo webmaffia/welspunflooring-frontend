@@ -14,7 +14,7 @@ import ProductInnerList from '@/app/component/productInnerList';
 export async function generateStaticParams() {
   try {
  
-    const res = await axios.get('https://staging-cms.welspunflooring.com/api/products');
+    const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/products`);
     const products = res.data.data;
 
   
@@ -32,7 +32,7 @@ export async function generateStaticParams() {
 export default async function ProductPage({ params }) {
   async function getHomepageData(segment) {
     const res = await fetch(
-      `https://staging-cms.welspunflooring.com/api/homepage?populate[${segment}][populate]=images.images,images.mobileImages`,      { cache: 'no-store' } // Ensures no caching for SSR, can be removed if caching is preferred
+      `${process.env.NEXT_PUBLIC_API_URL}/homepage?populate[${segment}][populate]=images.images,images.mobileImages`,      { cache: 'no-store' } // Ensures no caching for SSR, can be removed if caching is preferred
     );
   
     const data = await res.json();
@@ -54,7 +54,7 @@ export default async function ProductPage({ params }) {
   try {
     
     const res = await axios.get(
-      `https://staging-cms.welspunflooring.com/api/products?filters[slug][$eq]=${params.slug}&populate[about][populate]=*&populate[banner][populate]=*&populate[feature][populate]=feature.icon,feature.banner,feature.mobileBanner&populate[sustainable][populate]=certification.image&populate[trademark][populate]=certification.image&populate[collections][populate]=collectionList.image&populate[faq][populate]=*&populate[careInstructions][populate]=*&populate[blogsection][populate]=blog.thumbnail&populate[seo][populate]=*`
+      `${process.env.NEXT_PUBLIC_API_URL}/products?filters[slug][$eq]=${params.slug}&populate[about][populate]=*&populate[banner][populate]=*&populate[feature][populate]=feature.icon,feature.banner,feature.mobileBanner&populate[sustainable][populate]=certification.image&populate[trademark][populate]=certification.image&populate[collections][populate]=collectionList.image&populate[faq][populate]=*&populate[careInstructions][populate]=*&populate[blogsection][populate]=blog.thumbnail&populate[seo][populate]=*`
     );
     
     const product = res.data.data[0];
@@ -64,7 +64,7 @@ export default async function ProductPage({ params }) {
     }
 
     const subProducts = await axios.get(
-      `https://staging-cms.welspunflooring.com/api/product-specifications?filters[category][product][slug][$eq]=${params.slug}&populate[category][populate]=product&populate[details][populate]=slider.image`
+      `${process.env.NEXT_PUBLIC_API_URL}/product-specifications?filters[category][product][slug][$eq]=${params.slug}&populate[category][populate]=product&populate[details][populate]=slider.image`
     );
 
     const subProductsList = subProducts.data.data;

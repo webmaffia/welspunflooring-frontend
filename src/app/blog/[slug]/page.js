@@ -9,9 +9,10 @@ export default async function BlogDetail({ params }) {
     // Fetch data directly in the server component
     // const response = await fetch(`https://staging-cms.welspunflooring.com/api/blogs?filters[slug][$eq]=${slug}&populate=*`);
     const response = await fetch(
-        `https://staging-cms.welspunflooring.com/api/blogs?filters[slug][$eq]=${slug}&populate=*`,
+        `${process.env.NEXT_PUBLIC_API_URL}/blogs?filters[slug][$eq]=${slug}&populate=*`,
         { cache: "no-store" }
-    );
+      );
+      
     const data = await response.json();
     const blog = data?.data?.[0] || null;
 

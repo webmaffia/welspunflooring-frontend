@@ -1,7 +1,7 @@
 
 
 export const fetchFromStrapi = async (endpoint) => {
-    const baseUrl = 'https://staging-cms.welspunflooring.com/api/';
+    const baseUrl = `${process.env.NEXT_PUBLIC_API_URL}/api/`;
     const url = `${baseUrl}${endpoint}`;
   
     try {

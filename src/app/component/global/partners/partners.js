@@ -4,7 +4,7 @@ const Partners = async () => {
 
     async function getHomepageData(segment) {
         const res = await fetch(
-          `https://staging-cms.welspunflooring.com/api/homepage?populate[${segment}][populate]=partnerLogo.images`,      { cache: 'no-store' } // Ensures no caching for SSR, can be removed if caching is preferred
+          `${process.env.NEXT_PUBLIC_API_URL}/homepage?populate[${segment}][populate]=partnerLogo.images`,      { cache: 'no-store' } // Ensures no caching for SSR, can be removed if caching is preferred
         );
       
         const data = await res.json();

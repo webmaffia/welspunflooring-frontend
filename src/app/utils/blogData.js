@@ -1,7 +1,7 @@
 // blogData.js
 export const fetchBlogData = async () => {
     try {
-        const response = await fetch("https://staging-cms.welspunflooring.com/api/blogs?populate=featuredImage");
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blogs?populate=featuredImage`);
         if (!response.ok) {
             throw new Error("Network response was not ok");
         }

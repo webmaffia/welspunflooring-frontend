@@ -1,5 +1,5 @@
 export const getServerSideProps = async () => {
-    const res = await fetch('https://staging-cms.welspunflooring.com/api/blogs');
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blogs`);
     const data = await res.json();
 
   
