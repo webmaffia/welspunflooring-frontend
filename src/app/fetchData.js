@@ -3,7 +3,7 @@
 export async function getHomepageData(segment) {
   try {
     const res = await fetch(`https://staging-cms.welspunflooring.com/api/homepage?populate[${segment}][populate]=slide.slideImage,slide.slideBg,slide.slideMobileBg,slide.image,slide.productSlug,slide.brochurePdf,space.image,images.images,images.mobileImages,testimonial.posterImage,testimonial.image,image,partnerLogo.images,partnerLogo.mobileImages,content.images,content.mobileImages,blog.thumbnail,heading,section,section.image,section.cta,content.mobileImages,video.posterImage`, {
-      cache: 'no-store',
+      cache: 'force-cache',
     });
     
     if (!res.ok) {
