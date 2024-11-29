@@ -261,3 +261,6 @@ html::-webkit-scrollbar{width:7px;}
 .care_container .about_features {
     padding: 0;
 }
+.about_right_container p br {
+    display: none;
+}
