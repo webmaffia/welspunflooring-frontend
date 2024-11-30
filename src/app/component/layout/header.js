@@ -22,7 +22,7 @@ const Header = () => {
   return (
     <header className={menuActive ? 'active' : ''}>
       <div className="nav_mobile">
-        <Link href="/">
+        <Link href="/" onClick={closeMenu}>
           <Image src="/images/Logo.png" alt="Logo" priority width={162} height={62} />
         </Link>
         <div className={`menu_icon ${menuActive ? 'active' : ''}`} onClick={toggleMenu}>

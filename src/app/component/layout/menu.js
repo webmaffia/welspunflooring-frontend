@@ -60,18 +60,18 @@ const Menu = ({ closeMenu }) => {
     };
   }, []); // Empty dependency array to run only once after the initial render
 
-  const handleMenuClick = (newUrl) => {
-    setApiUrl(newUrl); // Update API URL in context
-    router.push("/"); // Navigate to home or the target page to ensure updates
-    closeMenu(); // Close menu after selection
-    toggleComponentsVisibility(false);
-  };
-  const handleDefaultClick = (newUrl) => {
-    setApiUrl(newUrl); // Update API URL in context
-    router.push("/"); // Navigate to home or the target page to ensure updates
-    closeMenu(); // Close menu after selection
-    toggleComponentsVisibility(true);
-  };
+  // const handleMenuClick = (newUrl) => {
+  //   setApiUrl(newUrl); // Update API URL in context
+  //   router.push("/"); // Navigate to home or the target page to ensure updates
+  //   closeMenu(); // Close menu after selection
+  //   toggleComponentsVisibility(false);
+  // };
+  // const handleDefaultClick = (newUrl) => {
+  //   setApiUrl(newUrl); // Update API URL in context
+  //   router.push("/"); // Navigate to home or the target page to ensure updates
+  //   closeMenu(); // Close menu after selection
+  //   toggleComponentsVisibility(true);
+  // };
 
   return (
     <div className="menu">
