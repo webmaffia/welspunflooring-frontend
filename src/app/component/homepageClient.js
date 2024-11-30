@@ -55,7 +55,7 @@ export default function HomePageClient({ data, contentData,shouldHideSection }) 
 
   return (
     <main className="wrapper">
-      {imageLoading && (
+      {/* {imageLoading && (
         <section data-section="loading_section" className="loading_section">
           <div className="loading_container">
             <div className="loader">
@@ -71,7 +71,7 @@ export default function HomePageClient({ data, contentData,shouldHideSection }) 
             </div>
           </div>
         </section>
-      )}
+      )} */}
       {slides.length > 0 && <Banner bannerData={slides} onImageLoad={handleImageLoad} shouldHideSection={shouldHideSection} />}
       <ProductsSection productData={productsContent} productImage={productsSection} />
       <SpacesSection spaceData={spaceSection} />
