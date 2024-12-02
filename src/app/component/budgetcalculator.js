@@ -75,17 +75,25 @@ export default function BudgetCalculator() {
       <h2 className="subtitle_60">Choose product</h2>
       <div className="budget_container">
         <div className="budget_calculator">
-          <ul className="budget_list">
-            {uniqueProducts.map((product) => (
-              <li
-                key={product.id}
-                className={`budget_tab ${selectedProduct?.id === product.id ? 'active' : ''}`}
-                onClick={() => handleProductClick(product)}
-              >
-                {product.attributes.category.data.attributes.product.data.attributes.product_name}
-              </li>
-            ))}
-          </ul>
+        <ul className="budget_list">
+  {uniqueProducts.map((product) => (
+    <li
+      key={product.id}
+      className={`budget_tab ${selectedProduct?.id === product.id ? 'active' : ''}`}
+      onClick={() => handleProductClick(product)}
+      style={{
+        display:
+          product.attributes.category.data.attributes.product.data.attributes.product_name ===
+          'Carpet Tiles '
+            ? 'none'
+            : 'flex',
+      }}
+    >
+      {product.attributes.category.data.attributes.product.data.attributes.product_name}
+    </li>
+  ))}
+</ul>
+
 
           {selectedProduct && (
             <div className="budget_tile">
