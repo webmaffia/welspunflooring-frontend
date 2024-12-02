@@ -1,6 +1,13 @@
 import BudgetCalculator from "../component/budgetcalculator";
 import ContactForm from "../component/homepage/contactus";
 
+export async function generateMetadata() {
+  return {
+    title: "Budget calculator",
+    description: "Get a customized flooring estimate in minutes",
+  }
+}
+
 export default function budgetCalculatorPage() {
   return (
 

@@ -1,6 +1,13 @@
 import ContactForm from "../component/homepage/contactus";
 import TestimonialVideo from "../component/testimonials/testimonialVideos";
 
+export async function generateMetadata() {
+  return {
+    title: "Welspun Flooring reviews and customer testimonials",
+    description: "Get to know what our clients or customers have to say about the Welspun Flooring through their reviews or testimonials.",
+  }
+}
+
 
 export default async function testimonialPage() {
     async function getHomepageData(segment) {

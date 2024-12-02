@@ -1,6 +1,11 @@
 import ContactForm from "../component/homepage/contactus";
 
-
+export async function generateMetadata() {
+  return {
+    title: "Privacy Policy",
+    description: "Check Welspun Flooring privacy policy.",
+  }
+}
 
 export default function PrivacyPolicyPage() {
   return (

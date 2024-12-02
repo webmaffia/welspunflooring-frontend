@@ -1,6 +1,11 @@
 import ContactForm from "../component/homepage/contactus";
 
-
+export async function generateMetadata() {
+  return {
+    title: "Welspun Contact information of all customer queries",
+    description: "Get in touch with Welspun Flooring for all the product related queries and flooring requirements for your residential, hospitality and commercial spaces",
+  }
+}
 
 export default function contactUsPage() {
   return (

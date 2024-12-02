@@ -7,6 +7,13 @@ import { fetchApplications } from '../utils/applicationData';
 import Testimonials from '../component/global/testimonials/testimonials';
 import Partners from '../component/global/partners/partners';
 
+export async function generateMetadata() {
+  return {
+    title: "Welspun Flooring - Applications",
+    description: "Every space demands a unique aesthetic that also caters to the functional needs of the space.",
+  }
+}
+
 export default async function ApplicationPage() {
   const data = await fetchApplications();
   return (

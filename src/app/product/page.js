@@ -4,6 +4,13 @@ import ProductsList from '../component/productList';
 import AssistanceSection from '../component/assistance';
 import ContactForm from '../component/homepage/contactus';
 
+export async function generateMetadata() {
+  return {
+    title: "Check out Welspun Flooring Products",
+    description: "Welspun Flooring - Products -  .Know more about this product here.",
+  }
+}
+
 // Fetch data in the component with ISR using Next.js App Router style
 async function fetchProductSpecifications() {
   const res = await fetch(

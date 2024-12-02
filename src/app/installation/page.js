@@ -1,6 +1,13 @@
 import Link from "next/link";
 import ContactForm from "../component/homepage/contactus";
 
+export async function generateMetadata() {
+  return {
+    title: "Flooring Tiles & Artificial Grass Installation Services",
+    description: "Get all your floor tiles, carpet and artificial grass installations done by an expert tiles installer from Welspun Flooring. Dust &amp; Noise Free. Enquire Now!",
+  }
+}
+
 
 export default function installationPage() {
     

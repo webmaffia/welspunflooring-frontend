@@ -2,6 +2,13 @@ import Link from "next/link";
 import AboutHistory from "../component/about/history";
 import ContactForm from "../component/homepage/contactus";
 
+export async function generateMetadata() {
+  return {
+    title: "Welspun Flooring - About Us",
+    description: "The future of  flooring, choose from best tiles collections inspired from various elements of everyday life. Suited for homes, commercial &amp; hospitality spaces.",
+  }
+}
+
 
 export default function AboutPage() {
   return (

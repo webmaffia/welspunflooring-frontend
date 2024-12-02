@@ -1,7 +1,12 @@
 import BlogList from "../component/blog/bloglist";
 import { fetchBlogData } from "../utils/blogData";
 
-
+export async function generateMetadata() {
+  return {
+    title: "Blog | Welspun Flooring",
+    description: "Give commercial flooring a much needed revamp with the bright and colourful design patterns from Welspun Flooring.",
+  }
+}
 
 export default async function blogListingPage() {
   const data = await fetchBlogData();

@@ -1,5 +1,10 @@
 import ContactForm from "../component/homepage/contactus";
-
+export async function generateMetadata() {
+  return {
+    title: "Terms & Conditions",
+    description: "Check Welspun Flooring Terms &amp; Conditions.",
+  }
+}
 
 export default function termsAndConditionPage() {
   return (

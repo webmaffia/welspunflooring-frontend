@@ -2,7 +2,12 @@ import InstallVideo from "../component/warranty/installvideo";
 import DocumentMaintenance from "../component/warranty/maintaince";
 import TabsComponent from "../component/warranty/maintaince";
 
-
+export async function generateMetadata() {
+    return {
+      title: "Flooring installation warranty by Welspun Flooring",
+      description: "Welspun&#039;s flooring warranty ensures that our products are made with top-grade materials &amp; go through vigilant quality checks for longevity &amp; better maintenance",
+    }
+  }
 
 export default function warrantyPage() {
   return (
