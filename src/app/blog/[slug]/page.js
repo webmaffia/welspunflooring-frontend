@@ -3,6 +3,15 @@
 import ContactForm from '@/app/component/homepage/contactus';
 import Link from 'next/link';
 
+
+
+    export async function generateMetadata() {
+        return {
+            robots: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+            authors: [{ name: "Welspun Flooring" }],
+        }
+      }
+
 export default async function BlogDetail({ params }) {
     const slug = params.slug;
 
