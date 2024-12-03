@@ -264,3 +264,8 @@ html::-webkit-scrollbar{width:7px;}
 .about_right_container p br {
     display: none;
 }
+
+.carpetTiles{
+    padding-top: 0 !important;
+    padding-bottom: 10vw !important;
+}

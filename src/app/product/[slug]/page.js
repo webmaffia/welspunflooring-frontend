@@ -10,6 +10,7 @@ import ContactForm from '@/app/component/homepage/contactus';
 import BlogSection from '@/app/component/homepage/blog';
 import Link from 'next/link';
 import ProductInnerList from '@/app/component/productInnerList';
+import CarpetVideos from '@/app/component/products/carpetvideos';
 
 export async function generateStaticParams() {
   try {
@@ -186,6 +187,9 @@ export default async function ProductPage({ params }) {
  
 </div>
 
+{params.slug === 'carpet-tiles' && (
+  <CarpetVideos />
+)}
 
 
 <ProductFeatures product={product}/>
