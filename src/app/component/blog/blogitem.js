@@ -1,16 +1,12 @@
 "use client";
-import { useSearchParams } from 'next/navigation';
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
+// BlogList Component to hold multiple BlogListItems
 export default function BlogListItem({ blogs }) {
-  const searchParams = useSearchParams();
-
+  const [currentPage, setCurrentPage] = useState(1); // Start with page 1
   const blogsPerPage = 4; // Display 4 blogs per page
-  const totalPages = Math.ceil(blogs.length / blogsPerPage);
-
-  // Get the current page from the query parameter or default to 1
-  const currentPage = parseInt(searchParams.get('page')) || 1;
 
   // Sort blogs by publishDate in descending order
   const sortedBlogs = blogs.sort((a, b) => new Date(b.attributes.publishDate) - new Date(a.attributes.publishDate));
@@ -22,35 +18,8 @@ export default function BlogListItem({ blogs }) {
   // Get the blogs for the current page
   const currentBlogs = sortedBlogs.slice(startIndex, endIndex);
 
-  // Generate the range of page numbers to display
-  const getPageNumbers = () => {
-    const pages = [];
-
-    // Always include the first page
-    pages.push(1);
-
-    if (totalPages <= 5) {
-      for (let i = 2; i <= totalPages; i++) {
-        pages.push(i);
-      }
-    } else {
-      if (currentPage > 3) pages.push("...");
-
-      const start = Math.max(2, currentPage - 1);
-      const end = Math.min(totalPages - 1, currentPage + 1);
-
-      for (let i = start; i <= end; i++) {
-        pages.push(i);
-      }
-
-      if (currentPage < totalPages - 2) pages.push("...");
-      pages.push(totalPages);
-    }
-
-    return pages;
-  };
-
-  const pageNumbers = getPageNumbers();
+  // Calculate total pages
+  const totalPages = Math.ceil(sortedBlogs.length / blogsPerPage);
 
   return (
     <div className="blog_trends">
@@ -97,33 +66,22 @@ export default function BlogListItem({ blogs }) {
         })}
       </div>
 
-      {/* SEO-Friendly Pagination */}
+      {/* Pagination Controls */}
       <div className="pagination_controls">
-  <nav aria-label="Page navigation">
-    <ul className="pagination">
-      {pageNumbers.map((page, index) => (
-        <li
-          key={index}
-          className={`pagination_item ${
-            page === currentPage ? "active" : ""
-          } ${page === "..." ? "dots" : ""}`}
-        >
-          {page === "..." ? (
-            <span>...</span>
-          ) : (
-            <Link
-              href={`https://staging.welspunflooring.com/blog?page=${page}`}  // Replace with your domain
-              className={`page_link ${page === currentPage ? "active" : ""}`}
-            >
-              {page}
-            </Link>
-          )}
-        </li>
-      ))}
-    </ul>
-  </nav>
-</div>
-
+        {currentPage > 1 && (
+          <button onClick={() => setCurrentPage((prev) => prev - 1)} className="pagination_button">
+            Previous
+          </button>
+        )}
+        <span className="pagination_info">
+          Page {currentPage} of {totalPages}
+        </span>
+        {currentPage < totalPages && (
+          <button onClick={() => setCurrentPage((prev) => prev + 1)} className="pagination_button">
+            Next
+          </button>
+        )}
+      </div>
     </div>
   );
 }
