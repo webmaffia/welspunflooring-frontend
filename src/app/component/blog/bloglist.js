@@ -40,7 +40,11 @@ export default function BlogList({ blogs, heroBlog }) {
         <div id="all_blog" className="tab_content active">
           <div className="blog_list_container">
             {/* Render HeroBlog only on the first page */}
-            {currentPage === 1 && <HeroBlog blogs={heroBlog} />}
+            {currentPage === 1 && 
+            <Suspense fallback={<div>Loading...</div>}>
+            <HeroBlog blogs={heroBlog} /> {/* Pass all blogs to BlogListItem */}
+          </Suspense>
+           }
 
             <Suspense fallback={<div>Loading...</div>}>
               <BlogListItem blogs={blogs} /> {/* Pass all blogs to BlogListItem */}
