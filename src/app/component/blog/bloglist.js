@@ -1,7 +1,7 @@
 
 import HeroBlog from "./hero";
 import BlogListItem from "./blogitem";
-
+import { Suspense } from 'react';
 
 export default function BlogList({blogs,heroBlog}) {
   
@@ -31,8 +31,13 @@ export default function BlogList({blogs,heroBlog}) {
             <div className="listing-contents">
                 <div id="all_blog" className="tab_content active">
                     <div className="blog_list_container">
-                        <HeroBlog blogs={heroBlog} />  {/* Pass the filtered hero blogs */}
-                        <BlogListItem blogs={blogs} />  {/* Pass all blogs to BlogListItem */}
+                        <HeroBlog blogs={heroBlog} /> 
+                        
+                         {/* Pass the filtered hero blogs */}
+                         
+                         <Suspense fallback={<div>Loading...</div>}>
+      <BlogListItem blogs={blogs} />
+    </Suspense>  {/* Pass all blogs to BlogListItem */}
                     </div>
                 </div>
             </div>
