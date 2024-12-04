@@ -3,14 +3,39 @@
 import ContactForm from '@/app/component/homepage/contactus';
 import Link from 'next/link';
 
+export async function generateMetadata({ params }) {
+    const slug = params.slug;
+  
+    // Fetch the blog data using the slug
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/blogs?filters[slug][$eq]=${slug}&populate=seo`
+    );
+  
+    const data = await response.json();
+    const blog = data?.data?.[0] || null;
+  
+    if (blog) {
+      const { metaTitle, metaDescription } = blog?.attributes?.seo || {};
+      return {
+        title: metaTitle || blog?.attributes?.Title,  // Fallback to the blog title
+        description: metaDescription || blog?.attributes?.shortSummary,  // Fallback to short summary
+        robots: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+        authors: [{ name: "Welspun Flooring" }],
+      };
+    }
+  
+    return {
+      title: "Blog Post Not Found",
+      description: "The blog post you're looking for is not available.",
+    };
+  }
 
-
-    export async function generateMetadata() {
-        return {
-            robots: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
-            authors: [{ name: "Welspun Flooring" }],
-        }
-      }
+    // export async function generateMetadata() {
+    //     return {
+    //         robots: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    //         authors: [{ name: "Welspun Flooring" }],
+    //     }
+    //   }
 
 export default async function BlogDetail({ params }) {
     const slug = params.slug;
