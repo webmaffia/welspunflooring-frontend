@@ -269,3 +269,10 @@ html::-webkit-scrollbar{width:7px;}
     padding-top: 0 !important;
     padding-bottom: 10vw !important;
 }
+
+.blog_trends .pagination{
+    display: flex;
+    gap: 1vw;
+    margin: 2vw 0;
+    justify-content: end;
+}
