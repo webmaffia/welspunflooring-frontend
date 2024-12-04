@@ -1,6 +1,6 @@
 import BlogList from "../component/blog/bloglist";
 import { fetchBlogData } from "../utils/blogData";
-
+import { Suspense } from "react";
 export async function generateMetadata() {
   return {
     title: "Blog | Welspun Flooring",
@@ -23,7 +23,10 @@ export default async function blogListingPage() {
         <div class="banner_sub_heading">Ideas, tips, trends and more!</div>
     </div>
 </section>
-<BlogList blogs={data?.data || []} heroBlog={heroBlog} />
+<Suspense fallback={<div>Loading...</div>}>
+<BlogList blogs={data?.data || []} heroBlog={heroBlog} /> {/* Pass all blogs to BlogListItem */}
+          </Suspense>
+
 	</div>
 
 
