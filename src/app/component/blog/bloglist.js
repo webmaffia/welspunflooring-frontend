@@ -1,12 +1,12 @@
-"use client"
+
 import HeroBlog from "./hero";
 import BlogListItem from "./blogitem";
-import { Suspense } from "react";
-import { useSearchParams } from "next/navigation";
+// import { Suspense } from "react";
+// import { useSearchParams } from "next/navigation";
 
 export default function BlogList({ blogs, heroBlog }) {
-  const searchParams = useSearchParams();
-  const currentPage = parseInt(searchParams.get("page")) || 1; // Default to 1 if no page query exists
+  // const searchParams = useSearchParams();
+  // const currentPage = parseInt(searchParams.get("page")) || 1; // Default to 1 if no page query exists
 
   if (!blogs) {
     return (
@@ -40,11 +40,11 @@ export default function BlogList({ blogs, heroBlog }) {
         <div id="all_blog" className="tab_content active">
           <div className="blog_list_container">
             {/* Render HeroBlog only on the first page */}
-            {currentPage === 1 && <HeroBlog blogs={heroBlog} />}
+           <HeroBlog blogs={heroBlog} />
 
-            <Suspense fallback={<div>Loading...</div>}>
+            {/* <Suspense fallback={<div>Loading...</div>}> */}
               <BlogListItem blogs={blogs} /> {/* Pass all blogs to BlogListItem */}
-            </Suspense>
+            {/* </Suspense> */}
           </div>
         </div>
       </div>
