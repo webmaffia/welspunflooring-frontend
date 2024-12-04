@@ -99,30 +99,31 @@ export default function BlogListItem({ blogs }) {
 
       {/* SEO-Friendly Pagination */}
       <div className="pagination_controls">
-        <nav aria-label="Page navigation">
-          <ul className="pagination">
-            {pageNumbers.map((page, index) => (
-              <li
-                key={index}
-                className={`pagination_item ${
-                  page === currentPage ? "active" : ""
-                } ${page === "..." ? "dots" : ""}`}
-              >
-                {page === "..." ? (
-                  <span>...</span>
-                ) : (
-                  <Link
-                    href={`?page=${page}`}
-                    className={`page_link ${page === currentPage ? "active" : ""}`}
-                  >
-                    {page}
-                  </Link>
-                )}
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </div>
+  <nav aria-label="Page navigation">
+    <ul className="pagination">
+      {pageNumbers.map((page, index) => (
+        <li
+          key={index}
+          className={`pagination_item ${
+            page === currentPage ? "active" : ""
+          } ${page === "..." ? "dots" : ""}`}
+        >
+          {page === "..." ? (
+            <span>...</span>
+          ) : (
+            <Link
+              href={`https://staging.welspunflooring.com/blog?page=${page}`}  // Replace with your domain
+              className={`page_link ${page === currentPage ? "active" : ""}`}
+            >
+              {page}
+            </Link>
+          )}
+        </li>
+      ))}
+    </ul>
+  </nav>
+</div>
+
     </div>
   );
 }
