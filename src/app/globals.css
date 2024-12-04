@@ -270,7 +270,7 @@ html::-webkit-scrollbar{width:7px;}
     padding-bottom: 10vw !important;
 }
 
-.blog_trends .pagination{
+.blog_trends .pagination_controls{
     display: flex;
     gap: 1vw;
     margin: 2vw 0;
