@@ -27,7 +27,46 @@ export async function generateStaticParams() {
     return [];
   }
 }
+export async function generateMetadata({ params }) {
+  try {
+    const res = await axios.get(
+      `${process.env.NEXT_PUBLIC_API_URL}/products?filters[slug][$eq]=${params.slug}&populate=seo`
+    );
+    const product = res.data.data[0];
 
+    if (product) {
+      const seo = product.attributes.seo[0];
+    
+
+      return {
+        title: seo?.metaTitle || 'Default Title',
+        description: seo?.metaDescription || 'Default description.',
+        // openGraph: {
+        //   title: seo?.openGraphTitle || 'Default OpenGraph Title',
+        //   description: seo?.openGraphDescription || 'Default OpenGraph description.',
+        //   images: seo?.openGraphImage?.data?.attributes?.url
+        //     ? [{ url: `${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${seo.openGraphImage.data.attributes.url}` }]
+        //     : [],
+        // },
+        // twitter: {
+        //   card: 'summary_large_image',
+        //   title: seo?.twitterTitle || 'Default Twitter Title',
+        //   description: seo?.twitterDescription || 'Default Twitter description.',
+        //   images: seo?.twitterImage?.data?.attributes?.url
+        //     ? [`${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${seo.twitterImage.data.attributes.url}`]
+        //     : [],
+        // },
+      };
+    }
+  } catch (error) {
+    console.error("Error generating metadata:", error);
+  }
+
+  return {
+    title: 'Default Title',
+    description: 'Default description.',
+  };
+}
 
 
 export default async function ProductPage({ params }) {

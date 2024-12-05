@@ -8,6 +8,34 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import ExploreCollection from '@/app/component/subproduct/exploreCollection';
 
+export async function generateMetadata({ params }) {
+  const { subProductSlug } = params;
+
+  // Fetch product data
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/product-specifications?filters[slug][$eq]=${subProductSlug}&populate=seo`
+  );
+
+  const productData = await res.json();
+  const product = productData.data[0];
+
+  // If product is not found, return default metadata or handle a 404
+  if (!product) {
+    return {
+      title: 'Product Not Found - Welspun Flooring',
+      description: 'The product you are looking for does not exist.',
+    };
+  }
+
+  const seo = product?.attributes?.seo;
+
+  return {
+    title: seo?.metaTitle || 'Welspun Flooring - High-Quality Products',
+    description: seo?.metaDescription || 'Discover premium flooring solutions by Welspun.',
+    canonical: seo?.canonical || `${process.env.NEXT_PUBLIC_SITE_URL}/products/${subProductSlug}`,
+  };
+}
+
 const SubProductPage = async ({ params }) => {
   const { subProductSlug } = params;
 
@@ -43,9 +71,7 @@ const SubProductPage = async ({ params }) => {
   // Fetch products by product name
   if (productName) {
     const productByProdName = await fetch(
-
       `${process.env.NEXT_PUBLIC_API_URL}/product-specifications?filters[category][product][product_name][$eq]=${productName}&populate[category][populate]=product,image&populate[category]=collectionName`
-
     );
     productByProductNameData = await productByProdName.json();
   } else {
