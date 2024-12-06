@@ -13,7 +13,10 @@ export async function generateMetadata({ params }) {
 
   // Fetch product data
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/product-specifications?filters[slug][$eq]=${subProductSlug}&populate=seo`
+    `${process.env.NEXT_PUBLIC_API_URL}/product-specifications?filters[slug][$eq]=${subProductSlug}&populate=seo`,
+    {
+      cache: 'no-cache',
+    }
   );
 
   const productData = await res.json();
