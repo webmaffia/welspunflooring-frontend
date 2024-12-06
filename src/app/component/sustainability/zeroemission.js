@@ -15,7 +15,7 @@ const ZeroEmission = () => {
           <h2 className="install_tile_title subtitle_60">Zero Emission</h2>
           <div className="install_tile_para">
             We conduct carbon footprint assessments and energy <br />
-            audits to analyze the existing power consumption <br />
+            audits to analyse the existing power consumption <br />
             pattern and bring to action the best solution to reduce <br />
             carbon emissions. We have initiated the use of Biogenic <br />
             fuel resources to avoid fossil fuel dependence. Apart <br />

@@ -3,8 +3,8 @@ import ContactForm from "../component/homepage/contactus";
 
 export async function generateMetadata() {
   return {
-    title: "Flooring Tiles & Artificial Grass Installation Services",
-    description: "Get all your floor tiles, carpet and artificial grass installations done by an expert tiles installer from Welspun Flooring. Dust &amp; Noise Free. Enquire Now!",
+    title: "Flooring tile's & Artificial Grass Installation Services",
+    description: "Get all your floor tile's, carpet and artificial grass installations done by an expert tile's installer from Welspun Flooring. Dust &amp; Noise Free. Enquire Now!",
   }
 }
 
@@ -39,8 +39,8 @@ export default function installationPage() {
                 conditions. They are trained to exercise personal hygiene at all times which <br />
                 includes the use of face masks, hand sanitizers and PPE kits. The entire <br />
                 flooring installation process is carried out in complete adherence to social <br />
-                distancing protocols and precautionary measures to ensure utmost safety- <br />
-                both for our customers and our installers.
+                distancing protocols and precautionary measures to ensure utmost safety-both <br />
+                for our customers and our installers.
             </div>
             <div className="about_diamond">
                 <div className="border_diamond"></div>
@@ -66,13 +66,13 @@ export default function installationPage() {
 <section data-section="install_click" className="install_click">
     <div className="click_container">
         <div className="install_tile_container">
-            <h2 className="install_tile_title subtitle_60">Click N Lock Tiles</h2>
+            <h2 className="install_tile_title subtitle_60">Click N Lock tile's</h2>
             <div className="install_tile_para">
-                Our Click N Lock tiles come with advanced Wel-Lock <br />
-                technology that enables the tiles to easily fit against one <br />
+                Our Click N Lock tile's come with advanced Wel-Lock <br />
+                technology that enables the tile's to easily fit against one <br />
                 another through a unique locking mechanism. This <br />
                 ensures strong locking at the joints and makes installation <br />
-                a quick and effortless process. Click N Lock tiles can be <br />
+                a quick and effortless process. Click N Lock tile's can be <br />
                 laid in less than a day without any dust / noise,
             </div>
             <Link href="/product?category=click-and-lock-stone" className="view_link purpleBg">
@@ -99,22 +99,22 @@ export default function installationPage() {
     <div className="installation_container">
         <img src="/images/installation/carpet.webp" alt="" className="install_tile_img" width="852" height="567" />
         <div className="install_tile_container">
-            <h2 className="install_tile_title subtitle_60">Carpet Tiles</h2>
+            <h2 className="install_tile_title subtitle_60">Carpet tile's</h2>
             <div className="install_tile_para">
-                Our Carpet Tiles are available in a variety of vibrant designs <br />
+                Our Carpet tile's are available in a variety of vibrant designs <br />
                 and help in creating customized floors. They are easy to <br />
-                install and even easier to manage. Carpet Tiles are India's <br />
+                install and even easier to manage. Carpet tile's are India's <br />
                 first anti-viral* soft flooring solution and eliminate 99.68% <br />
                 of viruses. It also absorbs C02 thereby reducing indoor <br />
                 pollution and improving the air quality of the space.
             </div>
             <div className="install_tile_para">
-                Depending on the site of tile installation, Carpet tiles are <br />
+                Depending on the site of tile installation, Carpet tile's are <br />
                 installed by our trained professionals using <br />
                 pressure-sensitive adhesive or adhesive tape. Check out <br />
-                the tiles installation process below to know more.
+                the tile's installation process below to know more.
             </div>
-            <Link href="/product?category=carpet-tiles" className="view_link purpleBg">
+            <Link href="/product?category=carpet-tile's" className="view_link purpleBg">
                 <div className="link_cta">
                     <div className="arrow_bg">
                         <img src="/images/icons/arrow-2.webp" alt="" width="20" height="17" />
@@ -152,7 +152,7 @@ export default function installationPage() {
                                 <div className="steps_number">02</div>
                                 <div className="steps_para">
                                     Apply thc pressure sensitive <br />
-                                    adhesive,Wait for the <br />
+                                    adhesive, Wait for the <br />
                                     adhesive to become sticky
                                 </div>
                             </div>
@@ -286,7 +286,7 @@ export default function installationPage() {
                             <div className="steps_text">
                                 <div className="steps_number">07</div>
                                 <div className="steps_para">
-                                    Trim tiles at the <br />
+                                    Trim tile's at the <br />
                                     walls and complete <br />
                                     the installation
                                 </div>
@@ -503,7 +503,7 @@ export default function installationPage() {
                             <div className="steps_text">
                                 <div className="steps_number">07</div>
                                 <div className="steps_para">
-                                    Trim tiles at the <br />
+                                    Trim tile's at the <br />
                                     walls and complete <br />
                                     the installation
                                 </div>
@@ -719,7 +719,7 @@ export default function installationPage() {
                             <div className="steps_text">
                                 <div className="steps_number">07</div>
                                 <div className="steps_para">
-                                    Trim tiles at the <br />
+                                    Trim tile's at the <br />
                                     walls and complete <br />
                                     the installation
                                 </div>
@@ -828,7 +828,7 @@ export default function installationPage() {
                             <div className="steps_text">
                                 <div className="steps_number">07</div>
                                 <div className="steps_para">
-                                    Trim tiles at the <br />
+                                    Trim tile's at the <br />
                                     walls and complete <br />
                                     the installation
                                 </div>

@@ -48,7 +48,7 @@ export default function contactUsPage() {
                 USA Office <br />
                 <span>
                     Suite No. 1118-1120, 295 Textile Building, <br />
-                    5th Avenue,New York 10016, U.S.A.
+                    5th Avenue, New York 10016, U.S.A.
                 </span>
             </address>
         </div>

@@ -72,7 +72,7 @@ const DocumentMaintenance = () => {
                             For spot treatment, a diluted 10/1 solution of water/liquid bleach is tolerable for stain removal. A diluted plain vinegar solution of 30:70 (Vinegar:Water) proportion can also be used
                         </li>
                         <li class="diamond_item">
-                            Do Not use the following on your Welspun Click N Lock® flooring - Soap based detergents/ Abrasive or Mop & Shine Products/ Floor Wax/ Mineral Oil or Rancid Fluids/ Ammonia or bleaches/ Vaccuum cleaner with a rotating beater bar
+                            Do Not use the following on your Welspun Click N Lock® flooring - Soap based detergents/ Abrasive or Mop & Shine Products/ Floor Wax/ Mineral Oil or Rancid Fluids/ Ammonia or bleaches/ Vacuum cleaner with a rotating beater bar
                         </li>
                     </ul>
               <a href="/CNL-MAINTENANCE.pdf" className="view_link download_cta darkGreyBg">
@@ -120,7 +120,7 @@ const DocumentMaintenance = () => {
                             Preventative Maintenance: Containing the soil entering the building using the walk-off mats at entrances. This includes outside matting, inside matting and mats at certain other high traffic areas
                         </li>
                         <li class="diamond_item">
-                            Vaccuming: It is the single most important part of a maintenance program designed to remove soil or dust from top surface
+                        Vacuuming: It is the single most important part of a maintenance program designed to remove soil or dust from top surface
                         </li>
                         <li class="diamond_item">
                             Quick removal of spills is key to reduce any chance of stain
