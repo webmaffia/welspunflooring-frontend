@@ -193,6 +193,7 @@ export default function BudgetCalculator() {
                   <div className="tile_text">TOTAL PRICE</div>
                   <div className="tile_number">{Math.round(result.totalPrice)}/-</div>
                   <p class="costNote">Cost is indicative of the general price range, but not the exact cost</p>
+                  <p className='costNote'>the cost of accessories and installation is over and above the mentioned cost</p>
                 </div>
               </div>
               <div className="tile_arrow">

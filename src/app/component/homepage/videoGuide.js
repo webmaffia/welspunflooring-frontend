@@ -186,7 +186,7 @@ const VideoGuide = () => {
 <SwiperSlide>
                                 <div className="swiper-slide">
                                     <div className="video_player">
-                                        <img
+                                        {/* <img
                                             src="/images/video_poster.webp"
                                             alt=""
                                             className="poster"
@@ -205,7 +205,7 @@ const VideoGuide = () => {
                                                 width="109"
                                                 height="109"
                                             />
-                                        </button>
+                                        </button> */}
                                         <iframe
                                             ref={(el) => (ytPlayersRef.current[0] = el)}
                                             width="560"
@@ -223,7 +223,7 @@ const VideoGuide = () => {
                             <SwiperSlide>
                                 <div className="swiper-slide">
                                     <div className="video_player">
-                                        <img
+                                        {/* <img
                                             src="/images/Corporate-video-image-click-n-lock.webp"
                                             alt=""
                                             className="poster"
@@ -242,7 +242,7 @@ const VideoGuide = () => {
                                                 width="109"
                                                 height="109"
                                             />
-                                        </button>
+                                        </button> */}
                                         <iframe
                                             ref={(el) => (ytPlayersRef.current[1] = el)}
                                             width="560"
