@@ -13,7 +13,7 @@ export default function HeroBlog({blogs}) {
           {/* <span>|</span>
           <span>10 min read</span> */}
         </div>
-        <Link href={`blog/${blog.attributes.slug}`}>
+        <Link href={`${process.env.NEXT_PUBLIC_FRONTEND}/blog/${blog.attributes.slug}`}>
         <h2 className="subtitle_50">
          {blog.attributes.Title}
         </h2>
@@ -24,7 +24,7 @@ export default function HeroBlog({blogs}) {
             {blog.attributes.shortSummary}
           </p>
         </div>
-        <Link href={`blog/${blog.attributes.slug}`}>
+        <Link href={`${process.env.NEXT_PUBLIC_FRONTEND}/blog/${blog.attributes.slug}`}>
           <div className="view_link purpleBg">
             <div className="link_cta">
               <div className="arrow_bg">

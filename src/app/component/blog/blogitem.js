@@ -76,7 +76,7 @@ export default function BlogListItem({ blogs }) {
                   {item.attributes.blog_category?.data?.attributes?.name}
                 </div>
               </div>
-              <Link href={`blog/${item.attributes.slug}`}>
+              <Link href={`${process.env.NEXT_PUBLIC_FRONTEND}/blog/${item.attributes.slug}`}>
                 <Image
                   src={imageUrl}
                   alt="Blog featured image"
@@ -85,11 +85,11 @@ export default function BlogListItem({ blogs }) {
                   height={549}
                 />
               </Link>
-              <Link href={`blog/${item.attributes.slug}`}>
+              <Link href={`${process.env.NEXT_PUBLIC_FRONTEND}/blog/${item.attributes.slug}`}>
                 <h2 className="subtitle_30">{item.attributes.Title}</h2>
               </Link>
               <p>{item.attributes.shortSummary}</p>
-              <Link href={`blog/${item.attributes.slug}`}>
+              <Link href={`${process.env.NEXT_PUBLIC_FRONTEND}/blog/${item.attributes.slug}`}>
                 <div className="view_link purpleBg">
                   <div className="link_cta">
                     <div className="arrow_bg">

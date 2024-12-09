@@ -173,7 +173,7 @@ const ProductsList = ({ productsByCategory }) => {
                 <div key={product.id} className="tile_item">
                   <div className="product_img_box">
                     <Link
-                      href={`/product/${products[0]?.attributes?.category?.data?.attributes?.product?.data?.attributes?.slug || ''}/${product.attributes.category.data.attributes.slug}/${product.attributes.slug}`}
+                      href={`${process.env.NEXT_PUBLIC_FRONTEND}/product/${products[0]?.attributes?.category?.data?.attributes?.product?.data?.attributes?.slug || ''}/${product.attributes.category.data.attributes.slug}/${product.attributes.slug}`}
                     >
                       <img
                         src={`${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${product?.attributes?.details?.slider[1]?.image?.data?.attributes?.url || product?.attributes?.details?.slider[0]?.image?.data?.attributes?.url}`}
@@ -191,7 +191,7 @@ const ProductsList = ({ productsByCategory }) => {
                   </div>
                   <span className="item_link">
                     <Link
-                      href={`/product/${products[0]?.attributes?.category?.data?.attributes?.product?.data?.attributes?.slug || ''}/${product.attributes.category.data.attributes.slug}/${product.attributes.slug}`}
+                      href={`${process.env.NEXT_PUBLIC_FRONTEND}/product/${products[0]?.attributes?.category?.data?.attributes?.product?.data?.attributes?.slug || ''}/${product.attributes.category.data.attributes.slug}/${product.attributes.slug}`}
                     >
                       KNOW MORE
                     </Link>
