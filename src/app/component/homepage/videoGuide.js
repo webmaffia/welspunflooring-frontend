@@ -60,37 +60,32 @@ const VideoGuide = () => {
       });
   };
   
-    const handlePlayClick = (index, isYouTube = false) => {
-      const poster = postersRef.current[index];
-      const playButton = playButtonsRef.current[index];
-  
-      if (isYouTube) {
-          const selectedPlayer = ytPlayersRef.current[index];
-          
-          if (selectedPlayer) {
-              // Post a message to the iframe to play the YouTube video
-              selectedPlayer.contentWindow.postMessage(
-                  '{"event":"command","func":"playVideo","args":""}', 
-                  "*"
-              );
-              console.log(`Playing YouTube video at index ${index}`);
-          } else {
-              console.error(`YouTube player not initialized for index ${index}`);
-          }
-      } else {
-          const video = videoPlayersRef.current[index];
-          if (video) {
-              video.play(); // Play HTML5 video directly
-          }
-      }
-  
-      // Hide the poster and play button after clicking
-      if (poster) poster.style.display = 'none';
-      if (playButton) playButton.style.display = 'none';
-  
-      // Update playing state if you want to track video playing state (optional)
-    
-  };
+  const handlePlayClick = (index, isYouTube = false) => {
+    const poster = postersRef.current[index];
+    const playButton = playButtonsRef.current[index];
+
+    if (isYouTube) {
+        const selectedPlayer = ytPlayersRef.current[index];
+        
+        if (selectedPlayer) {
+            // Play the video using the YouTube Player API
+            selectedPlayer.playVideo();
+            console.log(`Playing YouTube video at index ${index}`);
+        } else {
+            console.error(`YouTube player not initialized for index ${index}`);
+        }
+    } else {
+        const video = videoPlayersRef.current[index];
+        if (video) {
+            video.play(); // Play HTML5 video directly
+        }
+    }
+
+    // Hide the poster and play button after clicking
+    if (poster) poster.style.display = 'none';
+    if (playButton) playButton.style.display = 'none';
+};
+
   
   
 
@@ -186,7 +181,7 @@ const VideoGuide = () => {
 <SwiperSlide>
                                 <div className="swiper-slide">
                                     <div className="video_player">
-                                        {/* <img
+                                        <img
                                             src="/images/video_poster.webp"
                                             alt=""
                                             className="poster"
@@ -205,7 +200,7 @@ const VideoGuide = () => {
                                                 width="109"
                                                 height="109"
                                             />
-                                        </button> */}
+                                        </button>
                                         <iframe
                                             ref={(el) => (ytPlayersRef.current[0] = el)}
                                             width="560"
@@ -223,7 +218,7 @@ const VideoGuide = () => {
                             <SwiperSlide>
                                 <div className="swiper-slide">
                                     <div className="video_player">
-                                        {/* <img
+                                        <img
                                             src="/images/Corporate-video-image-click-n-lock.webp"
                                             alt=""
                                             className="poster"
@@ -242,7 +237,7 @@ const VideoGuide = () => {
                                                 width="109"
                                                 height="109"
                                             />
-                                        </button> */}
+                                        </button>
                                         <iframe
                                             ref={(el) => (ytPlayersRef.current[1] = el)}
                                             width="560"
