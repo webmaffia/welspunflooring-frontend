@@ -177,6 +177,7 @@ const VideoGuide = () => {
                             onSlideChange={handleSlideChange}
                             className="videoSwiper"
                         >
+                            
 
 <SwiperSlide>
                                 <div className="swiper-slide">
