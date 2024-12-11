@@ -185,10 +185,10 @@ export default function BudgetCalculator() {
               />
               <div className="tile_text">{result.tileName}</div>
               <div className="tile_box">
-                <div className="tile_detail">
+                {/* <div className="tile_detail">
                   <div className="tile_text">SOFT</div>
                   <div className="tile_number">1033</div>
-                </div>
+                </div> */}
                 <div className="tile_detail">
                   <div className="tile_text">TOTAL PRICE</div>
                   <div className="tile_number">{Math.round(result.totalPrice)}/-</div>
