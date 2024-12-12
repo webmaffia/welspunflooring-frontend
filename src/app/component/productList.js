@@ -1,32 +1,32 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-// import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 const ProductsList = ({ productsByCategory }) => {
-  // const router = useRouter();
-  // const searchParams = useSearchParams();
+  const router = useRouter();
+  const searchParams = useSearchParams();
 
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedCollection, setSelectedCollection] = useState('');
   const [expandedCategories, setExpandedCategories] = useState({});
 
   // Set initial state from query parameters when component mounts
-  // useEffect(() => {
-  //   const categoryFromUrl = searchParams.get("category") || '';
-  //   const collectionFromUrl = searchParams.get("collection") || '';
+  useEffect(() => {
+    const categoryFromUrl = searchParams.get("category") || '';
+    const collectionFromUrl = searchParams.get("collection") || '';
   
-  //   setSelectedCategory(categoryFromUrl);
-  //   setSelectedCollection(collectionFromUrl);
+    setSelectedCategory(categoryFromUrl);
+    setSelectedCollection(collectionFromUrl);
   
-  //   // Expand category view if collection is selected in the URL
-  //   if (categoryFromUrl) {
-  //     setExpandedCategories((prev) => ({
-  //       ...prev,
-  //       [categoryFromUrl]: true,
-  //     }));
-  //   }
-  // }, [searchParams]);
+    // Expand category view if collection is selected in the URL
+    if (categoryFromUrl) {
+      setExpandedCategories((prev) => ({
+        ...prev,
+        [categoryFromUrl]: true,
+      }));
+    }
+  }, [searchParams]);
 
   const toggleViewMore = (category) => {
     setExpandedCategories((prev) => ({
@@ -173,7 +173,7 @@ const ProductsList = ({ productsByCategory }) => {
                 <div key={product.id} className="tile_item">
                   <div className="product_img_box">
                     <Link
-                      href={`${process.env.NEXT_PUBLIC_FRONTEND}/product/${products[0]?.attributes?.category?.data?.attributes?.product?.data?.attributes?.slug || ''}/${product.attributes.category.data.attributes.slug}/${product.attributes.slug}`}
+                      href={`/product/${products[0]?.attributes?.category?.data?.attributes?.product?.data?.attributes?.slug || ''}/${product.attributes.category.data.attributes.slug}/${product.attributes.slug}`}
                     >
                       <img
                         src={`${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${product?.attributes?.details?.slider[1]?.image?.data?.attributes?.url || product?.attributes?.details?.slider[0]?.image?.data?.attributes?.url}`}
@@ -191,7 +191,7 @@ const ProductsList = ({ productsByCategory }) => {
                   </div>
                   <span className="item_link">
                     <Link
-                      href={`${process.env.NEXT_PUBLIC_FRONTEND}/product/${products[0]?.attributes?.category?.data?.attributes?.product?.data?.attributes?.slug || ''}/${product.attributes.category.data.attributes.slug}/${product.attributes.slug}`}
+                      href={`/product/${products[0]?.attributes?.category?.data?.attributes?.product?.data?.attributes?.slug || ''}/${product.attributes.category.data.attributes.slug}/${product.attributes.slug}`}
                     >
                       KNOW MORE
                     </Link>

@@ -61,9 +61,9 @@ const ProductsPage = async () => {
 
         {/* Pass data to ProductsList component */}
        
-      
+        <Suspense fallback={<div>Loading...</div>}>
         <ProductsList productsByCategory={productsByCategory} categories={categories} />
-   
+    </Suspense>
         <AssistanceSection />
         <ContactForm />
       </div>
