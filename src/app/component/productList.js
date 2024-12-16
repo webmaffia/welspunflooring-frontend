@@ -163,42 +163,52 @@ const ProductsList = ({ productsByCategory }) => {
       <div key={category} className="product_tile more_products" id={category}>
         <h2 className="product_title">{formatCategory(category)}</h2>
         <div className="product_container">
-          <div className="product_tile_box">
-            {products
-              .filter((product) =>
-                !selectedCollection ||
-                product.attributes.category.data.attributes.collectionName === selectedCollection
-              )
-              .map((product) => (
-                <div key={product.id} className="tile_item">
-                  <div className="product_img_box">
-                    <Link
-                      href={`/product/${products[0]?.attributes?.category?.data?.attributes?.product?.data?.attributes?.slug || ''}/${product.attributes.category.data.attributes.slug}/${product.attributes.slug}`}
-                    >
-                      <img
-                        src={`${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${product?.attributes?.details?.slider[1]?.image?.data?.attributes?.url || product?.attributes?.details?.slider[0]?.image?.data?.attributes?.url}`}
-                        alt={product?.attributes?.subProductName || 'Product Image'}
-                        width="584"
-                        height="511"
-                        className="tile_img"
-                      />
-                    </Link>
-                  </div>
-                  <div className="product_text">
-                    <h3 className="item_title">{product.attributes.subProductName}</h3>
-                    <div className="item_border"></div>
-                    <div className="item_sub">{product.attributes.category.data.attributes.collectionName}</div>
-                  </div>
-                  <span className="item_link">
-                    <Link
-                      href={`/product/${products[0]?.attributes?.category?.data?.attributes?.product?.data?.attributes?.slug || ''}/${product.attributes.category.data.attributes.slug}/${product.attributes.slug}`}
-                    >
-                      KNOW MORE
-                    </Link>
-                  </span>
-                </div>
-              ))}
+        <div className="product_tile_box">
+  {products
+    .filter((product) =>
+      !selectedCollection ||
+      product.attributes.category.data.attributes.collectionName === selectedCollection
+    )
+    .map((product) => {
+      const imageUrl =
+        product?.attributes?.details?.slider[1]?.image?.data?.attributes?.url ||
+        product?.attributes?.details?.slider[0]?.image?.data?.attributes?.url;
+
+      // Skip rendering if no valid image URL is available
+      if (!imageUrl) return null;
+
+      return (
+        <div key={product.id} className="tile_item">
+          <div className="product_img_box">
+            <Link
+              href={`/product/${products[0]?.attributes?.category?.data?.attributes?.product?.data?.attributes?.slug || ''}/${product.attributes.category.data.attributes.slug}/${product.attributes.slug}`}
+            >
+              <img
+                src={`${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${imageUrl}`}
+                alt={product?.attributes?.subProductName || 'Product Image'}
+                width="584"
+                height="511"
+                className="tile_img"
+              />
+            </Link>
           </div>
+          <div className="product_text">
+            <h3 className="item_title">{product.attributes.subProductName}</h3>
+            <div className="item_border"></div>
+            <div className="item_sub">{product.attributes.category.data.attributes.collectionName}</div>
+          </div>
+          <span className="item_link">
+            <Link
+              href={`/product/${products[0]?.attributes?.category?.data?.attributes?.product?.data?.attributes?.slug || ''}/${product.attributes.category.data.attributes.slug}/${product.attributes.slug}`}
+            >
+              KNOW MORE
+            </Link>
+          </span>
+        </div>
+      );
+    })}
+</div>
+
           <div className="product_link">
             <Link
               href={`/product/${products[0]?.attributes?.category?.data?.attributes?.product?.data?.attributes?.slug || ''}`}

@@ -84,7 +84,7 @@ const ProductDetail = ({ product, collection }) => {
                       key={index}
                       href={`/product/${product?.attributes?.category?.data?.attributes?.product?.data?.attributes?.slug}/${product?.attributes?.category?.data?.attributes?.slug}/${tile?.attributes?.slug}`}
                     >
-                      <Image
+                      <img
                         src={`${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${tile?.attributes?.swatch?.data?.attributes?.url}`}
                         alt={tile?.attributes?.swatch?.data?.attributes?.name}
                         width={55}

@@ -200,7 +200,7 @@ export default async function ProductPage({ params }) {
    
 </section>
 
-{(params.slug && params.slug !== 'artificial-grass' && params.slug !== 'purgloss-tiles') ? 
+{(params.slug && params.slug !== 'artificial-grass') ? 
   <ProductInnerList productSlug={params.slug} subProductsList={subProductsList} /> : 
   <p></p>}
 
