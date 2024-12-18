@@ -7,102 +7,92 @@ import { useState, useRef, useEffect } from 'react';
 const VideoGuide = () => {
     const [videoSwiper, setVideoSwiper] = useState(null);
     const [videoSwiper2, setVideoSwiper2] = useState(null);
-    const videoPlayersRef = useRef([]); // For HTML5 videos
+    const videoPlayersRef = useRef([]);
     const postersRef = useRef([]);
     const playButtonsRef = useRef([]);
-    const ytPlayersRef = useRef([]); // For YouTube players
+    const ytPlayersRef = useRef([]);
 
     // Load YouTube IFrame API script
     useEffect(() => {
-        if (!window.YT) {
-            const tag = document.createElement('script');
-            tag.src = 'https://www.youtube.com/iframe_api';
-            const firstScriptTag = document.getElementsByTagName('script')[0];
-            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-        }
+        const tag = document.createElement('script');
+        tag.src = 'https://www.youtube.com/iframe_api';
+        const firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-        window.onYouTubeIframeAPIReady = initializeYouTubePlayers;
-
-        if (window.YT && window.YT.Player) {
-            initializeYouTubePlayers();
-        }
+        // Initialize YouTube players after API is ready
+        window.onYouTubeIframeAPIReady = () => {
+            ytPlayersRef.current = ytPlayersRef.current.map((iframe, index) => {
+                if (iframe) {
+                    return new YT.Player(iframe, {
+                        events: {
+                            onReady: (event) => {
+                                console.log(`YouTube player ${index} ready`, event);
+                            },
+                        },
+                    });
+                }
+                return null;
+            });
+        };
     }, []);
 
-    // Reinitialize YouTube players on Swiper slide change or when the component re-renders
-    const initializeYouTubePlayers = () => {
-        ytPlayersRef.current = ytPlayersRef.current.map((iframe, index) => {
-            if (iframe) {
-                // Destroy existing player if it exists
-                if (ytPlayersRef.current[index] && typeof ytPlayersRef.current[index].destroy === 'function') {
-                    ytPlayersRef.current[index].destroy();
-                }
-                return new YT.Player(iframe, {
-                    events: {
-                        onReady: () => console.log(`YouTube player ${index} is ready`),
-                        onError: (error) => console.error(`YouTube player ${index} error:`, error),
-                    },
-                });
-            }
-            return null;
-        });
-    };
-
-    const retryPlayVideo = (player, retries = 3) => {
-        if (retries <= 0) {
-            console.error('Failed to play YouTube video after retries.');
-            return;
-        }
-
-        if (player && typeof player.playVideo === 'function') {
-            player.playVideo();
-        } else {
-            console.log('Retrying YouTube player initialization...');
-            setTimeout(() => retryPlayVideo(player, retries - 1), 500); // Retry after 500ms
-        }
-    };
-
     const handleSlideChange = () => {
-        videoPlayersRef.current.forEach((video, index) => {
-            if (video) {
-                video.pause();
-                video.currentTime = 0;
-            }
-
-            if (ytPlayersRef.current[index]) {
-                ytPlayersRef.current[index].seekTo(0);
-                ytPlayersRef.current[index].pauseVideo();
-            }
-
-            if (postersRef.current[index]) {
-                postersRef.current[index].style.display = 'block';
-            }
-            if (playButtonsRef.current[index]) {
-                playButtonsRef.current[index].style.display = 'block';
-            }
-        });
-    };
-
+      // Reset all videos (HTML5 and YouTube) to the beginning and pause them
+      videoPlayersRef.current.forEach((video, index) => {
+          if (video) {
+              video.pause(); // Pause HTML5 video
+              video.currentTime = 0; // Reset time to the start
+          }
+  
+          if (ytPlayersRef.current[index]) {
+              // Use YT.Player API to reset YouTube videos
+              ytPlayersRef.current[index].seekTo(0); // Reset time to the start
+              ytPlayersRef.current[index].pauseVideo(); // Pause the video
+          }
+  
+          // Reset poster and play button visibility
+          if (postersRef.current[index]) {
+              postersRef.current[index].style.display = 'block';
+          }
+          if (playButtonsRef.current[index]) {
+              playButtonsRef.current[index].style.display = 'block';
+          }
+      });
+  };
+  
     const handlePlayClick = (index, isYouTube = false) => {
-        const poster = postersRef.current[index];
-        const playButton = playButtonsRef.current[index];
-
-        if (isYouTube) {
-            const selectedPlayer = ytPlayersRef.current[index];
-            if (selectedPlayer) {
-                retryPlayVideo(selectedPlayer);
-            } else {
-                console.error(`YouTube player not initialized for index ${index}`);
-            }
-        } else {
-            const video = videoPlayersRef.current[index];
-            if (video) {
-                video.play();
-            }
-        }
-
-        if (poster) poster.style.display = 'none';
-        if (playButton) playButton.style.display = 'none';
-    };
+      const poster = postersRef.current[index];
+      const playButton = playButtonsRef.current[index];
+  
+      if (isYouTube) {
+          const selectedPlayer = ytPlayersRef.current[index];
+          
+          if (selectedPlayer) {
+              // Post a message to the iframe to play the YouTube video
+              selectedPlayer.contentWindow.postMessage(
+                  '{"event":"command","func":"playVideo","args":""}', 
+                  "*"
+              );
+              console.log(`Playing YouTube video at index ${index}`);
+          } else {
+              console.error(`YouTube player not initialized for index ${index}`);
+          }
+      } else {
+          const video = videoPlayersRef.current[index];
+          if (video) {
+              video.play(); // Play HTML5 video directly
+          }
+      }
+  
+      // Hide the poster and play button after clicking
+      if (poster) poster.style.display = 'none';
+      if (playButton) playButton.style.display = 'none';
+  
+      // Update playing state if you want to track video playing state (optional)
+    
+  };
+  
+  
 
     return (
         <section className="video_guide video_section" data-section="video_guide">
@@ -121,6 +111,7 @@ const VideoGuide = () => {
                             </div>
                         </div>
                         <Swiper
+                        
                             onSwiper={setVideoSwiper2}
                             modules={[Navigation, Pagination, Controller]}
                             loop
@@ -138,7 +129,47 @@ const VideoGuide = () => {
                             controller={{ control: videoSwiper }}
                             className="videoSwiper2"
                         >
-                            {/* Add SwiperSlide content here */}
+
+<SwiperSlide>
+                                <div className="swiper-slide">
+                                    <h3 className="subtitle_35">
+                                    Welspun Flooring Corporate
+                                    </h3>
+                                    {/* <div className="product_cta">
+                                        <a href="" className="view_link whiteBrd">
+                                            <div className="link_cta">
+                                                <div className="arrow_bg">
+                                                    <img src="/images/icons/arrow-2.webp" alt="" width="20" height="17" />
+                                                </div>
+                                                <span>WATCH NOW</span>
+                                            </div>
+                                        </a>
+                                    </div> */}
+                                </div>
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <div className="swiper-slide">
+                                    <h3 className="subtitle_35">
+                                        This is what <br />
+                                        assembling a floor <br />
+                                        with Click N Lock Tiles <br />
+                                        within 24 hours <br />
+                                        looks like
+                                    </h3>
+                                    {/* <div className="product_cta">
+                                        <a href="" className="view_link whiteBrd">
+                                            <div className="link_cta">
+                                                <div className="arrow_bg">
+                                                    <img src="/images/icons/arrow-2.webp" alt="" width="20" height="17" />
+                                                </div>
+                                                <span>WATCH NOW</span>
+                                            </div>
+                                        </a>
+                                    </div> */}
+                                </div>
+                            </SwiperSlide>
+
+                        
                         </Swiper>
                     </div>
                     <div className="swiper videoSwiper swiper-no-swiping">
@@ -151,11 +182,11 @@ const VideoGuide = () => {
                             onSlideChange={handleSlideChange}
                             className="videoSwiper"
                         >
-                            {/* Slide 1 */}
-                            <SwiperSlide>
+
+<SwiperSlide>
                                 <div className="swiper-slide">
                                     <div className="video_player">
-                                        <img
+                                        {/* <img
                                             src="/images/video_poster.webp"
                                             alt=""
                                             className="poster"
@@ -165,7 +196,7 @@ const VideoGuide = () => {
                                         />
                                         <button
                                             className="click_btn"
-                                            onClick={() => handlePlayClick(0, true)}
+                                            onClick={() => handlePlayClick(0, true)} // Specify isYouTube as true
                                             ref={(el) => (playButtonsRef.current[0] = el)}
                                         >
                                             <img
@@ -174,7 +205,7 @@ const VideoGuide = () => {
                                                 width="109"
                                                 height="109"
                                             />
-                                        </button>
+                                        </button> */}
                                         <iframe
                                             ref={(el) => (ytPlayersRef.current[0] = el)}
                                             width="560"
@@ -188,11 +219,11 @@ const VideoGuide = () => {
                                     </div>
                                 </div>
                             </SwiperSlide>
-                            {/* Slide 2 */}
+                            
                             <SwiperSlide>
                                 <div className="swiper-slide">
                                     <div className="video_player">
-                                        <img
+                                        {/* <img
                                             src="/images/Corporate-video-image-click-n-lock.webp"
                                             alt=""
                                             className="poster"
@@ -202,7 +233,7 @@ const VideoGuide = () => {
                                         />
                                         <button
                                             className="click_btn"
-                                            onClick={() => handlePlayClick(1, true)}
+                                            onClick={() => handlePlayClick(1, true)} // Specify isYouTube as true
                                             ref={(el) => (playButtonsRef.current[1] = el)}
                                         >
                                             <img
@@ -211,7 +242,7 @@ const VideoGuide = () => {
                                                 width="109"
                                                 height="109"
                                             />
-                                        </button>
+                                        </button> */}
                                         <iframe
                                             ref={(el) => (ytPlayersRef.current[1] = el)}
                                             width="560"
@@ -225,6 +256,9 @@ const VideoGuide = () => {
                                     </div>
                                 </div>
                             </SwiperSlide>
+                            
+
+                         
                         </Swiper>
                     </div>
                     <h2 className="diamond diamond_blue">VIDEO GUIDE</h2>
