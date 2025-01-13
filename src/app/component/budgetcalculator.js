@@ -17,7 +17,7 @@ export default function BudgetCalculator() {
 
       const uniqueProductsMap = {};
       const uniqueProductsList = data.filter(product => {
-        const productName = product.attributes.category.data.attributes.product.data.attributes.product_name;
+        const productName = product?.attributes?.category?.data?.attributes?.product?.data?.attributes?.product_name;
         if (!uniqueProductsMap[productName]) {
           uniqueProductsMap[productName] = true;
           return true;
@@ -76,22 +76,44 @@ export default function BudgetCalculator() {
       <div className="budget_container">
         <div className="budget_calculator">
         <ul className="budget_list">
-  {uniqueProducts.map((product) => (
+  {/* {uniqueProducts.map((product) => (
     <li
       key={product.id}
       className={`budget_tab ${selectedProduct?.id === product.id ? 'active' : ''}`}
       onClick={() => handleProductClick(product)}
       style={{
         display:
-          product.attributes.category.data.attributes.product.data.attributes.product_name ===
+          product?.attributes?.category?.data?.attributes?.product?.data?.attributes?.product_name ===
           'Carpet Tiles '
             ? 'none'
             : 'flex',
       }}
     >
-      {product.attributes.category.data.attributes.product.data.attributes.product_name}
+      {product?.attributes?.category?.data?.attributes?.product?.data?.attributes?.product_name}
     </li>
-  ))}
+  ))} */}
+
+{uniqueProducts.map((product) => {
+  const productName =
+    product?.attributes?.category?.data?.attributes?.product?.data?.attributes?.product_name;
+
+  return (
+    productName && ( // Render only if productName exists
+      <li
+        key={product.id}
+        className={`budget_tab ${selectedProduct?.id === product.id ? 'active' : ''}`}
+        onClick={() => handleProductClick(product)}
+        style={{
+          display: productName === 'Carpet Tiles ' ? 'none' : 'flex',
+        }}
+      >
+        {productName}
+      </li>
+    )
+  );
+})}
+
+  
 </ul>
 
 
@@ -108,10 +130,10 @@ export default function BudgetCalculator() {
                     {[...new Set(products
                       .filter(
                         (p) =>
-                          p.attributes.category.data.attributes.product.data.attributes.product_name ===
-                          selectedProduct.attributes.category.data.attributes.product.data.attributes.product_name
+                          p?.attributes?.category?.data?.attributes?.product?.data?.attributes?.product_name ===
+                          selectedProduct?.attributes?.category?.data?.attributes?.product?.data?.attributes?.product_name
                       )
-                      .map((p) => p.attributes.category.data.attributes.collectionName)
+                      .map((p) => p?.attributes?.category?.data?.attributes?.collectionName)
                     )].map((collectionName, index) => (
                       <option key={index} value={collectionName}>
                         {collectionName}
@@ -131,9 +153,9 @@ export default function BudgetCalculator() {
                       products
                         .filter(
                           (p) =>
-                            p.attributes.category.data.attributes.product.data.attributes.product_name ===
-                            selectedProduct.attributes.category.data.attributes.product.data.attributes.product_name &&
-                            p.attributes.category.data.attributes.collectionName === selectedCollection
+                            p?.attributes?.category?.data?.attributes?.product?.data?.attributes?.product_name ===
+                            selectedProduct?.attributes?.category?.data?.attributes?.product.data?.attributes?.product_name &&
+                            p?.attributes?.category?.data?.attributes?.collectionName === selectedCollection
                         )
                         .map((p) => p.attributes.subProductName)
                     )].map((subProductName, index) => (
