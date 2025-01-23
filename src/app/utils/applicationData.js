@@ -2,7 +2,10 @@
 export const fetchApplications = async () => {
     try {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/application?populate[banner][populate]=*&populate[details][populate]=*&populate[application][populate]=*`
+        `${process.env.NEXT_PUBLIC_API_URL}/application?populate[banner][populate]=*&populate[details][populate]=*&populate[application][populate]=*`,
+        {
+          cache: 'no-cache',
+        }
       );
       const data = await response.json();
       return data.data.attributes.application;
