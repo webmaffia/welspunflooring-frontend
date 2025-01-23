@@ -1,6 +1,7 @@
 "use client"; // Client-side component
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation"; // Import usePathname
 import { getHomepageData, getHomepageContentData } from "../fetchData";
 
 import Banner from "./banner";
@@ -17,11 +18,27 @@ import TrendingSection from "./homepage/trend";
 import BlogSection from "./homepage/blog";
 import ContactForm from "./homepage/contactus";
 import Visualiser from "./homepage/visulaiser";
+import AboutOwner from "./homeowners/aboutowners";
+import ClickTiles from "./homeowners/tabs";
+import FeatureProjects from "./b2b/featureproject";
+import FeatureClient from "./b2b/featureclient";
+import FeaturePaving from "./b2b/care";
+import B2BProject from "./b2b/b2bproject";
+import B2BSustainableTabs from "./b2b/b2btabs";
+import AssistanceSection from "./assistance";
+import ProductFeature from "./feature";
+import GlobalFeature from "./homeowners/globalfeatures";
+import ArchitectsProjects from "./architects/architectsprojects";
+import ArchitectsProducts from "./architects/architectsproducts";
+import Support from "./architects/support";
+import AdClub from "./architects/adclub";
+import InspiroForm from "./architects/inspiroform";
 
-export default function HomePageClient({ data, contentData,shouldHideSection }) {
+export default function HomePageClient({ data, contentData, shouldHideSection }) {
+  const pathname = usePathname(); // Get the current URL path
   const [allData, setAllData] = useState(data || []);
   const [allContentData, setAllContentData] = useState(contentData || []);
-  const [imageLoading, setImageLoading] = useState(true); // Loading state for image
+  const [imageLoading, setImageLoading] = useState(true);
 
   // Handle image loading
   const handleImageLoad = () => setImageLoading(false);
@@ -51,37 +68,53 @@ export default function HomePageClient({ data, contentData,shouldHideSection }) 
 
   const videoGuide = allData.filter((section) => section.__component === "sections.video-guide");
 
- 
-
   return (
     <main className="wrapper">
-      {/* {imageLoading && (
-        <section data-section="loading_section" className="loading_section">
-          <div className="loading_container">
-            <div className="loader">
-              <img src="/images/welspun.webp" className="loading_welspun" alt="Loading..." width="1920" height="323" />
-              <div className="loader_content">
-                <div className="loader_text">
-                  LOADING
-                  <span className="dot-one"> .</span>
-                  <span className="dot-two"> .</span>
-                  <span className="dot-three"> .</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      )} */}
       {slides.length > 0 && <Banner bannerData={slides} onImageLoad={handleImageLoad} shouldHideSection={shouldHideSection} />}
+
+      {/* Conditionally render AboutOwner if pathname is /homeowners */}
+      {pathname === "/homeowners" && <AboutOwner />}
+
+      {pathname === "/homeowners" && <ClickTiles />}
+      {pathname === "/homeowners" && <GlobalFeature slug="click-and-lock-wood" />}
+
+      
+      
+      {pathname === "/b2b" && <FeatureProjects />}
+      {pathname === "/b2b" && <FeatureClient />}
+  
+      
+    
+    
+
+
+      {pathname === "/architects-and-interior-designers" && <ArchitectsProjects />}
+      {pathname === "/architects-and-interior-designers" && <ArchitectsProducts />}
+      {pathname === "/architects-and-interior-designers" && <Support />}
+      {pathname === "/architects-and-interior-designers" && <AdClub />}
+      {pathname === "/architects-and-interior-designers" && <InspiroForm />}
+
+      
+
+
+
+
+
+  
+
       <ProductsSection productData={productsContent} productImage={productsSection} />
       <SpacesSection spaceData={spaceSection} />
-      <VideoGuide videoGuide={videoGuide}/>
+      {pathname === "/b2b" && <FeaturePaving />}
+      {pathname === "/b2b" && <B2BProject />}
+      <VideoGuide videoGuide={videoGuide} />
+      {pathname === "/b2b" && <B2BSustainableTabs />}
       <SustainabilitySection />
       <TestimonialSection testimonial={testimonialData} />
       {partnerSection.length > 0 && <PartnerSection partnerData={partnerSection[0]} />}
       <EmiSection threeFold={threeFold} />
       <InspirationSection inspirationSection={inspirationSection} />
       <TrendingSection />
+      {pathname === "/b2b" && <AssistanceSection />}
       <BlogSection blogs={blogdata} />
       <ContactForm />
     </main>
