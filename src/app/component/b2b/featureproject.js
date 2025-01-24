@@ -2,10 +2,10 @@ import React from "react";
 
 const FeatureProjects = () => {
   const projects = [
-    { id: 1, title: "Residence", image: "/images/projects/img_1.webp" },
-    { id: 2, title: "Terrace Makeover", image: "/images/projects/img_2.webp" },
-    { id: 3, title: "Mathrubhumi Press", image: "/images/projects/img_3.webp" },
-    { id: 4, title: "SAP India Pvt. Ltd.", image: "/images/projects/img_4.webp" },
+    { id: 1, title: "Hospitality", image: "/images/projects/img_1.webp" },
+    { id: 2, title: "Entertainment", image: "/images/projects/img_2.webp" },
+    { id: 3, title: "Commercial", image: "/images/projects/img_3.webp" },
+    
   ];
 
   return (

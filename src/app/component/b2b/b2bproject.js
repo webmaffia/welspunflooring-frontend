@@ -3,42 +3,42 @@ import React from "react";
 const B2BProject = () => {
   const products = [
     {
-      image: "/images/app/detail/img-1.webp",
+      image: "/images/b2b/new/CNL-Stone.png",
       alt: "Click-N-Lock Stone",
       title: "Click-N-Lock Stone",
       description:
         "Wet-Lock technology-enabled Click-N-Lock Stone Tiles make upgrading to new flooring in commercial spaces possible within hours. The process is convenient as the installation is noise and dust-free."
     },
     {
-      image: "/images/app/detail/img-2.webp",
+      image: "/images/b2b/new/CNL-Wood.png",
       alt: "Click-N-Lock Wood",
       title: "Click-N-Lock Wood",
       description:
         "Click-N-Lock Wood Tiles offer the convenience of flooring upgrades for offices and other commercial spaces within 24 hours with the aesthetics of wood flooring."
     },
     {
-      image: "/images/app/detail/Hotel.webp",
+      image: "/images/b2b/new/Carpet-Tiles.png",
       alt: "Carpet Tiles",
       title: "Carpet Tiles",
       description:
         "Carpet Tiles as a flooring solution for business areas offer impeccable aesthetics, functionality, and durability. There's a range of designs to suit different spaces."
     },
     {
-      image: "/images/app/detail/img-4.webp",
+      image: "/images/b2b/new/Wall-to-Wall.png",
       alt: "Wall to Wall",
       title: "Wall to Wall",
       description:
         "Wall to Wall carpet flooring is designed with advanced printing and colour-fast technology that promises customisability and longevity when it comes to colour and texture. Mostly seen in hospitality, entertainment."
     },
     {
-      image: "/images/app/detail/School.webp",
+      image: "/images/app/detail/img-1.webp",
       alt: "Greens",
       title: "Greens",
       description:
         "Just like real grass but with less maintenance and more durability, Welspun Flooring's Greens is a great option for vertical landscaping, designing recreational areas, and timeout zones in commercial spaces."
     },
     {
-      image: "/images/app/detail/img-6.webp",
+      image: "/images/b2b/new/MultiStile.png",
       alt: "MultiStile",
       title: "MultiStile™",
       description:
