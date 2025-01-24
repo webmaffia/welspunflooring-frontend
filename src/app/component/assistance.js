@@ -61,7 +61,7 @@ const AssistanceSection = () => {
         </div>
         
         {/* Assistance Box 2 */}
-        <div className="assistance_box">
+        {/* <div className="assistance_box">
           <Image 
             src="/images/product_list/vector/img-2.webp"
             alt=""
@@ -85,7 +85,7 @@ const AssistanceSection = () => {
               <span>VIEW ALL</span>
             </div>
           </Link>
-        </div>
+        </div> */}
         
         {/* Assistance Box 3 */}
         <div className="assistance_box">

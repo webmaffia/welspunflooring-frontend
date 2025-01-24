@@ -276,3 +276,7 @@ html::-webkit-scrollbar{width:7px;}
 .homeYoutube{
     height: 100%;
 }
+
+.assistance .assistance_container{
+    justify-content: center;
+}

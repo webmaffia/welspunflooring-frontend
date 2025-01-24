@@ -116,12 +116,12 @@ const Menu = ({ closeMenu }) => {
                 <span>BOOK A CONSULT</span>
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link href="/" className="menu_link border_link" id="orderSampleBox" onClick={closeMenu}>
                 <Image src="/images/icons/order_box.webp" alt="Order Box Icon" width={33} height={37} />
                 <span>ORDER SAMPLE BOX</span>
               </Link>
-            </li>
+            </li> */}
             <li className="">
               <Link href="/locate-dealer" className="menu_link border_link" onClick={closeMenu}>
                 <Image src="/images/icons/dealer.webp" alt="Dealer Icon" width={33} height={37} />
