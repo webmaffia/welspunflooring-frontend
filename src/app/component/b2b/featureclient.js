@@ -4,11 +4,9 @@ const FeatureClient = () => {
   return (
     <section data-section="why_welspun" className="assistance why_welspun">
       <div className="section_container">
-        <div className="diamond diamond_blue">FEATURED PROJECTS</div>
+        <div className="diamond diamond_blue">WHY WELSPUN</div>
         <div className="title_container">
-          <h2 className="subtitle_60">
-            Spaces created using <br /> Welspun Flooring solutions
-          </h2>
+        <h2 className="subtitle_60">Why choose Welspun Flooring for <br /> your business/ commercial space</h2>
           <div className="assistance_container">
             <div className="assistance_box">
               <img
