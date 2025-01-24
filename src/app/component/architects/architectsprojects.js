@@ -7,19 +7,19 @@ const ArchitectsProjects = () => {
         {
             title: 'Awe-inspiring residential spaces',
             items: [
-                { src: '/images/projects/img_1.webp', alt: 'Residence', label: 'Residence' },
-                { src: '/images/projects/img_2.webp', alt: 'Terrace Makeover', label: 'Terrace Makeover' },
-                { src: '/images/projects/img_3.webp', alt: 'Mathrubhumi Press', label: 'Mathrubhumi Press' },
-                { src: '/images/projects/img_4.webp', alt: 'SAP India Pvt. Ltd.', label: 'SAP India Pvt. Ltd.' }
+                { src: '/images/AD/residential/1.png' },
+                { src: '/images/AD/residential/2.png'},
+                { src: '/images/AD/residential/3.png'},
+                { src: '/images/AD/residential/4.png' }
             ]
         },
         {
             title: 'Landmark commercial spaces',
             items: [
-                { src: '/images/projects/img_5.webp', alt: 'Residence', label: 'Residence' },
-                { src: '/images/projects/img_6.webp', alt: 'Terrace Makeover', label: 'Terrace Makeover' },
-                { src: '/images/projects/img_7.webp', alt: 'Mathrubhumi Press', label: 'Mathrubhumi Press' },
-                { src: '/images/projects/img_8.webp', alt: 'SAP India Pvt. Ltd.', label: 'SAP India Pvt. Ltd.' }
+                { src: '/images/AD/commercial/1.png' },
+                { src: '/images/AD/commercial/2.png' },
+                { src: '/images/AD/commercial/3.png'},
+                { src: '/images/AD/commercial/4.png'}
             ]
         }
     ];
@@ -45,7 +45,7 @@ const ArchitectsProjects = () => {
                                                 <div className="product_img_box">
                                                     <Image src={item.src} alt={item.alt} width={344} height={311} className="tile_img" />
                                                 </div>
-                                                <div className="subtitle_25">{item.label}</div>
+                                                {/* <div className="subtitle_25">{item.label}</div> */}
                                             </div>
                                         ))}
                                     </div>
