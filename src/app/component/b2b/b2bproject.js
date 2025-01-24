@@ -24,7 +24,7 @@ const B2BProject = () => {
         "Carpet Tiles as a flooring solution for business areas offer impeccable aesthetics, functionality, and durability. There's a range of designs to suit different spaces."
     },
     {
-      image: "/images/b2b/new/Wall-to-Wall.png",
+      image: "/images/b2b/new/Wall-to-wall.png",
       alt: "Wall to Wall",
       title: "Wall to Wall",
       description:
@@ -38,7 +38,7 @@ const B2BProject = () => {
         "Just like real grass but with less maintenance and more durability, Welspun Flooring's Greens is a great option for vertical landscaping, designing recreational areas, and timeout zones in commercial spaces."
     },
     {
-      image: "/images/b2b/new/MultiStile.png",
+      image: "/images/b2b/new/Multistile.png",
       alt: "MultiStile",
       title: "MultiStile™",
       description:
