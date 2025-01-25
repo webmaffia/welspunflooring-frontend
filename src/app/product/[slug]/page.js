@@ -11,6 +11,8 @@ import BlogSection from '@/app/component/homepage/blog';
 import Link from 'next/link';
 import ProductInnerList from '@/app/component/productInnerList';
 import CarpetVideos from '@/app/component/products/carpetvideos';
+import MultiTable from '@/app/component/multitable';
+import MultistileVideos from '@/app/component/products/multistilevideos';
 
 export async function generateStaticParams() {
   try {
@@ -232,6 +234,16 @@ export default async function ProductPage({ params }) {
 
 
 <ProductFeatures product={product}/>
+
+{
+  params.slug === 'multistile' && (
+    <MultiTable />
+  )
+}
+  
+{/* {params.slug === 'multistile' && (
+  <MultistileVideos />
+)} */}
 {product.attributes.sustainable?.sectionName && (
 <section data-section="about_sustainable" className="about_sustainable">
     <div className="diamond_title">
@@ -382,6 +394,7 @@ export default async function ProductPage({ params }) {
 
 
 <ProductFAQ  product={product}/>
+
 <section data-section="care_instruct" className="care_instruct">
     <div className="section_container">
         <h2 className="diamond diamond_blue">{product.attributes.careInstructions.sectionName}</h2>

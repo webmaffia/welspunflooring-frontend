@@ -280,3 +280,7 @@ html::-webkit-scrollbar{width:7px;}
 .assistance .assistance_container{
     justify-content: center;
 }
+
+.upper_menu .logo_img {
+    margin-left: 0 !important;
+}
