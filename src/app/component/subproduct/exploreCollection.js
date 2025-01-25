@@ -26,8 +26,8 @@ const ExploreCollection = ({ product }) => {
 
   console.log('Product Name:', productName); // Debugging log
 
-  // If product name includes "PurGloss Tiles", do not render the section
-  if (productName && productName.includes("PurGloss Tiles")) {
+  // If product name includes "PurGloss Tiles" or "Multistile", do not render the section
+  if (productName && (productName.includes("PurGloss Tiles") || productName.includes("Multistile"))) {
     return null;
   }
 
