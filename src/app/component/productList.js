@@ -171,8 +171,8 @@ const ProductsList = ({ productsByCategory }) => {
     )
     .map((product) => {
       const imageUrl =
-        product?.attributes?.details?.slider[1]?.image?.data?.attributes?.url ||
-        product?.attributes?.details?.slider[0]?.image?.data?.attributes?.url;
+        product?.attributes?.details?.slider[0]?.image?.data?.attributes?.url ||
+        product?.attributes?.details?.slider[1]?.image?.data?.attributes?.url;
 
       // Skip rendering if no valid image URL is available
       if (!imageUrl) return null;
