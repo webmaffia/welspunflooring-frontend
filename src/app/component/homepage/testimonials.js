@@ -26,12 +26,14 @@ const staticVideos = [
   },
 ];
 
-const TestimonialSection = ({ testimonial }) => {
+const TestimonialSection = ({ testimonial, pathname }) => {
   const [testimonialSwiper, setTestimonialSwiper] = useState(null);
   const testimonials = testimonial[0];
 
-  // Merge static YouTube videos and dynamic testimonials
-  const combinedTestimonials = [...staticVideos, ...testimonials.testimonial];
+  // Conditionally remove YouTube videos when pathname is "/b2b"
+  const combinedTestimonials = pathname === "/b2b" 
+    ? testimonials.testimonial // Show only dynamic testimonials on "/b2b"
+    : [...staticVideos, ...testimonials.testimonial]; // Show all on other routes
 
   useEffect(() => {
     // Function to pause YouTube videos when Swiper changes slides
@@ -102,7 +104,7 @@ const TestimonialSection = ({ testimonial }) => {
               <SwiperSlide key={index}>
                 <div className="video_player">
                   {item.isVideo ? (
-                    // **YouTube Video without Poster**
+                    // **YouTube Video without Poster (Only if pathname is NOT "/b2b")**
                     <div className="youtube-video homeYoutube">
                       <iframe
                         width="100%"

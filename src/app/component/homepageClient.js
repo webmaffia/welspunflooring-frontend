@@ -109,7 +109,7 @@ export default function HomePageClient({ data, contentData, shouldHideSection })
       <VideoGuide videoGuide={videoGuide} pathname={pathname} />
       {pathname === "/b2b" && <B2BSustainableTabs />}
       <SustainabilitySection />
-      <TestimonialSection testimonial={testimonialData} />
+      <TestimonialSection testimonial={testimonialData} pathname={pathname} />
       {partnerSection.length > 0 && <PartnerSection partnerData={partnerSection[0]} />}
       <EmiSection threeFold={threeFold} />
       <InspirationSection inspirationSection={inspirationSection} />
