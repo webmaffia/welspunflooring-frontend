@@ -102,14 +102,14 @@ const ProductDetail = ({ product, collection }) => {
                       <span>MAKE AN <br />ENQUIRY</span>
                     </div>
                   </Link>
-                  <Link href="#" className="view_link purpleBg triggerChat" id="sampleBox">
+                  {/* <Link href="#" className="view_link purpleBg triggerChat" id="sampleBox">
                     <div className="link_cta">
                       <div className="arrow_bg">
                         <Image src="/images/icons/arrow-2.webp" alt="arrow" width={20} height={17} />
                       </div>
                       <span>ORDER A <br />SAMPLE BOX</span>
                     </div>
-                  </Link>
+                  </Link> */}
                 </div>
               </div>
             </div>
