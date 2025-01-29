@@ -116,7 +116,8 @@ export default function HomePageClient({ data, contentData, shouldHideSection })
       {pathname === "/architects-and-interior-designers" && <VideoGuide videoGuide={videoGuide} pathname={pathname} />}
       
       {pathname === "/b2b" && <B2BSustainableTabs />}
-      <SustainabilitySection />
+      {pathname !== "/b2b" &&    <SustainabilitySection />}
+   
       {pathname !== "/b2b" && <TestimonialSection testimonial={testimonialData} pathname={pathname} />}
       
       {/* {partnerSection.length > 0 && <PartnerSection partnerData={partnerSection[0]} />} */}
