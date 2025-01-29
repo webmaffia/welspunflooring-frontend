@@ -134,7 +134,7 @@ const MultistileVideos = () => {
 <SwiperSlide>
                                 <div className="swiper-slide">
                                     <h3 className="subtitle_35">
-                                    Welspun Flooring | Carpet Tiles CO2 Pure
+                                    Welspun Flooring | Multistile Flooring
                                     </h3>
                                     {/* <div className="product_cta">
                                         <a href="" className="view_link whiteBrd">
@@ -173,7 +173,7 @@ const MultistileVideos = () => {
                                             ref={(el) => (ytPlayersRef.current[0] = el)}
                                             width="560"
                                             height="315"
-                                            src="https://www.youtube.com/embed/2z1QzkNuNv4?enablejsapi=1&rel=0&controls=0"
+                                            src="https://www.youtube.com/embed/fpX6WRsVX5s?enablejsapi=1&rel=0&controls=0"
                                             title="YouTube video player"
                                             style={{ border: 'none' }}
                                             allow="autoplay; encrypted-media"
@@ -187,7 +187,7 @@ const MultistileVideos = () => {
                          
                         </Swiper>
                     </div>
-                    <h2 className="diamond diamond_blue">VIDEOS</h2>
+                    {/* <h2 className="diamond diamond_blue">VIDEOS</h2> */}
                 </div>
             </div>
             <div className="square_box square_box_5"></div>

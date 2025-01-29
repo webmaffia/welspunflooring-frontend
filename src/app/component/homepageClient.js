@@ -102,8 +102,10 @@ export default function HomePageClient({ data, contentData, shouldHideSection })
 
 
   
-      {pathname === "/b2b" && <ProductsSection productData={productsContent} productImage={productsSection} />}
-      {pathname === "/architects-and-interior-designers" && <ProductsSection productData={productsContent} productImage={productsSection} />}
+      {(pathname === "/b2b" || pathname === "/") && (
+  <ProductsSection productData={productsContent} productImage={productsSection} />
+)}
+
       
       <SpacesSection spaceData={spaceSection} />
       {pathname === "/b2b" && <FeaturePaving />}

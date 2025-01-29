@@ -241,9 +241,9 @@ export default async function ProductPage({ params }) {
   )
 }
   
-{/* {params.slug === 'multistile' && (
+{params.slug === 'multistile' && (
   <MultistileVideos />
-)} */}
+)}
 {product.attributes.sustainable?.sectionName && (
 <section data-section="about_sustainable" className="about_sustainable">
     <div className="diamond_title">
