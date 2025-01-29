@@ -9,19 +9,19 @@ const staticVideos = [
   {
     videoSrc: "https://www.youtube.com/embed/7mGkB7T3JWU?enablejsapi=1&rel=0&modestbranding=1",
     name: "Adnan",
-    description: "Senior IT Consultant, SAPT Delhi",
+    description: "During our home renovation, we opted for Welspun Flooring after our Altea tiles were damaged. The process was smooth, from quick delivery of tiles to seamless one-day installation.",
     isVideo: true,
   },
   {
     videoSrc: "https://www.youtube.com/embed/6ZyJwFoJBHw?enablejsapi=1&rel=0&modestbranding=1",
     name: "Mr. Sudhakar Manne",
-    description: "Hyderabad City",
+    description: "I’m very thankful to Welspun Flooring for taking up this job. The work was incredibly well-organized, with the flooring completed in just a few hours, all while following social distancing and sanitization norms. ",
     isVideo: true,
   },
   {
     videoSrc: "https://www.youtube.com/embed/IIogdF5ZHh4?enablejsapi=1&rel=0&modestbranding=1",
     name: "Maria D'Silva",
-    description: "Principal, Infant Jesus School, Pune",
+    description: "I highly recommend Welspun Flooring to anyone looking for a dust-free, noise-free, and hassle-free solution. Thank you—I am extremely happy with the product!",
     isVideo: true,
   },
   // {
