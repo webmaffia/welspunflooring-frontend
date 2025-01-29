@@ -107,7 +107,9 @@ export default function HomePageClient({ data, contentData, shouldHideSection })
       <SpacesSection spaceData={spaceSection} />
       {pathname === "/b2b" && <FeaturePaving />}
       {pathname === "/b2b" && <B2BProject />}
-      <VideoGuide videoGuide={videoGuide} pathname={pathname} />
+      {pathname === "/b2b" && <VideoGuide videoGuide={videoGuide} pathname={pathname} />}
+      {pathname === "/architects-and-interior-designers" && <VideoGuide videoGuide={videoGuide} pathname={pathname} />}
+      
       {pathname === "/b2b" && <B2BSustainableTabs />}
       <SustainabilitySection />
       <TestimonialSection testimonial={testimonialData} pathname={pathname} />
