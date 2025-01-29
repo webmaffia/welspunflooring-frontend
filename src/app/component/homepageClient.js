@@ -33,6 +33,7 @@ import ArchitectsProducts from "./architects/architectsproducts";
 import Support from "./architects/support";
 import AdClub from "./architects/adclub";
 import InspiroForm from "./architects/inspiroform";
+import VideoGuideGoogle from "./homepage/videoGuideGoogle";
 
 export default function HomePageClient({ data, contentData, shouldHideSection }) {
   const pathname = usePathname(); // Get the current URL path
@@ -107,7 +108,9 @@ export default function HomePageClient({ data, contentData, shouldHideSection })
       <SpacesSection spaceData={spaceSection} />
       {pathname === "/b2b" && <FeaturePaving />}
       {pathname === "/b2b" && <B2BProject />}
-      {pathname === "/b2b" && <VideoGuide videoGuide={videoGuide} pathname={pathname} />}
+    
+      {pathname === "/b2b" && <VideoGuideGoogle videoGuide={videoGuide} pathname={pathname} />}
+      {pathname === "/" && <VideoGuide videoGuide={videoGuide} pathname={pathname} />}
       {pathname === "/architects-and-interior-designers" && <VideoGuide videoGuide={videoGuide} pathname={pathname} />}
       
       {pathname === "/b2b" && <B2BSustainableTabs />}

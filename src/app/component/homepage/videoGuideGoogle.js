@@ -4,7 +4,7 @@ import 'swiper/css/navigation';
 import { Navigation, Pagination, Controller } from 'swiper/modules';
 import { useState, useRef, useEffect } from 'react';
 
-const VideoGuide = ({ pathname }) => {  // ✅ Fix: Properly destructure props
+const VideoGuideGoogle = ({ pathname }) => {  // ✅ Fix: Properly destructure props
     const [videoSwiper, setVideoSwiper] = useState(null);
     const [videoSwiper2, setVideoSwiper2] = useState(null);
     const videoPlayersRef = useRef([]);
@@ -92,13 +92,8 @@ const VideoGuide = ({ pathname }) => {  // ✅ Fix: Properly destructure props
                             <SwiperSlide>
                                 <div className="swiper-slide">
                                     <h3 className="subtitle_35">
-                                    Welspun Flooring presents
-the world with awe-inspiring,
-holistic flooring solutions
-that are inspired by technological
-innovations.
+                                    Welspun Flooring carpeted 8 lakh square feet at Google Ananta Bangalore, the second-largest campus outside the U.S.
                                     </h3>
-                                    
                                 </div>
                             </SwiperSlide>
 
@@ -135,7 +130,7 @@ innovations.
                                             ref={(el) => (ytPlayersRef.current[0] = el)}
                                             width="560"
                                             height="315"
-                                            src="https://www.youtube.com/embed/ZH-ScwVBn3E?enablejsapi=1&rel=0&controls=0"
+                                            src="https://www.youtube.com/embed/1L88iiVjAw8?enablejsapi=1&rel=0&controls=0"
                                             title="YouTube video player"
                                             style={{ border: 'none' }}
                                             allow="autoplay; encrypted-media"
@@ -173,4 +168,4 @@ innovations.
     );
 };
 
-export default VideoGuide;
+export default VideoGuideGoogle;
