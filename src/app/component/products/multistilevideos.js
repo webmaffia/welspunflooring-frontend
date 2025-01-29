@@ -134,7 +134,7 @@ const MultistileVideos = () => {
 <SwiperSlide>
                                 <div className="swiper-slide">
                                     <h3 className="subtitle_35">
-                                    Welspun Flooring | Multistile Flooring
+                                    Multistyle adapts effortlessly to any surface, combining durability, elegance, and timeless style to elevate spaces.
                                     </h3>
                                     {/* <div className="product_cta">
                                         <a href="" className="view_link whiteBrd">
