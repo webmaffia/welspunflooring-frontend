@@ -24,12 +24,12 @@ const staticVideos = [
     description: "Principal, Infant Jesus School, Pune",
     isVideo: true,
   },
-  {
-    videoSrc: "https://www.youtube.com/embed/xrwnZICiQb8?enablejsapi=1&rel=0&modestbranding=1",
-    name: "Manjeett Singh Bakshi",
-    description: "CEO, Communique ( Coworking Space), New Delhi",
-    isVideo: true,
-  },
+  // {
+  //   videoSrc: "https://www.youtube.com/embed/xrwnZICiQb8?enablejsapi=1&rel=0&modestbranding=1",
+  //   name: "Manjeett Singh Bakshi",
+  //   description: "CEO, Communique ( Coworking Space), New Delhi",
+  //   isVideo: true,
+  // },
  
 ];
 
