@@ -67,7 +67,8 @@ const ClickTiles = () => {
             <h2 className="subtitle_60">Click-N-Lock Tiles Wood</h2>
             <p className="para">
               The interlocking tiles bring with them convenience, power-packed features and
-              spectacular textures and designs in wood style. These are wooden SPC flooring
+              spectacular textures and designs in wood style. These are wooden Stone Polymer
+              Composite (SPC) flooring
               designs. For those who like their spaces to carry a warm and woody theme, there
               are a variety of wood-style finish interlocking tiles to choose from, like Teak Wood,
               Oak Wood, Walnut Wood, etc.
@@ -125,7 +126,8 @@ const ClickTiles = () => {
             <h2 className="subtitle_60">Click-N-Lock Tiles Stone</h2>
             <p className="para">
               The interlocking tiles bring with them convenience, power-packed features and
-              spectacular textures and designs in stone style. These are stone SPC flooring
+              spectacular textures and designs in stone style. These are Stone Polymer
+              Composite (SPC) flooring
               designs. For those who like their spaces to carry a classic stone aesthetic, there
               are a variety of stone-style finish interlocking tiles to choose from.
             </p>

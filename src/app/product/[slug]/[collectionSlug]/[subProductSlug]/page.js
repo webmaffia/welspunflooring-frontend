@@ -12,25 +12,25 @@ export async function generateMetadata({ params }) {
   const { subProductSlug } = params;
 
   // Fetch product data
-  const res = await fetch(
+  const res2 = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/product-specifications?filters[slug][$eq]=${subProductSlug}&populate=seo`,
     {
       cache: 'no-cache',
     }
   );
 
-  const productData = await res.json();
-  const product = productData.data[0];
+  const productData2 = await res2.json();
+  const product2 = productData2.data[0];
 
   // If product is not found, return default metadata or handle a 404
-  if (!product) {
+  if (!product2) {
     return {
       title: 'Product Not Found - Welspun Flooring',
       description: 'The product you are looking for does not exist.',
     };
   }
 
-  const seo = product?.attributes?.seo;
+  const seo = product2?.attributes?.seo;
 
   return {
     title: seo?.metaTitle || 'Welspun Flooring - High-Quality Products',
