@@ -160,7 +160,7 @@ const VideoGuideGoogle = ({ pathname }) => {  // ✅ Fix: Properly destructure p
                             )}
                         </Swiper>
                     </div>
-                    <h2 className="diamond diamond_blue">VIDEO GUIDE</h2>
+                    <h2 className="diamond diamond_blue">OUR PROJECTS</h2>
                 </div>
             </div>
             <div className="square_box square_box_5"></div>
