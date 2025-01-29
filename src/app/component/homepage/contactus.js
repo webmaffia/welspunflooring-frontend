@@ -189,6 +189,7 @@ export default function ContactForm() {
                     {success && <p className="form_success">Thank you! Your message has been sent successfully.</p>}
                 </form>
             </div>
+            
         </section>
     );
 }

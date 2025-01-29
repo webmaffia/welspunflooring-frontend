@@ -9,7 +9,7 @@ const AboutOwner = () => {
           <div className="title_container">
             <h3 className="subtitle_60">
               Stone Polymer <br />
-              Composite over Vinyl, <br />
+              Composite (SPC) over Vinyl, <br />
               Laminate or Ceramic
             </h3>
           </div>
