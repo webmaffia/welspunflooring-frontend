@@ -30,10 +30,16 @@ const TestimonialSection = ({ testimonial, pathname }) => {
   const [testimonialSwiper, setTestimonialSwiper] = useState(null);
   const testimonials = testimonial[0];
 
-  // Conditionally remove YouTube videos when pathname is "/b2b"
-  const combinedTestimonials = pathname === "/b2b" 
-    ? testimonials.testimonial // Show only dynamic testimonials on "/b2b"
-    : [...staticVideos, ...testimonials.testimonial]; // Show all on other routes
+  // Determine which testimonials to show based on pathname
+  let combinedTestimonials = [];
+
+  if (pathname === "/b2b") {
+    combinedTestimonials = testimonials.testimonial; // Show only dynamic testimonials
+  } else if (pathname === "/homeowners") {
+    combinedTestimonials = staticVideos; // Show only YouTube videos
+  } else {
+    combinedTestimonials = [...staticVideos, ...testimonials.testimonial]; // Show both for other paths
+  }
 
   useEffect(() => {
     // Function to pause YouTube videos when Swiper changes slides
@@ -104,7 +110,7 @@ const TestimonialSection = ({ testimonial, pathname }) => {
               <SwiperSlide key={index}>
                 <div className="video_player">
                   {item.isVideo ? (
-                    // **YouTube Video without Poster (Only if pathname is NOT "/b2b")**
+                    // **YouTube Video (Only if allowed for this path)**
                     <div className="youtube-video homeYoutube">
                       <iframe
                         width="100%"
@@ -117,7 +123,7 @@ const TestimonialSection = ({ testimonial, pathname }) => {
                       ></iframe>
                     </div>
                   ) : (
-                    // **Dynamic Image Testimonial**
+                    // **Dynamic Image Testimonial (Only if allowed for this path)**
                     <img
                       src={`${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${item.image.data.attributes.url}`}
                       alt={item.testimonialName}
