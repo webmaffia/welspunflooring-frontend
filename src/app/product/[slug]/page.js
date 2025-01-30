@@ -84,29 +84,45 @@ export default async function ProductPage({ params }) {
 
     // Group sub-products by collection, limit each to 2,
     // then limit total displayed to 10.
-    const getFilteredSubProducts = (subProductsArray) => {
-      const grouped = {};
+    // Helper function to filter sub-products
+const getFilteredSubProducts = (subProductsArray) => {
+  const grouped = {};
 
-      // 1) Group by collection
-      subProductsArray.forEach((item) => {
-        const collectionName =
-          item?.attributes?.category?.data?.attributes?.collectionName ||
-          'Unknown';
-        if (!grouped[collectionName]) {
-          grouped[collectionName] = [];
-        }
-        grouped[collectionName].push(item);
-      });
+  // 1) Group sub-products by collection
+  subProductsArray.forEach((item) => {
+    const collectionName =
+      item?.attributes?.category?.data?.attributes?.collectionName || 'Unknown';
+    if (!grouped[collectionName]) {
+      grouped[collectionName] = [];
+    }
+    grouped[collectionName].push(item);
+  });
 
-      // 2) For each collection, take only the first 2
-      const limitedByCollection = [];
-      Object.keys(grouped).forEach((collection) => {
-        limitedByCollection.push(...grouped[collection].slice(0, 2));
-      });
+  const collectionNames = Object.keys(grouped);
+  const numberOfCollections = collectionNames.length;
 
-      // 3) Finally, limit total to 10
-      return limitedByCollection.slice(0, 10);
-    };
+  // Default limit of 2 per collection
+  let limitPerCollection = 2;
+
+  // If we have fewer than 5 collections, we want to ensure we can still get 10 products,
+  // so we increase the limit per collection to "ceil(10 / numberOfCollections)".
+  // Then we still do a final .slice(0, 10) below to get exactly 10 in total.
+  if (numberOfCollections < 5 && numberOfCollections > 0) {
+    limitPerCollection = Math.ceil(10 / numberOfCollections);
+  }
+
+  // 2) Collect products from each collection, using our calculated limit
+  let limitedByCollection = [];
+  collectionNames.forEach((collection) => {
+    limitedByCollection.push(
+      ...grouped[collection].slice(0, limitPerCollection)
+    );
+  });
+
+  // 3) Finally, limit total to 10
+  return limitedByCollection.slice(0, 10);
+};
+
 
     const filteredSubProductsList = getFilteredSubProducts(subProductsList);
 

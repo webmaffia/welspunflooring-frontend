@@ -12,12 +12,15 @@ const TileSpecification = ({specifications}) => {
       <div className="specified_tiles">
       {specifications.attributes.specification.slice(0, 6).map((spec, index) => (
   <div className="specified_detail" key={index}>
-    <Image 
-      src={`${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${spec.icon?.data?.attributes?.url}`} 
-      alt={spec.title} 
-      width={84} 
-      height={81} 
-    />
+   {spec?.icon?.data?.attributes?.url && (
+  <Image
+    src={`${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${spec?.icon?.data?.attributes?.url}`}
+    alt={spec.title}
+    width={84}
+    height={81}
+  />
+)}
+
     <div className="specified_title">
       {spec.title?.map((point, index) => (
         <span key={index}>

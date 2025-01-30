@@ -40,11 +40,11 @@ export async function generateMetadata({ params }) {
 }
 
 const SubProductPage = async ({ params }) => {
-  const { subProductSlug } = params;
+  const { slug, collectionSlug, subProductSlug } = params;
 
   // Fetch product data
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/product-specifications?filters[slug][$eq]=${subProductSlug}&populate[category][populate]=product,image&populate[details][populate]=slider.image,point,warranty&populate[specification][populate]=icon&populate[careInstruction][populate]=point`,
+    `${process.env.NEXT_PUBLIC_API_URL}/product-specifications?filters[slug][$eq]=${subProductSlug}&filters[category][slug][$eq]=${collectionSlug}&filters[category][product][slug][$eq]=${slug}&populate[category][populate]=product,image&populate[details][populate]=slider.image,point,warranty&populate[specification][populate]=icon&populate[careInstruction][populate]=point`,
     {
       cache: 'no-cache',
     }
