@@ -16,7 +16,7 @@ const AboutOwner = () => {
         </div>
         <div className="about_right_container">
           <p>
-            Click-N-Lock tiles made of stone polymer composite carry the latest Wel-Lock <br />
+            Click-N-Lock tiles made of stone polymer composite (SPC) carry the latest Wel-Lock <br />
             technology and have many benefits. Compared to Vinyl, Laminate or Ceramic, they <br />
             are more durable because of their composition and thickness, water-resistant, and <br />
             easy to install owing to the click system (grout-free installation). They replicate the <br />

@@ -292,3 +292,6 @@ html::-webkit-scrollbar{width:7px;}
     margin-left: 0 !important;
 }
 
+.wall_specification .loop_table table th {
+    margin: 0;
+}
