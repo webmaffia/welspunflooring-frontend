@@ -8,6 +8,12 @@ d::before{left:3.6231884058vw}}.document_maintenance .darkGreyBg{transition:all 
 
 @media (min-width: 1023px) {
 
+    .more_tiles .tiles_detail {
+
+        gap: .9vw;
+       
+    }
+
     [data-section="video_guide"] .swiper_container .swiper_bg .swiper-wrapper .subtitle_35 {
         min-height: 12.15625vw;
         max-height: 12.15625vw;
