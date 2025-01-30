@@ -295,3 +295,7 @@ html::-webkit-scrollbar{width:7px;}
 .wall_specification .loop_table table th {
     margin: 0;
 }
+
+.borderActive{
+    border: 2px solid #1e148f;
+}

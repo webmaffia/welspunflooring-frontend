@@ -121,21 +121,24 @@ const ProductDetail = ({ product, collection }) => {
                   <div className="tiles_detail">
                     {collection?.slice(0, 14).map((tile, index) => (
                       <Link
-                        key={index}
-                        href={`/product/${
-                          product?.attributes?.category?.data?.attributes?.product?.data?.attributes
-                            ?.slug
-                        }/${
-                          product?.attributes?.category?.data?.attributes?.slug
-                        }/${tile?.attributes?.slug}`}
-                      >
-                        <img
-                          src={`${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${tile?.attributes?.swatch?.data?.attributes?.url}`}
-                          alt={tile?.attributes?.swatch?.data?.attributes?.name}
-                          width={55}
-                          height={55}
-                        />
-                      </Link>
+                      key={index}
+                      href={`/product/${
+                        product?.attributes?.category?.data?.attributes?.product?.data?.attributes?.slug
+                      }/${
+                        product?.attributes?.category?.data?.attributes?.slug
+                      }/${tile?.attributes?.slug}`}
+                      className={
+                        tile?.attributes?.slug === product?.attributes?.slug ? 'borderActive' : ''
+                      }
+                    >
+                      <img
+                        src={`${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${tile?.attributes?.swatch?.data?.attributes?.url}`}
+                        alt={tile?.attributes?.swatch?.data?.attributes?.name}
+                        width={55}
+                        height={55}
+                      />
+                    </Link>
+                    
                     ))}
                   </div>
                   <div className="dFlex">
