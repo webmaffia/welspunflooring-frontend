@@ -11,6 +11,7 @@ import ProductInnerList from '@/app/component/productInnerList';
 import CarpetVideos from '@/app/component/products/carpetvideos';
 import MultiTable from '@/app/component/multitable';
 import MultistileVideos from '@/app/component/products/multistilevideos';
+import WallToWallTable from '@/app/component/walltowall/walltowalltable';
 
 export async function generateStaticParams() {
   try {
@@ -231,6 +232,10 @@ export default async function ProductPage({ params }) {
 
             {/* MultiTable */}
             {params.slug === 'multistile' && <MultiTable />}
+
+            {/* {params.slug === 'wall-to-wall-carpet' && <WallToWallTable />} */}
+
+        
 
             {/* Multistile Videos */}
             {params.slug === 'multistile' && <MultistileVideos />}
