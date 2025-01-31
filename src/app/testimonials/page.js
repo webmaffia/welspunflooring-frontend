@@ -43,7 +43,7 @@ export default async function testimonialPage() {
 <section data-section="testimonial_feature" className="testimonial_feature">
     <div className="feature_container">
         <div className="section_container">
-            <h2 className="diamond diamond_blue">FEATURED TESTIMONIALS</h2>
+            {/* <h2 className="diamond diamond_blue">FEATURED TESTIMONIALS</h2> */}
             <div className="title_container">
                 <div className="subtitle_60">
                     Spreading smiles, <br />
