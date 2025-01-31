@@ -108,7 +108,8 @@ export default function HomePageClient({ data, contentData, shouldHideSection })
 )}
 
       
-      <SpacesSection spaceData={spaceSection} />
+     
+      {pathname !== "/architects-and-interior-designers" &&   <SpacesSection spaceData={spaceSection} />}
       {pathname === "/b2b" && <FeaturePaving />}
       {pathname === "/b2b" && <B2BProject />}
     
