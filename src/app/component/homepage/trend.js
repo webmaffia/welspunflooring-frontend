@@ -25,7 +25,7 @@ const TrendingSection = () => {
         height={755}
       />
       
-      <Link href="/blog" className="view_link cursor_cta purpleBg">
+      <Link href="/product" className="view_link cursor_cta purpleBg">
         <div className="link_cta">
           <div className="arrow_bg">
             <Image
