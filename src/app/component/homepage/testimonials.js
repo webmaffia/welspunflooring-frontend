@@ -14,7 +14,7 @@ const staticVideos = [
   },
   {
     videoSrc: "https://www.youtube.com/embed/6ZyJwFoJBHw?enablejsapi=1&rel=0&modestbranding=1",
-    name: "Mr. Sudhakar Manne",
+    name: "Sudhakar Manne",
     description: "I’m very thankful to Welspun Flooring for taking up this job. The work was incredibly well-organized, with the flooring completed in just a few hours, all while following social distancing and sanitization norms. ",
     isVideo: true,
   },

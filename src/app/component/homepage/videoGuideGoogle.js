@@ -99,13 +99,13 @@ const VideoGuideGoogle = ({ pathname }) => {  // ✅ Fix: Properly destructure p
 
                             {/* ✅ Fix: Properly checking pathname */}
                            
-                                <SwiperSlide>
+                                {/* <SwiperSlide>
                                     <div className="swiper-slide">
                                         <h3 className="subtitle_35">
                                         We serviced Communique, Delhi, with our premium flooring solutions, ensuring the installation of the entire flooring in less than a day.
                                         </h3>
                                     </div>
-                                </SwiperSlide>
+                                </SwiperSlide> */}
                             
                         </Swiper>
                     </div>
@@ -137,7 +137,7 @@ const VideoGuideGoogle = ({ pathname }) => {  // ✅ Fix: Properly destructure p
                             </SwiperSlide>
 
                             
-                                <SwiperSlide>
+                                {/* <SwiperSlide>
                                     <div className="swiper-slide">
                                         <div className="video_player">
                                             <iframe
@@ -152,7 +152,7 @@ const VideoGuideGoogle = ({ pathname }) => {  // ✅ Fix: Properly destructure p
                                             ></iframe>
                                         </div>
                                     </div>
-                                </SwiperSlide>
+                                </SwiperSlide> */}
                             
                         </Swiper>
                     </div>

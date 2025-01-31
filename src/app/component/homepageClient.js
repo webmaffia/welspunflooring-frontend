@@ -103,7 +103,7 @@ export default function HomePageClient({ data, contentData, shouldHideSection })
 
 
   
-      {(pathname === "/b2b" || pathname === "/") && (
+      {(pathname !== "/homeowners" && pathname !== "/architects-and-interior-designers") && (
   <ProductsSection productData={productsContent} productImage={productsSection} />
 )}
 
@@ -119,15 +119,28 @@ export default function HomePageClient({ data, contentData, shouldHideSection })
       
       {pathname === "/b2b" && <B2BSustainableTabs />}
       {pathname !== "/b2b" &&    <SustainabilitySection />}
-   
+{/*    
       {pathname !== "/b2b" && <TestimonialSection testimonial={testimonialData} pathname={pathname} />}
+
+      {pathname !== "/architects-and-interior-designers" &&  <TestimonialSection testimonial={testimonialData} pathname={pathname} />} */}
+
+{(pathname !== "/b2b" && pathname !== "/architects-and-interior-designers") && (
+  <TestimonialSection testimonial={testimonialData} pathname={pathname} />
+)}
+
       
-      {/* {partnerSection.length > 0 && <PartnerSection partnerData={partnerSection[0]} />} */}
+     
+
          {pathname === "/b2b" && <PartnerSection partnerData={partnerSection[0]} />}
      
       {pathname !== "/b2b" &&  <EmiSection threeFold={threeFold} />}
       <InspirationSection inspirationSection={inspirationSection} />
-      <TrendingSection />
+     
+
+      {(pathname !== "/b2b" && pathname !== "/architects-and-interior-designers") && (
+        <TrendingSection pathname={pathname}/>
+)}
+      
       {pathname === "/b2b" && <AssistanceSection pathname={pathname} />}
       <BlogSection blogs={blogdata} pathname={pathname} />
       <ContactForm />

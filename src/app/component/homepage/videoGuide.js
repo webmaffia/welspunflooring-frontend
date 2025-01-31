@@ -103,19 +103,21 @@ innovations.
                             </SwiperSlide>
 
                             {/* ✅ Fix: Properly checking pathname */}
-                            {pathname !== "/b2b" && (
-                                <SwiperSlide>
-                                    <div className="swiper-slide">
-                                        <h3 className="subtitle_35">
-                                            This is what <br />
-                                            assembling a floor <br />
-                                            with Click N Lock Tiles <br />
-                                            within 24 hours <br />
-                                            looks like
-                                        </h3>
-                                    </div>
-                                </SwiperSlide>
-                            )}
+
+                            {(pathname !== "/b2b" && pathname !== "/architects-and-interior-designers") && (
+ <SwiperSlide>
+ <div className="swiper-slide">
+     <h3 className="subtitle_35">
+         This is what <br />
+         assembling a floor <br />
+         with Click N Lock Tiles <br />
+         within 24 hours <br />
+         looks like
+     </h3>
+ </div>
+</SwiperSlide>
+)}
+                         
                         </Swiper>
                     </div>
                     <div className="swiper videoSwiper swiper-no-swiping">
@@ -145,24 +147,29 @@ innovations.
                                 </div>
                             </SwiperSlide>
 
-                            {pathname !== "/b2b" && (
-                                <SwiperSlide>
-                                    <div className="swiper-slide">
-                                        <div className="video_player">
-                                            <iframe
-                                                ref={(el) => (ytPlayersRef.current[1] = el)}
-                                                width="560"
-                                                height="315"
-                                                src="https://www.youtube.com/embed/vACAsXiznNQ?enablejsapi=1&rel=0&controls=0"
-                                                title="YouTube video player"
-                                                style={{ border: 'none' }}
-                                                allow="autoplay; encrypted-media"
-                                                allowFullScreen
-                                            ></iframe>
-                                        </div>
-                                    </div>
-                                </SwiperSlide>
-                            )}
+
+                            {(pathname !== "/b2b" && pathname !== "/architects-and-interior-designers") && (
+ <SwiperSlide>
+ <div className="swiper-slide">
+     <div className="video_player">
+         <iframe
+             ref={(el) => (ytPlayersRef.current[1] = el)}
+             width="560"
+             height="315"
+             src="https://www.youtube.com/embed/vACAsXiznNQ?enablejsapi=1&rel=0&controls=0"
+             title="YouTube video player"
+             style={{ border: 'none' }}
+             allow="autoplay; encrypted-media"
+             allowFullScreen
+         ></iframe>
+     </div>
+ </div>
+</SwiperSlide>
+)}
+        
+
+
+                         
                         </Swiper>
                     </div>
                     <h2 className="diamond diamond_blue">VIDEO GUIDE</h2>
