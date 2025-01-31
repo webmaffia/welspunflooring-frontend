@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 
-const BlogSection = ({blogs}) => {
+const BlogSection = ({blogs,pathname}) => {
   const [filter, setFilter] = useState("");
 
   // Ensure blogs contains data, otherwise set defaults
@@ -44,8 +44,12 @@ const BlogSection = ({blogs}) => {
     setFilter(e.target.value);
   };
 
+  const isB2BPage = pathname === '/b2b';
+
+
+
   return (
-    <section className="blog" data-section="blog">
+    <section className="blog" data-section="blog" style={{ backgroundColor: isB2BPage ? 'white' : 'transparent' }}>
     <div className="blogs_upper">
         <div className="section_container">
           {blogSection && (

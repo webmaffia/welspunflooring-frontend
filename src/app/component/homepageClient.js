@@ -127,7 +127,7 @@ export default function HomePageClient({ data, contentData, shouldHideSection })
       <InspirationSection inspirationSection={inspirationSection} />
       <TrendingSection />
       {pathname === "/b2b" && <AssistanceSection pathname={pathname} />}
-      <BlogSection blogs={blogdata} />
+      <BlogSection blogs={blogdata} pathname={pathname} />
       <ContactForm />
     </main>
   );
