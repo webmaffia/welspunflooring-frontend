@@ -90,7 +90,8 @@ export default function HomePageClient({ data, contentData, shouldHideSection })
 
 
       {pathname === "/architects-and-interior-designers" && <ArchitectsProjects />}
-      {pathname === "/architects-and-interior-designers" && <ArchitectsProducts />}
+      {/* {pathname === "/architects-and-interior-designers" && <ArchitectsProducts />} */}
+      {pathname === "/architects-and-interior-designers" && <B2BProject />}
       {pathname === "/architects-and-interior-designers" && <Support />}
       {pathname === "/architects-and-interior-designers" && <AdClub />}
       {pathname === "/architects-and-interior-designers" && <InspiroForm />}

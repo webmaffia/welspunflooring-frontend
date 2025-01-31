@@ -5,7 +5,7 @@ import Image from 'next/image';
 const ArchitectsProjects = () => {
     const projects = [
         {
-            title: 'Awe-inspiring residential spaces',
+            title: 'Awe-inspiring Residential spaces',
             items: [
                 { src: '/images/AD/residential/1.png' },
                 { src: '/images/AD/residential/2.png'},
@@ -14,7 +14,7 @@ const ArchitectsProjects = () => {
             ]
         },
         {
-            title: 'Landmark commercial spaces',
+            title: 'Landmark Commercial spaces',
             items: [
                 { src: '/images/AD/commercial/1.png' },
                 { src: '/images/AD/commercial/2.png' },
