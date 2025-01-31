@@ -125,7 +125,7 @@ export default function HomePageClient({ data, contentData, shouldHideSection })
       <EmiSection threeFold={threeFold} />
       <InspirationSection inspirationSection={inspirationSection} />
       <TrendingSection />
-      {pathname === "/b2b" && <AssistanceSection />}
+      {/* {pathname === "/b2b" && <AssistanceSection />} */}
       <BlogSection blogs={blogdata} />
       <ContactForm />
     </main>
