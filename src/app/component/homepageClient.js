@@ -122,10 +122,11 @@ export default function HomePageClient({ data, contentData, shouldHideSection })
       
       {/* {partnerSection.length > 0 && <PartnerSection partnerData={partnerSection[0]} />} */}
          {pathname === "/b2b" && <PartnerSection partnerData={partnerSection[0]} />}
-      <EmiSection threeFold={threeFold} />
+     
+      {pathname !== "/b2b" &&  <EmiSection threeFold={threeFold} />}
       <InspirationSection inspirationSection={inspirationSection} />
       <TrendingSection />
-      {/* {pathname === "/b2b" && <AssistanceSection />} */}
+      {pathname === "/b2b" && <AssistanceSection pathname={pathname} />}
       <BlogSection blogs={blogdata} />
       <ContactForm />
     </main>

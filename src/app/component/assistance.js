@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import Image from 'next/image';
 import Link from 'next/link';
 
-const AssistanceSection = () => {
+const AssistanceSection = ({pathname}) => {
   useEffect(() => {
     const handleChatClick = () => {
       const chatBox = document.querySelector(".sticky_chat");
@@ -88,31 +88,36 @@ const AssistanceSection = () => {
         </div> */}
         
         {/* Assistance Box 3 */}
-        <div className="assistance_box">
-          <Image 
-            src="/images/product_list/vector/img-3.webp"
-            alt=""
-            className="assist_img"
-            width={146}
-            height={151}
-          />
-          <h3 className="subtitle_40">
-            Budget <br />Calculator
-          </h3>
-          <Link href="/budget-calculator" className="view_link purpleBg">
-            <div className="link_cta">
-              <div className="arrow_bg">
-                <Image 
-                  src="/images/icons/arrow-2.webp"
-                  alt=""
-                  width={20}
-                  height={17}
-                />
-              </div>
-              <span>VIEW ALL</span>
-            </div>
-          </Link>
-        </div>
+
+        {pathname !== "/b2b" && (
+  <div className="assistance_box">
+  <Image 
+    src="/images/product_list/vector/img-3.webp"
+    alt=""
+    className="assist_img"
+    width={146}
+    height={151}
+  />
+  <h3 className="subtitle_40">
+    Budget <br />Calculator
+  </h3>
+  <Link href="/budget-calculator" className="view_link purpleBg">
+    <div className="link_cta">
+      <div className="arrow_bg">
+        <Image 
+          src="/images/icons/arrow-2.webp"
+          alt=""
+          width={20}
+          height={17}
+        />
+      </div>
+      <span>VIEW ALL</span>
+    </div>
+  </Link>
+</div>
+
+        )}
+      
       </div>
     </section>
   );
