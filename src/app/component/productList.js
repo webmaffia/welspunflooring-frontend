@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 
@@ -10,6 +10,9 @@ const ProductsList = ({ productsByCategory }) => {
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedCollection, setSelectedCollection] = useState('');
   const [expandedCategories, setExpandedCategories] = useState({});
+
+  const [isScrollActive, setIsScrollActive] = useState(false);
+  const scrollDivRef = useRef(null);
 
   // Set initial state from query parameters when component mounts
   useEffect(() => {
@@ -27,6 +30,16 @@ const ProductsList = ({ productsByCategory }) => {
       }));
     }
   }, [searchParams]);
+
+  useEffect(() => {
+    if (scrollDivRef.current) {
+      if (scrollDivRef.current.offsetHeight > 600) {
+        setIsScrollActive(true);
+      } else {
+        setIsScrollActive(false);
+      }
+    }
+  }, [selectedCategory]);
 
   const toggleViewMore = (category) => {
     setExpandedCategories((prev) => ({
@@ -132,7 +145,13 @@ const ProductsList = ({ productsByCategory }) => {
 
             {/* Collection Filter */}
             {selectedCategory && (
-              <div className="filter_sub_category">
+               <div
+               ref={scrollDivRef}
+               // Conditionally add the scrollActive class
+               className={`filter_sub_category scrolldiv ${
+                 isScrollActive ? 'scrollActive' : ''
+               }`}
+             >
                 <div className="filter_title">COLLECTION</div>
                 <div className="filter_label">
                   {availableCollections.map((collection) => (

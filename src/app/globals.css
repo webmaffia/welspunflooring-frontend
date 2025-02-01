@@ -307,3 +307,8 @@ html::-webkit-scrollbar{width:7px;}
 .borderActive{
     border: 2px solid #1e148f;
 }
+
+.scrollActive{
+    height: 24vw;
+    overflow-y: scroll;
+}
