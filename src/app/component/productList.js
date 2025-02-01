@@ -145,15 +145,17 @@ const ProductsList = ({ productsByCategory }) => {
 
             {/* Collection Filter */}
             {selectedCategory && (
-               <div
+              <div className="filter_sub_category">
+                <div className="filter_title">COLLECTION</div>
+            
+
+                <div
                ref={scrollDivRef}
                // Conditionally add the scrollActive class
-               className={`filter_sub_category scrolldiv ${
+               className={`filter_label scrolldiv ${
                  isScrollActive ? 'scrollActive' : ''
                }`}
              >
-                <div className="filter_title">COLLECTION</div>
-                <div className="filter_label">
                   {availableCollections.map((collection) => (
                     <div key={collection} className="label_content">
                       <label className="product_radio" htmlFor={`collection_radio_${collection}`}>
