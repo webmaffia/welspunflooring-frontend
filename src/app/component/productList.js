@@ -128,6 +128,7 @@ const ProductsList = ({ productsByCategory }) => {
               className='productSearch'
             />
           </div>
+          
           {isFilterApplied && (
             <div className="filter_content filerlabelx">
               <div className="filter">
