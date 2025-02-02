@@ -256,19 +256,24 @@ const ProductsList = ({ productsByCategory }) => {
             .filter(({ category }) => !selectedCategory || category === selectedCategory)
             // Now map each category
             .map(({ category, products }) => {
-              // 1. Filter products by collection and search
+              // 1. Filter products by collection
+              //    and by search in both subProductName and collectionName
               const filteredProducts = products
-                // Collection filter
                 .filter(
                   (product) =>
                     !selectedCollection ||
                     product.attributes.category.data.attributes.collectionName ===
                       selectedCollection
                 )
-                // Search filter
                 .filter((product) => {
                   const productName = product?.attributes?.subProductName?.toLowerCase() || "";
-                  return productName.includes(searchTerm.toLowerCase());
+                  const collectionName =
+                    product?.attributes?.category?.data?.attributes?.collectionName?.toLowerCase() ||
+                    "";
+                  const searchValue = searchTerm.toLowerCase();
+
+                  // Return true if EITHER the product name OR the collection name matches
+                  return productName.includes(searchValue) || collectionName.includes(searchValue);
                 });
 
               // 2. If no products remain, hide the entire block
