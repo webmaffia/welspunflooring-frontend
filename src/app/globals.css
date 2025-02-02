@@ -308,9 +308,9 @@ html::-webkit-scrollbar{width:7px;}
     border: 2px solid #1e148f;
 }
 
-.scrollActive{
-    height: 24vw;
-    overflow-y: scroll;
+.scrolldiv{
+    max-height: 24vw;
+    overflow-y: auto;
 }
 
 .filerlabelx{

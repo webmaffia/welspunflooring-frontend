@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect,useLayoutEffect  } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 
@@ -29,8 +29,8 @@ const ProductsList = ({ productsByCategory }) => {
   // 3. Search term state
   const [searchTerm, setSearchTerm] = useState("");
 
-  const [isScrollActive, setIsScrollActive] = useState(false);
-  const scrollDivRef = useRef(null);
+  // const scrollDivRef = useRef(null);
+  // const [isScrollActive, setIsScrollActive] = useState(false);
 
   // 4. On mount, read category/collection from URL
   useEffect(() => {
@@ -50,15 +50,16 @@ const ProductsList = ({ productsByCategory }) => {
   }, [searchParams]);
 
   // 5. Re-check scroll height when relevant states change
-  useEffect(() => {
-    if (scrollDivRef.current) {
-      if (scrollDivRef.current.offsetHeight > 600) {
-        setIsScrollActive(true);
-      } else {
-        setIsScrollActive(false);
-      }
-    }
-  }, [selectedCategory, selectedCollection, searchTerm, productsByCategory]);
+  // useLayoutEffect(() => {
+  //   // Delay measurement to ensure DOM updates have rendered.
+  //   const timer = setTimeout(() => {
+  //     if (scrollDivRef.current) {
+  //       setIsScrollActive(scrollDivRef.current.offsetHeight > 600);
+  //     }
+  //   }, 100); // 100ms delay (adjust if needed)
+
+  //   return () => clearTimeout(timer);
+  // }, [selectedCategory, selectedCollection, searchTerm, productsByCategory]);
 
   // Toggle "view more" logic for category expansions
   const toggleViewMore = (category) => {
@@ -76,17 +77,41 @@ const ProductsList = ({ productsByCategory }) => {
       ...prev,
       [category]: !prev[category],
     }));
-    router.push(`?category=${category}`);
+  
+    // Update the URL without a navigation event
+    const url = new URL(window.location.href);
+    url.searchParams.set("category", category);
+    url.searchParams.delete("collection"); // Clear collection if needed
+    window.history.replaceState(null, "", url.toString());
   };
 
+  const productListingRef = useRef(null);
+  
   const handleCollectionFilter = (collection) => {
     setSelectedCollection(collection);
     setExpandedCategories((prev) => ({
       ...prev,
       [selectedCategory]: true,
     }));
-    router.push(`?category=${selectedCategory}&collection=${collection}`);
+
+    // Update the URL without a navigation event
+    const url = new URL(window.location.href);
+    url.searchParams.set("category", selectedCategory);
+    url.searchParams.set("collection", collection);
+    window.history.replaceState(null, "", url.toString());
+
+    // Scroll to the product listing section with a 7.708vw offset
+    if (productListingRef.current) {
+      const elementPosition =
+        productListingRef.current.getBoundingClientRect().top +
+        window.pageYOffset;
+      // Convert 7.708vw to pixels
+      const offsetInPixels = window.innerWidth * (7.708 / 100);
+      const offsetPosition = elementPosition - offsetInPixels;
+      window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+    }
   };
+
 
   const clearFilters = () => {
     setSelectedCategory("");
@@ -114,7 +139,7 @@ const ProductsList = ({ productsByCategory }) => {
   const formatCategory = (category) => category.replace(/-/g, " ");
 
   return (
-    <section className="product_listing">
+    <section className="product_listing" ref={productListingRef}>
       <div className="product_content">
         <aside>
           {/* Search Field with rotating placeholder */}
@@ -226,8 +251,8 @@ const ProductsList = ({ productsByCategory }) => {
               <div className="filter_sub_category">
                 <div className="filter_title">COLLECTION</div>
                 <div
-                  ref={scrollDivRef}
-                  className={`filter_label scrolldiv ${isScrollActive ? "scrollActive" : ""}`}
+                  // ref={scrollDivRef}
+                  className="filter_label scrolldiv"
                 >
                   {availableCollections.map((collection) => (
                     <div key={collection} className="label_content">
