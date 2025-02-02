@@ -83,6 +83,16 @@ const ProductsList = ({ productsByCategory }) => {
     url.searchParams.set("category", category);
     url.searchParams.delete("collection"); // Clear collection if needed
     window.history.replaceState(null, "", url.toString());
+
+    if (productListingRef.current) {
+      const elementPosition =
+        productListingRef.current.getBoundingClientRect().top +
+        window.pageYOffset;
+      // Convert 7.708vw to pixels
+      const offsetInPixels = window.innerWidth * (7.708 / 100);
+      const offsetPosition = elementPosition - offsetInPixels;
+      window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+    }
   };
 
   const productListingRef = useRef(null);
