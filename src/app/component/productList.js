@@ -62,7 +62,8 @@ const ProductsList = ({ productsByCategory }) => {
         setIsScrollActive(false);
       }
     }
-  }, [selectedCategory]);
+  }, [selectedCategory, selectedCollection, searchTerm, productsByCategory]);
+  
 
   const toggleViewMore = (category) => {
     setExpandedCategories((prev) => ({
@@ -94,7 +95,7 @@ const ProductsList = ({ productsByCategory }) => {
     setSelectedCategory('');
     setSelectedCollection('');
     setSearchTerm(''); // also clear the search term
-    router.push('/'); // or push('/products') if you want to stay on the same page route
+    router.push('/product'); // or push('/products') if you want to stay on the same page route
   };
 
   const availableCollections = selectedCategory
