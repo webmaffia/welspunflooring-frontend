@@ -1,17 +1,11 @@
 "use client";
-import React, { useRef, useState, useEffect } from 'react';
-import Link from 'next/link';
-import { useRouter, useSearchParams } from 'next/navigation';
+import React, { useRef, useState, useEffect } from "react";
+import Link from "next/link";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const ProductsList = ({ productsByCategory }) => {
-
-   // Rotating placeholder logic
-   const placeholders = [
-    "Silver Striped Oak",
-    "Bianco Travertine",
-    "Passage-Mist",
-  ];
-
+  // 1. Rotating placeholder logic
+  const placeholders = ["Silver Striped Oak", "Bianco Travertine", "Passage-Mist"];
   const [placeholderIndex, setPlaceholderIndex] = useState(0);
 
   useEffect(() => {
@@ -24,28 +18,29 @@ const ProductsList = ({ productsByCategory }) => {
 
   const currentPlaceholder = placeholders[placeholderIndex];
 
+  // 2. Next.js hooks for filters
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  const [selectedCategory, setSelectedCategory] = useState('');
-  const [selectedCollection, setSelectedCollection] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedCollection, setSelectedCollection] = useState("");
   const [expandedCategories, setExpandedCategories] = useState({});
 
-  // NEW: State for holding search input
-  const [searchTerm, setSearchTerm] = useState('');
+  // 3. Search term state
+  const [searchTerm, setSearchTerm] = useState("");
 
   const [isScrollActive, setIsScrollActive] = useState(false);
   const scrollDivRef = useRef(null);
 
-  // Set initial state from query parameters when component mounts
+  // 4. On mount, read category/collection from URL
   useEffect(() => {
-    const categoryFromUrl = searchParams.get("category") || '';
-    const collectionFromUrl = searchParams.get("collection") || '';
-  
+    const categoryFromUrl = searchParams.get("category") || "";
+    const collectionFromUrl = searchParams.get("collection") || "";
+
     setSelectedCategory(categoryFromUrl);
     setSelectedCollection(collectionFromUrl);
-  
-    // Expand category view if category is selected in the URL
+
+    // Expand category view if category is selected
     if (categoryFromUrl) {
       setExpandedCategories((prev) => ({
         ...prev,
@@ -54,6 +49,7 @@ const ProductsList = ({ productsByCategory }) => {
     }
   }, [searchParams]);
 
+  // 5. Re-check scroll height when relevant states change
   useEffect(() => {
     if (scrollDivRef.current) {
       if (scrollDivRef.current.offsetHeight > 600) {
@@ -63,8 +59,8 @@ const ProductsList = ({ productsByCategory }) => {
       }
     }
   }, [selectedCategory, selectedCollection, searchTerm, productsByCategory]);
-  
 
+  // Toggle "view more" logic for category expansions
   const toggleViewMore = (category) => {
     setExpandedCategories((prev) => ({
       ...prev,
@@ -72,9 +68,10 @@ const ProductsList = ({ productsByCategory }) => {
     }));
   };
 
+  // Handlers for filters
   const handleCategoryFilter = (category) => {
     setSelectedCategory(category);
-    setSelectedCollection('');
+    setSelectedCollection("");
     setExpandedCategories((prev) => ({
       ...prev,
       [category]: !prev[category],
@@ -92,12 +89,13 @@ const ProductsList = ({ productsByCategory }) => {
   };
 
   const clearFilters = () => {
-    setSelectedCategory('');
-    setSelectedCollection('');
-    setSearchTerm(''); // also clear the search term
-    router.push('/product'); // or push('/products') if you want to stay on the same page route
+    setSelectedCategory("");
+    setSelectedCollection("");
+    setSearchTerm(""); // clear the search term
+    router.push("/product"); // Adjust path if needed
   };
 
+  // Show collections for the currently selected category
   const availableCollections = selectedCategory
     ? [
         ...new Set(
@@ -112,24 +110,26 @@ const ProductsList = ({ productsByCategory }) => {
 
   const isFilterApplied = selectedCategory || selectedCollection || searchTerm;
 
-  const formatCategory = (category) => category.replace(/-/g, ' ');
+  // Helper: Replace hyphens with spaces
+  const formatCategory = (category) => category.replace(/-/g, " ");
 
   return (
     <section className="product_listing">
       <div className="product_content">
         <aside>
-            {/* NEW: Search Field */}
-            <div className="filter_sub_category">
+          {/* Search Field with rotating placeholder */}
+          <div className="filter_sub_category">
             <div className="filter_title productSearchTitle">SEARCH PRODUCTS</div>
             <input
               type="text"
-              placeholder={currentPlaceholder} // <-- rotating placeholder here
+              placeholder={currentPlaceholder}
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className='productSearch'
+              className="productSearch"
             />
           </div>
-          
+
+          {/* Show active filters */}
           {isFilterApplied && (
             <div className="filter_content filerlabelx">
               <div className="filter">
@@ -142,11 +142,9 @@ const ProductsList = ({ productsByCategory }) => {
                 {selectedCategory && (
                   <div className="filter_item">
                     <div className="filter_patch">
-                      <span className="filter_text">
-                        {formatCategory(selectedCategory)}
-                      </span>
+                      <span className="filter_text">{formatCategory(selectedCategory)}</span>
                       <button
-                        onClick={() => setSelectedCategory('')}
+                        onClick={() => setSelectedCategory("")}
                         className="clear_filter"
                       >
                         <img
@@ -162,11 +160,9 @@ const ProductsList = ({ productsByCategory }) => {
                 {selectedCollection && (
                   <div className="filter_item">
                     <div className="filter_patch">
-                      <span className="filter_text">
-                        {formatCategory(selectedCollection)}
-                      </span>
+                      <span className="filter_text">{formatCategory(selectedCollection)}</span>
                       <button
-                        onClick={() => setSelectedCollection('')}
+                        onClick={() => setSelectedCollection("")}
                         className="clear_filter"
                       >
                         <img
@@ -179,13 +175,13 @@ const ProductsList = ({ productsByCategory }) => {
                     </div>
                   </div>
                 )}
-                {/* NEW: Show "searchTerm" if applied */}
+                {/* Show "searchTerm" if applied */}
                 {searchTerm && (
                   <div className="filter_item">
                     <div className="filter_patch">
                       <span className="filter_text">Search: {searchTerm}</span>
                       <button
-                        onClick={() => setSearchTerm('')}
+                        onClick={() => setSearchTerm("")}
                         className="clear_filter"
                       >
                         <img
@@ -202,7 +198,6 @@ const ProductsList = ({ productsByCategory }) => {
             </div>
           )}
 
- 
           {/* Category Filter */}
           <div className="filter_category">
             <div className="filter_sub_category">
@@ -210,10 +205,7 @@ const ProductsList = ({ productsByCategory }) => {
               <div className="filter_label">
                 {productsByCategory.map(({ category }) => (
                   <div key={category} className="label_content">
-                    <label
-                      className="product_radio"
-                      htmlFor={`product_radio_${category}`}
-                    >
+                    <label className="product_radio" htmlFor={`product_radio_${category}`}>
                       <input
                         id={`product_radio_${category}`}
                         className="input"
@@ -235,16 +227,11 @@ const ProductsList = ({ productsByCategory }) => {
                 <div className="filter_title">COLLECTION</div>
                 <div
                   ref={scrollDivRef}
-                  className={`filter_label scrolldiv ${
-                    isScrollActive ? 'scrollActive' : ''
-                  }`}
+                  className={`filter_label scrolldiv ${isScrollActive ? "scrollActive" : ""}`}
                 >
                   {availableCollections.map((collection) => (
                     <div key={collection} className="label_content">
-                      <label
-                        className="product_radio"
-                        htmlFor={`collection_radio_${collection}`}
-                      >
+                      <label className="product_radio" htmlFor={`collection_radio_${collection}`}>
                         <input
                           id={`collection_radio_${collection}`}
                           className="input"
@@ -260,42 +247,47 @@ const ProductsList = ({ productsByCategory }) => {
                 </div>
               </div>
             )}
-
-         
           </div>
         </aside>
 
         <div className="product_list">
           {productsByCategory
-            .filter(
-              ({ category }) =>
-                !selectedCategory || category === selectedCategory
-            )
-            .map(({ category, products }) => (
-              <div key={category} className="product_tile more_products" id={category}>
-                <h2 className="product_title">{formatCategory(category)}</h2>
-                <div className="product_container">
-                  <div className="product_tile_box">
-                    {products
-                      // Collection Filter
-                      .filter(
-                        (product) =>
-                          !selectedCollection ||
-                          product.attributes.category.data.attributes.collectionName ===
-                            selectedCollection
-                      )
-                      // NEW: Search Filter
-                      .filter((product) => {
-                        const productName =
-                          product?.attributes?.subProductName?.toLowerCase() || '';
-                        return productName.includes(searchTerm.toLowerCase());
-                      })
-                      .map((product) => {
+            // First, filter out categories if a category is chosen
+            .filter(({ category }) => !selectedCategory || category === selectedCategory)
+            // Now map each category
+            .map(({ category, products }) => {
+              // 1. Filter products by collection and search
+              const filteredProducts = products
+                // Collection filter
+                .filter(
+                  (product) =>
+                    !selectedCollection ||
+                    product.attributes.category.data.attributes.collectionName ===
+                      selectedCollection
+                )
+                // Search filter
+                .filter((product) => {
+                  const productName = product?.attributes?.subProductName?.toLowerCase() || "";
+                  return productName.includes(searchTerm.toLowerCase());
+                });
+
+              // 2. If no products remain, hide the entire block
+              if (filteredProducts.length === 0) {
+                return null;
+              }
+
+              // 3. Otherwise, render this category block
+              return (
+                <div key={category} className="product_tile more_products" id={category}>
+                  <h2 className="product_title">{formatCategory(category)}</h2>
+                  <div className="product_container">
+                    <div className="product_tile_box">
+                      {filteredProducts.map((product) => {
                         const imageUrl =
                           product?.attributes?.details?.slider?.[0]?.image?.data?.attributes?.url ||
                           product?.attributes?.details?.slider?.[1]?.image?.data?.attributes?.url;
 
-                        // Skip rendering if no valid image URL is available
+                        // Skip if no valid image URL
                         if (!imageUrl) return null;
 
                         return (
@@ -304,17 +296,14 @@ const ProductsList = ({ productsByCategory }) => {
                               <Link
                                 href={`/product/${
                                   products[0]?.attributes?.category?.data?.attributes?.product?.data?.attributes?.slug ||
-                                  ''
+                                  ""
                                 }/${product.attributes.category.data.attributes.slug}/${
                                   product.attributes.slug
                                 }`}
                               >
                                 <img
                                   src={`${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${imageUrl}`}
-                                  alt={
-                                    product?.attributes?.subProductName ||
-                                    'Product Image'
-                                  }
+                                  alt={product?.attributes?.subProductName || "Product Image"}
                                   width="584"
                                   height="511"
                                   className="tile_img"
@@ -322,9 +311,7 @@ const ProductsList = ({ productsByCategory }) => {
                               </Link>
                             </div>
                             <div className="product_text">
-                              <h3 className="item_title">
-                                {product.attributes.subProductName}
-                              </h3>
+                              <h3 className="item_title">{product.attributes.subProductName}</h3>
                               <div className="item_border"></div>
                               <div className="item_sub">
                                 {
@@ -337,7 +324,7 @@ const ProductsList = ({ productsByCategory }) => {
                               <Link
                                 href={`/product/${
                                   products[0]?.attributes?.category?.data?.attributes?.product?.data?.attributes?.slug ||
-                                  ''
+                                  ""
                                 }/${product.attributes.category.data.attributes.slug}/${
                                   product.attributes.slug
                                 }`}
@@ -348,21 +335,22 @@ const ProductsList = ({ productsByCategory }) => {
                           </div>
                         );
                       })}
-                  </div>
+                    </div>
 
-                  <div className="product_link">
-                    <Link
-                      href={`/product/${
-                        products[0]?.attributes?.category?.data?.attributes?.product?.data?.attributes?.slug ||
-                        ''
-                      }`}
-                    >
-                      EXPLORE {(category || 'Category').toUpperCase()}
-                    </Link>
+                    <div className="product_link">
+                      <Link
+                        href={`/product/${
+                          products[0]?.attributes?.category?.data?.attributes?.product?.data?.attributes?.slug ||
+                          ""
+                        }`}
+                      >
+                        EXPLORE {(category || "Category").toUpperCase()}
+                      </Link>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
         </div>
       </div>
     </section>
