@@ -87,7 +87,7 @@ const Footer = () => {
   </span>
   <span className="nav_link">
     <Link href="/product/multistile" className="border_link" >
-      Multistile™
+      Multistile™ Tiles
     </Link>
   </span>
 </div>

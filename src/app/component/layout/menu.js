@@ -153,12 +153,12 @@ const Menu = ({ closeMenu }) => {
             <ul>
               <li>
                 <Link href="/product/click-and-lock-wood" className="border_link" onClick={closeMenu}>
-                  CLICK-N-LOCK® Wood
+                  CLICK-N-LOCK® WOOD
                 </Link>
               </li>
               <li>
                 <Link href="/product/click-and-lock-stone" className="border_link" onClick={closeMenu}>
-                  CLICK-N-LOCK® Stone
+                  CLICK-N-LOCK® STONE
                 </Link>
               </li>
               <li>
@@ -173,7 +173,7 @@ const Menu = ({ closeMenu }) => {
               </li>
               <li>
                 <Link href="/product/wall-to-wall-carpet" className="border_link" onClick={closeMenu}>
-                  WALL TO WALL Carpet
+                  WALL TO WALL CARPET
                 </Link>
               </li>
               <li>
@@ -183,7 +183,7 @@ const Menu = ({ closeMenu }) => {
               </li>
               <li>
                 <Link href="/product/multistile" className="border_link" onClick={closeMenu}>
-                  MULTISTILE™
+                  MULTISTILE™ TILES
                 </Link>
               </li>
             </ul>
