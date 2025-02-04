@@ -16,7 +16,7 @@ async function fetchProductSpecifications() {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/product-specifications?populate[category][populate]=product&populate[details][populate]=slider.image`,
     {
-      cache: 'force-cache',
+      cache: 'no-cache',
     }
   );
   
