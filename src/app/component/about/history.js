@@ -121,7 +121,7 @@ const AboutHistory = () => {
         <h2 className="diamond diamond_blue">ABOUT WELSPUN FLOORING</h2>
         <div className="title_container">
           <div className="history_para">
-          Welspun World is a US$ 3 billion company and is one of India's fastest-growing conglomerates, with a strong presence in textiles and flooring solutions worldwide.
+          Welspun World is a US$ 5 billion company and is one of India's fastest-growing conglomerates, with a strong presence in textiles and flooring solutions worldwide.
             {/* Add more description here as needed */}
           </div>
         </div>
