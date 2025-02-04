@@ -100,7 +100,7 @@ const AboutHistory = () => {
         icon: "/images/about/timeline/icons/2019.svg",
         ellipseImage: "/images/about/timeline/ellipse/ellipse_2019.webp",
         year: "2019",
-        content: "Welspun Group further diversifies with Welspun One Logistics Parks (WOLP), an Industrial real estate."
+        content: "Welspun World further diversifies with Welspun One Logistics Parks (WOLP), an Industrial real estate."
     },
     {
         number: "14",

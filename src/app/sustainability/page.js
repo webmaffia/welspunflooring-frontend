@@ -17,7 +17,7 @@ import SustainabilityPlans from "../component/sustainability/plans";
 export async function generateMetadata() {
   return {
     title: "Sustainability",
-    description: "Sustainability- At Welspun Group, we believe it is crucial to address the global need for sustainable practices and share a wholesome bond with the communities we influence",
+    description: "Sustainability- At Welspun World, we believe it is crucial to address the global need for sustainable practices and share a wholesome bond with the communities we influence",
   }
 }
 
