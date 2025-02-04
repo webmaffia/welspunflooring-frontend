@@ -26,7 +26,7 @@ const ProductInnerList = ({ subProductsList, productSlug }) => {
                 <div className="tile_item" key={index}>
                   <div className="product_img_box">
                     <Link
-                      href={`/product/${product?.attributes?.category?.data?.attributes?.product?.data?.attributes?.slug || ''}/${product.attributes.category.data.attributes.slug}/${product.attributes.slug}`}
+                      href={`/product/${product?.attributes?.category?.data?.attributes?.product?.data?.attributes?.slug || ''}/${product?.attributes?.category?.data?.attributes?.slug}/${product?.attributes?.slug}`}
                     >
                       <img
                         src={`${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${product?.attributes?.details?.slider[0]?.image?.data?.attributes?.url || product?.attributes?.details?.slider[1]?.image?.data?.attributes?.url}`}
@@ -38,8 +38,8 @@ const ProductInnerList = ({ subProductsList, productSlug }) => {
                     </Link>
                   </div>
                   <div className="product_text">
-                    <h3 className="item_title">{product.attributes.subProductName}</h3>
-                    <div className="item_sub">{product.attributes.category.data.attributes.collectionName}</div>
+                    <h3 className="item_title">{product.attributes?.subProductName}</h3>
+                    <div className="item_sub">{product?.attributes?.category?.data?.attributes?.collectionName}</div>
                   </div>
                 </div>
               ))}
