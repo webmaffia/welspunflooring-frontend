@@ -36,6 +36,30 @@ const ProductDetail = ({ product, collection,lookbookUrls }) => {
   // Define valid product names
   const validProductNames = ["Click-N-Lock Tiles Wood ", "Click-N-Lock Tiles Stone", "Multistile"];
 
+  const handleDownloadCatalogue = () => {
+    const files = lookbookUrls?.data?.[0]?.attributes?.lookbook?.data;
+  
+    if (files?.length > 0) {
+      files.forEach((file) => {
+        const fileUrl = `${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${file.attributes.url}`;
+  
+        // Create a hidden <a> element
+        const link = document.createElement("a");
+        link.href = fileUrl;
+        link.target = "_blank"; // Open in a new tab
+        link.rel = "noopener noreferrer"; // Security best practice
+        link.style.display = "none"; // Hide the element
+        document.body.appendChild(link); // Add to DOM
+  
+        // Simulate a click
+        link.click();
+  
+        // Remove the element after clicking
+        document.body.removeChild(link);
+      });
+    }
+  };
+
   return (
     <>
       <section data-section="product_detail" className="product_detail">
@@ -162,12 +186,8 @@ const ProductDetail = ({ product, collection,lookbookUrls }) => {
                         </span>
                       </div>
                     </Link>
-                    {lookbookUrls?.data?.length > 0 && lookbookUrls?.data?.[0]?.attributes?.lookbook?.data?.attributes?.url && (
-  <Link
-    href={`${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${lookbookUrls?.data?.[0]?.attributes?.lookbook?.data?.attributes?.url}`}
-    className="view_link purpleBg"
-    target="_blank"
-  >
+                    {lookbookUrls?.data?.[0]?.attributes?.lookbook?.data?.length > 0 && (
+  <button onClick={handleDownloadCatalogue} className="view_link purpleBg">
     <div className="link_cta">
       <div className="arrow_bg">
         <Image
@@ -182,7 +202,7 @@ const ProductDetail = ({ product, collection,lookbookUrls }) => {
         CATALOGUE
       </span>
     </div>
-  </Link>
+  </button>
 )}
 
                   </div>
