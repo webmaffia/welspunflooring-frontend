@@ -211,8 +211,7 @@ const ProductDetail = ({ product, collection,lookbookUrls }) => {
             </div>
           </div>
         </div>
-      </section>
-      <div className="about_features">
+        <div className="about_features">
         {product?.attributes?.details?.point?.map((item, index) => (
           <div className="about_feature_box border_bg" key={index}>
             <div className="border_diamond"></div>
@@ -229,6 +228,8 @@ const ProductDetail = ({ product, collection,lookbookUrls }) => {
           </div>
         ))}
       </div>
+      </section>
+    
     </>
   );
 };
