@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import ProductSlides from './slide';
 
-const ProductDetail = ({ product, collection }) => {
+const ProductDetail = ({ product, collection,lookbookUrls }) => {
   useEffect(() => {
     const handleChatClick = () => {
       const chatBox = document.querySelector(".sticky_chat");
@@ -162,6 +162,29 @@ const ProductDetail = ({ product, collection }) => {
                         </span>
                       </div>
                     </Link>
+                    {lookbookUrls?.data?.length > 0 && lookbookUrls?.data?.[0]?.attributes?.lookbook?.data?.attributes?.url && (
+  <Link
+    href={`${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${lookbookUrls?.data?.[0]?.attributes?.lookbook?.data?.attributes?.url}`}
+    className="view_link purpleBg"
+    target="_blank"
+  >
+    <div className="link_cta">
+      <div className="arrow_bg">
+        <Image
+          src="/images/icons/arrow-2.webp"
+          alt="arrow"
+          width={20}
+          height={17}
+        />
+      </div>
+      <span>
+        DOWNLOAD<br />
+        CATALOGUE
+      </span>
+    </div>
+  </Link>
+)}
+
                   </div>
                 </div>
               </div>
