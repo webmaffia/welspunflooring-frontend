@@ -1,9 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-const SustainabilitySection = () => {
+const SustainabilitySection = ({pathname}) => {
   return (
-    <section data-section="home_sustainable" className="home_sustainable">
+    <section data-section="home_sustainable" className={`home_sustainable ${["/", "/homeowners", "/architects-and-interior-designers"].includes(pathname) ? "gray_bg" : ""}`}
+>
       <div className="sustainability_container">
         <div className="section_container">
           <h2 className="diamond diamond_blue">SUSTAINABILITY</h2>

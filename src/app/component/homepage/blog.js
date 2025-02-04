@@ -49,7 +49,8 @@ const BlogSection = ({blogs,pathname}) => {
 
 
   return (
-    <section className="blog" data-section="blog" style={{ backgroundColor: isB2BPage ? 'white' : 'transparent' }}>
+    <section className={`blog ${pathname === "/" ? "gray_bg" : pathname === "/b2b" ? "white_bg" : ""}`}
+    data-section="blog">
     <div className="blogs_upper">
         <div className="section_container">
           {blogSection && (

@@ -34,6 +34,8 @@ import Support from "./architects/support";
 import AdClub from "./architects/adclub";
 import InspiroForm from "./architects/inspiroform";
 import VideoGuideGoogle from "./homepage/videoGuideGoogle";
+import LifestyleSection from "./homeowners/inspiration";
+import Vision from "./homeowners/vision";
 
 export default function HomePageClient({ data, contentData, shouldHideSection }) {
   const pathname = usePathname(); // Get the current URL path
@@ -75,7 +77,10 @@ export default function HomePageClient({ data, contentData, shouldHideSection })
 
       {/* Conditionally render AboutOwner if pathname is /homeowners */}
       {pathname === "/homeowners" && <AboutOwner />}
-
+      {pathname === "/homeowners" && <LifestyleSection />}
+     
+      {pathname === "/homeowners" && <Vision />}
+   
       {pathname === "/homeowners" && <ClickTiles />}
       {pathname === "/homeowners" && <GlobalFeature slug="click-and-lock-wood" />}
 
@@ -118,7 +123,7 @@ export default function HomePageClient({ data, contentData, shouldHideSection })
       {pathname === "/architects-and-interior-designers" && <VideoGuide videoGuide={videoGuide} pathname={pathname} />}
       
       {pathname === "/b2b" && <B2BSustainableTabs />}
-      {pathname !== "/b2b" &&    <SustainabilitySection />}
+      {pathname !== "/b2b" &&    <SustainabilitySection pathname={pathname} />}
 {/*    
       {pathname !== "/b2b" && <TestimonialSection testimonial={testimonialData} pathname={pathname} />}
 

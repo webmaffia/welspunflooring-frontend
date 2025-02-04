@@ -11,6 +11,7 @@ const ClickTiles = () => {
   return (
     <section data-section="click_tiles" className="click_tiles">
       <div className="click_tabs_container">
+        <div className="scroll_tabs">
         <a
           href="#"
           className={`subtitle_2806 click_tab ${activeTab === "1" ? "active" : ""}`}
@@ -46,6 +47,7 @@ const ClickTiles = () => {
         >
           MultiStile 
         </a>
+        </div>
       </div>
       <div className="click_tiles_wrapper">
         <div

@@ -18,6 +18,8 @@ const B2BSustainableTabs = () => {
       </div>
       <div className="sustainable_container">
         <div className="sustainable_tabs">
+          <div className="sustainable_tabs">
+            
           <button
             className={`subtitle_30 ${activeTab === "1" ? "active" : ""}`}
             onClick={() => handleTabClick("1")}
@@ -36,6 +38,8 @@ const B2BSustainableTabs = () => {
           >
             Wall to Wall Certifications
           </button>
+          
+          </div>
         </div>
         <div className="sustainable_tab_container">
           <div className={`sustainable_tab_box ${activeTab === "1" ? "active" : ""}`} id="box-1">
