@@ -15,9 +15,6 @@ import { useState } from 'react';
 
 const BannerContent = ({bannerData,shouldHideSection}) => {
 
-  console.log(bannerData
-
-  )
   const { showBannerContent } = useApi();
    
     const [squareSwiper, setSquareSwiper] = useState(null);
