@@ -316,6 +316,9 @@ html::-webkit-scrollbar{width:7px;}
 .gray_bg {
     background-color: #f8f8f8;
 }
+.product_filters{
+    display: none !important;
+}
 
 @media (max-width: 540px) {
     .menu .upper_menu .menu_item ul li div {
@@ -356,5 +359,8 @@ html::-webkit-scrollbar{width:7px;}
     .product_listing .product_filters {
         margin-bottom: 8.830918vw;
         justify-content: space-between
+    }
+    .product_filters {
+        display: flex !important;
     }
 }
