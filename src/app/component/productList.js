@@ -150,6 +150,21 @@ const ProductsList = ({ productsByCategory }) => {
 
   return (
     <section className="product_listing" ref={productListingRef}>
+      <div className="product_filters">
+        <div className="filter_span">
+            <span>Search</span>
+        </div>
+        <div className="filter_sub_category">
+     
+            <input
+              type="text"
+              placeholder={currentPlaceholder}
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="productSearch"
+            />
+          </div>
+    </div>
       <div className="product_content">
         <aside>
           {/* Search Field with rotating placeholder */}
