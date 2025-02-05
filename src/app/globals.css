@@ -178,7 +178,6 @@ hight:  26.979vw;
     text-transform: capitalize;
 }
 
-html::-webkit-scrollbar-thumb{background:#efefef}
 html::-webkit-scrollbar{width:7px;}
 
 .border_link{
