@@ -14,6 +14,10 @@ import 'swiper/css/effect-fade';
 import { useState } from 'react';
 
 const BannerContent = ({bannerData,shouldHideSection}) => {
+
+  console.log(bannerData
+
+  )
   const { showBannerContent } = useApi();
    
     const [squareSwiper, setSquareSwiper] = useState(null);
@@ -51,7 +55,7 @@ const BannerContent = ({bannerData,shouldHideSection}) => {
             {/* Assuming each slide has an image */}
             {   <SwiperSlide>
               <div
-  className={`banner_heading ${bannerData[0].heading !== "Step Up" ? "fs_180_wb" : ""}`}
+  className={`banner_heading ${item.modifier}`}
 >
   {item.heading}
 </div>
