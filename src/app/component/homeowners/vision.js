@@ -26,6 +26,14 @@ const Vision = () => {
         height={844}
       />
         <div className="structure_wrapper">
+          <Image
+            src="/images/Wel_lock_teh_7f9665845e.svg"
+            alt=""
+            className="main_vision_img"
+            width={100}
+            height={100}
+          />
+
         <h3 className="subtitle_24">
             Our Click-N-Lock® Tiles feature Wel-Lock™ technology—a unique locking system that eliminates the need for glue or cement. This hassle-free innovation ensures quick, effortless installation and a seamless, grout-free finish. More than just a lock, it’s Wel-Lock™!
         </h3>
