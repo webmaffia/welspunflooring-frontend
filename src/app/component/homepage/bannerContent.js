@@ -25,6 +25,7 @@ const BannerContent = ({bannerData,shouldHideSection}) => {
     const handleNavClick = (index) => {
       setActiveIndex(index);
       squareSwiper.slideToLoop(index); // Swiper's looped index adjustment
+  
     };
   
     return (
