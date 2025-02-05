@@ -45,7 +45,21 @@ const ClickTiles = () => {
 
           
         >
-          MultiStile 
+          MultiStile™ Tiles
+        </a>
+
+        <a
+          href="#"
+          className={`subtitle_2806 click_tab ${activeTab === "4" ? "active" : ""}`}
+          onClick={(e) => {
+            e.preventDefault();
+            handleTabClick("4");
+          }}
+          data-click="4"
+
+          
+        >
+          Purgloss Tiles
         </a>
         </div>
       </div>
@@ -57,7 +71,7 @@ const ClickTiles = () => {
           <picture>
             <source
               media="(max-width: 540px)"
-              srcSet="assets/images/homeowners/tabs/mob_banner_1.webp"
+              srcSet="assets/images/homeowners/mob_banner/CNL-Wood-Mobile.png"
             />
             <img
               src="/images/homeowners/wood.webp"
@@ -116,7 +130,7 @@ const ClickTiles = () => {
           <picture>
             <source
               media="(max-width: 540px)"
-              srcSet="assets/images/homeowners/tabs/mob_banner_1.webp"
+              srcSet="assets/images/homeowners/mob_banner/CNL-StoneMobile.png"
             />
             <img
              src="/images/homeowners/CNL-Stone.png"
@@ -175,7 +189,7 @@ const ClickTiles = () => {
           <picture>
             <source
               media="(max-width: 540px)"
-              srcSet="assets/images/homeowners/tabs/mob_banner_1.webp"
+              srcSet="assets/images/homeowners/mob_banner/Multistile-Mobile.png"
             />
             <img
              src="/images/homeowners/Multistile.png"
@@ -204,6 +218,66 @@ const ClickTiles = () => {
                 </div>
               </Link>
               <Link href="https://staging-cms.welspunflooring.com/uploads/Multistile2_0_look_Book_v1_5e57a3b817.pdf" className="view_link download_cta transparentBg" target="_blank">
+                <div className="link_cta">
+                  <div className="arrow_bg">
+                    <img
+                      src="/images/icons/arrow-2.webp"
+                      alt=""
+                      width="20"
+                      height="17"
+                    />
+                  </div>
+                  <span>DOWNLOAD <br /> BROCHURE</span>
+                </div>
+              </Link>
+            </div>
+          </div>
+        </div>
+
+
+
+
+        <div
+          className={`click_tiles_container ${activeTab === "4" ? "active" : ""}`}
+          id="click-4"
+        >
+          <picture>
+            <source
+              media="(max-width: 540px)"
+              srcSet="assets/images/homeowners/mob_banner/Purgloss-Mobile.png"
+            />
+            <img
+             src="/images/homeowners/Purgloss.png"
+              alt=""
+              className="tiles_banner"
+            />
+          </picture>
+          <div className="click_tiles_content">
+            <h2 className="subtitle_60">Purgloss Tiles</h2>
+            <p className="para">
+            Explore Welspun Flooring’s PurGloss Tiles, designed for both floors and
+walls. With a glossy finish that reflects light, these tiles make dark rooms
+brighter and compact spaces appear larger. The first-ever SPC glossy tiles
+showcase unique patterns inspired by marble textures, PurGloss offers elegance
+and prevents image distortion due to sharp light reflection. Choose PurGloss
+for a premium, all-around flooring solution.
+            </p>
+        
+            <div className="dFlex">
+              <Link href="/product/purgloss-tiles" className="view_link transparentBg">
+                <div className="link_cta">
+                  <div className="arrow_bg">
+                    <img
+                      src="/images/icons/arrow-2.webp"
+                      alt=""
+                      width="20"
+                      height="17"
+                    />
+                  </div>
+                  <span>EXPLORE</span>
+                </div>
+              </Link>
+              <Link href="https://staging-cms.welspunflooring.com/uploads/Puregloss_Lookbook_1_567c49326c.pdf" className="view_link download_cta transparentBg" target="_blank">
                 <div className="link_cta">
                   <div className="arrow_bg">
                     <img
