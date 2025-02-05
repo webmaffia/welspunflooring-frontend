@@ -37,7 +37,7 @@ const B2BProject = () => {
       link: "/product/wall-to-wall-carpet"
     },
     {
-      image: "/images/app/detail/img-1.webp",
+      image: "/images/Purgloss.png",
       alt: "Purgloss Tiles",
       title: "Purgloss Tiles",
       description:
