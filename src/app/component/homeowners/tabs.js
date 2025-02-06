@@ -205,7 +205,8 @@ const ClickTiles = () => {
             <p className="para">
             Explore Welspun Flooring’s PurGloss Tiles, designed for both floors and
 walls. With a glossy finish that reflects light, these tiles make dark rooms
-brighter and compact spaces appear larger. The first-ever SPC glossy tiles
+brighter and compact spaces appear larger. The first-ever Stone Polymer
+Composite (SPC) glossy tiles
 showcase unique patterns inspired by marble textures, PurGloss offers elegance
 and prevents image distortion due to sharp light reflection. Choose PurGloss
 for a premium, all-around flooring solution.
@@ -266,7 +267,7 @@ for a premium, all-around flooring solution.
           <div className="click_tiles_content">
             <h2 className="subtitle_60">MultiStile™ Tiles</h2>
             <p className="para">
-            A great choice when you are looking to redo your flooring without compromising on aesthetics. MultiStile offers convenience as you can apply it within 24 hours*. It also allows for multi-surface application with benefits like durability, waterproof surface, scratch and stain resistance, and more. You can shortlist MultiStile for different spaces in your home: living room, bedrooms, kitchen, work from home rooms, etc. Welspun Flooring also helps out with expert installation to ease the process.
+            A great choice when you are looking to redo your flooring without compromising on aesthetics. MultiStile Tiles offers convenience as you can apply it within 24 hours*. It also allows for multi-surface application with benefits like durability, waterproof surface, scratch and stain resistance, and more. You can shortlist MultiStile Tiles for different spaces in your home: living room, bedrooms, kitchen, work from home rooms, etc. Welspun Flooring also helps out with expert installation to ease the process.
             </p>
         
             <div className="dFlex">
