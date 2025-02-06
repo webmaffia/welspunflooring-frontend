@@ -33,7 +33,7 @@ const FeatureClient = () => {
                 width="126"
                 height="111"
               />
-              <p className="para">Pioneers in Stone <br /> Polymer Composite</p>
+              <p className="para">Pioneers in Stone <br /> Polymer Composite (SPC)</p>
             </div>
             <div className="assistance_box">
               <img

@@ -31,9 +31,7 @@ const ExploreCollection = ({ product }) => {
     productName &&
     (
       productName.includes("PurGloss Tiles") ||
-      productName.includes("Multistile") ||
-      productName.includes("Wall to Wall Carpet") ||
-      productName.includes("Carpet Tiles")
+      productName.includes("Multistile") 
      
     )
   ) {
