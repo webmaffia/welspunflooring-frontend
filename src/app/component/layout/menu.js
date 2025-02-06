@@ -167,6 +167,11 @@ const Menu = ({ closeMenu }) => {
                 </Link>
               </li>
               <li>
+                <Link href="/product/multistile" className="border_link" onClick={closeMenu}>
+                  MULTISTILE™ TILES
+                </Link>
+              </li>
+              <li>
                 <Link href="/product/carpet-tiles" className="border_link" onClick={closeMenu}>
                   CARPET TILES
                 </Link>
@@ -181,11 +186,7 @@ const Menu = ({ closeMenu }) => {
                   GREENS
                 </Link>
               </li>
-              <li>
-                <Link href="/product/multistile" className="border_link" onClick={closeMenu}>
-                  MULTISTILE™ TILES
-                </Link>
-              </li>
+              
             </ul>
           </div>
         </li>

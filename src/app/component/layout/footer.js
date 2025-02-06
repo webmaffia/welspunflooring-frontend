@@ -71,6 +71,11 @@ const Footer = () => {
     </Link>
   </span>
   <span className="nav_link">
+    <Link href="/product/multistile" className="border_link" >
+      Multistile™ Tiles
+    </Link>
+  </span>
+  <span className="nav_link">
     <Link href="/product/carpet-tiles" className="border_link" >
       Carpet Tiles
     </Link>
@@ -85,11 +90,7 @@ const Footer = () => {
       Greens
     </Link>
   </span>
-  <span className="nav_link">
-    <Link href="/product/multistile" className="border_link" >
-      Multistile™ Tiles
-    </Link>
-  </span>
+ 
 </div>
 
         </div>
