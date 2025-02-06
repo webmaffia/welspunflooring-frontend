@@ -45,7 +45,8 @@ const ClickTiles = () => {
 
           
         >
-          MultiStile™ Tiles
+            Purgloss Tiles
+          
         </a>
 
         <a
@@ -59,7 +60,7 @@ const ClickTiles = () => {
 
           
         >
-          Purgloss Tiles
+        MultiStile™ Tiles
         </a>
         </div>
       </div>
@@ -186,62 +187,9 @@ const ClickTiles = () => {
           className={`click_tiles_container ${activeTab === "3" ? "active" : ""}`}
           id="click-3"
         >
-          <picture>
-            <source
-              media="(max-width: 540px)"
-              srcSet="assets/images/homeowners/mob_banner/Multistile-Mobile.png"
-            />
-            <img
-             src="/images/homeowners/Multistile.png"
-              alt=""
-              className="tiles_banner"
-            />
-          </picture>
-          <div className="click_tiles_content">
-            <h2 className="subtitle_60">MultiStile™ Tiles</h2>
-            <p className="para">
-            A great choice when you are looking to redo your flooring without compromising on aesthetics. MultiStile offers convenience as you can apply it within 24 hours*. It also allows for multi-surface application with benefits like durability, waterproof surface, scratch and stain resistance, and more. You can shortlist MultiStile for different spaces in your home: living room, bedrooms, kitchen, work from home rooms, etc. Welspun Flooring also helps out with expert installation to ease the process.
-            </p>
-        
-            <div className="dFlex">
-              <Link href="/product/multistile" className="view_link transparentBg">
-                <div className="link_cta">
-                  <div className="arrow_bg">
-                    <img
-                      src="/images/icons/arrow-2.webp"
-                      alt=""
-                      width="20"
-                      height="17"
-                    />
-                  </div>
-                  <span>EXPLORE</span>
-                </div>
-              </Link>
-              <Link href="https://staging-cms.welspunflooring.com/uploads/Multistile2_0_look_Book_v1_5e57a3b817.pdf" className="view_link download_cta transparentBg" target="_blank">
-                <div className="link_cta">
-                  <div className="arrow_bg">
-                    <img
-                      src="/images/icons/arrow-2.webp"
-                      alt=""
-                      width="20"
-                      height="17"
-                    />
-                  </div>
-                  <span>DOWNLOAD <br /> BROCHURE</span>
-                </div>
-              </Link>
-            </div>
-          </div>
-        </div>
 
 
-
-
-        <div
-          className={`click_tiles_container ${activeTab === "4" ? "active" : ""}`}
-          id="click-4"
-        >
-          <picture>
+<picture>
             <source
               media="(max-width: 540px)"
               srcSet="assets/images/homeowners/mob_banner/Purgloss-Mobile.png"
@@ -278,6 +226,64 @@ for a premium, all-around flooring solution.
                 </div>
               </Link>
               <Link href="https://staging-cms.welspunflooring.com/uploads/Puregloss_Lookbook_1_567c49326c.pdf" className="view_link download_cta transparentBg" target="_blank">
+                <div className="link_cta">
+                  <div className="arrow_bg">
+                    <img
+                      src="/images/icons/arrow-2.webp"
+                      alt=""
+                      width="20"
+                      height="17"
+                    />
+                  </div>
+                  <span>DOWNLOAD <br /> BROCHURE</span>
+                </div>
+              </Link>
+            </div>
+          </div>
+
+
+         
+        </div>
+
+
+
+
+        <div
+          className={`click_tiles_container ${activeTab === "4" ? "active" : ""}`}
+          id="click-4"
+        >
+          <picture>
+            <source
+              media="(max-width: 540px)"
+              srcSet="assets/images/homeowners/mob_banner/Multistile-Mobile.png"
+            />
+            <img
+             src="/images/homeowners/Multistile.png"
+              alt=""
+              className="tiles_banner"
+            />
+          </picture>
+          <div className="click_tiles_content">
+            <h2 className="subtitle_60">MultiStile™ Tiles</h2>
+            <p className="para">
+            A great choice when you are looking to redo your flooring without compromising on aesthetics. MultiStile offers convenience as you can apply it within 24 hours*. It also allows for multi-surface application with benefits like durability, waterproof surface, scratch and stain resistance, and more. You can shortlist MultiStile for different spaces in your home: living room, bedrooms, kitchen, work from home rooms, etc. Welspun Flooring also helps out with expert installation to ease the process.
+            </p>
+        
+            <div className="dFlex">
+              <Link href="/product/multistile" className="view_link transparentBg">
+                <div className="link_cta">
+                  <div className="arrow_bg">
+                    <img
+                      src="/images/icons/arrow-2.webp"
+                      alt=""
+                      width="20"
+                      height="17"
+                    />
+                  </div>
+                  <span>EXPLORE</span>
+                </div>
+              </Link>
+              <Link href="https://staging-cms.welspunflooring.com/uploads/Multistile2_0_look_Book_v1_5e57a3b817.pdf" className="view_link download_cta transparentBg" target="_blank">
                 <div className="link_cta">
                   <div className="arrow_bg">
                     <img
