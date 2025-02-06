@@ -32,7 +32,9 @@ const ExploreCollection = ({ product }) => {
     (
       productName.includes("PurGloss Tiles") ||
       productName.includes("Multistile") ||
-      productName.includes("Wall to Wall Carpet")
+      productName.includes("Wall to Wall Carpet") ||
+      productName.includes("Carpet Tiles")
+     
     )
   ) {
     return null;
