@@ -102,7 +102,7 @@ const getFilteredSubProducts = (subProductsArray) => {
   const numberOfCollections = collectionNames.length;
 
   // Default limit of 2 per collection
-  let limitPerCollection = 2;
+  let limitPerCollection = 1;
 
   // If we have fewer than 5 collections, we want to ensure we can still get 10 products,
   // so we increase the limit per collection to "ceil(10 / numberOfCollections)".
