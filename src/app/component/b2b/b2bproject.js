@@ -21,6 +21,22 @@ const B2BProject = () => {
       link: "/product/click-and-lock-wood"
     },
     {
+      image: "/images/Purgloss.png",
+      alt: "Purgloss Tiles",
+      title: "Purgloss Tiles",
+      description:
+        "These are not limited to floors but can also be used on walls.  Its impressive glossy finish reflects light and helps dark rooms appear bright and compact spaces appear large.",
+      link: "/product/purgloss-tiles"
+    },
+    {
+      image: "/images/b2b/new/Multistile.png",
+      alt: "MultiStile",
+      title: "MultiStile™ Tiles",
+      description:
+        "Introducing MultiStile™ flooring solutions for business spaces that offer customisable laying patterns and versatile multi-surface applications that add more value to the product, and spaces.",
+      link: "/product/multistile"
+    },
+    {
       image: "/images/b2b/new/Carpet-Tiles.png",
       alt: "Carpet Tiles",
       title: "Carpet Tiles",
@@ -36,22 +52,8 @@ const B2BProject = () => {
         "Wall to Wall carpet flooring is designed with advanced printing and colour-fast technology that promises customisability and longevity when it comes to colour and texture. Mostly seen in hospitality, entertainment.",
       link: "/product/wall-to-wall-carpet"
     },
-    {
-      image: "/images/Purgloss.png",
-      alt: "Purgloss Tiles",
-      title: "Purgloss Tiles",
-      description:
-        "These are not limited to floors but can also be used on walls.  Its impressive glossy finish reflects light and helps dark rooms appear bright and compact spaces appear large.",
-      link: "/product/purgloss-tiles"
-    },
-    {
-      image: "/images/b2b/new/Multistile.png",
-      alt: "MultiStile",
-      title: "MultiStile™ Tiles",
-      description:
-        "Introducing MultiStile™ flooring solutions for business spaces that offer customisable laying patterns and versatile multi-surface applications that add more value to the product, and spaces.",
-      link: "/product/multistile"
-    }
+ 
+  
   ];
 
   return (
