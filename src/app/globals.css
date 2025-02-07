@@ -8,6 +8,27 @@
 
 @media (min-width: 1023px) {
 
+
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+      }
+      
+      header.show {
+        transform: translateY(0);
+      }
+      
+      header.hide {
+        transform: translateY(-100%);
+      }
+
+
+      
     .more_tiles .tiles_detail {
 
         gap: .9vw;
@@ -363,4 +384,16 @@ html::-webkit-scrollbar{width:7px;}
     .product_filters {
         display: flex !important;
     }
+
+    /* .nav_mobile {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px;
+      } */
 }
+
+
+  
+
+  
