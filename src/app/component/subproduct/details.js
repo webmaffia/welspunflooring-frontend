@@ -145,6 +145,7 @@ const ProductDetail = ({ product, collection,lookbookUrls }) => {
                   <div className="tiles_detail">
                     {collection?.slice(0, 14).map((tile, index) => (
                       <Link
+                     
                       key={index}
                       href={`/product/${
                         product?.attributes?.category?.data?.attributes?.product?.data?.attributes?.slug
@@ -199,7 +200,7 @@ const ProductDetail = ({ product, collection,lookbookUrls }) => {
       </div>
       <span>
         DOWNLOAD<br />
-        CATALOGUE
+       LOOKBOOK
       </span>
     </div>
   </button>
