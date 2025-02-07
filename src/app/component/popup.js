@@ -38,7 +38,8 @@ export default function PopupComponent() {
             {/* Popup Form */}
             {isPopupActive && (
                 <div className={`form_popup ${isPopupActive ? 'active' : ''}`}>
-                    <ContactForm />
+                   <div className='contact_popup'>
+                   <ContactForm />
                     <a href="#" className="close_popup" onClick={handleCloseClick}>
                         <Image
                             src="/images/icons/close_button.webp"
@@ -47,6 +48,7 @@ export default function PopupComponent() {
                             height={64}
                         />
                     </a>
+                   </div>
                 </div>
             )}
 
