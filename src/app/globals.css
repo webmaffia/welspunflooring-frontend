@@ -28,7 +28,7 @@
       }
 
 
-      
+
     .more_tiles .tiles_detail {
 
         gap: .9vw;
@@ -300,9 +300,9 @@ html::-webkit-scrollbar{width:7px;}
     margin: 0;
 }
 
-.borderActive{
+/* .borderActive{
     border: 2px solid #1e148f;
-}
+} */
 
 .scrolldiv{
     max-height: 24vw;
@@ -394,6 +394,8 @@ html::-webkit-scrollbar{width:7px;}
 }
 
 
-  
+  .cursor_on {
+   cursor: pointer;
+  }
 
   

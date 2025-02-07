@@ -187,7 +187,7 @@ const ProductDetail = ({ product, collection,lookbookUrls }) => {
                       </div>
                     </Link>
                     {lookbookUrls?.data?.[0]?.attributes?.lookbook?.data?.length > 0 && (
-  <button onClick={handleDownloadCatalogue} className="view_link purpleBg">
+  <button onClick={handleDownloadCatalogue} className="view_link purpleBg cursor_on">
     <div className="link_cta">
       <div className="arrow_bg">
         <Image
