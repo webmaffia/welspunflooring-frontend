@@ -32,7 +32,9 @@ const AssistanceSection = ({pathname}) => {
       <div className="diamond_title">
         <h2 className="diamond diamond_blue">GET ASSISTANCE</h2>
       </div>
-      <div className="assistance_container">
+      <div className={`assistance_container ${["/b2b", "/homeowners", "/architects-and-interior-designers"].includes(pathname) ? "single_box" : ""}`}>
+
+        
         {/* Assistance Box 1 */}
         <div className="assistance_box">
           <Image 
