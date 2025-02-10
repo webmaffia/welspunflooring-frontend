@@ -5,7 +5,7 @@ const FeatureProjects = () => {
     { id: 1, title: "Hospitality", image: "/images/projects/img_1.webp" },
     { id: 2, title: "Entertainment", image: "/images/projects/img_2.webp" },
     { id: 3, title: "Commercial", image: "/images/projects/img_3.webp" },
-    // { id: 4, title: "Restaurants", image: "/images/projects/Restaurant.png" },
+    { id: 4, title: "Government", image: "/images/projects/Government-offoice.jpg" },
     
   ];
 
