@@ -396,4 +396,6 @@ html::-webkit-scrollbar{width:7px;}
    cursor: pointer;
   }
 
-  
+  .banner .square_box {
+    display: none;
+}
