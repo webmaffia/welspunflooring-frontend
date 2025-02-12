@@ -158,7 +158,7 @@ const Footer = () => {
           </span>
         </div>
       </div>
-      <Image src="/images/welspun_footer.webp" alt="" className="lg_logo" width={1920} height={323} />
+      <Image src="/images/welspun_footer_new.webp" alt="" className="lg_logo" width={1920} height={323} />
       <a href="" className="sm_logo">
         <Image src="/images/welspun.webp" alt="" width={443} height={170} />
       </a>
