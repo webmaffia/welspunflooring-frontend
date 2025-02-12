@@ -9,11 +9,11 @@ import Link from 'next/link';
 import ExploreCollection from '@/app/component/subproduct/exploreCollection';
 
 export async function generateMetadata({ params }) {
-  const { subProductSlug } = params;
+  const { slug, collectionSlug, subProductSlug } = params;
 
   // Fetch product data
   const res2 = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/product-specifications?filters[slug][$eq]=${subProductSlug}&populate=seo`,
+    `${process.env.NEXT_PUBLIC_API_URL}/product-specifications?filters[slug][$eq]=${subProductSlug}&filters[category][slug][$eq]=${collectionSlug}&filters[category][product][slug][$eq]=${slug}&populate=seo`,
     { cache: 'no-cache' }
   );
 
