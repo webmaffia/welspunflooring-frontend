@@ -53,7 +53,7 @@ export default async function ApplicationPage() {
 
    <ApplicationDetails applications={data} />
 
-   <Testimonials />
+   {/* <Testimonials /> */}
 
    <Partners />
 
