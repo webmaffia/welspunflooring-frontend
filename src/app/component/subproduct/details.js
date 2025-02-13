@@ -387,7 +387,7 @@ const ProductDetail = ({ product, collection, lookbookUrls, highResData }) => {
                 <div className="specified_links">
              
                   {highResData?.data?.[0]?.attributes?.high_res_assets_url?.length > 0 && (
-                         <Link href={highResData?.data?.[0]?.attributes?.high_res_assets_url}>DOWNLOAD HI-RES ASSETS</Link>
+                         <Link href={highResData?.data?.[0]?.attributes?.high_res_assets_url}>DOWNLOAD HI-RES TILE IMAGES</Link>
                       // <button onClick={handleDownloadHighRes} className="view_link purpleBg cursor_on">
                       //   <div className="link_cta">
                       //     <div className="arrow_bg">
