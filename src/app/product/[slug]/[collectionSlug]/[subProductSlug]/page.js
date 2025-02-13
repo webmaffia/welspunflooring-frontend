@@ -60,7 +60,7 @@ const SubProductPage = async ({ params }) => {
 
   if (collectionName) {
     const productByCollections = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/product-specifications?filters[category][slug][$eq]=${collectionSlug}&filters[category][product][slug][$eq]=${slug}&populate=swatch`,
+      `${process.env.NEXT_PUBLIC_API_URL}/product-specifications?filters[category][slug][$eq]=${collectionSlug}&filters[category][product][slug][$eq]=${slug}&populate=swatch,high_res_assets`,
       { cache: 'no-cache' }
     );
     productByCollectionsData = await productByCollections.json();
@@ -80,16 +80,20 @@ const SubProductPage = async ({ params }) => {
   const lookbookData = await lookbookRes.json();
   
   // Debugging log
-  console.log('Lookbook API Response:', JSON.stringify(lookbookData, null, 2));
+  // console.log('Lookbook API Response:', JSON.stringify(lookbookData, null, 2));
   
+  const highRes = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/product-specifications?filters[slug][$eq]=${subProductSlug}&filters[category][slug][$eq]=${collectionSlug}&filters[category][product][slug][$eq]=${slug}&populate=high_res_assets`,
+    { cache: 'no-cache' }
+  );
+  const highResData = await highRes.json();
 
-
-
+  console.log('highResData API Response:', JSON.stringify(highResData, null, 2));
 
   return (
     <main className="wrapper">
       <div className="product_list_wrapper">
-        <ProductDetail product={product} collection={productByCollectionsData?.data || []} lookbookUrls={lookbookData} />
+        <ProductDetail product={product} collection={productByCollectionsData?.data || []} lookbookUrls={lookbookData} highResData={highResData} />
         <TileSpecification specifications={product} />
         <CareInstructions product={product} />
         <AssistanceSection />

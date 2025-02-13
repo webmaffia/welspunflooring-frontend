@@ -245,7 +245,7 @@ import Link from 'next/link';
 import { useRouter } from "next/navigation";
 import ProductSlides from './slide';
 
-const ProductDetail = ({ product, collection, lookbookUrls }) => {
+const ProductDetail = ({ product, collection, lookbookUrls, highResData }) => {
   useEffect(() => {
     const handleChatClick = () => {
       const chatBox = document.querySelector(".sticky_chat");
@@ -282,6 +282,30 @@ const ProductDetail = ({ product, collection, lookbookUrls }) => {
   
     if (files?.length > 0) {
       files.forEach((file) => {
+        const fileUrl = `${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${file.attributes.url}`;
+  
+        // Create a hidden <a> element
+        const link = document.createElement("a");
+        link.href = fileUrl;
+        link.target = "_blank"; // Open in a new tab
+        link.rel = "noopener noreferrer"; // Security best practice
+        link.style.display = "none"; // Hide the element
+        document.body.appendChild(link); // Add to DOM
+  
+        // Simulate a click
+        link.click();
+  
+        // Remove the element after clicking
+        document.body.removeChild(link);
+      });
+    }
+  };
+
+  const handleDownloadHighRes = () => {
+    const filesx = highResData?.data?.[0]?.attributes?.high_res_assets ?.data;
+  
+    if (filesx?.length > 0) {
+      filesx.forEach((file) => {
         const fileUrl = `${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${file.attributes.url}`;
   
         // Create a hidden <a> element
@@ -361,7 +385,19 @@ const ProductDetail = ({ product, collection, lookbookUrls }) => {
               
               <div className="product_subContent">
                 <div className="specified_links">
-                  <Link className="opacity0" href="/view-space">VIEW IN YOUR SPACE</Link>
+             
+                  {highResData?.data?.[0]?.attributes?.high_res_assets?.data?.length > 0 && (
+                         <Link href="" onClick={handleDownloadHighRes}>DOWNLOAD HI-RES ASSETS</Link>
+                      // <button onClick={handleDownloadHighRes} className="view_link purpleBg cursor_on">
+                      //   <div className="link_cta">
+                      //     <div className="arrow_bg">
+                      //       <Image src="/images/icons/arrow-2.webp" alt="arrow" width={20} height={17} />
+                      //     </div>
+                      //     <span>DOWNLOAD<br />HI-RES ASSETS
+                      //     </span>
+                      //   </div>
+                      // </button>
+                    )}
                   <Link href={`${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${product?.attributes?.details?.warranty?.data?.attributes?.url}`} target="_blank">
                     WARRANTY
                   </Link>
