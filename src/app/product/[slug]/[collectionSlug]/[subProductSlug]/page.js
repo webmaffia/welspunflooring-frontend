@@ -83,7 +83,7 @@ const SubProductPage = async ({ params }) => {
   // console.log('Lookbook API Response:', JSON.stringify(lookbookData, null, 2));
   
   const highRes = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/product-specifications?filters[slug][$eq]=${subProductSlug}&filters[category][slug][$eq]=${collectionSlug}&filters[category][product][slug][$eq]=${slug}&populate=high_res_assets`,
+    `${process.env.NEXT_PUBLIC_API_URL}/product-specifications?filters[slug][$eq]=${subProductSlug}&filters[category][slug][$eq]=${collectionSlug}&filters[category][product][slug][$eq]=${slug}&populate=high_res_assets_url`,
     { cache: 'no-cache' }
   );
   const highResData = await highRes.json();

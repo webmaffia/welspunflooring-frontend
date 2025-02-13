@@ -301,29 +301,29 @@ const ProductDetail = ({ product, collection, lookbookUrls, highResData }) => {
     }
   };
 
-  const handleDownloadHighRes = () => {
-    const filesx = highResData?.data?.[0]?.attributes?.high_res_assets ?.data;
+  // const handleDownloadHighRes = () => {
+  //   const filesx = highResData?.data?.[0]?.attributes?.high_res_assets_url?.data;
   
-    if (filesx?.length > 0) {
-      filesx.forEach((file) => {
-        const fileUrl = `${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${file.attributes.url}`;
+  //   if (filesx?.length > 0) {
+  //     filesx.forEach((file) => {
+  //       const fileUrl = `${process.env.NEXT_PUBLIC_IMAGE_DOMAIN}${file.attributes.url}`;
   
-        // Create a hidden <a> element
-        const link = document.createElement("a");
-        link.href = fileUrl;
-        link.target = "_blank"; // Open in a new tab
-        link.rel = "noopener noreferrer"; // Security best practice
-        link.style.display = "none"; // Hide the element
-        document.body.appendChild(link); // Add to DOM
+  //       // Create a hidden <a> element
+  //       const link = document.createElement("a");
+  //       link.href = fileUrl;
+  //       link.target = "_blank"; // Open in a new tab
+  //       link.rel = "noopener noreferrer"; // Security best practice
+  //       link.style.display = "none"; // Hide the element
+  //       document.body.appendChild(link); // Add to DOM
   
-        // Simulate a click
-        link.click();
+  //       // Simulate a click
+  //       link.click();
   
-        // Remove the element after clicking
-        document.body.removeChild(link);
-      });
-    }
-  };
+  //       // Remove the element after clicking
+  //       document.body.removeChild(link);
+  //     });
+  //   }
+  // };
   const router = useRouter();
 
   useEffect(() => {
@@ -386,8 +386,8 @@ const ProductDetail = ({ product, collection, lookbookUrls, highResData }) => {
               <div className="product_subContent">
                 <div className="specified_links">
              
-                  {highResData?.data?.[0]?.attributes?.high_res_assets?.data?.length > 0 && (
-                         <Link href="" onClick={handleDownloadHighRes}>DOWNLOAD HI-RES ASSETS</Link>
+                  {highResData?.data?.[0]?.attributes?.high_res_assets_url?.length > 0 && (
+                         <Link href={highResData?.data?.[0]?.attributes?.high_res_assets_url}>DOWNLOAD HI-RES ASSETS</Link>
                       // <button onClick={handleDownloadHighRes} className="view_link purpleBg cursor_on">
                       //   <div className="link_cta">
                       //     <div className="arrow_bg">
