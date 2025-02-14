@@ -164,12 +164,14 @@ export default function ContactForm() {
                                 onChange={handleChange}
                             >
                                 <option value="" disabled>Product Interested In</option>
-                                <option value="Click N Lock® Tiles Stone">Click N Lock® Tiles Stone</option>
                                 <option value="Click N Lock® Tiles Wood">Click N Lock® Tiles Wood</option>
+                                <option value="Click N Lock® Tiles Stone">Click N Lock® Tiles Stone</option>
+                                <option value="Purgloss Tiles">Purgloss Tiles</option>
+                                <option value="MultiStile™">MultiStile™ Tiles</option>
                                 <option value="Carpet Tiles">Carpet Tiles</option>
-                                <option value="Wall to Wall">Wall to Wall</option>
+                                <option value="Wall to Wall">Wall to Wall Carpet</option>
                                 <option value="Greens">Greens</option>
-                                <option value="MultiStile™">MultiStile™</option>
+                            
                             </select>
                             {errors.productCategory && <span className="form_error">{errors.productCategory}</span>}
                         </label>
