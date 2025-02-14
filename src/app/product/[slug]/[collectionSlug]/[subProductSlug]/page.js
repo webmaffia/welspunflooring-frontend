@@ -14,7 +14,7 @@ export async function generateMetadata({ params }) {
   // Fetch product data
   const res2 = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/product-specifications?filters[slug][$eq]=${subProductSlug}&filters[category][slug][$eq]=${collectionSlug}&filters[category][product][slug][$eq]=${slug}&populate=seo`,
-    { cache: 'no-cache' }
+    { cache: 'force-cache' }
   );
 
   const productData2 = await res2.json();
@@ -42,7 +42,7 @@ const SubProductPage = async ({ params }) => {
   // Fetch product data
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/product-specifications?filters[slug][$eq]=${subProductSlug}&filters[category][slug][$eq]=${collectionSlug}&filters[category][product][slug][$eq]=${slug}&populate[category][populate]=product,image&populate[details][populate]=slider.image,point,warranty&populate[specification][populate]=icon&populate[careInstruction][populate]=point`,
-    { cache: 'no-cache' }
+    { cache: 'force-cache' }
   );
 
   const productData = await res.json();
@@ -61,7 +61,7 @@ const SubProductPage = async ({ params }) => {
   if (collectionName) {
     const productByCollections = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/product-specifications?filters[category][slug][$eq]=${collectionSlug}&filters[category][product][slug][$eq]=${slug}&populate=swatch,high_res_assets`,
-      { cache: 'no-cache' }
+      { cache: 'force-cache' }
     );
     productByCollectionsData = await productByCollections.json();
   }
@@ -75,7 +75,7 @@ const SubProductPage = async ({ params }) => {
 
   const lookbookRes = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/categories?filters[slug][$eq]=${collectionSlug}&filters[product][slug][$eq]=${slug}&populate=lookbook`,
-    { cache: 'no-cache' }
+    { cache: 'force-cache' }
   );
   const lookbookData = await lookbookRes.json();
   
@@ -84,7 +84,7 @@ const SubProductPage = async ({ params }) => {
   
   const highRes = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/product-specifications?filters[slug][$eq]=${subProductSlug}&filters[category][slug][$eq]=${collectionSlug}&filters[category][product][slug][$eq]=${slug}&populate=high_res_assets_url`,
-    { cache: 'no-cache' }
+    { cache: 'force-cache' }
   );
   const highResData = await highRes.json();
 
